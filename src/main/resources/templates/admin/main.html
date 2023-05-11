@@ -1,10 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="../../static/css/admin/main.css" rel="stylesheet">
+    <link href="../../static/css/admin/side-nav.css" rel="stylesheet">
     <meta charset="UTF-8">
-    <title>admin-main</title>
+    <title>Title</title>
 </head>
 <body>
+<div class="wrap">
+    <!-- header -->
+    <div class="header">
+        <div class="logoImage">
+            <a href="#"><img src="#" style="width:158px;"></a>
+        </div>
+        <div class="title">
+            <div>
+                <span class="ChangeTitle">메인 관리</span>
+            </div>
+            <span><small>관리자모드</small></span>
+        </div>
+    </div>
 
+
+    <!--mainSidebar -->
+    <section class="mainContainer">
+        <!--side bar-->
+        <nav>
+            <ul class="mainNav">
+                <li><a href="./admin.html">관리자 계정 관리</a></li>
+                <li><a href="./main.html">메인 관리</a></li>
+                <li><a href="./member.html">회원 관리</a></li>
+                <li><a href="product.html" >상품 관리</a></li>
+                <li><a href="product-form.html" >상품 등록</a></li>
+                <li><a href="./floging.html" >플로깅 목록</a></li>
+                <li><a href="./notice.html" >공지 사항</a></li>
+                <li><a href="./notice-form.html" >공지 사항 작성</a></li>
+                <li><a href="./qna.html" >문의 목록</a></li>
+
+            </ul>
+        </nav>
+        <!--mainScreen Q&A-->
+        <div class="mainContent">
+            <div class="mainBox">
+                <div class="mainBoxList">
+                    <table class="userTable" >
+                        <tr class="tableTh" >
+                            <th>최근가입자</th>
+                            <th><a href="./member.html" class="moreSee">더보기 -></a><th>
+                        </tr>
+                        <tr style="border-top:3px solid #6e6e6e;" >
+                            <td>아이디</td>
+                            <td>닉네임</td>
+                            <td>성별</td>
+                            <td>핸드폰 번호</td>
+                            <td>가입날짜</td>
+                        </tr>
+
+
+                    </table>
+                </div>
+                <div class="mainBoxList">
+                    <table class="boardTable">
+                        <tr class="tableTh">
+                            <th>플로깅 목록</th>
+                            <th><a href="./floging.html" class="moreSee">더보기 -></a><th>
+                        </tr>
+                        <tr style="border-top:3px solid #6e6e6e;">
+                            <td>플로깅 제목</td>
+                            <td>주최자</td>
+                            <td>참가자 수</td>
+                            <td>위치</td>
+                            <td>주최날</td>
+                            <td>상태</td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+            <div class="mainBox">
+                <div class="mainBoxList">
+                    <table class="questionBoardTable">
+                        <tr class="tableTh">
+                            <th>문의 목록</th>
+                            <th><a href="./qna.html" class="moreSee">더보기 -></a><th>
+                        </tr>
+                        <tr style="border-top:3px solid #6e6e6e;">
+                            <td>문의 제목</td>
+                            <td>작성자</td>
+                            <td>등록 날짜</td>
+                            <td>답변 상태</td>
+                        </tr>
+
+                    </table>
+                </div>
+                <div class="mainBoxList">
+                    <table class="noticeBoardTable">
+                        <tr class="tableTh">
+                            <th>공지사항</th>
+                            <th><a href="./notice.html" class="moreSee">더보기 -></a><th>
+                        </tr>
+                        <tr style="border-top:3px solid #6e6e6e;">
+                            <td>공지사항 제목</td>
+                            <td>작성자</td>
+                            <td>조회수</td>
+                            <td>등록날짜</td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="../../static/js/admin/side-bar.js"></script>
 </html>

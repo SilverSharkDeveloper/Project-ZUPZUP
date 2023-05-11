@@ -268,6 +268,36 @@ a {
     color: #fff;
 }
 
+._27do9 {
+    padding: 15px 10px;
+    line-height: 20px;
+    font-size: 17px;
+    min-height: 50px;
+}
+
+._1eWD8 {
+    user-select: none;
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    font-family: "Noto Sans KR", "Noto Sans CJK KR", "맑은 고딕", "Malgun Gothic", sans-serif;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    margin: 0px;
+    padding: 0px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    border-image: initial;
+    background: none;
+    text-decoration: none;
+    transition: color 0.1s ease 0s, background-color 0.1s ease 0s, border-color 0.1s ease 0s;
+    border-radius: 4px;
+}
+
 input, select, textarea {
     font-family: inherit;
     font-size: inherit;
