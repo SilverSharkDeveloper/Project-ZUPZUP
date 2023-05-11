@@ -1,0 +1,119 @@
+.customer-notice-detail__wrap {
+    margin: 0 auto 40px;
+    padding: 0 15px;
+    width: 100%;
+    max-width: 780px;
+    box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+    .customer-notice-detail__wrap {
+        margin: 60px auto;
+    }
+}
+.customer-notice-detail__title {
+    margin: 16px 0 6px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 22px;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    color: #000;
+}
+
+@media (min-width: 768px) {
+    .customer-notice-detail__title {
+        margin: 0 0 16px;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 30px;
+        color: #292929;
+    }
+}
+
+.customer-notice-detail__date {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    color: #828c94;
+}
+
+@media (min-width: 768px) {
+    .customer-notice-detail__date {
+        font-size: 16px;
+        line-height: 20px;
+    }
+}
+
+.customer-notice-detail__content {
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    margin: 15px -15px 40px;
+    padding: 15px 15px 0;
+    border: solid #dbdbdb;
+    border-width: 1px 0 0;
+    font-size: 15px;
+    line-height: 28px;
+    color: #000;
+}
+
+
+@media (min-width: 768px) {
+    .customer-notice-detail__content {
+        margin: 30px 0;
+        padding: 30px 0;
+        border-width: 1px 0;
+    }
+}
+
+ol, ul {
+    list-style: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.customer-notice-detail__back {
+    display: inline-block;
+    background: none;
+    font: inherit;
+    display: block;
+    width: 180px;
+    margin: 0 auto;
+    padding: 10px 0;
+    font-size: 15px;
+    line-height: 20px;
+    text-align: center;
+    font-weight: 700;
+    background-color: #7aab9a;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    transition: background-color .1s;
+}
+
+
+@media (min-width: 768px) {
+    .customer-notice-detail__back {
+        padding: 11px 0 12px;
+        font-size: 17px;
+        line-height: 22px;
+    }
+}
+
+@media (min-width: 768px) {
+    .customer-notice-detail__back:active, .customer-notice-detail__back:hover {
+        background-color: #3b7661;
+    }
+}
+
+
+
+
+
+
+
+
+
