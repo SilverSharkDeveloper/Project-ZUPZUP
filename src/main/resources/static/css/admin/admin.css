@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding:0;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+html{
+    width:100%;
+    background-color:#e2e2e2;
+}
+
+
+
+div.wrap {
+    min-width:1500px;
+    height:100%;
+
+}
+
+.notice{
+    color : #ff0000;
+}
+
+
+
+/*main content*/
+
+
+
+
+div.mainContent {
+    width: 74%;
+    height: 500px;
+    margin:50px auto;
+    background-color:white;
+    box-shadow:1px 1px 5px #c4c4c4;
+}
+
+div.mainContent>section {
+    width: 100%;
+    margin-top: 80px;
+}
+
+div.mainContent div {
+    width:85%;
+    margin:0 auto;
+}
+
+
+/*가져가야할부분end*/
+
+
+div.mainContent div h3 {
+    margin:7px;
+    padding-left:3px;
+}
+
+div hr {
+    border:0;
+    height:3px;
+    background: #ccc;
+}
+
+
+
+table.adminInfo{
+    width:85%;
+    height:200px;;
+    margin:0 auto;
+    border-collapse: collapse;
+    line-height: 1.5;
+
+}
+
+
+
+table.adminInfo tr td {
+    border: 1px solid #bcbcbc;
+    padding:15px;
+    font-weight:600;
+    color:#6e6e6e;
+    font-size:12px;
+}
+
+
+
+
+
+input {
+    border:none;
+    border-bottom: 1px solid #6e6e6e;
+    outline:none;
+}
+
+
+
+
+
+
+
+.btn-write {
+    width: 95%;
+    margin: 0 auto;
+    text-align: end;
+}
+.clickWriteBtn {
+    width: 100px;
+    background-color: white;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 1px 1px 2px #bcbcbc;
+    border: 1px solid #bcbcbc;
+    height: 30px;
+    color: #6e6e6e;
+    margin-top: 5px;
+}
+
+.clickWriteBtn:active {
+    background-color:#c4c4c4;
+}
+
+
+
+
