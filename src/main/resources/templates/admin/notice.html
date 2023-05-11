@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="../../static/css/admin/board.css" rel="stylesheet">
+    <link href="../../static/css/admin/side-nav.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="wrap">
+    <!-- header -->
+    <div class="header">
+        <div class="logoImage">
+            <a href="#"><img src="#" style="width:158px;"></a>
+        </div>
+        <div class="title">
+            <div>
+                <span class="ChangeTitle">공지 사항</span>
+            </div>
+            <span><small>관리자모드</small></span>
+        </div>
+    </div>
+
+
+    <!--mainSidebar -->
+    <section class="mainContainer">
+        <!--side bar-->
+        <nav>
+            <ul class="mainNav">
+                <li><a href="./admin.html">관리자 계정 관리</a></li>
+                <li><a href="./main.html">메인 관리</a></li>
+                <li><a href="./member.html">회원 관리</a></li>
+                <li><a href="product.html" >상품 관리</a></li>
+                <li><a href="product-form.html" >상품 등록</a></li>
+                <li><a href="./floging.html" >플로깅 목록</a></li>
+                <li><a href="./notice.html" >공지 사항</a></li>
+                <li><a href="./notice-form.html" >공지 사항 작성</a></li>
+                <li><a href="./qna.html" >문의 목록</a></li>
+
+            </ul>
+        </nav>
+
+        <!--mainScreen 회원관리-->
+        <div class="mainContent">
+            <form action="#" class = "searchForm">
+                <div class="memberSearch">
+                    <div class="memberSearchInput">
+                        <select name = "type">
+                            <option value="name">제목</option>
+                            <option value="location">작성자</option>
+                        </select>
+                        <div>
+                            <input type="text" name ="keyword" placeholder="검색어를 입력하세요">
+                        </div>
+
+
+                        <button class = "searchBtn">
+                            <img src="../../static/image/search.png">
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="memberLists">
+                <div id="root">
+                    <div>
+                        <span>총 개</span>
+                        <button class="deleteBtn">삭제</button>
+                    </div>
+                </div>
+                <form action="#" class = "deleteForm">
+                    <input type = "hidden" name = "page" value = "${criteria.page}">
+                    <input type = "hidden" name = "type" value = "${criteria.type}">
+                    <input type = "hidden" name = "keyword" value = "${criteria.keyword}">
+                    <table class="userTable">
+                        <thead>
+                        <tr class="tableTh" style="border-top:3px solid #6e6e6e;">
+                            <td class = "inputCheckBoxAllBtn"><input class="inputCheckBoxAll"type="checkbox"></td>
+                            <td>공지사항 번호</td>
+                            <td>제목</td>
+                            <td>작성자</td>
+                            <td>작성일</td>
+                            <td>수정일</td>
+                            <td>수정하기</td>
+                        </tr>
+                        <tr>
+                            <td class = "inputCheckBoxBtn"><input class="inputCheckBox"type="checkbox"></td>
+                            <td>1</td>
+                            <td>로컬크리에이터 필수 요건</td>
+                            <td>관리자1</td>
+                            <td>2022-01-01</td>
+                            <td>2022-01-03</td>
+                            <td><a href="./notice-update-form.html"><button type="button" class = "update_btn">수정하기</button></a></td>
+                        </tr>
+                        </thead>
+
+                    </table>
+                </form>
+                <form action="./notice-form.html">
+                    <div class="btn btn-write">
+                        <button class="clickWriteBtn">공지 작성</button>
+                    </div>
+                </form>
+                <!-- [S] 페이지 컨트롤러 -->
+                <div class="page-controller-wrap">
+
+                    <!-- 이전 페이지로 이동하기 -->
+                    <a class="page-list page-list-move page-before"> <img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAHCAQAAABqrk9lAAAAGElEQVR42mNgAIPi/8X/4QwwE5PBQJADAAKSG3cyVhtXAAAAAElFTkSuQmCC"
+                            alt="이전 페이지로 이동하기 아이콘"></a>
+                    <a class="page-list page-list-first list-on">1</a>
+                    <a class="page-list page-list-second">2</a>
+                    <a class="page-list page-list-third">3</a>
+                    <a class="page-list page-list-fourth">4</a>
+                    <a class="page-list page-list-fifth">5</a>
+
+                    <!-- 다음 페이지로 이동하기 -->
+                    <a class="page-list page-list-move page-after"> <img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAHCAQAAABqrk9lAAAAGUlEQVR42mMo/l/8nwECQEwCHEwGhAlRBgA2mht3SwgzrwAAAABJRU5ErkJggg=="
+                            alt="다음 페이지로 이동하기 아이콘">
+                    </a>
+
+                </div>
+                <!-- [E] 페이지 컨트롤러 -->
+            </div>
+        </div>
+    </section>
+    <form action="#" name = "page-form">
+        <input id="page" type = "hidden" name = "page" value = "${criteria.page}">
+        <input type = "hidden" name = "type" value = "${criteria.type}">
+        <input type = "hidden" name = "keyword" value = "${criteria.keyword}">
+    </form>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="../../static/js/admin/side-bar.js"></script>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="../../static/css/admin/notice-form.css" rel="stylesheet">
+    <link href="../../static/css/admin/side-nav.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="wrap">
+    <!-- header -->
+    <div class="header">
+        <div class="logoImage">
+            <a href="#"><img src="#" style="width:158px;"></a>
+        </div>
+        <div class="title">
+            <div>
+                <span class="ChangeTitle">문의 답변</span>
+            </div>
+            <span><small>관리자모드</small></span>
+        </div>
+    </div>
+
+
+    <!--mainSidebar -->
+    <section class="mainContainer">
+        <!--side bar-->
+        <nav>
+            <ul class="mainNav">
+                <li><a href="./admin.html">관리자 계정 관리</a></li>
+                <li><a href="./main.html">메인 관리</a></li>
+                <li><a href="./member.html">회원 관리</a></li>
+                <li><a href="product.html" >상품 관리</a></li>
+                <li><a href="product-form.html" >상품 등록</a></li>
+                <li><a href="./floging.html" >플로깅 목록</a></li>
+                <li><a href="./notice.html" >공지 사항</a></li>
+                <li><a href="./notice-form.html" >공지 사항 작성</a></li>
+                <li><a href="./qna.html" >문의 목록</a></li>
+
+            </ul>
+        </nav>
+
+        <!--mainScreen 공지사항 작성하기-->
+        <div class="mainContent">
+
+            <div class="content-wrap">
+
+                <!-- [S] 공지사항 등록 -->
+                <form action="./qna.html" method="post">
+                    <div class="con-write-wrap">
+                        <div class="notice-write">
+                            <div class="write-title">문의사항 제목</div>
+                            <div class="write-sec">
+                                <input class="write-text write-input" type="text" readonly>
+                            </div>
+                        </div>
+                        <div class="notice-write">
+                            <div class="write-title">문의사항 내용</div>
+                            <div class="write-sec">
+                                <textarea class="write-text write-notice" style="height: 280px;" type="text" readonly></textarea>
+                            </div>
+                        </div>
+                        <div class="notice-write">
+                            <div class="write-title">문의사항 답변</div>
+                            <div class="write-sec">
+                                <textarea class="write-text write-notice" style="height: 280px;" type="text"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- [E] 공지사항 등록 -->
+
+
+                    <!-- 작성하기 btn -->
+                    <div class="write-btn-wrap">
+                        <button type="button" class="btn btn-list"><a href="./qna.html">문의목록</a></button>
+                        <button type="submit" class="btn btn-write">답변하기</button>
+                    </div>
+                </form>
+
+            </div>
+
+
+        </div>
+
+    </section>
+    <!-- [E] mainSidebar -->
+
+
+</div>
+<!-- [E] wrap -->
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="../../static/js/admin/side-bar.js"></script>
+</html>
