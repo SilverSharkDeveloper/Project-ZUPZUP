@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>회원정보수정</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+          rel="stylesheet">
+    <link href="../../static/css/font.css" rel="stylesheet">
+    <link href="../../static/css/mypage/users.css" rel="stylesheet">
+    <link href="../../static/css/mypage/users-edit.css" rel="stylesheet">
+</head>
+</head>
+<body>
+<div>
+    <div class="css-18dsw15 e1ivswjr4">
+        <div class="myhome-nav myhome-nav--owner">
+            <nav class="page-navigation myhome-nav__owner">
+                <ul style="transform: translateX(0px);">
+                    <li class="page-navigation__item"><a class="active" href="#" target="_self">프로필 설정</a>
+                    </li>
+                    <li class="page-navigation__item"><a class="" href="#" target="_self">플로깅</a></li>
+                    <li class="page-navigation__item"><a class="" href="#" target="_self">나의 휴지롤</a></li>
+                </ul>
+            </nav>
+            <nav class="page-navigation myhome-nav__contents">
+                <ul style="transform: translateX(0px);">
+                    <li class="page-navigation__item"><a class="" href="#" target="_self">모두보기</a></li>
+                    <li class="page-navigation__item"><a class="active" href="#" target="_self">회원정보수정</a></li>
+                    <li class="page-navigation__item"><a class="" href="#" target="_self">비밀번호 변경</a></li>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="edit-user-info__wrap container">
+            <div class="edit-user-info__header">
+                <div class="edit-user-info__header__title">회원정보수정</div>
+                <a class="edit-user-info__header__withdrawals" href="/withdrawals/new">탈퇴하기</a></div>
+            <form>
+                <div class="edit-user-info__form-item">
+                    <div class="edit-user-info__form-item__title">이메일
+                        <div class="edit-user-info__form-item__title__require"> * 필수항목</div>
+                    </div>
+                    <div class="expert-form-group edit-user-info__form-item__group">
+                        <div class="expert-form-group__content">
+                            <div class="expert-form-group__input">
+                                <div class="edit-user-info__form-item__field">
+                                    <div class="input-group email-input"><span class="email-input__local"><label><input
+                                            class="form-control" placeholder="이메일" size="1" value="doen718"><span
+                                            class="form-control-blind">이메일 앞 주소 입력하기</span></label></span><span
+                                            class="email-input__separator">@</span><span
+                                            class="email-input__domain"><label><select class="form-control"><option
+                                            value="" disabled="">선택해주세요</option><option
+                                            value="naver.com">naver.com</option><option
+                                            value="hanmail.net">hanmail.net</option><option
+                                            value="daum.net">daum.net</option><option
+                                            value="gmail.com">gmail.com</option><option
+                                            value="nate.com">nate.com</option><option
+                                            value="hotmail.com">hotmail.com</option><option value="outlook.com">outlook.com</option><option
+                                            value="icloud.com">icloud.com</option><option value="_manual">직접입력</option></select><span
+                                            class="form-control-blind">이메일 도메인 선택하기</span></label></span></div>
+                                    <div class="edit-user-info__form-item__field__warning">이메일을 변경하시려면 운영자에게 이메일을
+                                        보내주세요.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="edit-user-info__form-item">
+                    <div class="edit-user-info__form-item__title">별명
+                        <div class="edit-user-info__form-item__title__require"> * 필수항목</div>
+                    </div>
+                    <div class="expert-form-group edit-user-info__form-item__group">
+                        <div class="expert-form-group__content">
+                            <div class="expert-form-group__input">
+                                <div class="edit-user-info__form-item__field">
+                                    <div class="edit-user-info__input"><input class="form-control" value="kde2491">
+                                        <div class="edit-user-info__input__error"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="edit-user-info__form-item">
+                    <div class="edit-user-info__form-item__title">홈페이지</div>
+                    <div class="expert-form-group edit-user-info__form-item__group">
+                        <div class="expert-form-group__content">
+                            <div class="expert-form-group__input">
+                                <div class="edit-user-info__form-item__field"><input placeholder="https://ohou.se"
+                                                                                     class="form-control" value="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="edit-user-info__form-item">
+                    <div class="edit-user-info__form-item__title">성별</div>
+                    <div class="expert-form-group edit-user-info__form-item__group">
+                        <div class="expert-form-group__content">
+                            <div class="expert-form-group__input">
+                                <div class="edit-user-info__form-item__field edit-user-info__form-item__field--sex">
+                                    <ul class="radio-group-input">
+                                        <li>
+                                            <div class="form-radio"><label class="form-radio-label"><input
+                                                    class="form-radio" type="radio" checked=""><span
+                                                    class="radio-img"></span><span>남성</span></label></div>
+                                        </li>
+                                        <li>
+                                            <div class="form-radio"><label class="form-radio-label"><input
+                                                    class="form-radio" type="radio"><span
+                                                    class="radio-img"></span><span>여성</span></label></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="edit-user-info__form-item">
+                    <div class="edit-user-info__form-item__title">생년월일</div>
+                    <div class="expert-form-group edit-user-info__form-item__group">
+                        <div class="expert-form-group__content">
+                            <div class="expert-form-group__input">
+                                <div class="edit-user-info__form-item__field">
+                                    <div class="DayPickerInput"><input placeholder="YYYY-MM-DD"
+                                                                       class="form-control date-input__text"
+                                                                       value="2005-07-18"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="edit-user-info__form-item">
+                    <div class="edit-user-info__form-item__title">프로필 이미지</div>
+                    <div class="expert-form-group edit-user-info__form-item__group">
+                        <div class="expert-form-group__content">
+                            <div class="expert-form-group__input">
+                                <div class="edit-user-info__form-item__field edit-user-info__form-item__field--profile">
+                                    <div class="image-single-input-wrap">
+                                        <ul class="image-single-input">
+                                            <li class="image-single-input__entry">
+                                                <button class="image-single-input__entry__button" type="button"><img
+                                                        class="image-single-input__entry__image"
+                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=640&amp;h=640&amp;c=c&amp;webp=1"
+                                                        srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=960&amp;h=960&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=1280&amp;h=1280&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=1920&amp;h=1920&amp;c=c&amp;webp=1 3x">
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="edit-user-info__form-item">
+                    <div class="edit-user-info__form-item__title">한줄 소개</div>
+                    <div class="expert-form-group edit-user-info__form-item__group">
+                        <div class="expert-form-group__content">
+                            <div class="expert-form-group__input">
+                                <div class="edit-user-info__form-item__field"><input maxlength="41" class="form-control"
+                                                                                     value="test"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="button button--color-blue button--size-50 button--shape-4 edit-user-info__submit"
+                        type="submit">회원 정보 수정
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
