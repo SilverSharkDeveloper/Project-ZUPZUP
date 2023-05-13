@@ -1,0 +1,948 @@
+.css-14td677 {
+    margin-top: 30px;
+}
+/* 배너 */
+/* section{
+    display:block;
+} */
+.css-1plfygl {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+@media (min-width: 1256px){
+    .css-139mcwb {
+        max-width: 1256px;
+        margin: 0 auto;
+        padding: 0 60px;
+    }
+}
+@media (min-width: 1024px){
+    .css-139mcwb {
+        padding: 0 60px;
+    }
+}
+@media (min-width: 768px){
+    .css-139mcwb {
+        padding: 0 40px;
+    }
+}
+.css-1x4ct07{
+    height: 100%;
+    display: block;
+}
+.css-139mcwb {
+    padding: 0 16px;
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+/* flex: 1 1 896px; 픽셀 노트북이랑 */
+.css-1micng0 {
+    -webkit-flex: 1 1 847px;
+    -ms-flex: 1 1 847px;
+    flex: 1 1 896px;
+}
+/* 847px */
+.css-12oi7vi {
+    overflow: hidden;
+    position: relative;
+    padding-top: 59.976387249114524%;
+    font-size: 0;
+    border-radius: 4px;
+}
+.css-j2pfbl {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.css-h9ang {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #EAEDEF;
+    -webkit-transition: .2s -webkit-transform;
+    transition: .2s transform;
+}
+
+.css-5ycwsz {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+    height: 160px;
+    padding: 0px 30px 30px;
+    box-sizing: border-box;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .4));
+    pointer-events: none;
+}
+@media (min-width: 1024px){
+    .css-1n3vfvi {
+        font-size: 32px;
+        line-height: 42px;
+    }
+}
+.css-1n3vfvi {
+    overflow: hidden;
+    display: -webkit-box;
+    font-size: 24px;
+    line-height: 32px;
+    color: #FFFFFF;
+    font-weight: 700;
+    word-break: keep-all;
+    text-overflow: ellipsis;
+    text-shadow: 0 2px 10px rgba(63, 71, 77, 0.25);
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.css-4juikq {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-top: 8px;
+}
+.css-13ozlut {
+    font-size: 14px;
+    line-height: 20px;
+    color: #FFFFFF;
+}
+@media (min-width: 1024px){
+    .css-16kxepb {
+        margin-left: 20px;
+    }
+}
+@media (min-width: 768px){
+    .css-16kxepb {
+        margin-left: 16px;
+    }
+}
+.css-16kxepb {
+    -webkit-flex: 1 1 269px;
+    -ms-flex: 1 1 269px;
+    flex: 1 1 269px;
+}
+.css-9q9c2c {
+    position: relative;
+    padding-top: 188.84758364312268%;
+}
+.css-dq95ae.css-dq95ae {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.css-bzeli0 {
+    overflow: hidden;
+    height: 100%;
+    border-radius: 4px;
+    background: #EAEDEF;
+}
+.css-13udsys {
+    height: 100%;
+}
+.carousel__list {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: nowrap;
+    -moz-flex-wrap: nowrap;
+    -ms-flex-wrap: none;
+    flex-wrap: nowrap;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    -webkit-align-items: stretch;
+    -moz-align-items: stretch;
+    align-items: stretch;
+    min-height: 100%;
+}
+.carousel__list__entry {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    box-sizing: border-box;
+}
+.carousel__list__entry {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.css-16je1n8 {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    left: 0%;
+    -webkit-transition: opacity .2s ease-in-out;
+    transition: opacity .2s ease-in-out;
+    opacity: 0;
+}
+.css-16je1n8 {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    left: 0%;
+    -webkit-transition: opacity .2s ease-in-out;
+    transition: opacity .2s ease-in-out;
+    opacity: 0;
+}
+.css-kz9ng2 {
+    display: inline-block;
+    font-size: 24px;
+    line-height: 1;
+    color: #2F3438;
+}
+.css-kz9ng2::before {
+    font-family: OhouseIcon;
+    vertical-align: top;
+}
+.css-9ev8gz {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    left: 100%;
+    -webkit-transition: opacity .2s ease-in-out;
+    transition: opacity .2s ease-in-out;
+    opacity: 0;
+}
+.css-junuwq {
+    padding: 4px 10px;
+    font-size: 14px;
+    height: 26px;
+    border-radius: 13px;
+    background-color: rgba(33, 38, 41, 0.5);
+    font-weight: 700;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    line-height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    color: #FFFFFF;
+    box-sizing: border-box;
+    padding: 4px 8px 4px 10px;
+    cursor: pointer;
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+}
+.css-1k130iy::before {
+    font-family: OhouseIcon;
+    vertical-align: top;
+}
+.css-1lsftlb {
+    vertical-align: middle;
+    margin-right: 2px;
+}
+.css-1k130iy {
+    display: inline-block;
+    font-size: 12px;
+    line-height: 1;
+    vertical-align: middle;
+}
+.css-5rn9lv {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font: inherit;
+    font-size: 16px;
+    line-height: 20px;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: auto;
+    height: 50px;
+    border-radius: 4px;
+    padding: 0 16px;
+    font-weight: 700;
+    box-sizing: border-box;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: #35C5F0;
+    width: 50px;
+    padding: 0;
+    width: 48px;
+    height: 48px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    border-radius: 24px;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 5px rgba(63, 71, 77, 0.15);
+}
+
+/* 카테고리 */
+@media (min-width: 1256px){
+    .css-1yqrra9 {
+        max-width: 1256px;
+        margin: 0 auto;
+        padding: 0 60px;
+    }
+}
+@media (min-width: 1024px){
+    .css-1yqrra9 {
+        padding: 0 60px;
+    }
+}
+@media (min-width: 768px){
+    .css-1yqrra9 {
+        padding: 0 40px;
+    }
+}
+.css-1yqrra9 {
+    padding: 0 16px;
+    box-sizing: border-box;
+}
+@media (min-width: 768px){
+    .css-1702gi6 {
+        display: flex;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        margin: 30px 0px 40px;
+    }
+}
+/* .css-1702gi6 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin: 16px 0px 20px;
+} */
+.css-2qd0l8 {
+    flex: 1 1 0%;
+    text-align: center;
+}
+
+.css-2qd0l8 a{
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+/* 카테고리 아이콘 크기 조정 */
+.css-1511w17 {
+    width: 100%;
+    max-width: 78px;
+}
+
+a{
+    color : inherit;
+    text-decoration: none;
+}
+.css-xd55zv {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    line-height: 16px;
+    color: rgb(47, 52, 56);
+}
+
+/* 플로깅 목록 */
+@media (min-width: 1256px){
+    .css-1obbfpy {
+        max-width: 1256px;
+        margin: 0px auto;
+        padding: 0px 60px;
+    }
+}
+@media (min-width: 1024px){
+    .css-1obbfpy {
+        padding: 0px 60px;
+    }
+}
+@media (min-width: 768px){
+    .css-1obbfpy {
+        padding: 0px 40px;
+    }
+}
+.css-1obbfpy {
+    padding: 0px 16px;
+    box-sizing: border-box;
+    background: rgb(255, 255, 255);
+}
+/* 제목, 더보기 박스 */
+.css-14vj981 {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px 0px;
+    font-size: 0px;
+    line-height: 1;
+}
+.css-dlv2hg {
+    flex: 1 1 0%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    min-width: 0px;
+}
+.css-147wp72 {
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    max-width: 100%;
+    cursor: pointer;
+}
+.css-1d0kvw3 {
+    overflow: hidden;
+    display: inline-block;
+    font-weight: 700;
+    color: rgb(47, 52, 56);
+    letter-spacing: -0.3px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 20px;
+    line-height: 28px;
+}
+
+/*더보기 조절 */
+.css-7z0c8w {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 0px;
+    margin-left: 10px;
+}
+.css-av2k9l {
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    background: none;
+    font-style: inherit;
+    font-variant: inherit;
+    font-stretch: inherit;
+    font-family: inherit;
+    font-optical-sizing: inherit;
+    font-kerning: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 700;
+    color: #036635;
+    cursor: pointer;
+}
+/* 목록 나누기 */
+.css-70b3yb {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+.css-fyyvpx {
+    position: relative;
+    display: flex;
+    width: 100%;
+    min-width: 0px;
+    flex-flow: column;
+}
+.css-wpil38 {
+    overflow: hidden;
+    position: relative;
+    border-radius: 4px;
+}
+.css-wpil38::before {
+    content: "";
+    display: block;
+    padding-top: 66.6667%;
+}
+.css-gnpvt2 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    transition: transform 0.2s ease 0s;
+}
+/* 사진밑에 글 */
+.css-fyyvpx .e1fm144d3 {
+    margin-top: 10px;
+}
+.css-ou7uck {
+    min-width: 0px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: rgb(47, 52, 56);
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+.css-vbg47w {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+.css-1opz4n5 {
+    color: rgb(53, 197, 240);
+    font-weight: 700;
+}
+.css-1opz4n5::after {
+    content: " ";
+}
+
+/* 후기 목록 시작 */
+@media (min-width: 768px){
+    .css-1obbfpy {
+        margin: 40px auto;
+    }
+}
+@media (min-width: 1256px){
+    .css-1obbfpy {
+        max-width: 1256px;
+        margin: 0px auto;
+        padding: 0px 60px;
+    }
+}
+@media (min-width: 1024px){
+    .css-1obbfpy {
+        padding: 0px 60px;
+    }
+}
+@media (min-width: 768px){
+    .css-1obbfpy {
+        padding: 0px 40px;
+    }
+}
+.css-1obbfpy {
+    padding: 0px 16px;
+    box-sizing: border-box;
+    background: rgb(255, 255, 255);
+}
+.css-14vj981 {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px 0px;
+    font-size: 0px;
+    line-height: 1;
+}
+.css-dlv2hg {
+    flex: 1 1 0%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    min-width: 0px;
+}
+.css-147wp72 {
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    max-width: 100%;
+    cursor: pointer;
+}
+.css-1d0kvw3 {
+    overflow: hidden;
+    display: inline-block;
+    font-weight: 700;
+    color: rgb(47, 52, 56);
+    letter-spacing: -0.3px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 20px;
+    line-height: 28px;
+}
+/* 후기 목록  */
+.css-dx7vvx {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.css-fyyvpx {
+    position: relative;
+    display: flex;
+    width: 100%;
+    min-width: 0px;
+    flex-flow: column;
+}
+.css-wpil38 {
+    overflow: hidden;
+    position: relative;
+    border-radius: 4px;
+}
+.css-wpil38::before {
+    content: "";
+    display: block;
+    padding-top: 66.6667%;
+}
+.css-gnpvt2 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    transition: transform 0.2s ease 0s;
+}
+/* 리뷰 제목, 내용 */
+.css-fyyvpx .e1fm144d3 {
+    margin-top: 10px;
+}
+.css-ou7uck {
+    min-width: 0px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: rgb(47, 52, 56);
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+.css-3cgelu {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+}
+.css-m56bdy {
+    overflow: hidden;
+    display: -webkit-box;
+    margin-top: 2px;
+    font-size: 16px;
+    line-height: 24px;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.css-11ab5xd {
+    position: absolute;
+    inset: 0px;
+    cursor: pointer;
+}
+
+/* 푸터 ? */
+.css-f93bbn {
+    padding: 40px 0px;
+    background-color: rgb(247, 249, 250);
+}
+.layout>* {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+}
+footer, header, main {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+}
+@media (min-width: 1256px){
+    .css-1g8mxtn {
+        max-width: 1256px;
+        margin: 0px auto;
+        padding: 0px 60px;
+    }
+}
+@media (min-width: 1024px){
+    .css-1g8mxtn {
+        padding: 0px 60px;
+    }
+}
+@media (min-width: 768px){
+    .css-1obbfpy {
+        margin: 40px auto;
+    }
+}
+.css-1g8mxtn {
+    padding: 0px 16px;
+    box-sizing: border-box;
+    font-size: 12px;
+    line-height: 16px;
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr 1px 2fr;
+    column-gap: 30px;
+}
+.css-17otnxb {
+    color: rgb(47, 52, 56);
+}
+.css-j2at52 {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    gap: 2px;
+}
+.css-1vwhs16 {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 700;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.css-w9u1sc {
+    display: inline-block;
+    font-size: 12px;
+    line-height: 1;
+}
+/* 레이어 */
+[class^="_"], [class*=" _"] {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.css-w9u1sc::before {
+    font-family: OhouseIcon;
+    vertical-align: top;
+}
+.css-12s9gc6 {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 20px 0px 8px;
+}
+.css-11t5mhv {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 700;
+    white-space: nowrap;
+    margin-right: 6px;
+}
+.css-7c0zb9 {
+    font-size: 14px;
+    line-height: 20px;
+}
+.css-7c0zb9 {
+    font-size: 14px;
+    line-height: 20px;
+}
+.css-1d4v77o {
+    font-size: 12px;
+    line-height: 20px;
+    white-space: pre-line;
+    margin-bottom: 12px;
+}
+.css-4ja1w6 {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+}
+.css-1wmn7o {
+    margin: 0px;
+    background: none;
+    font-style: inherit;
+    font-variant: inherit;
+    font-stretch: inherit;
+    font-family: inherit;
+    font-optical-sizing: inherit;
+    font-kerning: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    font-size: 14px;
+    line-height: 20px;
+    display: inline-flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 32px;
+    border-radius: 4px;
+    padding: 0px 8px;
+    font-weight: 400;
+    box-sizing: border-box;
+    text-align: center;
+    color: rgb(47, 52, 56);
+    border: 1px solid rgb(218, 221, 224);
+    width: fit-content;
+    white-space: nowrap;
+}
+.css-1wmn7o {
+    margin: 0px;
+    background: none;
+    font-style: inherit;
+    font-variant: inherit;
+    font-stretch: inherit;
+    font-family: inherit;
+    font-optical-sizing: inherit;
+    font-kerning: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    font-size: 14px;
+    line-height: 20px;
+    display: inline-flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 32px;
+    border-radius: 4px;
+    padding: 0px 8px;
+    font-weight: 400;
+    box-sizing: border-box;
+    text-align: center;
+    color: rgb(47, 52, 56);
+    border: 1px solid rgb(218, 221, 224);
+    width: fit-content;
+    white-space: nowrap;
+}
+[role=button], a, button, input[type=button], input[type=reset], input[type=submit] {
+    cursor: pointer;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+}
+.css-l44mlo {
+    width: 1px;
+    background-color: rgb(234, 237, 239);
+}
+.css-1mdyhm1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, min-content);
+    grid-auto-flow: column;
+    gap: 20px 10px;
+}
+.css-bby21c {
+    font-size: 12px;
+    line-height: 16px;
+    display: inline-block;
+    color: rgb(47, 52, 56);
+    white-space: nowrap;
+}
+.css-1tu9oew {
+    font-size: 12px;
+    line-height: 16px;
+    display: inline-block;
+    color: rgb(47, 52, 56);
+    white-space: nowrap;
+    font-weight: 700;
+}
+.css-zet5tl {
+    width: 1px;
+    background-color: rgb(234, 237, 239);
+}
+.css-1cp1m6s {
+    font-size: 10px;
+    line-height: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    color: rgb(130, 140, 148);
+}
+.css-15bx5k {
+    overflow-x: hidden;
+}
+.css-1dg1yub {
+    margin-left: -9px;
+}
+.css-1jsgrdm {
+    font-size: 12px;
+    line-height: 20px;
+    display: inline-block;
+    white-space: nowrap;
+}
+.css-5hz1ob {
+    margin: 0px 4px;
+}
+.css-a3rlk8 {
+    display: grid;
+    column-gap: 16px;
+    grid-template-columns: max-content 1fr;
+}
+.css-zqatfe {
+    display: flex;
+    gap: 6px;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+fieldset, img {
+    border: 0;
+}
+/* img[속성 스타일] {
+    width: 32px;
+    aspect-ratio: auto 32 / 32;
+    height: 32px;
+} */
+.css-lkbpts {
+    font-size: 10px;
+    line-height: 14px;
+    color: rgb(130, 140, 148);
+}
+.css-zqatfe {
+    display: flex;
+    gap: 6px;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.css-kkzzbm {
+    font-weight: 700;
+    color: rgb(130, 140, 148);
+}
+.css-1a5klid {
+    display: inline-block;
+    margin-right: 14px;
+}
+.css-8n6bc3 {
+    vertical-align: top;
+    color: rgb(130, 140, 148);
+}
+.css-ya1ij {
+    display: inline-block;
+    font-style: normal;
+}

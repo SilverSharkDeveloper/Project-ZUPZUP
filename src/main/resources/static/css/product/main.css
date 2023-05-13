@@ -1,0 +1,50 @@
+section{
+
+}
+
+div{
+
+}
+table{
+    margin: 0 auto;
+}
+
+div table tr td a img {
+    margin: 0 0.5rem;
+    width: 65px;
+    height: 65px;
+    border: #2c2c2c 1px solid;
+    border-radius: 20%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+div table tr td{
+    text-align: center;
+}
+th{
+    padding-bottom: 1rem;
+}
+
+h2{
+
+}
+
+ul{
+
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: #2c2c2c none;
+}
+
+img{
+
+}
+
+p{
+
+}
