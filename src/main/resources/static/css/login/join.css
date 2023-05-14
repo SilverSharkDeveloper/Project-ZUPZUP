@@ -60,6 +60,10 @@ button, input, select, textarea {
     font-size: inherit;
 }
 
+button, input[type=email], input[type=file], input[type=number], input[type=password], input[type=submit], input[type=tel], input[type=text], option, select, textarea {
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+}
 .css-b3oum6 {
     height: 100%;
 }
@@ -186,6 +190,17 @@ button, input, select, textarea {
     width: 100%;
 }
 
+.email-input__domain .form-control option, .email-input__local .form-control option {
+    color: #424242;
+}
+
+.email-input__domain .form-control :disabled, .email-input__local .form-control :disabled {
+    color: #757575;
+    -webkit-text-fill-color: #757575;
+    opacity: 1;
+}
+
+
 .css-1eufcdp .form-control {
     font-size: 15px;
 }
@@ -256,6 +271,27 @@ button, input, select, textarea {
     line-height: 20px;
     font-size: 17px;
     min-height: 50px;
+}
+
+._3Z6oR {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    background: none;
+    font-family: Noto Sans KR,Noto Sans CJK KR,맑은 고딕,Malgun Gothic,sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    transition: color .1s,background-color .1s,border-color .1s;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 ._2tsrJ {
@@ -673,4 +709,61 @@ css-1jxc35f::before {
     margin: 30px 0px;
     padding-bottom: 30px;
     border-bottom: 1px solid rgb(237, 237, 237);
+}
+
+.css-1mld7di {
+    font-size: 12px;
+    text-align: center;
+    margin: 15px 0px;
+    color: rgb(117, 117, 117);
+}
+
+.css-zl1inp {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.css-lbtgsv {
+    margin: 0px 10px;
+}
+
+.css-4zleql {
+    display: block;
+}
+
+.css-eivff4 {
+    display: none;
+}
+
+@media (-ms-high-contrast:active), (hover: hover), (-ms-high-contrast:none) {
+    ._3AsCW.focus-visible, ._3AsCW:hover, html:not(.js-focus-visible) ._3AsCW:focus {
+        border-color: #09addb;
+        background-color: #09addb;
+    }
+}
+
+:focus {
+    outline: none;
+}
+
+.form-control:active, .form-control:hover {
+    background-color: #fafafa;
+    border-color: #bdbdbd;
+}
+
+.form-control.focus-visible:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(130,224,250,.5);
+}
+
+.email-input.errored .form-control {
+    border-color: #f77;
+}
+
+.css-10xn2x0.css-10xn2x0 {
+    margin-top: 10px;
+    width: 100%;
+    height: 45px;
+    padding: 0px;
 }

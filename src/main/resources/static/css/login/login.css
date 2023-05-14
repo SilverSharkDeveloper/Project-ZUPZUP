@@ -1,100 +1,11 @@
 
+.layout, .page, body, html {
+    height: 100%;
+}
+
 * {
     -webkit-tap-highlight-color: rgba(255,255,255,0);
     -webkit-tap-highlight-color: rgba(0,0,0,0);
-}
-
-:root {
-    --sendbird-light-primary-500: #491389;
-    --sendbird-light-primary-400: #6211c8;
-    --sendbird-light-primary-300: #742ddd;
-    --sendbird-light-primary-200: #c2a9fa;
-    --sendbird-light-primary-100: #dbd1ff;
-    --sendbird-light-secondary-500: #066858;
-    --sendbird-light-secondary-400: #027d69;
-    --sendbird-light-secondary-300: #259c72;
-    --sendbird-light-secondary-200: #69c085;
-    --sendbird-light-secondary-100: #a8e2ab;
-    --sendbird-light-information-100: #adc9ff;
-    --sendbird-light-error-500: #9d091e;
-    --sendbird-light-error-400: #bf0711;
-    --sendbird-light-error-300: #de360b;
-    --sendbird-light-error-200: #f66161;
-    --sendbird-light-error-100: #fdaaaa;
-    --sendbird-light-background-700: #000;
-    --sendbird-light-background-600: #161616;
-    --sendbird-light-background-500: #2c2c2c;
-    --sendbird-light-background-400: #393939;
-    --sendbird-light-background-300: #bdbdbd;
-    --sendbird-light-background-200: #e0e0e0;
-    --sendbird-light-background-100: #eee;
-    --sendbird-light-background-50: #fff;
-    --sendbird-light-overlay-01: rgba(0,0,0,0.55);
-    --sendbird-light-overlay-02: rgba(0,0,0,0.32);
-    --sendbird-light-onlight-01: rgba(0,0,0,0.88);
-    --sendbird-light-onlight-02: rgba(0,0,0,0.5);
-    --sendbird-light-onlight-03: rgba(0,0,0,0.38);
-    --sendbird-light-onlight-04: rgba(0,0,0,0.12);
-    --sendbird-light-ondark-01: hsla(0,0%,100%,0.88);
-    --sendbird-light-ondark-02: hsla(0,0%,100%,0.5);
-    --sendbird-light-ondark-03: hsla(0,0%,100%,0.38);
-    --sendbird-light-ondark-04: hsla(0,0%,100%,0.12);
-    --sendbird-light-shadow-01: 0 1px 5px 0 rgba(33,34,66,0.04),0 0 3px 0 rgba(0,0,0,0.08),0 2px 1px 0 rgba(0,0,0,0.12);
-    --sendbird-light-shadow-02: 0 3px 5px -3px rgba(33,34,66,0.04),0 3px 14px 2px rgba(0,0,0,0.08),0 8px 10px 1px rgba(0,0,0,0.12);
-    --sendbird-light-shadow-03: 0 6px 10px -5px rgba(0,0,0,0.04),0 6px 30px 5px rgba(0,0,0,0.08),0 16px 24px 2px rgba(0,0,0,0.12);
-    --sendbird-light-shadow-04: 0 9px 15px -7px rgba(0,0,0,0.04),0 9px 46px 8px rgba(0,0,0,0.08),0 24px 38px 3px rgba(0,0,0,0.12);
-    --sendbird-light-shadow-message-input: 0 1px 5px 0 rgba(33,34,66,0.12),0 0 1px 0 rgba(33,34,66,0.16),0 2px 1px 0 rgba(33,34,66,0.08),0 1px 5px 0 rgba(0,0,0,0.12);
-    --sendbird-dark-primary-500: #491389;
-    --sendbird-dark-primary-400: #6211c8;
-    --sendbird-dark-primary-300: #742ddd;
-    --sendbird-dark-primary-200: #c2a9fa;
-    --sendbird-dark-primary-100: #dbd1ff;
-    --sendbird-dark-secondary-500: #066858;
-    --sendbird-dark-secondary-400: #027d69;
-    --sendbird-dark-secondary-300: #259c72;
-    --sendbird-dark-secondary-200: #69c085;
-    --sendbird-dark-secondary-100: #a8e2ab;
-    --sendbird-dark-information-100: #adc9ff;
-    --sendbird-highlight-100: #fff2b6;
-    --sendbird-dark-error-500: #9d091e;
-    --sendbird-dark-error-400: #bf0711;
-    --sendbird-dark-error-300: #de360b;
-    --sendbird-dark-error-200: #f66161;
-    --sendbird-dark-error-100: #fdaaaa;
-    --sendbird-dark-background-700: #000;
-    --sendbird-dark-background-600: #161616;
-    --sendbird-dark-background-500: #2c2c2c;
-    --sendbird-dark-background-400: #393939;
-    --sendbird-dark-background-300: #bdbdbd;
-    --sendbird-dark-background-200: #e0e0e0;
-    --sendbird-dark-background-100: #eee;
-    --sendbird-dark-background-50: #fff;
-    --sendbird-dark-overlay-01: rgba(0,0,0,0.55);
-    --sendbird-dark-overlay-02: rgba(0,0,0,0.32);
-    --sendbird-dark-onlight-01: rgba(0,0,0,0.88);
-    --sendbird-dark-onlight-02: rgba(0,0,0,0.5);
-    --sendbird-dark-onlight-03: rgba(0,0,0,0.38);
-    --sendbird-dark-onlight-04: rgba(0,0,0,0.12);
-    --sendbird-dark-ondark-01: hsla(0,0%,100%,0.88);
-    --sendbird-dark-ondark-02: hsla(0,0%,100%,0.5);
-    --sendbird-dark-ondark-03: hsla(0,0%,100%,0.38);
-    --sendbird-dark-ondark-04: hsla(0,0%,100%,0.12);
-    --sendbird-dark-shadow-01: 0 1px 5px 0 rgba(33,34,66,0.04),0 0 3px 0 rgba(0,0,0,0.08),0 2px 1px 0 rgba(0,0,0,0.12);
-    --sendbird-dark-shadow-02: 0 3px 5px -3px rgba(33,34,66,0.04),0 3px 14px 2px rgba(0,0,0,0.08),0 8px 10px 1px rgba(0,0,0,0.12);
-    --sendbird-dark-shadow-03: 0 6px 10px -5px rgba(0,0,0,0.04),0 6px 30px 5px rgba(0,0,0,0.08),0 16px 24px 2px rgba(0,0,0,0.12);
-    --sendbird-dark-shadow-04: 0 9px 15px -7px rgba(0,0,0,0.04),0 9px 46px 8px rgba(0,0,0,0.08),0 24px 38px 3px rgba(0,0,0,0.12);
-    --sendbird-light-shadow-05: 0 2px 8px 0 rgba(0,0,0,0.08),0 4px 6px 0 rgba(0,0,0,0.12);
-    --sendbird-dark-shadow-message-input: 0 1px 5px 0 rgba(33,34,66,0.12),0 0 1px 0 rgba(33,34,66,0.16),0 2px 1px 0 rgba(33,34,66,0.08),0 1px 5px 0 rgba(0,0,0,0.12);
-    --sendbird-iconbutton-color: #825eeb;
-    --sendbird-message-input-border-active: #7b53ef;
-    --sendbird-selected-reaction-button-border-hover: #9e8cf5;
-    --sendbird-add-reaction-button-border-hover: #9e8cf5;
-    --sendbird-tooltip-background: #000;
-    --sendbird-tooltip-text-color: hsla(0,0%,100%,0.88);
-    --sendbird-button-border-focus: #fff;
-    --sendbird-file-message-icon-background: #fff;
-    --sendbird-font-family-default: "Roboto",sans-serif;
-    --sendbird-message-balloon-width: 404px;
 }
 
 html {
@@ -131,6 +42,11 @@ blockquote, body, code, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6,
     padding: 0;
 }
 
+input:-webkit-autofill {
+    background-color: transparent!important;
+    color: inherit!important;
+}
+
 .css-jiuql7 {
     display: -webkit-box;
     display: -webkit-flex;
@@ -164,28 +80,17 @@ blockquote, body, code, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6,
 }
 
 .css-uu6y3f {
-    -webkit-flex: 1 0 auto;
-    -ms-flex: 1 0 auto;
     flex: 1 0 auto;
-    margin: 0 auto;
+    margin: 0px auto;
     max-width: 300px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
     justify-content: center;
-    -webkit-align-items: center;
     -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
     flex-direction: column;
     box-sizing: border-box;
-    padding: 40px 0;
+    padding: 40px 0px;
 }
 
 .css-g46w8s {
@@ -209,6 +114,10 @@ button, input[type=email], input[type=file], input[type=number], input[type=pass
     cursor: pointer;
     -ms-touch-action: manipulation;
     touch-action: manipulation;
+}
+
+button:focus, input[type=email]:focus, input[type=file]:focus, input[type=number]:focus, input[type=password]:focus, input[type=submit]:focus, input[type=tel]:focus, input[type=text]:focus, option:focus, select:focus, textarea:focus {
+    outline: 0;
 }
 
 a {
@@ -241,11 +150,28 @@ a {
     transition: border-color 0.1s ease 0s, background-color 0.1s ease 0s;
 }
 
+._3ASDR.focus-visible, html:not(.js-focus-visible) ._3ASDR:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 213, 161, 0.21);
+}
+
+._2Zb2k {
+    border: 1px solid #f77;
+}
+
 [class^="_"], [class*=" _"] {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
+.css-1bz0svd.css-1bz0svd.css-1bz0svd {
+    position: relative;
+    display: block;
+    width: 100%;
+    border-radius: 4px 4px 0px 0px;
+    transition: box-shadow 0.2s ease 0s, background-color 0.2s ease 0s;
+    z-index: 1;
+}
 
 .css-87d0b4.css-87d0b4.css-87d0b4 {
     position: relative;
@@ -255,24 +181,6 @@ a {
     margin-top: -1px;
     -webkit-transition: .2s box-shadow, .2s background-color;
     transition: .2s box-shadow, .2s background-color;
-}
-
-.css-1rmx362 {
-    margin: 20px 0;
-    width: 100%;
-}
-
-._3SroY {
-    background-color: #35c5f0;
-    border-color: #35c5f0;
-    color: #fff;
-}
-
-._27do9 {
-    padding: 15px 10px;
-    line-height: 20px;
-    font-size: 17px;
-    min-height: 50px;
 }
 
 ._1eWD8 {
@@ -296,6 +204,24 @@ a {
     text-decoration: none;
     transition: color 0.1s ease 0s, background-color 0.1s ease 0s, border-color 0.1s ease 0s;
     border-radius: 4px;
+}
+
+._3SroY {
+    background-color: #7aab9a;
+    border-color: #7aab9a;
+    color: #fff;
+}
+
+._27do9 {
+    padding: 15px 10px;
+    line-height: 20px;
+    font-size: 17px;
+    min-height: 50px;
+}
+
+.css-1rmx362 {
+    margin: 20px 0;
+    width: 100%;
 }
 
 input, select, textarea {
@@ -401,6 +327,15 @@ a * {
     -webkit-transition: .2s box-shadow,.2s background-color;
     transition: .2s box-shadow,.2s background-color;
 }
+
+.css-hg1ckt.css-hg1ckt.css-hg1ckt:focus {
+    z-index: 2;
+}
+
 ._2wjXG {
     padding: 13px 15px 14px;
+}
+
+.css-b3oum6 {
+    height: 100%;
 }
