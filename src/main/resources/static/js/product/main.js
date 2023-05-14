@@ -1,113 +1,84 @@
-/*
-<script>(function () {
-    if (!(!/(^|;)ohsTopBannerClosed=yes($|;)/.test(document.cookie))) {
-        var style = document.createElement('style');
-        style.append('.gnb-pc-top-banner--unsure { display: none !important; }');
-        document.head.appendChild(style);
+showList();
+
+function showList() {
+    boards = JSON.parse(boards);
+    console.log(boards);
+    const $couponList = $(".virtualized-list");
+    let text = "";
+
+    boards.forEach(board => {
+        text += `			
+			<div class="col-6 col-md-3 product-item-wrap" style="display: inline-flex; max-width: 33%">
+                        <article style="margin-right: 1rem;" class="production-item"><a
+                                class="production-item__overlay"
+                                href="/productions/767440/selling?affect_id&amp;affect_type=StoreHome"></a>
+                            <div class="production-item-image production-item__image"><img class="image" alt=""
+                                                                                           src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167168822852557476.jpg?gif=1&amp;w=360&amp;h=360&amp;c=c&amp;q=0.8"
+                                                                                           srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167168822852557476.jpg?gif=1&amp;w=640&amp;h=640&amp;c=c&amp;q=0.8 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167168822852557476.jpg?gif=1&amp;w=720&amp;h=720&amp;c=c&amp;q=0.8 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167168822852557476.jpg?gif=1&amp;w=1080&amp;h=1080&amp;c=c&amp;q=0.8 3x"><button
+                                    class="production-item-scrap-badge production-item-image__scrap-badge"
+                                    type="button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                       viewBox="0 0 24 24" class="inactive-icon"></svg><svg class="active-icon"
+                                                                                                            width="24" height="24" viewBox="0 0 24 24"
+                                                                                                            preserveAspectRatio="xMidYMid meet"></svg></button>
+                                <div class="production-item-image__dark-overlay"></div>
+                            </div>
+                            <div class="production-item__content">
+                                <h1 class="production-item__header"><span
+                                        class="production-item__header__brand">${board.located} </span><span
+                                        class="production-item__header__name">${board.name}
+                                            </span></h1><span class="production-item-price"><span
+                                    class="production-item-price__price">${board.price}</span></span>
+                            </div>
+                        </article>
+
+                    </div>			
+			
+			`;
+    });
+    if (!boards) {
+        text += `
+			<li>
+				<div>
+					현재 게시글이 없습니다. 게시글 작성을 해보세요!
+				</div>
+			</li>
+			`;
+    } else {
+        if (boards.length == 0) {
+            text += `
+			<li>
+				<div>
+					현재 게시글이 없습니다. 게시글 작성을 해보세요!
+				</div>
+			</li>
+			`;
+        }
     }
-})();</script>
-<div class=" css-1mvkryr"><a aria-label="PC 최상단 배너" class="css-qaya0j" href="/exhibitions/10162"></a><a
-aria-label="PC 최상단 배너" class="css-1y1zqjo" href="/exhibitions/10162"></a>
-    <div class="css-1rgilik"><a aria-label="PC 최상단 배너" class="css-1duw8h1" href="/exhibitions/10162"></a>
-    </div>
-    <button type="button" aria-label="닫기" class="css-1tt9azx"><span
-class="_dismiss_thick_24 css-1fqbgll"></span></button>
-</div>
-<script>(function () {
-    if (!(/(^|;)ohsAppDownloadPopupClosed=yes($|;)/.test(document.cookie) && !/(^|;)ohsTopBannerClosed=yes($|;)/.test(document.cookie))) {
-        var style = document.createElement('style');
-        style.append('.gnb-mobile-top-banner--unsure { display: none !important; }');
-        document.head.appendChild(style);
-    }
-})();</script>
-*/
 
-/*
-<script async="true" type="text/javascript"
-src="https://sslwidget.criteo.com/event?a=50838&amp;v=5.15.0&amp;p0=e%3Dvh&amp;p1=e%3Dexd%26ref%3Dhttps%253A%252F%252Fwww.google.com%26site_type%3Dd&amp;p2=e%3Ddis&amp;adce=1&amp;bundle=TVJJVl9MZTBMOTRwcjhLWms3WTNWZUI4Y2NvaVRadDhKd0twbENwSTU5ekRZeEJYdXNieFVhaEg2TjJZZkdHJTJGMEl1djNtZkQ5TVB4UEc2QlMwUGxtYUdGcTBvJTJGaGJ5MTVtNERKajlPOEpNVmJ3R2NCa2ViWFpLck1IRW9nYmM5ejFDM2FFOUZvWEpEV0xUQWd1UlZ5JTJCWiUyRmFRdyUzRCUzRA&amp;tld=ohou.se&amp;fu=https%253A%252F%252Fohou.se%252F&amp;pu=https%253A%252F%252Fwww.google.com%252F&amp;ceid=6329cc8a-f70b-4cdc-9a2c-91b3258756d0&amp;dtycbr=88652"></script>
-*/
-
-/*
-<script type="text/javascript" id="">(function () {
-    var b = "change", c = function (a) {
-        window.dataLayer.push({
-            event: "gtm." + a.type,
-            "gtm.element": a.target,
-            "gtm.elementClasses": a.target.className || "",
-            "gtm.elementId": a.target.id || "",
-            "gtm.elementTarget": a.target.target || "",
-            "gtm.elementUrl": a.target.href || a.target.action || "",
-            "gtm.originalEvent": a
-        })
-    };
-    document.addEventListener ? document.addEventListener(b, c, !1) : document.attachEvent && document.attachEvent("on" + b, c)
-})();</script>
-<script type="text/javascript" id="">window.dataLayer = window.dataLayer || [];
-window.dataLayer.push({originalLocation: document.location.protocol + "//" + document.location.hostname + document.location.pathname + document.location.search});</script>
-*/
-
-/*
-
-<script>
-if (window.wcs != null) {
-    if (!window.wcs_add) window.wcs_add = {};
-    window.wcs_add["wa"] = "s_2e85116be219";
-    if (!_nasa) var _nasa = {};
-    wcs.inflow();
-    wcs_do(_nasa);
+    $ul.append(text);
 }
-</script>
 
-
-<script type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/adfit/static/kp.js"></script>
-    <script>
-if (window.kakaoPixel != null) {
-    kakaoPixel('7919701595446099671').pageView();
-}
-</script>
-
-
-<script>
-function handleEnlipleLoad() {
-    var rf = new EN();
-    rf.setData('userid', 'bucketplace');
-    rf.setSSL(true);
-    rf.sendRf();
-    if (typeof handleEnlipleLoadShop === 'function') {
-        handleEnlipleLoadShop();
-    }
-}
-</script>
-<script src="https://cdn.megadata.co.kr/js/en_script/3.5/enliple_min3.5.js" async="async"
-onload="handleEnlipleLoad()"></script>*/
-
-/*
-<script>
-window.wptg_tagscript_vars = window.wptg_tagscript_vars || [];
-window.wptg_tagscript_vars.push(function () {
-    return {
-        wp_hcuid: '',
-        ti: '47350',
-        ty: 'Home',
-        device: navigator.userAgent.match(/ios|iphone|ipad|android/i) ? 'mobile' : 'web',
-    };
-});
-</script>
-<script type="text/javascript" async="async" src="//cdn-aitg.widerplanet.com/js/wp_astg_4.0.js"></script>
-
-    <iframe height="0" width="0" title="Criteo DIS iframe" style="display: none;"></iframe>
-    <iframe height="0" width="0" title="Criteo DIS iframe" style="display: none;"></iframe>
-    <script type="text/javascript" id="">(function (a, c, e, f, d, b) {
-    a.hj = a.hj || function () {
-        (a.hj.q = a.hj.q || []).push(arguments)
-    };
-    a._hjSettings = {hjid: 877658, hjsv: 6};
-    d = c.getElementsByTagName("head")[0];
-    b = c.createElement("script");
-    b.async = 1;
-    b.src = e + a._hjSettings.hjid + f + a._hjSettings.hjsv;
-    d.appendChild(b)
-})(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv\x3d");</script>
-<iframe id="_hjSafeContext_69202457" title="_hjSafeContext" tabindex="-1" aria-hidden="true" src="about:blank"
-style="display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;"></iframe>
-*/
+/*참고용*/
+/*<li class="inner">
+				<a>
+					<div class="img_wrap">
+						<p class="img">
+							<img alt="img" src="https://test-image.wishbeen.co.kr/160x160_376b52fa601151a3b5a651883155c734.jpg">
+						</p>
+					</div>
+					<div class="txt_wrap">
+						<ul>
+							<li class="schedule"><span>ITEM</span>&nbsp&nbsp${board.item_name}</li>
+							<li class="tit">${board.title}</li>
+							<li class="nick">by ${board.name}</li>
+							<li class="di_flex">
+								<ul class="ico_wrap">
+									<li><span class="ico_vote"></span> 200</li>
+									<li><span class="ico_spot"></span> ${board.viewedCount}</li>
+									<li><span class="ico_cmt"></span> 130</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</a>
+			</li>*/
