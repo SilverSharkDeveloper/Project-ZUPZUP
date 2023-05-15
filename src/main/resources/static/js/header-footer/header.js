@@ -8,3 +8,12 @@ searchInput.addEventListener("focus", evt =>{
 searchInput.addEventListener("blur", evt =>{
     search.style.borderColor = "#DADDE0";
 } )
+
+
+$(".write-btn").on("click",e=>{
+    $(".writes").toggle();
+})
+
+$(".mypage-btn").on("click",e=>{
+    $(".mypage").toggle();
+})
