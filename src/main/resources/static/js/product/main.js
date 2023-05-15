@@ -1,84 +1,36 @@
-showList();
-
-function showList() {
-    boards = JSON.parse(boards);
-    console.log(boards);
-    const $couponList = $(".virtualized-list");
-    let text = "";
-
-    boards.forEach(board => {
-        text += `			
-			<div class="col-6 col-md-3 product-item-wrap" style="display: inline-flex; max-width: 33%">
-                        <article style="margin-right: 1rem;" class="production-item"><a
-                                class="production-item__overlay"
-                                href="/productions/767440/selling?affect_id&amp;affect_type=StoreHome"></a>
-                            <div class="production-item-image production-item__image"><img class="image" alt=""
-                                                                                           src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167168822852557476.jpg?gif=1&amp;w=360&amp;h=360&amp;c=c&amp;q=0.8"
-                                                                                           srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167168822852557476.jpg?gif=1&amp;w=640&amp;h=640&amp;c=c&amp;q=0.8 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167168822852557476.jpg?gif=1&amp;w=720&amp;h=720&amp;c=c&amp;q=0.8 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167168822852557476.jpg?gif=1&amp;w=1080&amp;h=1080&amp;c=c&amp;q=0.8 3x"><button
-                                    class="production-item-scrap-badge production-item-image__scrap-badge"
-                                    type="button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                       viewBox="0 0 24 24" class="inactive-icon"></svg><svg class="active-icon"
-                                                                                                            width="24" height="24" viewBox="0 0 24 24"
-                                                                                                            preserveAspectRatio="xMidYMid meet"></svg></button>
-                                <div class="production-item-image__dark-overlay"></div>
-                            </div>
-                            <div class="production-item__content">
-                                <h1 class="production-item__header"><span
-                                        class="production-item__header__brand">${board.located} </span><span
-                                        class="production-item__header__name">${board.name}
-                                            </span></h1><span class="production-item-price"><span
-                                    class="production-item-price__price">${board.price}</span></span>
-                            </div>
-                        </article>
-
-                    </div>			
-			
-			`;
+$(document).ready(function() {
+    var $local = $("div.local");
+    var $category = $("div.category-item");
+    console.log($local.length);
+    // 클릭 이벤트를 바인딩
+    $local.on('click', function() {
+        event.preventDefault();
+        // 이전에 활성화된 요소에서 localactive 클래스 제거
+        $local.removeClass('localactive');
+        console.log("클래스 제거");
+        // 클릭된 요소에 localactive 클래스 추가
+        $(this).addClass('localactive');
+        console.log("클래스 추가");
     });
-    if (!boards) {
-        text += `
-			<li>
-				<div>
-					현재 게시글이 없습니다. 게시글 작성을 해보세요!
-				</div>
-			</li>
-			`;
-    } else {
-        if (boards.length == 0) {
-            text += `
-			<li>
-				<div>
-					현재 게시글이 없습니다. 게시글 작성을 해보세요!
-				</div>
-			</li>
-			`;
-        }
-    }
+    $category.on("click",function () {
+        event.preventDefault();
+        $category.removeClass('categoryactive');
+        $(this).addClass('categoryactive');
+    });
 
-    $ul.append(text);
-}
+    var $transimage = $("article.production-item");
 
-/*참고용*/
-/*<li class="inner">
-				<a>
-					<div class="img_wrap">
-						<p class="img">
-							<img alt="img" src="https://test-image.wishbeen.co.kr/160x160_376b52fa601151a3b5a651883155c734.jpg">
-						</p>
-					</div>
-					<div class="txt_wrap">
-						<ul>
-							<li class="schedule"><span>ITEM</span>&nbsp&nbsp${board.item_name}</li>
-							<li class="tit">${board.title}</li>
-							<li class="nick">by ${board.name}</li>
-							<li class="di_flex">
-								<ul class="ico_wrap">
-									<li><span class="ico_vote"></span> 200</li>
-									<li><span class="ico_spot"></span> ${board.viewedCount}</li>
-									<li><span class="ico_cmt"></span> 130</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-				</a>
-			</li>*/
+    $transimage.on("mouseover", function () {
+        event.preventDefault();
+        console.log("이미지 들어옴")
+        console.log($(this).find('.image').toString());
+        $(this).find('.image').addClass('transimage');
+        $(this).children('.image').css(
+            {
+                "transition": "transform 2s ease",
+                "transform": "scale 1.05"
+            }
+        )
+        console.log("이미지 변화끝?");
+    });
+});

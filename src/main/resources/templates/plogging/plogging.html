@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -7,212 +7,267 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>floc</title>
     <link rel="stylesheet" href="../../static/css/plogging/plogging.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+          rel="stylesheet">
 </head>
 
 <body>
-    <div class="container">
-        <div class="project-feed">
-            <!-- 카테고리 -->
-            <div class="project-feed__filter">
-                <div class="filter-bar">
-                    <div class="filter-bar__control-list">
-                        <!-- button 으로 만들어서 (서울,경기도, 등등) -->
-                        <ul class="filter-bar__control-list__left">
-                            <li class="filter-bar__control-list__item">
-                                <div class="filter-bar-control">
-                                    <button
-                                        class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">서울<svg
-                                            class="icon" width="12" height="12" viewBox="0 0 12 12" fill="currentColor"
-                                            preserveAspectRatio="xMidYMid meet">
-                                            <path
-                                                d="M6.069 6.72l4.123-3.783 1.216 1.326-5.32 4.881L.603 4.273l1.196-1.346z">
-                                            </path>
-                                        </svg></button>
-                                </div>
-                            </li>
-                            <li class="filter-bar__control-list__item">
-                                <div class="drop-down panel-drop-down filter-bar-control"><button
-                                        class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">경기도<svg
-                                            class="icon" width="12" height="12" viewBox="0 0 12 12" fill="currentColor"
-                                            preserveAspectRatio="xMidYMid meet">
-                                            <path
-                                                d="M6.069 6.72l4.123-3.783 1.216 1.326-5.32 4.881L.603 4.273l1.196-1.346z">
-                                            </path>
-                                        </svg></button></div>
-                            </li>
-                            <li class="filter-bar__control-list__item">
-                                <div class="drop-down panel-drop-down filter-bar-control"><button
-                                        class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">강원도<svg
-                                            class="icon" width="12" height="12" viewBox="0 0 12 12" fill="currentColor"
-                                            preserveAspectRatio="xMidYMid meet">
-                                            <path
-                                                d="M6.069 6.72l4.123-3.783 1.216 1.326-5.32 4.881L.603 4.273l1.196-1.346z">
-                                            </path>
-                                        </svg></button></div>
-                            </li>
-                            <li class="filter-bar__control-list__item filter-bar__control-list__item--hide-mobile">
-                                <div class="drop-down panel-drop-down filter-bar-control"><button
-                                        class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">전라도<svg
-                                            class="icon" width="12" height="12" viewBox="0 0 12 12" fill="currentColor"
-                                            preserveAspectRatio="xMidYMid meet">
-                                            <path
-                                                d="M6.069 6.72l4.123-3.783 1.216 1.326-5.32 4.881L.603 4.273l1.196-1.346z">
-                                            </path>
-                                        </svg></button></div>
-                            </li>
-                            <li class="filter-bar__control-list__item filter-bar__control-list__item--hide-mobile">
-                                <div class="drop-down panel-drop-down filter-bar-control"><button
-                                        class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">경상도<svg
-                                            class="icon" width="12" height="12" viewBox="0 0 12 12" fill="currentColor"
-                                            preserveAspectRatio="xMidYMid meet">
-                                            <path
-                                                d="M6.069 6.72l4.123-3.783 1.216 1.326-5.32 4.881L.603 4.273l1.196-1.346z">
-                                            </path>
-                                        </svg></button></div>
-                            </li>
-                            <li class="filter-bar__control-list__item filter-bar__control-list__item--hide-mobile">
-                                <div class="drop-down panel-drop-down filter-bar-control"><button
-                                        class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">제주도<svg
-                                            class="icon" width="12" height="12" viewBox="0 0 12 12" fill="currentColor"
-                                            preserveAspectRatio="xMidYMid meet">
-                                            <path
-                                                d="M6.069 6.72l4.123-3.783 1.216 1.326-5.32 4.881L.603 4.273l1.196-1.346z">
-                                            </path>
-                                        </svg></button></div>
-                            </li>
+<div class="container">
+    <div class="project-feed">
+        <!-- 카테고리 -->
+        <div class="project-feed__filter">
+            <div class="filter-bar">
+                <div class="filter-bar__control-list">
+                    <!-- button 으로 만들어서 (서울,경기도, 등등) -->
+                    <ul class="filter-bar__control-list__left">
+                        <li class="filter-bar__control-list__item">
+                            <div class="filter-bar-control">
+                                <button
+                                        class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">
+                                    서울/경기도
+                                </button>
+                            </div>
+                        </li>
+                        <li class="filter-bar__control-list__item">
+                            <div class="drop-down panel-drop-down filter-bar-control">
+                                <button
+                                        class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">
+                                    강원도
+                                </button>
+                            </div>
+                        </li>
+                        <li class="filter-bar__control-list__item">
+                            <div class="drop-down panel-drop-down filter-bar-control">
+                                <button
+                                        class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">
+                                    충청북도
+                                </button>
+                            </div>
+                        </li>
+                        <li class="filter-bar__control-list__item">
+                            <div class="drop-down panel-drop-down filter-bar-control">
+                                <button
+                                        class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">
+                                    충청남도
+                                </button>
+                            </div>
+                        </li>
+                        <li class="filter-bar__control-list__item filter-bar__control-list__item--hide-mobile">
+                            <div class="drop-down panel-drop-down filter-bar-control">
+                                <button
+                                        class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">
+                                    전라북도
+                                </button>
+                            </div>
+                        </li>
+                        <li class="filter-bar__control-list__item filter-bar__control-list__item--hide-mobile">
+                            <div class="drop-down panel-drop-down filter-bar-control">
+                                <button
+                                        class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">
+                                    전라남도
+                                </button>
+                            </div>
+                        </li>
+                        <li class="filter-bar__control-list__item filter-bar__control-list__item--hide-mobile">
+                            <div class="drop-down panel-drop-down filter-bar-control">
+                                <button
+                                        class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">
+                                    경상북도
+                                </button>
+                            </div>
+                        </li>
+                        <li class="filter-bar__control-list__item filter-bar__control-list__item--hide-mobile">
+                            <div class="drop-down panel-drop-down filter-bar-control">
+                                <button
+                                        class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">
+                                    경상남도
+                                </button>
+                            </div>
+                        </li>
+                        <li class="filter-bar__control-list__item filter-bar__control-list__item--hide-mobile">
+                            <div class="drop-down panel-drop-down filter-bar-control">
+                                <button
+                                        class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">
+                                    제주도
+                                </button>
+                            </div>
+                        </li>
 
-                        </ul>
-                    </div>
-                    <ul class="filter-bar__tag-list"></ul>
+                    </ul>
                 </div>
-            </div>
-            <!--//filter  -->
-
-            <div class="project-feed_count">
-                <!--게시물 카운팅-->"전체" 8,544</div>
-            <!-- 목록 한줄 -->
-            <div class="virtualized-list row"
-                style="padding-top: 0px; padding-bottom: 0px; transform: translateY(0px);">
-                <div class="col-12 col-md-4">
-                    <article class="project-feed__item"><a class="project-feed__item__link"
-                            href="/projects/139565/detail?affect_type=ProjectSelfIndex&amp;affect_id=0"></a>
-                        <div class="project-feed__item__image"><img class="image" alt=""
-                                src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=480&amp;h=320&amp;c=c&amp;q=80&amp;webp=1"
-                                srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=640&amp;h=427&amp;c=c&amp;q=80&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=850&amp;h=567&amp;c=c&amp;q=80&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=1280&amp;h=854&amp;c=c&amp;q=80&amp;webp=1 3x">
-                        </div>
-                        <h1 class="project-feed__item__title">버려진 시골 마을의 맨끝집을 영감의 공간으로 바꾸다🏡</h1>
-                        <address class="project-feed__item__writer-wrap"><a class="project-feed__item__writer"
-                                href="/users/11035696?affect_type=ProjectSelfIndex&amp;affect_id=0"><img
-                                    class="project-feed__item__writer__image" alt=""
-                                    src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=36&amp;h=36&amp;c=c&amp;webp=1"
-                                    srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c&amp;webp=1 3x"><span
-                                    class="project-feed__item__writer__name">맨끝집</span></a></address>
-                        <footer class="project-feed__item__status"><span class="entry">스크랩 187&nbsp;</span><span
-                                class="entry">조회 4,124</span></footer>
-                    </article>
-                </div>
-                <!-- article 1개 -->
-                <div class="col-12 col-md-4">
-                    <article class="project-feed__item"><a class="project-feed__item__link"
-                            href="/projects/139486/detail?affect_type=ProjectSelfIndex&amp;affect_id=1"></a>
-                        <div class="project-feed__item__image"><img class="image" alt=""
-                                src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168205718289144316.png?gif=1&amp;w=480&amp;h=320&amp;c=c&amp;q=80&amp;webp=1"
-                                srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168205718289144316.png?gif=1&amp;w=640&amp;h=427&amp;c=c&amp;q=80&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168205718289144316.png?gif=1&amp;w=850&amp;h=567&amp;c=c&amp;q=80&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168205718289144316.png?gif=1&amp;w=1280&amp;h=854&amp;c=c&amp;q=80&amp;webp=1 3x">
-                        </div>
-                        <h1 class="project-feed__item__title">따뜻하고 힙하게 재해석한 북촌의 20년된 단독 주택</h1>
-                        <address class="project-feed__item__writer-wrap"><a class="project-feed__item__writer"
-                                href="/users/16677428?affect_type=ProjectSelfIndex&amp;affect_id=1"><img
-                                    class="project-feed__item__writer__image" alt=""
-                                    src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168180568743677458.JPG?gif=1&amp;w=36&amp;h=36&amp;c=c&amp;webp=1"
-                                    srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168180568743677458.JPG?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168180568743677458.JPG?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168180568743677458.JPG?gif=1&amp;w=144&amp;h=144&amp;c=c&amp;webp=1 3x"><span
-                                    class="project-feed__item__writer__name">home.yido</span></a></address>
-                        <footer class="project-feed__item__status"><span class="entry">스크랩 138&nbsp;</span><span
-                                class="entry">조회 6,329</span></footer>
-                    </article>
-                </div>
-                <!-- 2 -->
-                <div class="col-12 col-md-4">
-                    <article class="project-feed__item"><a class="project-feed__item__link"
-                            href="/projects/139471/detail?affect_type=ProjectSelfIndex&amp;affect_id=2"></a>
-                        <div class="project-feed__item__image"><img class="image" alt=""
-                                src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168165298812619778.JPG?gif=1&amp;w=480&amp;h=320&amp;c=c&amp;q=80&amp;webp=1"
-                                srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168165298812619778.JPG?gif=1&amp;w=640&amp;h=427&amp;c=c&amp;q=80&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168165298812619778.JPG?gif=1&amp;w=850&amp;h=567&amp;c=c&amp;q=80&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168165298812619778.JPG?gif=1&amp;w=1280&amp;h=854&amp;c=c&amp;q=80&amp;webp=1 3x">
-                        </div>
-                        <h1 class="project-feed__item__title">따뜻함 속 생기발랄 포인트! 25평 신혼집</h1>
-                        <address class="project-feed__item__writer-wrap"><a class="project-feed__item__writer"
-                                href="/users/17435675?affect_type=ProjectSelfIndex&amp;affect_id=2"><img
-                                    class="project-feed__item__writer__image" alt=""
-                                    src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/164733538598413763.jpeg?gif=1&amp;w=36&amp;h=36&amp;c=c&amp;webp=1"
-                                    srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/164733538598413763.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/164733538598413763.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/164733538598413763.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c&amp;webp=1 3x"><span
-                                    class="project-feed__item__writer__name">코지뚜뚜</span></a></address>
-                        <footer class="project-feed__item__status"><span class="entry">스크랩 43&nbsp;</span><span
-                                class="entry">조회 3,050</span></footer>
-                    </article>
-                </div>
-            </div>
-
-            <div class="virtualized-list row"
-                style="padding-top: 0px; padding-bottom: 0px; transform: translateY(0px);">
-                <div class="col-12 col-md-4">
-                    <article class="project-feed__item"><a class="project-feed__item__link"
-                            href="/projects/139565/detail?affect_type=ProjectSelfIndex&amp;affect_id=0"></a>
-                        <div class="project-feed__item__image"><img class="image" alt=""
-                                src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=480&amp;h=320&amp;c=c&amp;q=80&amp;webp=1"
-                                srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=640&amp;h=427&amp;c=c&amp;q=80&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=850&amp;h=567&amp;c=c&amp;q=80&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=1280&amp;h=854&amp;c=c&amp;q=80&amp;webp=1 3x">
-                        </div>
-                        <h1 class="project-feed__item__title">버려진 시골 마을의 맨끝집을 영감의 공간으로 바꾸다🏡</h1>
-                        <address class="project-feed__item__writer-wrap"><a class="project-feed__item__writer"
-                                href="/users/11035696?affect_type=ProjectSelfIndex&amp;affect_id=0"><img
-                                    class="project-feed__item__writer__image" alt=""
-                                    src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=36&amp;h=36&amp;c=c&amp;webp=1"
-                                    srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c&amp;webp=1 3x"><span
-                                    class="project-feed__item__writer__name">맨끝집</span></a></address>
-                        <footer class="project-feed__item__status"><span class="entry">스크랩 187&nbsp;</span><span
-                                class="entry">조회 4,124</span></footer>
-                    </article>
-                </div>
-                <!-- article 1개 -->
-                <div class="col-12 col-md-4">
-                    <article class="project-feed__item"><a class="project-feed__item__link"
-                            href="/projects/139486/detail?affect_type=ProjectSelfIndex&amp;affect_id=1"></a>
-                        <div class="project-feed__item__image"><img class="image" alt=""
-                                src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168205718289144316.png?gif=1&amp;w=480&amp;h=320&amp;c=c&amp;q=80&amp;webp=1"
-                                srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168205718289144316.png?gif=1&amp;w=640&amp;h=427&amp;c=c&amp;q=80&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168205718289144316.png?gif=1&amp;w=850&amp;h=567&amp;c=c&amp;q=80&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168205718289144316.png?gif=1&amp;w=1280&amp;h=854&amp;c=c&amp;q=80&amp;webp=1 3x">
-                        </div>
-                        <h1 class="project-feed__item__title">따뜻하고 힙하게 재해석한 북촌의 20년된 단독 주택</h1>
-                        <address class="project-feed__item__writer-wrap"><a class="project-feed__item__writer"
-                                href="/users/16677428?affect_type=ProjectSelfIndex&amp;affect_id=1"><img
-                                    class="project-feed__item__writer__image" alt=""
-                                    src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168180568743677458.JPG?gif=1&amp;w=36&amp;h=36&amp;c=c&amp;webp=1"
-                                    srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168180568743677458.JPG?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168180568743677458.JPG?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168180568743677458.JPG?gif=1&amp;w=144&amp;h=144&amp;c=c&amp;webp=1 3x"><span
-                                    class="project-feed__item__writer__name">home.yido</span></a></address>
-                        <footer class="project-feed__item__status"><span class="entry">스크랩 138&nbsp;</span><span
-                                class="entry">조회 6,329</span></footer>
-                    </article>
-                </div>
-                <!-- 2 -->
-                <div class="col-12 col-md-4">
-                    <article class="project-feed__item"><a class="project-feed__item__link"
-                            href="/projects/139471/detail?affect_type=ProjectSelfIndex&amp;affect_id=2"></a>
-                        <div class="project-feed__item__image"><img class="image" alt=""
-                                src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168165298812619778.JPG?gif=1&amp;w=480&amp;h=320&amp;c=c&amp;q=80&amp;webp=1"
-                                srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168165298812619778.JPG?gif=1&amp;w=640&amp;h=427&amp;c=c&amp;q=80&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168165298812619778.JPG?gif=1&amp;w=850&amp;h=567&amp;c=c&amp;q=80&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168165298812619778.JPG?gif=1&amp;w=1280&amp;h=854&amp;c=c&amp;q=80&amp;webp=1 3x">
-                        </div>
-                        <h1 class="project-feed__item__title">따뜻함 속 생기발랄 포인트! 25평 신혼집</h1>
-                        <address class="project-feed__item__writer-wrap"><a class="project-feed__item__writer"
-                                href="/users/17435675?affect_type=ProjectSelfIndex&amp;affect_id=2"><img
-                                    class="project-feed__item__writer__image" alt=""
-                                    src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/164733538598413763.jpeg?gif=1&amp;w=36&amp;h=36&amp;c=c&amp;webp=1"
-                                    srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/164733538598413763.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/164733538598413763.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/164733538598413763.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c&amp;webp=1 3x"><span
-                                    class="project-feed__item__writer__name">코지뚜뚜</span></a></address>
-                        <footer class="project-feed__item__status"><span class="entry">스크랩 43&nbsp;</span><span
-                                class="entry">조회 3,050</span></footer>
-                    </article>
-                </div>
-                <!-- 무한 스크롤 > -->
+                <ul class="filter-bar__tag-list"></ul>
             </div>
         </div>
-    </div>
-</body>
+        <!--//filter  -->
 
+        <div class="project-feed_count">
+            <!--게시물 카운팅-->"전체" 8,544
+        </div>
+        <!-- 목록 한줄 -->
+        <div class="virtualized-list row"
+             style="padding-top: 0px; padding-bottom: 0px; transform: translateY(0px);">
+            <div class="col-12 col-md-4">
+                <article class="project-feed__item"><a class="project-feed__item__link"
+                                                       href="/projects/139565/detail?affect_type=ProjectSelfIndex&amp;affect_id=0"></a>
+                    <div class="project-feed__item__image"><img class="image" alt=""
+                                                                src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=480&amp;h=320&amp;c=c&amp;q=80&amp;webp=1"
+                                                                srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=640&amp;h=427&amp;c=c&amp;q=80&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=850&amp;h=567&amp;c=c&amp;q=80&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=1280&amp;h=854&amp;c=c&amp;q=80&amp;webp=1 3x">
+                    </div>
+                    <h1 class="project-feed__item__title">버려진 시골 마을의 맨끝집을 영감의 공간으로 바꾸다🏡</h1>
+                    <address class="project-feed__item__writer-wrap"><a class="project-feed__item__writer"
+                                                                        href="/users/11035696?affect_type=ProjectSelfIndex&amp;affect_id=0"><img
+                            class="project-feed__item__writer__image" alt=""
+                            src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=36&amp;h=36&amp;c=c&amp;webp=1"
+                            srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c&amp;webp=1 3x"><span
+                            class="project-feed__item__writer__name">맨끝집</span></a></address>
+                    <footer class="project-feed__item__status"><span class="entry">스크랩 187&nbsp;</span><span
+                            class="entry">조회 4,124</span></footer>
+                </article>
+            </div>
+            <div class="col-12 col-md-4">
+                <article class="project-feed__item"><a class="project-feed__item__link"
+                                                       href="/projects/139565/detail?affect_type=ProjectSelfIndex&amp;affect_id=0"></a>
+                    <div class="project-feed__item__image"><img class="image" alt=""
+                                                                src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=480&amp;h=320&amp;c=c&amp;q=80&amp;webp=1"
+                                                                srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=640&amp;h=427&amp;c=c&amp;q=80&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=850&amp;h=567&amp;c=c&amp;q=80&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=1280&amp;h=854&amp;c=c&amp;q=80&amp;webp=1 3x">
+                    </div>
+                    <h1 class="project-feed__item__title">버려진 시골 마을의 맨끝집을 영감의 공간으로 바꾸다🏡</h1>
+                    <address class="project-feed__item__writer-wrap"><a class="project-feed__item__writer"
+                                                                        href="/users/11035696?affect_type=ProjectSelfIndex&amp;affect_id=0"><img
+                            class="project-feed__item__writer__image" alt=""
+                            src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=36&amp;h=36&amp;c=c&amp;webp=1"
+                            srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c&amp;webp=1 3x"><span
+                            class="project-feed__item__writer__name">맨끝집</span></a></address>
+                    <footer class="project-feed__item__status"><span class="entry">스크랩 187&nbsp;</span><span
+                            class="entry">조회 4,124</span></footer>
+                </article>
+            </div>
+            <div class="col-12 col-md-4">
+                <article class="project-feed__item"><a class="project-feed__item__link"
+                                                       href="/projects/139565/detail?affect_type=ProjectSelfIndex&amp;affect_id=0"></a>
+                    <div class="project-feed__item__image"><img class="image" alt=""
+                                                                src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=480&amp;h=320&amp;c=c&amp;q=80&amp;webp=1"
+                                                                srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=640&amp;h=427&amp;c=c&amp;q=80&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=850&amp;h=567&amp;c=c&amp;q=80&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=1280&amp;h=854&amp;c=c&amp;q=80&amp;webp=1 3x">
+                    </div>
+                    <h1 class="project-feed__item__title">버려진 시골 마을의 맨끝집을 영감의 공간으로 바꾸다🏡</h1>
+                    <address class="project-feed__item__writer-wrap"><a class="project-feed__item__writer"
+                                                                        href="/users/11035696?affect_type=ProjectSelfIndex&amp;affect_id=0"><img
+                            class="project-feed__item__writer__image" alt=""
+                            src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=36&amp;h=36&amp;c=c&amp;webp=1"
+                            srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c&amp;webp=1 3x"><span
+                            class="project-feed__item__writer__name">맨끝집</span></a></address>
+                    <footer class="project-feed__item__status"><span class="entry">스크랩 187&nbsp;</span><span
+                            class="entry">조회 4,124</span></footer>
+                </article>
+            </div>
+            <div class="col-12 col-md-4">
+                <article class="project-feed__item"><a class="project-feed__item__link"
+                                                       href="/projects/139565/detail?affect_type=ProjectSelfIndex&amp;affect_id=0"></a>
+                    <div class="project-feed__item__image"><img class="image" alt=""
+                                                                src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=480&amp;h=320&amp;c=c&amp;q=80&amp;webp=1"
+                                                                srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=640&amp;h=427&amp;c=c&amp;q=80&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=850&amp;h=567&amp;c=c&amp;q=80&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=1280&amp;h=854&amp;c=c&amp;q=80&amp;webp=1 3x">
+                    </div>
+                    <h1 class="project-feed__item__title">버려진 시골 마을의 맨끝집을 영감의 공간으로 바꾸다🏡</h1>
+                    <address class="project-feed__item__writer-wrap"><a class="project-feed__item__writer"
+                                                                        href="/users/11035696?affect_type=ProjectSelfIndex&amp;affect_id=0"><img
+                            class="project-feed__item__writer__image" alt=""
+                            src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=36&amp;h=36&amp;c=c&amp;webp=1"
+                            srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c&amp;webp=1 3x"><span
+                            class="project-feed__item__writer__name">맨끝집</span></a></address>
+                    <footer class="project-feed__item__status"><span class="entry">스크랩 187&nbsp;</span><span
+                            class="entry">조회 4,124</span></footer>
+                </article>
+            </div>
+            <div class="col-12 col-md-4">
+                <article class="project-feed__item"><a class="project-feed__item__link"
+                                                       href="/projects/139565/detail?affect_type=ProjectSelfIndex&amp;affect_id=0"></a>
+                    <div class="project-feed__item__image"><img class="image" alt=""
+                                                                src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=480&amp;h=320&amp;c=c&amp;q=80&amp;webp=1"
+                                                                srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=640&amp;h=427&amp;c=c&amp;q=80&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=850&amp;h=567&amp;c=c&amp;q=80&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=1280&amp;h=854&amp;c=c&amp;q=80&amp;webp=1 3x">
+                    </div>
+                    <h1 class="project-feed__item__title">버려진 시골 마을의 맨끝집을 영감의 공간으로 바꾸다🏡</h1>
+                    <address class="project-feed__item__writer-wrap"><a class="project-feed__item__writer"
+                                                                        href="/users/11035696?affect_type=ProjectSelfIndex&amp;affect_id=0"><img
+                            class="project-feed__item__writer__image" alt=""
+                            src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=36&amp;h=36&amp;c=c&amp;webp=1"
+                            srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c&amp;webp=1 3x"><span
+                            class="project-feed__item__writer__name">맨끝집</span></a></address>
+                    <footer class="project-feed__item__status"><span class="entry">스크랩 187&nbsp;</span><span
+                            class="entry">조회 4,124</span></footer>
+                </article>
+            </div>
+            <div class="col-12 col-md-4">
+                <article class="project-feed__item"><a class="project-feed__item__link"
+                                                       href="/projects/139565/detail?affect_type=ProjectSelfIndex&amp;affect_id=0"></a>
+                    <div class="project-feed__item__image"><img class="image" alt=""
+                                                                src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=480&amp;h=320&amp;c=c&amp;q=80&amp;webp=1"
+                                                                srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=640&amp;h=427&amp;c=c&amp;q=80&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=850&amp;h=567&amp;c=c&amp;q=80&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=1280&amp;h=854&amp;c=c&amp;q=80&amp;webp=1 3x">
+                    </div>
+                    <h1 class="project-feed__item__title">버려진 시골 마을의 맨끝집을 영감의 공간으로 바꾸다🏡</h1>
+                    <address class="project-feed__item__writer-wrap"><a class="project-feed__item__writer"
+                                                                        href="/users/11035696?affect_type=ProjectSelfIndex&amp;affect_id=0"><img
+                            class="project-feed__item__writer__image" alt=""
+                            src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=36&amp;h=36&amp;c=c&amp;webp=1"
+                            srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c&amp;webp=1 3x"><span
+                            class="project-feed__item__writer__name">맨끝집</span></a></address>
+                    <footer class="project-feed__item__status"><span class="entry">스크랩 187&nbsp;</span><span
+                            class="entry">조회 4,124</span></footer>
+                </article>
+            </div>
+            <div class="col-12 col-md-4">
+                <article class="project-feed__item"><a class="project-feed__item__link"
+                                                       href="/projects/139565/detail?affect_type=ProjectSelfIndex&amp;affect_id=0"></a>
+                    <div class="project-feed__item__image"><img class="image" alt=""
+                                                                src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=480&amp;h=320&amp;c=c&amp;q=80&amp;webp=1"
+                                                                srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=640&amp;h=427&amp;c=c&amp;q=80&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=850&amp;h=567&amp;c=c&amp;q=80&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=1280&amp;h=854&amp;c=c&amp;q=80&amp;webp=1 3x">
+                    </div>
+                    <h1 class="project-feed__item__title">버려진 시골 마을의 맨끝집을 영감의 공간으로 바꾸다🏡</h1>
+                    <address class="project-feed__item__writer-wrap"><a class="project-feed__item__writer"
+                                                                        href="/users/11035696?affect_type=ProjectSelfIndex&amp;affect_id=0"><img
+                            class="project-feed__item__writer__image" alt=""
+                            src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=36&amp;h=36&amp;c=c&amp;webp=1"
+                            srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c&amp;webp=1 3x"><span
+                            class="project-feed__item__writer__name">맨끝집</span></a></address>
+                    <footer class="project-feed__item__status"><span class="entry">스크랩 187&nbsp;</span><span
+                            class="entry">조회 4,124</span></footer>
+                </article>
+            </div>
+            <div class="col-12 col-md-4">
+                <article class="project-feed__item"><a class="project-feed__item__link"
+                                                       href="/projects/139565/detail?affect_type=ProjectSelfIndex&amp;affect_id=0"></a>
+                    <div class="project-feed__item__image"><img class="image" alt=""
+                                                                src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=480&amp;h=320&amp;c=c&amp;q=80&amp;webp=1"
+                                                                srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=640&amp;h=427&amp;c=c&amp;q=80&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=850&amp;h=567&amp;c=c&amp;q=80&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168231942805918116.jpg?gif=1&amp;w=1280&amp;h=854&amp;c=c&amp;q=80&amp;webp=1 3x">
+                    </div>
+                    <h1 class="project-feed__item__title">버려진 시골 마을의 맨끝집을 영감의 공간으로 바꾸다🏡</h1>
+                    <address class="project-feed__item__writer-wrap"><a class="project-feed__item__writer"
+                                                                        href="/users/11035696?affect_type=ProjectSelfIndex&amp;affect_id=0"><img
+                            class="project-feed__item__writer__image" alt=""
+                            src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=36&amp;h=36&amp;c=c&amp;webp=1"
+                            srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168181396949117439.jpeg?gif=1&amp;w=144&amp;h=144&amp;c=c&amp;webp=1 3x"><span
+                            class="project-feed__item__writer__name">맨끝집</span></a></address>
+                    <footer class="project-feed__item__status"><span class="entry">스크랩 187&nbsp;</span><span
+                            class="entry">조회 4,124</span></footer>
+                </article>
+            </div>
+            <!-- 무한 스크롤 > -->
+        </div>
+    </div>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $list = $('li.filter-bar__control-list__item');
+    $list.on("click", function () {
+        $list.removeClass('liactive');
+        $list.children().children().css("color", "#757575")
+        $(this).addClass('liactive');
+        $(this).children().children().css(
+            "color", "#69c085"
+        )
+    });
+
+</script>
 </html>
