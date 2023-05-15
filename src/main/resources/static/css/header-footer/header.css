@@ -113,7 +113,7 @@
 
 @media (min-width: 1024px) {
     .css-48o8iw {
-        margin-right: 35px;
+        margin-right: 20px;
     }
 }
 .css-loslz5 {
@@ -454,11 +454,15 @@
     box-sizing: border-box;
     text-align: center;
     color: #FFFFFF;
-    background-color: #35C5F0;
+    background-color: #7aab9a;
     outline: none;
     overflow: hidden;
 }
-
+@media (min-width: 768px) {
+    .css-duxp2y:hover, .css-duxp2y:active {
+        background-color: #3b7661;
+    }
+}
 .css-cdruys {
     vertical-align: middle;
     white-space: nowrap;
@@ -495,5 +499,55 @@
 
     .css-1scjy81:hover, .css-1scjy81:active {
         color: #7aab9a;
+    }
+}
+
+
+.css-y2j1wi {
+    position: relative;
+    padding: 8px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(218, 221, 224);
+    border-radius: 6px;
+    box-shadow: rgba(63, 71, 77, 0.2) 0px 4px 10px 0px;
+}
+.css-1n4nww {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 15px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 2px;
+    transition: background-color 0.1s ease 0s;
+    word-break: keep-all;
+    white-space: nowrap;
+    font-size: 15px;
+    line-height: 0;
+    outline: none;
+}
+.css-bjn8wh {
+    position: relative;
+}
+.css-1qhmto6 {
+    margin-left: 12px;
+}
+
+.css-1w2j28v {
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 21px;
+    color: rgb(47, 52, 56);
+}
+
+.css-n1vjup {
+    margin: 4px 0px 0px;
+    font-size: 12px;
+    line-height: 16px;
+    color: rgb(130, 140, 148);
+}
+
+@media (min-width: 768px) {
+    .css-1n4nww:hover, .css-1n4nww:active {
+        background-color: rgb(247, 249, 250);
     }
 }

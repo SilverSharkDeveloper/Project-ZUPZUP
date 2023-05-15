@@ -19,7 +19,7 @@
         </div>
         <div class="title">
             <div>
-                <span class="ChangeTitle">상품 등록</span>
+                <span class="ChangeTitle">플로깅 신청서</span>
             </div>
             <span><small>관리자모드</small></span>
         </div>
@@ -50,80 +50,75 @@
             <div class="content-wrap">
 
                 <!-- [S] 공지사항 등록 -->
-                <form action="./product.html" method="post" class="submit-form">
+                <form action="./floging.html" method="post" class="estimate-form">
                     <div class="con-write-wrap">
                         <div class="notice-write">
-                            <div class="write-title">상품명</div>
+                            <div class="write-title">플로깅 제목</div>
                             <div class="write-sec">
-                                <input class="write-text write-input" type="text" placeholder="상품명을 적어주세요.">
+                                <input class="write-text write-input" type="text" readonly>
                             </div>
                         </div>
                         <div class="notice-write">
-                            <div class="write-title">상품 설명</div>
+                            <div class="write-title">주최자</div>
                             <div class="write-sec">
-                                <textarea style="height: 120px;" class="write-text write-notice" type="text" placeholder="상품 설명을 적어주세요."></textarea>
+                                <input class="write-text write-input" type="text" readonly>
                             </div>
                         </div>
                         <div class="notice-write">
-                            <div class="select-boxes-title">지역,카테고리</div>
+                            <div class="write-title">플로깅 내용</div>
                             <div class="write-sec">
-                                <select style=" margin-right: 10px;">
-                                    <option>전체</option>
-                                    <option>지역</option>
-                                </select>
-                                <select>
-                                    <option>전체</option>
-                                    <option>카테고리</option>
-                                </select>
+                                <textarea style="height: 120px;" class="write-text write-notice" type="text" readonly></textarea>
                             </div>
                         </div>
                         <div class="notice-write">
-                            <div class="write-title">사용 가능처</div>
+                            <div class="write-title">주최 날짜</div>
                             <div class="write-sec">
-                                <input class="write-text write-input" type="text" placeholder="사용 가능처를 적어주세요.">
+                                <input class="write-text write-input" type="text" readonly>
                             </div>
                         </div>
                         <div class="notice-write">
-                            <div class="write-title">수량(숫자만)</div>
+                            <div class="write-title">시작위치~종료위치</div>
                             <div class="write-sec">
-                                <input class="write-text write-input" type="number" placeholder="수량을 적어주세요.">
+                                <input class="write-text write-input" type="text" readonly>
+                            </div>
+                        </div>
+                        <div class="notice-write">
+                            <div class="write-title">최대 인원</div>
+                            <div class="write-sec">
+                                <input class="write-text write-input" type="text" readonly>
+                            </div>
+                        </div>
+                        <div class="notice-write">
+                            <div class="write-title">예상 소요 시간</div>
+                            <div class="write-sec">
+                                <input class="write-text write-input" type="text" readonly>
+                            </div>
+                        </div>
+                        <div class="notice-write">
+                            <div class="write-title input-title" style="color : green; ">보상갯수</div>
+                            <div class="write-sec">
+                                <input class="write-text write-input inputs" type="number" placeholder="플로깅 완료시 주어질 보상 갯수를 적어주세요" >
                             </div>
                         </div>
 
 
                         <div class="notice-write">
-                            <div class="write-title" >가격(숫자만)</div>
+                            <div class="write-title input-title" style="color :red;">신청 거부 사유</div>
                             <div class="write-sec">
-                                <input class="write-text write-input " type="number" placeholder="가격을 적어주세요.">
+                                <textarea style="height: 70px;" class="write-text write-notice inputs" type="text" placeholder="플로깅 거부 사유를 적어주세요"></textarea>
                             </div>
                         </div>
 
 
-
-
-                        <div class="notice-write">
-                            <div class="representing-title">대표사진</div>
-                            <div class="write-sec notice-img-sec">
-                                <div class="notice-images-list">
-                                    <div class="notice-img thum-img"></div>
-                                    <div class="notice-img">
-                                        <div class="cancel">X</div>
-                                    </div>
-                                </div>
-                                <label for="attach">
-                                    <div class="search-notice-img">찾아보기</div>
-                                </label>
-                                <input type="file" class="file" id="attach" style="display: none;" name= "upload" >
-                            </div>
-                        </div>
                     </div>
                     <!-- [E] 공지사항 등록 -->
 
 
                     <!-- 작성하기 btn -->
                     <div class="write-btn-wrap">
-                        <button type="button" class="btn btn-list"><a href="./product.html">취소 하기</a></button>
-                        <button type="button" class="btn btn-write">상품 등록</button>
+                        <button type="button" class="btn btn-list"><a href="./floging.html">플로깅 목록</a></button>
+                        <button type="button" class="btn btn-write reject">신청 거부</button>
+                        <button type="button" class="btn btn-write permit">신청 수락</button>
                     </div>
                 </form>
 
@@ -142,5 +137,5 @@
 </body>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="../../static/js/admin/side-bar.js"></script>
-<script src="../../static/js/admin/product-form.js"></script>
+<script src="../../static/js/admin/estimate.js"></script>
 </html>

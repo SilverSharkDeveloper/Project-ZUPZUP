@@ -212,8 +212,27 @@ ul {
    word-break:break-all;
    overflow:auto;
 }
+.select-boxes-title, .representing-title{
 
+    display: block;
+    padding: 10px;
+    width: 10%;
+    text-align: center;
+}
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.permit{
+    color: green;
+}
+
+.reject{
+    color: red;
+}
 
 .con-write-wrap .write-sec .write-input {
    height: 100%;
