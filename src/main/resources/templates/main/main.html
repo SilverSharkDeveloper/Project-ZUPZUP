@@ -86,29 +86,29 @@
     <div class="css-1yqrra9">
         <div class="css-1702gi6 ez4mxhy0">
             <div class="css-2qd0l8 e1387oiq2">
-                <a href="/store?affect_type=Home&amp;affect_id=0"><img
-                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/shortcut/home_feed_shortcut_sets/167262690767101882.png?w=144"
-                        srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/shortcut/home_feed_shortcut_sets/167262690767101882.png?w=144 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/shortcut/home_feed_shortcut_sets/167262690767101882.png?w=180 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/shortcut/home_feed_shortcut_sets/167262690767101882.png?w=256 3x"
-                        class="e1387oiq1 css-1511w17"><span class="css-xd55zv e1387oiq0">팔로잉</span></a></div>
-            <div class="css-2qd0l8 e1387oiq2"><img
-                    src="https://image.ohou.se/i/bucketplace-v2-development/uploads/shortcut/home_feed_shortcut_sets/168347149250905476.png?w=144"
-                    srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/shortcut/home_feed_shortcut_sets/168347149250905476.png?w=144 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/shortcut/home_feed_shortcut_sets/168347149250905476.png?w=180 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/shortcut/home_feed_shortcut_sets/168347149250905476.png?w=256 3x"
-                    class="e1387oiq1 css-1511w17"><span class="css-xd55zv e1387oiq0">플로깅 하러가기</span></a></div>
-            <div class="css-2qd0l8 e1387oiq2"><img
-                    src="https://image.ohou.se/i/bucketplace-v2-development/uploads/shortcut/home_feed_shortcut_sets/167198007152582471.png?w=144"
-                    srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/shortcut/home_feed_shortcut_sets/167198007152582471.png?w=144 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/shortcut/home_feed_shortcut_sets/167198007152582471.png?w=180 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/shortcut/home_feed_shortcut_sets/167198007152582471.png?w=256 3x"
-                    class="e1387oiq1 css-1511w17"><span class="css-xd55zv e1387oiq0">floc collect</span></a></div>
-            <div class="css-2qd0l8 e1387oiq2"><a
-                    href="https://contents.ohou.se/lifestyles?subjectId=31&amp;affect_type=Home&amp;affect_id=0"><img
-                    src="https://image.ohou.se/i/bucketplace-v2-development/uploads/shortcut/home_feed_shortcut_sets/167505411234148010.png?w=144"
-                    srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/shortcut/home_feed_shortcut_sets/167505411234148010.png?w=144 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/shortcut/home_feed_shortcut_sets/167505411234148010.png?w=180 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/shortcut/home_feed_shortcut_sets/167505411234148010.png?w=256 3x"
-                    class="e1387oiq1 css-1511w17"><span class="css-xd55zv e1387oiq0">floc 휴지롤</span></a></div>
+                <a href="#">
+                <img src="../../static/image/follow.png" class="e1387oiq1 css-1511w17 cate-img">
+                <span class="css-xd55zv e1387oiq0">팔로잉</span></a></div>
+            <div class="css-2qd0l8 e1387oiq2">
+                <a href="">
+                <img src="../../static/image/run.png" class="e1387oiq1 css-1511w17 cate-img">
+                <span class="css-xd55zv e1387oiq0">플로깅 하러가기</span></a></div>
+            <div class="css-2qd0l8 e1387oiq2"><img src="../../static/image/trash.png"
+                    class="e1387oiq1 css-1511w17 cate-img">
+                <span class="css-xd55zv e1387oiq0" id="cate-togle">floc collect</span></a></div>
+            <div class="css-2qd0l8 e1387oiq2" id="cate-togle1"><img src="../../static/image/huge.png" class="e1387oiq1 css-1511w17 cate-img">
+                <span class="css-xd55zv e1387oiq0" >floc 휴지롤</span></a></div>
+
 
         </div>
     </div>
+<!--   열리는 div-->
     <div class="category-1">
         <span class="collect-1">floc collect : 총 10020Kg</span>
         <img class="img1" src="../../static/image/banner1.png">
+    </div>
+    <div class="category-2">
+        <span class="collect-2"><img class="cate-img" src="../../static/image/huge.png">floc가 모은 휴지롤 : 총 100개</span>
     </div>
     <!-- /카테고리 -->
 <!--    상품목록-->
@@ -496,11 +496,24 @@
         $('.e16ehcrs2').css("opacity", 0);
     })
 
-
     //카테고리 js
-    $('.css-xd55zv').on('click',() =>{
+    $('#cate-togle').on('click',function(e){
         $('.category-1').toggle();
+
+        if(e.target.id != "cate-togle"){
+            $('.category-1').hide();
+        }
     });
+    $('#cate-togle1').on('click',function(e){
+        $('.category-2').toggle();
+
+        if(e.target.id != "cate-togle1"){
+            $('.category-2').hide();
+        }
+    });
+
+
+
 </script>
 
 </html>
