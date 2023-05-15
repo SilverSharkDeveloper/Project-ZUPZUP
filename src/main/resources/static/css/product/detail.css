@@ -118,7 +118,7 @@ html {
     color: #424242;
     background: #fff;
 }
-.css-b3oum6 {
+.wrap {
     height: 100%;
 }
 .layout {
@@ -727,4 +727,40 @@ footer, header, main {
     flex-wrap: wrap;
     -webkit-box-pack: justify;
     justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+    .production-selling-table {
+        font-size: 13px;
+    }
+}
+    .production-selling-table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin-top: 28px;
+    }
+
+.production-selling-table tr {
+    border: none;
+    border-bottom: 1px solid #ededed;
+}
+.production-selling-table th {
+    width: 18ch;
+    color: #757575;
+}
+address, caption, cite, code, dfn, em, th, var {
+    font-style: normal;
+    font-weight: 400;
+}
+
+.production-selling-table td, .production-selling-table th {
+    padding: 12px 6px;
+    text-align: left;
+    line-height: 1.38;
+}
+.production-selling-table td {
+    color: #424242;
+    white-space: pre-line;
+    word-break: break-all;
 }
