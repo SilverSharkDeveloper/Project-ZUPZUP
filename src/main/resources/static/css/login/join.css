@@ -304,8 +304,8 @@ button, input[type=email], input[type=file], input[type=number], input[type=pass
 }
 
 ._3AsCW {
-    background-color: #35c5f0;
-    border-color: #35c5f0;
+    background-color: #7aab9a;
+    border-color: #7aab9a;
     color: #fff;
 }
 
@@ -445,6 +445,11 @@ _3AsCW._36MJM, ._3AsCW:disabled {
     border-image: initial;
     border-radius: 4px;
     transition: border-color 0.1s ease 0s, background-color 0.1s ease 0s;
+}
+
+._3ASDR.focus-visible, html:not(.js-focus-visible) ._3ASDR:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(53,197,240,.3);
 }
 
 .css-oyhedo {
@@ -738,8 +743,8 @@ css-1jxc35f::before {
 
 @media (-ms-high-contrast:active), (hover: hover), (-ms-high-contrast:none) {
     ._3AsCW.focus-visible, ._3AsCW:hover, html:not(.js-focus-visible) ._3AsCW:focus {
-        border-color: #09addb;
-        background-color: #09addb;
+        border-color: #3b7661;
+        background-color: #3b7661;
     }
 }
 
@@ -766,4 +771,8 @@ css-1jxc35f::before {
     width: 100%;
     height: 45px;
     padding: 0px;
+}
+
+.open {
+    display: none;
 }

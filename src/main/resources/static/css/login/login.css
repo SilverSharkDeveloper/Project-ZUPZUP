@@ -159,6 +159,11 @@ a {
     border: 1px solid #f77;
 }
 
+._2Zb2k.focus-visible, html:not(.js-focus-visible) ._2Zb2k:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255,119,119,.3);
+}
+
 [class^="_"], [class*=" _"] {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
