@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var $local = $("div.local");
+    var $local = $("li.ecxk4434");
     var $category = $("div.category-item");
     console.log($local.length);
     // 클릭 이벤트를 바인딩
@@ -20,7 +20,7 @@ $(document).ready(function() {
 
     var $transimage = $("article.production-item");
 
-    $transimage.on("mouseover", function () {
+    $transimage.on("over", function () {
         event.preventDefault();
         console.log("이미지 들어옴")
         console.log($(this).find('.image').toString());

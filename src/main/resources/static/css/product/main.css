@@ -225,16 +225,18 @@ a {
     background-repeat: no-repeat;
     background-position: left;
 }*/
-.local:hover {
+.css-1ks8qr6:hover {
     background-image: url("../../image/product/location_map_marker_icon.png");
-    background-size: 16px;
+    background-size: 20px;
     background-repeat: no-repeat;
     color: #69c085;
+    padding-left: 20px;
 }
 .localactive {
     background-image: url("../../image/product/location_map_marker_icon.png");
-    background-size: 16px;
+    background-size: 20px;
     background-repeat: no-repeat;
+    padding-left: 20px;
     color: #69c085;
 }
 
@@ -385,7 +387,7 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 20px;
     background-color: #69c085;
 }
-.category-item:hover {
+.categoryactive {
     border-radius: 20px;
     background-color: #69c085;
 }
