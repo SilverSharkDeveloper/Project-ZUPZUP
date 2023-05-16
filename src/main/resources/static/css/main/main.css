@@ -941,6 +941,20 @@ fieldset, img {
     position:relative
     /*background-image: url("../../image/banner.png");*/
 }
+.category-2{
+    display: none;
+    height: 200px;
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
+    position:relative;
+    /*background-color : rgba(187, 187, 187, 0.91);*/
+    /*background-image: url("../../image/banner.png");*/
+}
+.cate-img{
+    height: 50px;
+    width: 60px;
+}
 .img1{
     background-size: cover;
 }

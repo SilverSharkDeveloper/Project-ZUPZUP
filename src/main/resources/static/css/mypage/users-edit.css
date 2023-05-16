@@ -226,7 +226,7 @@ option {
 }
 
 .form-check .form-check-label .form-radio:not(:disabled):checked+.radio-img, .form-check>.form-radio-label .form-radio:not(:disabled):checked+.radio-img, .form-radio .form-check-label .form-radio:not(:disabled):checked+.radio-img, .form-radio>.form-radio-label .form-radio:not(:disabled):checked+.radio-img {
-    border-color: #35c5f0;
+    border-color: #3b7661;
     overflow: hidden;
 }
 
@@ -263,7 +263,7 @@ option {
     height: 0;
     border-radius: 11px;
     transition: .2s ease;
-    border: 0 solid #35c5f0;
+    border: 0 solid #3b7661;
 }
 
 .edit-user-info__form-item__field--profile, .edit-user-info__form-item__field--profile .image-single-input__entry__button {
@@ -312,13 +312,13 @@ option {
 
 
 .button--color-blue:active, .button--color-blue:hover {
-    border-color: #09addb;
-    background-color: #09addb;
+    border-color: #3b7661;
+    background-color: #3b7661;
 }
 
 .button--color-blue {
-    background-color: #35c5f0;
-    border-color: #35c5f0;
+    background-color: #7aab9a;
+    border-color: #7aab9a;
     color: #fff;
 }
 
@@ -326,4 +326,10 @@ option {
     padding: 11px 10px;
     font-size: 17px;
     line-height: 26px;
+}
+
+
+.form-control.focus-visible:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 213, 161, 0.21);
 }
