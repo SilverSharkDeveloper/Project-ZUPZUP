@@ -764,3 +764,41 @@ address, caption, cite, code, dfn, em, th, var {
     white-space: pre-line;
     word-break: break-all;
 }
+.production-selling-header__action {
+
+}
+.production-selling-header__action__button {
+    /*margin: 0 3px;*/
+    padding: 5px 4px 0;
+    background: none;
+    border: none;
+    text-align: center;
+    transition: opacity .1s;
+    line-height: 0;
+    z-index: 2;
+    vertical-align: top;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0 -6px;
+}
+@media (min-width: 1024px) {
+    .production-selling-header__action__button-scrap {
+        display: inline-block;
+    }
+}
+.production-selling-header__action__button>.icon--stroke {
+    fill: transparent;
+    stroke: #424242;
+    stroke-width: 1px;
+    transition: fill .1s,stroke .1s;
+}
+@media (min-width: 768px) {
+    .production-selling-header__action__button:active, .production-selling-header__action__button:hover {
+        opacity: .5;
+    }
+}
+
+.production-selling-header__action__button:active{
+    fill: #69c085;
+}
