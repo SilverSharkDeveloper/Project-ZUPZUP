@@ -11,9 +11,9 @@ searchInput.addEventListener("blur", evt =>{
 
 
 $(".write-btn").on("click",e=>{
-    $(".writes").toggle();
+    $(".writes").slideToggle();
 })
 
 $(".mypage-btn").on("click",e=>{
-    $(".mypage").toggle();
+    $(".mypage").slideToggle();
 })

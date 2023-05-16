@@ -92,7 +92,7 @@
 }
 
 
-html {
+html,textarea {
     font-family: OhouseSans,sans-serif;
 }
 .layout, .page, body, html {
