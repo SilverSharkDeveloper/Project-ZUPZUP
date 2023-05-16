@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>제품 상세정보 페이지</title>
+    <link rel="stylesheet" href="../../static/css/header-footer/header.css">
+    <link rel="stylesheet" href="../../static/css/header-footer/footer.css">
     <link rel="stylesheet" href="../../static/css/product/detail.css">
     <link rel="stylesheet" href="../../static/css/font.css">
 </head>
 <body>
+<header th:replace=""></header>
 <div class="wrap">
     <div class="layout">
         <div class="production-selling">
@@ -46,10 +49,11 @@
                         <div class="production-selling-header">
                             <h1 class="production-selling-header__title">
                                 <p style="margin-bottom: 1rem"
-                                        class="production-selling-header__title__brand-wrap"><a
+                                   class="production-selling-header__title__brand-wrap"><a
                                         class="production-selling-header__title__brand"
                                         href="#">
-                                    헬로우슬립</a>
+                                    <!--사용처-->
+                                    wework</a>
                                     <button class="production-selling-header__action__button production-selling-header__action__button-scrap"
                                             style="border: none; background-color: transparent; color: #6e6e6e; position: absolute; right: 4px;"
                                             type="button">
@@ -60,9 +64,14 @@
                                         </svg>
                                         <span class="count"></span></button>
                                 </p>
-                                <div class="production-selling-header__title__name-wrap">
-                                    [오늘의딜][10%쿠폰] 부드러운 카스테라 항균 옥수수솜 여름/간절기/사계절 차렵이불세트
-
+                                <div class="production-selling-header__content">
+                                    <div class="production-selling-header__price"><span
+                                            class="production-selling-header__price__price-wrap"><span
+                                            class="production-selling-header__price__separator"></span><div
+                                            class="production-selling-header__price__price-value-wrap"><div
+                                            class="production-selling-header__price__price"><span
+                                            class="number">상품명:</span><span
+                                            class="won"><!--상품명--></span></div></div></span></div>
                                 </div>
                             </h1>
                             <div class="production-selling-header__content">
@@ -71,28 +80,56 @@
                                         class="production-selling-header__price__separator"></span><div
                                         class="production-selling-header__price__price-value-wrap"><div
                                         class="production-selling-header__price__price"><span
-                                        class="number">35,900</span><span class="won">원</span></div></div></span></div>
+                                        class="number">지역:</span><span class="won"><!--상품 사용 가능 지역--></span></div></div></span>
+                                </div>
+                            </div>
+                            <div class="production-selling-header__content">
+                                <div class="production-selling-header__price"><span
+                                        class="production-selling-header__price__price-wrap"><span
+                                        class="production-selling-header__price__separator"></span><div
+                                        class="production-selling-header__price__price-value-wrap"><div
+                                        class="production-selling-header__price__price"><span
+                                        class="number">재고:</span><span
+                                        class="won"><!--잔여 상품 수--></span></div></div></span></div>
+                            </div>
+                            <div class="production-selling-header__content">
+                                <div class="production-selling-header__price"><span
+                                        class="production-selling-header__price__price-wrap"><span
+                                        class="production-selling-header__price__separator"></span><div
+                                        class="production-selling-header__price__price-value-wrap"><div
+                                        class="production-selling-header__price__price"><span
+                                        class="number">지역:</span><span
+                                        class="won"><!--상품 사용지역--></span></div></div></span></div>
+                            </div>
+                            <div class="production-selling-header__content">
+                                <div class="production-selling-header__price"><span
+                                        class="production-selling-header__price__price-wrap"><span
+                                        class="production-selling-header__price__separator"></span><div
+                                        class="production-selling-header__price__price-value-wrap"><div
+                                        class="production-selling-header__price__price"><span
+                                        class="number">등록일:</span><span
+                                        class="won"><!--상품 등록일--></span></div></div></span></div>
                             </div>
                             <div class="production-selling-header__info-wrap"></div>
                             <a class="css-1jw8uh0 e3xbt9p7"
                                href="/brands/home?query=%ED%97%AC%EB%A1%9C%EC%9A%B0%EC%8A%AC%EB%A6%BD&amp;affect_type=ProductSaleDetail&amp;affect_id=767440">
                                 <div class="css-gshsra e3xbt9p6">
-                                    <svg width="24" height="24" fill="none" preserveAspectRatio="xMidYMid meet">
+                                    <!--<svg width="24" height="24" fill="none" preserveAspectRatio="xMidYMid meet">
                                         <path d="M3.972 8.694c0-.26.212-.472.472-.472h12.278a.472.472 0 010 .945H4.444a.472.472 0 01-.472-.473z"
                                               fill="#35C5F0"></path>
                                         <path fill-rule="evenodd" clip-rule="evenodd"
                                               d="M17.51 5.5H6.492a1 1 0 00-.93.632l-.99 2.5A1 1 0 005.498 10h13.004a1 1 0 00.927-1.368l-.99-2.5a1 1 0 00-.93-.632zM3.642 8.263a2.002 2.002 0 001.397 2.684V17.5a2.5 2.5 0 002.5 2.5H16.474a2.5 2.5 0 002.487-2.5v-6.553a2.002 2.002 0 001.398-2.684l-.99-2.5a2 2 0 00-1.86-1.263H6.493a2 2 0 00-1.86 1.263l-.99 2.5zM6.04 17.5V11h11.921v6.5a1.5 1.5 0 01-1.487 1.5v-4a2 2 0 00-2-2h-.97a2 2 0 00-2 2v4H7.54a1.5 1.5 0 01-1.5-1.5zm6.464 1.5h2.97v-4a1 1 0 00-1-1h-.97a1 1 0 00-1 1v1h.847a.5.5 0 110 1h-.847v2zM8 13h1.5v1.5H8V13zm-1 0a1 1 0 011-1h1.5a1 1 0 011 1v1.5a1 1 0 01-1 1H8a1 1 0 01-1-1V13z"
                                               fill="#3F474D"></path>
-                                    </svg>
-                                    <div class="css-158icaa e3xbt9p5"><span class="css-16kia55 e3xbt9p4">헬로우슬립</span>
-                                    </div>
+                                    </svg>-->
+                                    <!--<div class="css-158icaa e3xbt9p5"><span class="css-16kia55 e3xbt9p4">헬로우슬립</span>
+                                    </div>-->
                                 </div>
-                                <div class="css-xq185e e3xbt9p0"><span>브랜드</span>
-                                    <svg width="14" height="14" fill="none" preserveAspectRatio="xMidYMid meet">
-                                        <path d="M4.083 11.375L8.312 7 4.083 2.625l.803-.875L9.916 7l-5.03 5.25-.803-.875z"
-                                              fill="#828C94"></path>
-                                    </svg>
-                                </div>
+                                <!-- <div class="css-xq185e e3xbt9p0"><span>브랜드</span>
+                                     <svg width="14" height="14" fill="none" preserveAspectRatio="xMidYMid meet">
+                                         <path d="M4.083 11.375L8.312 7 4.083 2.625l.803-.875L9.916 7l-5.03 5.25-.803-.875z"
+                                               fill="#828C94"></path>
+                                     </svg>
+                                 </div>-->
                             </a></div>
                         <div class="production-selling-option-form production-selling-overview__option-form"><p
                                 class="css-49v6aj ejhg2ki2"><span class="css-7c0zb9 ejhg2ki1">주문금액</span><span
@@ -255,20 +292,21 @@
         </div>
     </div>
 </div>
+<footer th:replace=""></footer>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
     $bookmark = $("svg.icon--stroke");
     $bookmark.on("click", function () {
-        if($(this).hasClass("check")){
+        if ($(this).hasClass("check")) {
             $(this).removeClass("check");
             $(this).css({
                 "fill": "transparent"
             });
-        }else {
+        } else {
             $(this).addClass("check");
             $(this).css({
-                "fill":"#69c085"
+                "fill": "#69c085"
             });
 
         }
