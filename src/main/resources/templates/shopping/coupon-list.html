@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>상품 목록</title>
+    <link rel="stylesheet" href="../../static/css/header-footer/header.css">
+    <link rel="stylesheet" href="../../static/css/header-footer/footer.css">
     <link rel="stylesheet" href="../../static/css/product/main.css">
     <link rel="stylesheet" href="../../static/css/font.css">
     <style>
@@ -21,6 +23,7 @@
     </style>
 </head>
 <body>
+<header th:replace=""></header>
 <div class="css-b3oum6">
     <div class="layout">
         <div id="store-index" style="text-align: justify-all; font-size: 16px; font-weight: bold">
@@ -77,42 +80,42 @@
                                 href="#">
                             <div class="category-item"><img class="category-item__image"
                                                             src=" ../../static/image/product/cafe.png">
-                                <div class="category-item__title">카페</div>
+                                <div class="category-item__title">음료 교환권</div>
                             </div>
                         </a></div>
                         <div class="category-item-wrap"><a
                                 href="#">
                             <div class="category-item"><img class="category-item__image"
                                                             src="../../static/image/product/spoon.png">
-                                <div class="category-item__title">외식 상품권</div>
+                                <div class="category-item__title">외식 교환권</div>
                             </div>
                         </a></div>
                         <div class="category-item-wrap"><a
                                 href="#">
                             <div class="category-item"><img class="category-item__image"
                                                             src="../../static/image/product/store.png">
-                                <div class="category-item__title">편의점</div>
+                                <div class="category-item__title">여가/생활</div>
                             </div>
                         </a></div>
-                        <div class="category-item-wrap"><a
+                       <!-- <div class="category-item-wrap"><a
                                 href="#">
                             <div class="category-item"><img class="category-item__image"
                                                             src="../../static/image/product/sale.png">
-                                <div class="category-item__title">음...</div>
+                                <div class="category-item__title">뷰티/건강</div>
                             </div>
-                        </a></div>
+                        </a></div>-->
                         <div class="category-item-wrap"><a
                                 href="#">
                             <div class="category-item"><img class="category-item__image"
                                                             src="../../static/image/product/beauty.png">
-                                <div class="category-item__title">뷰티</div>
+                                <div class="category-item__title">뷰티/건강</div>
                             </div>
                         </a></div>
                         <div class="category-item-wrap"><a
                                 href="#">
                             <div class="category-item"><img class="category-item__image"
                                                             src="../../static/image/product/lifestyle.png">
-                                <div class="category-item__title">생활용품</div>
+                                <div class="category-item__title">문화/기념품</div>
                             </div>
                         </a></div>
                     </div>
@@ -1142,6 +1145,7 @@
         </div>
     </div>
 </div>
+<footer th:replace=""></footer>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="../../static/js/product/main.js"></script>
