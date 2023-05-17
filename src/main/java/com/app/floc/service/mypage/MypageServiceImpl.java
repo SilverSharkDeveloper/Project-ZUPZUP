@@ -1,6 +1,5 @@
-package com.app.floc.service.impl;
+package com.app.floc.service.mypage;
 
-import com.app.floc.service.inter.MypageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

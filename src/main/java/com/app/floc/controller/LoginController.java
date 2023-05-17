@@ -1,6 +1,6 @@
 package com.app.floc.controller;
 
-import com.app.floc.service.inter.LoginService;
+import com.app.floc.service.login.LoginService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;

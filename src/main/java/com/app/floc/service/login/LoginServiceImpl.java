@@ -1,7 +1,6 @@
-package com.app.floc.service.impl;
+package com.app.floc.service.login;
 
 
-import com.app.floc.service.inter.LoginService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
