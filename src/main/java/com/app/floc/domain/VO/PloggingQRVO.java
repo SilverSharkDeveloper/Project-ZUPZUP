@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Data
 @Component
 @NoArgsConstructor
-public class PloggindQRCodeVO {
+public class PloggingQRVO {
     private Long id;
     private Long ploggingId;
     private String ploggingQrcodeType;

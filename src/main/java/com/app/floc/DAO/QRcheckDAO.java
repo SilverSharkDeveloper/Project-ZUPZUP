@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @RequiredArgsConstructor
-public class ParticipantQRcheckDAO {
+public class QRcheckDAO {
     private final ParticipantQRcheckMapper participantQRcheckMapper;
 }
