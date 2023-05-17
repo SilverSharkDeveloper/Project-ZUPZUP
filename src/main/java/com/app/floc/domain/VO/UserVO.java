@@ -9,19 +9,18 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 public class UserVO {
     private Long id;
-    private String identification;
-    private String password;
-    private String name;
-    private String phoneNumber;
-    private String nickname;
-    private String birthday;
-    private String introducingMessage;
-    private String status;
-    private String createdDate;
-    private String updatedDate;
-    private String role;
+    private String userIdentification;
+    private String userPassword;
+    private String userName;
+    private String userMickname;
+    private String userIntroducingMessage;
+    private String userStatus;
+    private String userCreatedDate;
+    private String userUpdatedDate;
+    private String userRole;
+    private Long userTissue;
     private String profileImageName;
     private String profileImageOriginalName;
-    private String profileImageSize;
+    private Long profileImageSize;
 
 }

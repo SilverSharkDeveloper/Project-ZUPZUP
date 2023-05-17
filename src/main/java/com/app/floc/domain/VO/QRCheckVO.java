@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Data
 @Component
 @NoArgsConstructor
-public class ParticipantQRCheckVO {
+public class QRCheckVO {
     private Long id;
     private Long ploggingQRCodeId;
     private Long userId;

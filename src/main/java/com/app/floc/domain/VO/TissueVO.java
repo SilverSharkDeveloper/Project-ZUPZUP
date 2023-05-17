@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class TissueVO {
     private Long id;
     private Long userId;
-    private String history;
-    private String createdDate;
-    private Long point;
+    private String tissueHistory;
+    private String tissueCreatedDate;
+    private Long tissuePoint;
 }

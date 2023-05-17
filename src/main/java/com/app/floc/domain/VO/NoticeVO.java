@@ -10,9 +10,12 @@ import org.springframework.stereotype.Component;
 public class NoticeVO {
     private Long id;
     private Long adminId;
-    private String title;
-    private String content;
-    private String createdDate;
-    private String updatedDate;
-    private Long viewedCount;
+    private String noticeTitle;
+    private String noticeContent;
+    private String noticeCreatedDate;
+    private String noticeUpdatedDate;
+    private Long noticeViewedCount;
+    private String noticeImageName;
+    private String noticeImageUuid;
+    private Long noticeImageSize;
 }
