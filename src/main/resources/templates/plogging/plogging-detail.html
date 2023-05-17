@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <title>플로깅 목록 상세보기</title>
     <link rel="stylesheet" href="../../static/css/product/detail.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
-          rel="stylesheet">
+    <link rel="stylesheet" href="../../static/css/font.css">
+
 </head>
 <body>
+<header th:replace=""></header>
 <div class="css-b3oum6">
     <div class="layout">
         <div class="production-selling">
@@ -50,7 +49,16 @@
                             <h1 class="production-selling-header__title"><p
                                     class="production-selling-header__title__brand-wrap"><a
                                     class="production-selling-header__title__brand"
-                                    href="/brands/home?query=%ED%97%AC%EB%A1%9C%EC%9A%B0%EC%8A%AC%EB%A6%BD&amp;affect_type=ProductSaleDetail&amp;affect_id=767440">헬로우슬립</a>
+                                    href="/brands/home?query=%ED%97%AC%EB%A1%9C%EC%9A%B0%EC%8A%AC%EB%A6%BD&amp;affect_type=ProductSaleDetail&amp;affect_id=767440">지리산국립공원</a>
+                                <button class="production-selling-header__action__button production-selling-header__action__button-scrap"
+                                        style="border: none; background-color: transparent; color: #6e6e6e; position: absolute; right: 4px;"
+                                        type="button">
+                                    <svg class="icon--stroke" aria-label="스크랩" width="24" height="24"
+                                         fill="currentColor" stroke="currentColor" stroke-width="0.5"
+                                         viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
+                                        <path d="M11.53 18.54l-8.06 4.31A1 1 0 0 1 2 21.97V3.5A1.5 1.5 0 0 1 3.5 2h17A1.5 1.5 0 0 1 22 3.5v18.47a1 1 0 0 1-1.47.88l-8.06-4.31a1 1 0 0 0-.94 0z"></path>
+                                    </svg>
+                                    <span class="count"></span></button>
                             </p>
                                 <div class="production-selling-header__title__name-wrap">
                                     지리산 국립공원 플로깅
@@ -62,7 +70,61 @@
                                         class="production-selling-header__price__separator"></span><div
                                         class="production-selling-header__price__price-value-wrap"><div
                                         class="production-selling-header__price__price"><span
-                                        class="date">2023.06.02</span><span class="end">마감</span></div></div></span>
+                                        class="date">내용 :</span><span class="end"><!--내용작성란--></span></div></div></span>
+                                </div>
+                            </div>
+                            <div class="production-selling-header__content">
+                                <div class="production-selling-header__price"><span
+                                        class="production-selling-header__price__price-wrap"><span
+                                        class="production-selling-header__price__separator"></span><div
+                                        class="production-selling-header__price__price-value-wrap"><div
+                                        class="production-selling-header__price__price"><span
+                                        class="date">시작지점 : </span><span class="end"></span></div></div></span>
+                                </div>
+                            </div>
+                            <div class="production-selling-header__content">
+                                <div class="production-selling-header__price"><span
+                                        class="production-selling-header__price__price-wrap"><span
+                                        class="production-selling-header__price__separator"></span><div
+                                        class="production-selling-header__price__price-value-wrap"><div
+                                        class="production-selling-header__price__price"><span
+                                        class="date">종료지점 : </span><span class="end"></span></div></div></span>
+                                </div>
+                            </div>
+                            <div class="production-selling-header__content">
+                                <div class="production-selling-header__price"><span
+                                        class="production-selling-header__price__price-wrap"><span
+                                        class="production-selling-header__price__separator"></span><div
+                                        class="production-selling-header__price__price-value-wrap"><div
+                                        class="production-selling-header__price__price"><span
+                                        class="date">모집 시작일</span><span class="end">yy.mm.dd (물결)</span></div></div></span>
+                                </div>
+                            </div>
+                            <div class="production-selling-header__content">
+                                <div class="production-selling-header__price"><span
+                                        class="production-selling-header__price__price-wrap"><span
+                                        class="production-selling-header__price__separator"></span><div
+                                        class="production-selling-header__price__price-value-wrap"><div
+                                        class="production-selling-header__price__price"><span
+                                        class="date">모집 종료일</span><span class="end">yy.mm.dd</span></div></div></span>
+                                </div>
+                            </div>
+                            <div class="production-selling-header__content">
+                                <div class="production-selling-header__price"><span
+                                        class="production-selling-header__price__price-wrap"><span
+                                        class="production-selling-header__price__separator"></span><div
+                                        class="production-selling-header__price__price-value-wrap"><div
+                                        class="production-selling-header__price__price"><span
+                                        class="date">상태 : </span><span class="end"><!--모집중--></span></div></div></span>
+                                </div>
+                            </div>
+                            <div class="production-selling-header__content">
+                                <div class="production-selling-header__price"><span
+                                        class="production-selling-header__price__price-wrap"><span
+                                        class="production-selling-header__price__separator"></span><div
+                                        class="production-selling-header__price__price-value-wrap"><div
+                                        class="production-selling-header__price__price"><span
+                                        class="date">보상</span><span class="end"><!--휴지 몇칸? 몇롤?--></span></div></div></span>
                                 </div>
                             </div>
                             <div class="production-selling-header__info-wrap"></div>
@@ -101,6 +163,23 @@
         </div>
     </div>
 </div>
+<footer th:replace=""></footer>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $bookmark = $("svg.icon--stroke");
+    $bookmark.on("click", function () {
+        if($(this).hasClass("check")){
+            $(this).removeClass("check");
+            $(this).css({
+                "fill": "transparent"
+            });
+        }else {
+            $(this).addClass("check");
+            $(this).css({
+                "fill":"#69c085"
+            });
+        }
+    })
+</script>
 </html>
