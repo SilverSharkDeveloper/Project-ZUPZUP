@@ -11,7 +11,7 @@ public class ReviewReplyVO {
     private Long id;
     private Long reviewId;
     private Long userId;
-    private String content;
-    private String registerDate;
-    private String updatedDate;
+    private String replyContent;
+    private String replyRegisterDate;
+    private String replyUpdatedDate;
 }

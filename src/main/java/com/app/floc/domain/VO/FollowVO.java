@@ -11,5 +11,5 @@ public class FollowVO {
     private Long id;
     private Long followerId;
     private Long followingId;
-    private String startDate;
+    private String followStartDate;
 }

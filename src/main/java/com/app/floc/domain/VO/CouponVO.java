@@ -11,8 +11,10 @@ public class CouponVO {
     private Long id;
     private Long userId;
     private Long productId;
-    private String couponQRCode;
-    private String createdDate;
-    private String usedDate;
-    private String status;
+    private String couponCreatedDate;
+    private String couponUsedDate;
+    private String couponStatus;
+    private String couponQRCodeName;
+    private String couponQRCodeUuid;
+    private Long couponQRCodeSize;
 }

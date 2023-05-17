@@ -11,6 +11,6 @@ public class ReviewImageVO {
     private Long id;
     private Long reviewId;
     private String reviewImageName;
-    private String reviewImageOriginalName;
-    private String reviewImageSize;
+    private String reviewImageUuid;
+    private Long reviewImageSize;
 }

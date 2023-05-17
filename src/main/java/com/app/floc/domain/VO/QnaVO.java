@@ -10,9 +10,9 @@ import org.springframework.stereotype.Component;
 public class QnaVO {
     private Long id;
     private Long userId;
-    private String title;
-    private String content;
-    private String createdDate;
-    private String updatedDate;
-    private String responseStatus;
+    private String qnaTitle;
+    private String qnaContent;
+    private String qnaCreatedDate;
+    private String qnaUpdatedDate;
+    private String qnaResponsedStatus;
 }

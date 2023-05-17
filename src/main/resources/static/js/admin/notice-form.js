@@ -39,8 +39,6 @@ const image_div = document.querySelectorAll(".notice-img");
 const cancel_div = document.querySelector("div.cancel");
 const input_file = document.querySelector(".file");
 
-console.log(image_div);
-console.log(image_div[0]);
 
 cancel_div.addEventListener("click", () => {
     input_file.value = "";
@@ -64,8 +62,7 @@ input_file.addEventListener("change", e => {
     // function(e){} == e => {}
 
     reader.onload = e => {
-        console.log(image_div);
-        console.log(image_div[1]);
+
         image_div[1].style.display = "block";
         image_div[1].style.backgroundImage = `url('${e.target.result}')`
         image_div[0].style.display = "none";

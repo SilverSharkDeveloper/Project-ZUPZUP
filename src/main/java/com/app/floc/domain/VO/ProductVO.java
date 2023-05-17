@@ -13,11 +13,11 @@ public class ProductVO {
     private Long productCost;
     private Long productStock;
     private String productDetail;
-    private String registerDate;
-    private String updatedDate;
-    private String category;
-    private String usedLocation;
+    private String productRregisterDate;
+    private String productUpdatedDate;
+    private String productCategory;
+    private String productUsedLocation;
     private String productImageName;
-    private String ProductImageOriginalName;
-    private String productImageSize;
+    private String ProductImageUuid;
+    private Long productImageSize;
 }
