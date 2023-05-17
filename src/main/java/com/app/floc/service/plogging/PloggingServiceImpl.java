@@ -1,6 +1,6 @@
-package com.app.floc.service.impl;
+package com.app.floc.service.plogging;
 
-import com.app.floc.service.inter.PloggingService;
+import com.app.floc.service.plogging.PloggingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

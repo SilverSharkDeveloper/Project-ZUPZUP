@@ -1,6 +1,6 @@
-package com.app.floc.service.impl;
+package com.app.floc.service.notice;
 
-import com.app.floc.service.inter.NoticeService;
+import com.app.floc.service.notice.NoticeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

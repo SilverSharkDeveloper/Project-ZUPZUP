@@ -1,6 +1,6 @@
 package com.app.floc.controller;
 
-import com.app.floc.service.inter.NoticeService;
+import com.app.floc.service.notice.NoticeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
