@@ -12,7 +12,7 @@ public class UserVO {
     private String userIdentification;
     private String userPassword;
     private String userName;
-    private String userMickname;
+    private String userNickname;
     private String userIntroducingMessage;
     private String userStatus;
     private String userCreatedDate;
