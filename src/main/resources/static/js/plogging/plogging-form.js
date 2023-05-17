@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 //지역
 $(".location-btn").on("click",e=>{
     $(".big-location-box").toggle();
@@ -8,7 +16,7 @@ $(".closeing-location").on("click", e=>{
     $(".location-btn")[0].innerText ="선택해주세요";
     $(".end-location")[0].innerText ="선택해주세요";
     $(".small-location").each((idx,small)=>{
-            $(small).css("display","none");
+        $(small).css("display","none");
     })
 })
 
@@ -134,6 +142,7 @@ $(".input-btn").on("click",e=>{
 $(".title").on("keyup",e=>{
     $(".title-count")[0].innerText = `${e.target.value.length} / 80`;
 })
+
 
 
 
