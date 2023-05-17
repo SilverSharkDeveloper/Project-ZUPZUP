@@ -3,5 +3,5 @@ package com.app.floc.mapper;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface Qna_ResponseMapper {
+public interface ParticipantQRcheckMapper {
 }
