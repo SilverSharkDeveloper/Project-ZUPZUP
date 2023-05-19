@@ -13,7 +13,7 @@ public class ProductVO {
     private Long productCost;
     private Long productStock;
     private String productDetail;
-    private String productRregisterDate;
+    private String productRegisterDate;
     private String productUpdatedDate;
     private String productCategory;
     private String productUsedLocation;

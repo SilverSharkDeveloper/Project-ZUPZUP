@@ -18,6 +18,5 @@
         <typeAlias type="com.app.floc.domain.VO.ReviewImageVO" alias="reviewImageVO"/>
         <typeAlias type="com.app.floc.domain.VO.TissueVO" alias="tissueVO"/>
         <typeAlias type="com.app.floc.domain.VO.PloggingQRVO" alias="ploggingQRVO"/>
-
     </typeAliases>
 </configuration>
