@@ -2,22 +2,21 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0/EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <typeAlias type="com.app.floc.domain.vo.UserVO" alias="userVO"/>
-        <typeAlias type="com.app.floc.domain.vo.CouponVO" alias="couponVO"/>
-        <typeAlias type="com.app.floc.domain.vo.FollowVO" alias="followVO"/>
-        <typeAlias type="com.app.floc.domain.vo.NoticeVO" alias="noticeVO"/>
-        <typeAlias type="com.app.floc.domain.vo.ParticipantVO" alias="participantVO"/>
-        <typeAlias type="com.app.floc.domain.vo.PloggingVO" alias="ploggingVO"/>
-        <typeAlias type="com.app.floc.domain.vo.ProductVO" alias="productVO"/>
-        <typeAlias type="com.app.floc.domain.vo.ProductWishVO" alias="productWishVO"/>
-        <typeAlias type="com.app.floc.domain.vo.QnaVO" alias="qnaVO"/>
-        <typeAlias type="com.app.floc.domain.vo.QnaResponseVO" alias="qnaResponseVO"/>
-        <typeAlias type="com.app.floc.domain.vo.QRCheckVO" alias="QRcheckVO"/>
-        <typeAlias type="com.app.floc.domain.vo.ReviewVO" alias="reviewVO"/>
-        <typeAlias type="com.app.floc.domain.vo.ReviewReplyVO" alias="reviewReplyVO"/>
-        <typeAlias type="com.app.floc.domain.vo.ReviewImageVO" alias="reviewImageVO"/>
-        <typeAlias type="com.app.floc.domain.vo.TissueVO" alias="tissueVO"/>
-        <typeAlias type="com.app.floc.domain.vo.PloggingQRVO" alias="ploggingQRVO"/>
-
+        <typeAlias type="com.app.floc.domain.VO.UserVO" alias="userVO"/>
+        <typeAlias type="com.app.floc.domain.VO.CouponVO" alias="couponVO"/>
+        <typeAlias type="com.app.floc.domain.VO.FollowVO" alias="followVO"/>
+        <typeAlias type="com.app.floc.domain.VO.NoticeVO" alias="noticeVO"/>
+        <typeAlias type="com.app.floc.domain.VO.ParticipantVO" alias="participantVO"/>
+        <typeAlias type="com.app.floc.domain.VO.PloggingVO" alias="ploggingVO"/>
+        <typeAlias type="com.app.floc.domain.VO.ProductVO" alias="productVO"/>
+        <typeAlias type="com.app.floc.domain.VO.ProductWishVO" alias="productWishVO"/>
+        <typeAlias type="com.app.floc.domain.VO.QnaVO" alias="qnaVO"/>
+        <typeAlias type="com.app.floc.domain.VO.QnaResponseVO" alias="qnaResponseVO"/>
+        <typeAlias type="com.app.floc.domain.VO.QRCheckVO" alias="QRcheckVO"/>
+        <typeAlias type="com.app.floc.domain.VO.ReviewVO" alias="reviewVO"/>
+        <typeAlias type="com.app.floc.domain.VO.ReviewReplyVO" alias="reviewReplyVO"/>
+        <typeAlias type="com.app.floc.domain.VO.ReviewImageVO" alias="reviewImageVO"/>
+        <typeAlias type="com.app.floc.domain.VO.TissueVO" alias="tissueVO"/>
+        <typeAlias type="com.app.floc.domain.VO.PloggingQRVO" alias="ploggingQRVO"/>
     </typeAliases>
 </configuration>
