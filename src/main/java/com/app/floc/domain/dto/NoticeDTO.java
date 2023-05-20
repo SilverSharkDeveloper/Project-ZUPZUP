@@ -1,13 +1,15 @@
-package com.app.floc.domain.VO;
+package com.app.floc.domain.dto;
+
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-@Data
 @Component
-@NoArgsConstructor
-public class NoticeVO {
+@Data
+@RequiredArgsConstructor
+public class NoticeDTO {
     private Long id;
     private Long adminId;
     private String noticeTitle;
@@ -19,5 +21,6 @@ public class NoticeVO {
     private String noticeImageUuid;
     private Long noticeImageSize;
 }
+
 
 
