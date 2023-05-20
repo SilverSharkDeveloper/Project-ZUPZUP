@@ -8,6 +8,7 @@
         <typeAlias type="com.app.floc.domain.VO.NoticeVO" alias="noticeVO"/>
         <typeAlias type="com.app.floc.domain.VO.ParticipantVO" alias="participantVO"/>
         <typeAlias type="com.app.floc.domain.VO.PloggingVO" alias="ploggingVO"/>
+        <typeAlias type="com.app.floc.domain.DTO.PloggingDTO" alias="ploggingDTO"/>
         <typeAlias type="com.app.floc.domain.VO.ProductVO" alias="productVO"/>
         <typeAlias type="com.app.floc.domain.VO.ProductWishVO" alias="productWishVO"/>
         <typeAlias type="com.app.floc.domain.VO.QnaVO" alias="qnaVO"/>
