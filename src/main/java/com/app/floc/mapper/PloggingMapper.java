@@ -19,7 +19,7 @@ public interface PloggingMapper {
     public Optional<PloggingDTO> selectOne(Long id);
 
     //수정
-    public void update(PloggingVO ploggingVO);
+    public void update(PloggingDTO ploggingDTO);
 
     //삭제
     public void delete(Long id);
