@@ -4,10 +4,12 @@
     <typeAliases>
         <typeAlias type="com.app.floc.domain.vo.UserVO" alias="userVO"/>
         <typeAlias type="com.app.floc.domain.vo.CouponVO" alias="couponVO"/>
+        <typeAlias type="com.app.floc.domain.vo.CouponDAO" alias="couponDAO"/>
         <typeAlias type="com.app.floc.domain.vo.FollowVO" alias="followVO"/>
         <typeAlias type="com.app.floc.domain.vo.NoticeVO" alias="noticeVO"/>
         <typeAlias type="com.app.floc.domain.vo.ParticipantVO" alias="participantVO"/>
-        <typeAlias type="com.app.floc.domain.vo.PloggingVO" alias="ploggingVO"/>
+        <typeAlias type="com.app.floc.domain.VO.PloggingVO" alias="ploggingVO"/>
+        <typeAlias type="com.app.floc.domain.DTO.PloggingDTO" alias="ploggingDTO"/>
         <typeAlias type="com.app.floc.domain.vo.ProductVO" alias="productVO"/>
         <typeAlias type="com.app.floc.domain.vo.ProductWishVO" alias="productWishVO"/>
         <typeAlias type="com.app.floc.domain.vo.QnaVO" alias="qnaVO"/>
