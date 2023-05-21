@@ -4,6 +4,7 @@
 	font-family: 'Noto Sans KR', sans-serif;
 }
 
+
 html{
 	width:100%;
 	background-color:#e2e2e2;
@@ -272,7 +273,9 @@ input.modal_input {
 #modal_close_btn:active {
 	background-color:#bcbcbc;
 }
-
+page-list{
+    text-decoration: none;
+}
 
 #modal .modal_layer {
   position:fixed;

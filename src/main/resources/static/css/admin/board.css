@@ -327,7 +327,9 @@ table tr.tableTh td {
 	border-bottom: 1px solid red;
 	color: red;
 }
-
+.update_btn:hover{
+	background: rgb(122, 171, 154);
+}
 .update_btn{
 	font-size: 12px;
 	background-color: white;
@@ -359,7 +361,8 @@ table tr.tableTh td {
  }
  
  .page-list {
-	display: flex;
+	 text-decoration: none;
+		display: flex;
 	 -webkit-box-align: center;
 	 align-items: center;
 	 -webkit-box-pack: center;
@@ -373,10 +376,8 @@ table tr.tableTh td {
 	 border-left: none;
 	 cursor: pointer;
  }
- 
- 
- .page-list:hover ,
- .page-list.list-on {
+
+.page-list:hover , .page-list.list-on {
 	color: #666;
 	font-weight: 700;
  }

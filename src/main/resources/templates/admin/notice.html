@@ -1,16 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+          rel="stylesheet">
     <link href="/css/admin/board.css" rel="stylesheet">
     <link href="/css/admin/side-nav.css" rel="stylesheet">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Notice</title>
 </head>
 <body>
-
 <div class="wrap">
     <!-- header -->
     <div class="header">
@@ -24,41 +27,38 @@
             <span><small>관리자모드</small></span>
         </div>
     </div>
-
-
     <!--mainSidebar -->
     <section class="mainContainer">
         <!--side bar-->
         <nav>
             <ul class="mainNav">
-                <li><a href="./admin.html">관리자 계정 관리</a></li>
-                <li><a href="./main.html">메인 관리</a></li>
-                <li><a href="./member.html">회원 관리</a></li>
-                <li><a href="product.html" >상품 관리</a></li>
-                <li><a href="product-form.html" >상품 등록</a></li>
-                <li><a href="./floging.html" >플로깅 목록</a></li>
-                <li><a href="./notice.html" >공지 사항</a></li>
-                <li><a href="./notice-form.html" >공지 사항 작성</a></li>
-                <li><a href="./qna.html" >문의 목록</a></li>
-
+                <li><a th:href="@{admin}">관리자 계정 관리</a></li>
+                <li><a th:href="@{main}">메인 관리</a></li>
+                <li><a th:href="@{member}">회원 관리</a></li>
+                <li><a th:href="@{product}">상품 관리</a></li>
+                <li><a th:href="@{product-form}">상품 등록</a></li>
+                <li><a th:href="@{floging}">플로깅 목록</a></li>
+                <li><a th:href="@{notice}">공지 사항</a></li>
+                <li><a th:href="@{notice-form}">공지 사항 작성</a></li>
+                <li><a th:href="@{qna}">문의 목록</a></li>
             </ul>
         </nav>
 
         <!--mainScreen 회원관리-->
         <div class="mainContent">
-            <form action="#" class = "searchForm">
+            <form th:action="${notice}" name="search-form" class="searchForm">
                 <div class="memberSearch">
                     <div class="memberSearchInput">
-                        <select name = "type">
-                            <option value="name">제목</option>
-                            <option value="location">작성자</option>
+                        <select name="type">
+                            <option value="t" th:selected="${search.type eq 't'}">제목</option>
+                            <option value="u" th:selected="${search.type eq 'u'}">작성자</option>
                         </select>
                         <div>
-                            <input type="text" name ="keyword" placeholder="검색어를 입력하세요">
+                            <input type="text" name="keyword" th:value="${search.keyword}" placeholder="검색어를 입력하세요">
                         </div>
 
 
-                        <button class = "searchBtn">
+                        <button class="searchBtn">
                             <img src="/image/search.png">
                         </button>
                     </div>
@@ -68,18 +68,20 @@
             <div class="memberLists">
                 <div id="root">
                     <div>
-                        <span>총 개</span>
+                        <span>총<th:block th:text="${pagination.total} +'개'">
+                        </th:block>
+                            </span>
                         <button class="deleteBtn">삭제</button>
                     </div>
                 </div>
-                <form action="#" class = "deleteForm">
-                    <input type = "hidden" name = "page" value = "${criteria.page}">
-                    <input type = "hidden" name = "type" value = "${criteria.type}">
-                    <input type = "hidden" name = "keyword" value = "${criteria.keyword}">
-                    <table class="userTable">
+                <form action="#" class="deleteForm">
+                    <input type="hidden" name="page" value="${criteria.page}">
+                    <input type="hidden" name="type" value="${criteria.type}">
+<!--                    <input type="hidden" name="keyword" value="${criteria.keyword}">-->
+                    <table class="noticeTable">
                         <thead>
                         <tr class="tableTh" style="border-top:3px solid #6e6e6e;">
-                            <td class = "inputCheckBoxAllBtn"><input class="inputCheckBoxAll"type="checkbox"></td>
+                            <td class="inputCheckBoxAllBtn"><input class="inputCheckBoxAll" type="checkbox"></td>
                             <td>공지사항 번호</td>
                             <td>제목</td>
                             <td>작성자</td>
@@ -87,55 +89,57 @@
                             <td>수정일</td>
                             <td>수정하기</td>
                         </tr>
-                        <tr>
-                            <td class = "inputCheckBoxBtn"><input class="inputCheckBox"type="checkbox"></td>
-                            <td>1</td>
-                            <td>로컬크리에이터 필수 요건</td>
-                            <td>관리자1</td>
-                            <td>2022-01-01</td>
-                            <td>2022-01-03</td>
-                            <td><a href="./notice-update-form.html"><button type="button" class = "update_btn">수정하기</button></a></td>
-                        </tr>
                         </thead>
-
+                        <tbody>
+                        </tbody>
                     </table>
                 </form>
-                <form action="./notice-form.html">
+                <form th:action="@{notice-form}">
                     <div class="btn btn-write">
                         <button class="clickWriteBtn">공지 작성</button>
                     </div>
                 </form>
                 <!-- [S] 페이지 컨트롤러 -->
                 <div class="page-controller-wrap">
-
-                    <!-- 이전 페이지로 이동하기 -->
-                    <a class="page-list page-list-move page-before"> <img
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAHCAQAAABqrk9lAAAAGElEQVR42mNgAIPi/8X/4QwwE5PBQJADAAKSG3cyVhtXAAAAAElFTkSuQmCC"
-                            alt="이전 페이지로 이동하기 아이콘"></a>
-                    <a class="page-list page-list-first list-on">1</a>
-                    <a class="page-list page-list-second">2</a>
-                    <a class="page-list page-list-third">3</a>
-                    <a class="page-list page-list-fourth">4</a>
-                    <a class="page-list page-list-fifth">5</a>
-
-                    <!-- 다음 페이지로 이동하기 -->
-                    <a class="page-list page-list-move page-after"> <img
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAHCAQAAABqrk9lAAAAGUlEQVR42mMo/l/8nwECQEwCHEwGhAlRBgA2mht3SwgzrwAAAABJRU5ErkJggg=="
-                            alt="다음 페이지로 이동하기 아이콘">
+                    <!-- 이전 버튼 -->
+                    <a th:if="${pagination.prev}" th:href="${pagination.startPage -1}"
+                       class="change-page page-list page-list-move page-before">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAHCAQAAABqrk9lAAAAGElEQVR42mNgAIPi/8X/4QwwE5PBQJADAAKSG3cyVhtXAAAAAElFTkSuQmCC"
+                             alt="이전 페이지로 이동하기 아이콘">
                     </a>
-
+                    <th:block th:each="page:${#numbers.sequence(pagination.startPage, pagination.endPage)}">
+                        <a th:if="${page eq pagination.page}" class="page-list list-first"
+                           th:text="${page}"></a>
+                        <a th:unless="${page eq pagination.page}" th:href="${page}"
+                           class="change-page page-list page-list-first list-on" th:text="${page}"></a>
+                    </th:block>
+                    <!-- 다음 페이지로 이동하기 -->
+                    <a th:if="${pagination.next}" th:href="${pagination.endPage + 1}"
+                       class="change-page page-list page-list-move page-after">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAHCAQAAABqrk9lAAAAGUlEQVR42mMo/l/8nwECQEwCHEwGhAlRBgA2mht3SwgzrwAAAABJRU5ErkJggg=="
+                             alt="다음 페이지로 이동하기 아이콘">
+                    </a>
                 </div>
+
                 <!-- [E] 페이지 컨트롤러 -->
             </div>
         </div>
     </section>
-    <form action="#" name = "page-form">
-        <input id="page" type = "hidden" name = "page" value = "${criteria.page}">
-        <input type = "hidden" name = "type" value = "${criteria.type}">
-        <input type = "hidden" name = "keyword" value = "${criteria.keyword}">
-    </form>
+    <!--    <form action="#" name = "page-form">-->
+    <!--        <input id="page" type = "hidden" name = "page" value = "${criteria.page}">-->
+    <!--        <input type = "hidden" name = "type" value = "${criteria.type}">-->
+    <!--        <input type = "hidden" name = "keyword" value = "${criteria.keyword}">-->
+    <!--    </form>-->
 </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="/js/admin/side-bar.js"></script>
+<script th:inline="javascript">
+    let notices = [[${notices}]];
+    console.log(notices);
+    let pagination = [[${pagination}]];
+    console.log(pagination);
+</script>
+<script src="/js/admin/notice-list.js"></script>
+<script src="/js/admin/paging.js"></script>
 </html>
