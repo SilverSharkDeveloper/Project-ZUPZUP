@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>플로깅 목록</title>
-    <link rel="stylesheet" href="../../static/css/header-footer/header.css">
-    <link rel="stylesheet" href="../../static/css/header-footer/footer.css">
-    <link rel="stylesheet" href="../../static/css/plogging/plogging.css">
-    <link rel="stylesheet" href="../../static/css/font.css">
+    <link rel="stylesheet" href="static/css/header-footer/header.css">
+    <link rel="stylesheet" href="static/css/header-footer/footer.css">
+    <link rel="stylesheet" href="static/css/plogging/plogging.css">
+    <link rel="stylesheet" href="static/css/font.css">
 </head>
 
 <body>
@@ -127,7 +127,11 @@
                 </article>
             </div>
 
-            <!-- 무한 스크롤 > -->
+        </div>
+        <!-- 무한 스크롤 > -->
+        <div class="virtualized-list row"
+                   style="padding-top: 0px; padding-bottom: 0px; transform: translateY(0px);">
+
         </div>
     </div>
 </div>
@@ -146,4 +150,9 @@
     });
 
 </script>
+<script th:inline="javascript">
+    let ploggings=[[${ploggings}]];
+    console.log(ploggings);
+</script>
+<!--<script src="../../static/js/plogging/list.js"></script>-->
 </html>
