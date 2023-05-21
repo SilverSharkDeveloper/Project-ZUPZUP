@@ -48,12 +48,12 @@
         SELECT ROWNUM R, U.ID, USER_IDENTIFICATION, USER_NICKNAME, USER_NAME, USER_ROLE, USER_TISSUE, USER_CREATED_DATE
         FROM TBL_USER U
         <![CDATA[
-    WHERE ROWNUM <= #{pagination.page} * #{pagination.rowCount}
+    WHERE ROWNUM <= #{adminPagination.page} * #{adminPagination.rowCount}
     ]]>
         <include refid="search"/>
         ORDER BY ID ASC
         <![CDATA[
-) WHERE R > (#{pagination.page} - 1) * #{pagination.rowCount}
+) WHERE R > (#{adminPagination.page} - 1) * #{adminPagination.rowCount}
 ]]>
     </select>
 
@@ -61,6 +61,18 @@
         SELECT COUNT(ID) FROM TBL_USER
         WHERE 1=1
         <include refid="search"/>
+    </select>
+
+    <!-- 회원 목록 페이징 없이 id순 높은 5개조회-->
+    <select id="selectByRecent" resultType="userVO">
+        SELECT USER_IDENTIFICATION,USER_NICKNAME, USER_TISSUE, USER_ROLE,USER_CREATED_DATE
+        FROM (
+            SELECT USER_IDENTIFICATION,USER_NICKNAME, USER_TISSUE, USER_ROLE,USER_CREATED_DATE
+            FROM TBL_USER ORDER BY ID DESC
+            )
+        <![CDATA[
+        WHERE ROWNUM <=5
+        ]]>
     </select>
 </mapper>
 

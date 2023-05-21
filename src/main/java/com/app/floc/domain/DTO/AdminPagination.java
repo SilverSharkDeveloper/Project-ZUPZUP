@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Data
-public class Pagination {
+public class AdminPagination {
     private Integer page;
     private int rowCount;
     private int pageCount;

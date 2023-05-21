@@ -47,20 +47,19 @@
         <div class="mainContent">
 
             <div class="content-wrap">
-
                 <!-- [S] 공지사항 등록 -->
-                <form th:action="@{notice-form}" method="post"  class="submit-form">
+                <form th:action="@{notice-form}" method="post" th:object="${noticeDTO}" class="submit-form">
                     <div class="con-write-wrap">
                         <div class="notice-write">
                             <div class="write-title">공지사항 제목</div>
                             <div class="write-sec">
-                                <input class="write-text write-input" type="text" placeholder="공지사항 제목을 적어주세요." name = "title">
+                                <input type="text" class="write-text write-input"th:field="*{noticeTitle}" placeholder="공지사항 제목을 적어주세요." name="title">
                             </div>
                         </div>
                         <div class="notice-write">
                             <div class="write-title">공지사항 내용</div>
                             <div class="write-sec">
-                                <textarea class="write-text write-notice" type="text" placeholder="공지사항 내용을 적어주세요." name ="content"></textarea>
+                                <textarea class="write-text write-notice" type="text" th:field="*{noticeContent}" placeholder="공지사항 내용을 적어주세요." name ="content"></textarea>
                             </div>
                         </div>
 
