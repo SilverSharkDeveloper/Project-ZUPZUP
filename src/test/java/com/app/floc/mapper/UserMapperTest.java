@@ -47,5 +47,13 @@ class UserMapperTest {
     public void selectByUserIdTest(){
         Optional<UserVO> foundUser = userMapper.selectByUserId(21L);
         foundUser.ifPresent(user->assertThat(user.getUserName()).isEqualTo("허은상"));
+
+    }
+    @Test
+    public void selectAll(){
+//        final Optional<UserVO> foundAll = userMapper.selectAll();
+//        userMapper.selectAll().stream().map(UserVO::toString).forEach(log::info);
+
+//        assertThat(noticeMapper.selectAll(1L,pagination)).hasSize(2);
     }
 }
