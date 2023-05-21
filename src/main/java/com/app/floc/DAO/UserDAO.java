@@ -1,12 +1,9 @@
 package com.app.floc.DAO;
 
 import com.app.floc.domain.VO.UserVO;
-import com.app.floc.domain.dto.Pagination;
 import com.app.floc.domain.dto.Search;
 import com.app.floc.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -40,8 +37,8 @@ public class UserDAO {
 
     //admin
     //회원 정보 조회
-    public List<UserVO> findByUser(Pagination pagination, Search search){
-        return userMapper.selectAll(pagination, search);
+    public List<UserVO> findByUser(com.app.floc.domain.dto.AdminPagination adminPagination, Search search){
+        return userMapper.selectAll(adminPagination, search);
     }
     //admin 총명
     //회원 수 조회

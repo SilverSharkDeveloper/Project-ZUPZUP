@@ -1,12 +1,7 @@
 package com.app.floc.mapper;
 
 import com.app.floc.DAO.NoticeDAO;
-import com.app.floc.domain.VO.NoticeVO;
 import com.app.floc.domain.dto.NoticeDTO;
-import com.app.floc.domain.dto.Pagination;
-import com.app.floc.domain.dto.Search;
-import com.app.floc.service.notice.NoticeService;
-import com.app.floc.service.notice.NoticeServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

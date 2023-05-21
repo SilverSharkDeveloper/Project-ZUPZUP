@@ -3,11 +3,9 @@ package com.app.floc.service.user;
 
 import com.app.floc.DAO.UserDAO;
 import com.app.floc.domain.VO.UserVO;
-import com.app.floc.domain.dto.Pagination;
 import com.app.floc.domain.dto.Search;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.w3c.dom.UserDataHandler;
 
 import java.util.List;
 import java.util.Optional;
@@ -39,8 +37,8 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public List<UserVO> getUserList(Pagination pagination, Search search) {
-        return userDAO.findByUser(pagination,search);
+    public List<UserVO> getUserList(com.app.floc.domain.dto.AdminPagination adminPagination, Search search) {
+        return userDAO.findByUser(adminPagination,search);
 
     }
 

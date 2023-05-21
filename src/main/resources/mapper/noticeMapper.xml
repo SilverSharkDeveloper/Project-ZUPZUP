@@ -35,12 +35,12 @@
             NOTICE_VIEWED_COUNT, USER_IDENTIFICATION
             FROM TBL_USER U JOIN TBL_NOTICE N
     <![CDATA[
-            ON U.ID = N.ADMIN_ID AND ROWNUM <= #{pagination.page} * #{pagination.rowCount}
+            ON U.ID = N.ADMIN_ID AND ROWNUM <= #{adminPagination.page} * #{adminPagination.rowCount}
         ]]>
     <include refid="search"/>
     ORDER BY N.ID DESC
     <![CDATA[
-        ) N WHERE R > (#{pagination.page} - 1) * #{pagination.rowCount}
+        ) N WHERE R > (#{adminPagination.page} - 1) * #{adminPagination.rowCount}
         ]]>
     </select>
 

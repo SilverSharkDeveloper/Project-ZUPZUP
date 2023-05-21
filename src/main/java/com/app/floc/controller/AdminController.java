@@ -1,9 +1,7 @@
 package com.app.floc.controller;
 
-import com.app.floc.domain.VO.NoticeVO;
 import com.app.floc.domain.VO.UserVO;
 import com.app.floc.domain.dto.NoticeDTO;
-import com.app.floc.domain.dto.Pagination;
 import com.app.floc.domain.dto.Search;
 import com.app.floc.service.admin.AdminService;
 import com.app.floc.service.notice.NoticeService;
@@ -15,8 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
-
-import java.util.List;
 
 @Controller
 @Slf4j
@@ -45,10 +41,10 @@ public class AdminController {
 //회원 관리
 // 목록
     @GetMapping("member")
-    public void list(Pagination pagination,Search search, Model model){
-        pagination.setTotal(userService.getTotal(search));
-        pagination.progress();
-        model.addAttribute("members", userService.getUserList(pagination,search));
+    public void list(com.app.floc.domain.dto.AdminPagination adminPagination, Search search, Model model){
+        adminPagination.setTotal(userService.getTotal(search));
+        adminPagination.progress();
+        model.addAttribute("members", userService.getUserList(adminPagination,search));
     }
 //회원 삭제
 
@@ -77,10 +73,10 @@ public class AdminController {
 //공지사항 관리
     //목록
     @GetMapping("notice")
-    public void noticeList(Pagination pagination, Search search, Model model){
-        pagination.setTotal(noticeService.getTotal(search));
-        pagination.progress();
-        model.addAttribute("notices", noticeService.getList(pagination,search));
+    public void noticeList(com.app.floc.domain.dto.AdminPagination adminPagination, Search search, Model model){
+        adminPagination.setTotal(noticeService.getTotal(search));
+        adminPagination.progress();
+        model.addAttribute("notices", noticeService.getList(adminPagination,search));
     }
     //작성 페이지
     @GetMapping("notice-form")

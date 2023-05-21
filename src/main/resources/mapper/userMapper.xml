@@ -48,12 +48,12 @@
         SELECT ROWNUM R, U.ID, USER_IDENTIFICATION, USER_NICKNAME, USER_NAME, USER_ROLE, USER_TISSUE, USER_CREATED_DATE
         FROM TBL_USER U
         <![CDATA[
-    WHERE ROWNUM <= #{pagination.page} * #{pagination.rowCount}
+    WHERE ROWNUM <= #{adminPagination.page} * #{adminPagination.rowCount}
     ]]>
         <include refid="search"/>
         ORDER BY ID ASC
         <![CDATA[
-) WHERE R > (#{pagination.page} - 1) * #{pagination.rowCount}
+) WHERE R > (#{adminPagination.page} - 1) * #{adminPagination.rowCount}
 ]]>
     </select>
 
