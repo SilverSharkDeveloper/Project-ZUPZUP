@@ -4,6 +4,7 @@ import com.app.floc.service.mypage.MypageService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -12,4 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/mypage/*")
 public class MypageController {
     private final MypageService mypageService;
+
+    @GetMapping("users-edit")
+    public void userEdit(){
+
+    }
 }

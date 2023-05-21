@@ -3,6 +3,7 @@ package com.app.floc.DAO;
 import com.app.floc.domain.DTO.AdminPagination;
 import com.app.floc.domain.DTO.Search;
 import com.app.floc.domain.VO.UserVO;
+import com.app.floc.domain.DTO.Search;
 import com.app.floc.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -13,6 +14,7 @@ import java.util.Optional;
 @Repository
 @RequiredArgsConstructor
 public class UserDAO {
+
     private final UserMapper userMapper;
 
     //회원가입
@@ -38,7 +40,11 @@ public class UserDAO {
 
     //admin
     //회원 정보 조회
+
     public List<UserVO> findByUser(AdminPagination adminPagination, Search search){
+
+    public List<UserVO> findByUser(AdminPagination adminPagination, Search search){
+
         return userMapper.selectAll(adminPagination, search);
     }
     //admin 총명
@@ -50,6 +56,7 @@ public class UserDAO {
     //회원 목록 페이징 없이 id순 높은 5개조회
     public List<UserVO> findByRecent(){
         return userMapper.selectByRecent();
+
     }
 
 }
