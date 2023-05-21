@@ -1,7 +1,7 @@
 package com.app.floc.mapper;
 
+import com.app.floc.domain.DTO.Search;
 import com.app.floc.domain.VO.UserVO;
-import com.app.floc.domain.dto.Search;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -11,6 +11,7 @@ import java.util.Optional;
 
 @Mapper
 public interface UserMapper {
+
     //회원가입
     public void insert(UserVO userVO);
 

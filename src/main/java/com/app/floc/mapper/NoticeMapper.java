@@ -1,7 +1,7 @@
 package com.app.floc.mapper;
 
-import com.app.floc.domain.dto.NoticeDTO;
-import com.app.floc.domain.dto.Search;
+import com.app.floc.domain.DTO.NoticeDTO;
+import com.app.floc.domain.DTO.Search;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
