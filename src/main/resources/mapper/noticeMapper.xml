@@ -11,8 +11,8 @@
                             <when test="type=='t'.toString()">
                                 NOTICE_TITLE LIKE '%'||#{search.keyword}||'%'
                             </when>
-                            <when test="type=='c'.toString()">
-                                NOTICE_CONTENT LIKE '%'||#{search.keyword}||'%'
+                            <when test="type=='u'.toString()">
+                                USER_IDENTIFICATION LIKE '%'||#{search.keyword}||'%'
                             </when>
                         </choose>
                     </trim>
@@ -78,7 +78,7 @@
         SELECT COUNT(N.ID)
         FROM TBL_USER U JOIN TBL_NOTICE N
         ON U.ID = N.ADMIN_ID
-                <include refid="search"/>
+        <include refid="search"/>
     </select>
 
 

@@ -20,15 +20,15 @@ import java.awt.print.Pageable;
 @Controller
 @Slf4j
 @RequiredArgsConstructor
-@RequestMapping("/notice/*")
+@RequestMapping("notice/*")
 public class NoticeController {
     private final NoticeService noticeService;
 
-    @GetMapping("list")
+    @GetMapping("notice")
     public void list(Pagination pagination, Search search, Model model){
-        pagination.setTotal(noticeService.getTotal(search));
+//        pagination.setTotal(noticeService.getTotal(search));
 //        pagination.progress();
-        model.addAttribute("notices", noticeService.getList(pagination,search));
+//        model.addAttribute("notices", noticeService.getList(pagination,search));
     }
     //관리자가 작성
 //    @GetMapping("write")

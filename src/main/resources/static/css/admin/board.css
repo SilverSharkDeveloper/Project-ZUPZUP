@@ -376,10 +376,8 @@ table tr.tableTh td {
 	 border-left: none;
 	 cursor: pointer;
  }
- 
- 
- .page-list:hover ,
- .page-list.list-on {
+
+.page-list:hover , .page-list.list-on {
 	color: #666;
 	font-weight: 700;
  }

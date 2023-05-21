@@ -33,34 +33,44 @@ public class AdminController {
     @GetMapping("admin")
     public void goToAdmin(UserVO userVO){;}
 
-
-
-
 //메인     ,상품,유저,플로깅 데이터 가져오기
     @GetMapping("main")
     public void goToMain(Model model){;}
 
+
 //회원 관리
+// 목록
     @GetMapping("member")
     public void list(Pagination pagination,Search search, Model model){
         pagination.setTotal(userService.getTotal(search));
         pagination.progress();
         model.addAttribute("members", userService.getUserList(pagination,search));
     }
+//회원 삭제
 
 //상품 관리
+// 목록
     @GetMapping("product")
     public void goToProduct(Model model){;}
 //상품 등록
     @GetMapping("product-form")
     public void goToProductForm(Model model){;}
+//상품 삭제
+
 
 //플로깅 목록
+    @GetMapping("floging")
+    public void goToFloging(){ ;
+    }
+    //플로깅 상세보기
+    @GetMapping("floging-detail")
+    public void goToFlogingDetailFrom(){};
+    //플로깅 수락하기
+    @GetMapping("floging-estimate")
+    public void goToFlogingEstimateForm(){};
 
 
-
-
-//공지사항
+//공지사항 관리
     //목록
     @GetMapping("notice")
     public void noticeList(Pagination pagination, Search search, Model model){
@@ -70,11 +80,14 @@ public class AdminController {
     }
     //작성 페이지
     @GetMapping("notice-form")
-    public void goToNoticeForm(NoticeVO noticeVO){;}
+    public String goToNoticeForm(NoticeVO noticeVO){
+        return "admin/notice-form";
+    }
+    // 작성
 
     @PostMapping("notice-form")
     public RedirectView noticeWrite(NoticeDTO noticeDTO){
-        userService.login("1a2k","12341234");
+//        userService.login("1a2k","12341234");
         noticeService.write(noticeDTO);
         return new RedirectView("/notice");
     }
@@ -99,4 +112,8 @@ public class AdminController {
     }
 
     //문의 목록
+    @GetMapping("qna")
+    public void goToQnaForm(){
+
+    }
 }
