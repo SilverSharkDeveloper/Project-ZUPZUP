@@ -27,4 +27,7 @@ public interface UserService {
 
     //회원 총 명
     public int getTotal(Search search);
+
+    //최근 5명 조회
+    public List<UserVO> getUserRecent();
 }

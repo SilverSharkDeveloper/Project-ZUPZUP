@@ -21,4 +21,6 @@
     <delete id="delete">
         DELETE FROM TBL_PRODUCT WHERE ID = #{productId}
     </delete>
+
+
 </mapper>

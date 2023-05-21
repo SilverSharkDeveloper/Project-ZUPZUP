@@ -48,4 +48,10 @@ public class UserDAO {
     public int findCountOfUser(Search search){
         return userMapper.selectCountOfUser(search);
     };
+
+    //회원 목록 페이징 없이 id순 높은 5개조회
+    public List<UserVO> findByRecent(){
+        return userMapper.selectByRecent();
+    }
+
 }

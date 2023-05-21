@@ -21,6 +21,10 @@ class AdminServiceTest {
     public void getUserListTest(){
 //        userService.getUserList().stream().map(UserVO::toString).forEach(log::info);
     }
+    @Test
+    public void getUserRecent(){
+        userService.getUserRecent().stream().map(UserVO::toString).forEach(log::info);
+    }
 
 
 

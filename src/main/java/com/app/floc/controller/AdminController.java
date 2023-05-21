@@ -31,11 +31,15 @@ public class AdminController {
 
 //    admin관리
     @GetMapping("admin")
-    public void goToAdmin(UserVO userVO){;}
+    public String goToAdmin(UserVO userVO) {
+    return "admin/admin";
+    }
 
 //메인     ,상품,유저,플로깅 데이터 가져오기
     @GetMapping("main")
-    public void goToMain(Model model){;}
+    public void goToMain(UserVO userVO, Model model){
+        model.addAttribute("users",userService.getUserRecent());
+    }
 
 
 //회원 관리
@@ -80,16 +84,19 @@ public class AdminController {
     }
     //작성 페이지
     @GetMapping("notice-form")
-    public String goToNoticeForm(NoticeVO noticeVO){
+    public String goToNoticeForm(NoticeDTO noticeDTO){
         return "admin/notice-form";
     }
     // 작성
-
     @PostMapping("notice-form")
     public RedirectView noticeWrite(NoticeDTO noticeDTO){
 //        userService.login("1a2k","12341234");
+        noticeDTO.setAdminId(2L);
+        noticeDTO.setNoticeImageName("d");
+        noticeDTO.setNoticeImageSize(22L);
+        noticeDTO.setNoticeImageUuid("1a@");
         noticeService.write(noticeDTO);
-        return new RedirectView("/notice");
+        return new RedirectView("notice");
     }
 
     //상세보기,수정

@@ -28,10 +28,12 @@ public interface UserMapper {
     //userid로 회원 조회
     public Optional<UserVO> selectByUserId(Long userId);
 
-    //회원정보 조회
+    //회원정보,페이징 조회
     public List<UserVO> selectAll(@Param("pagination") Pagination pagination, @Param("search") Search search);
 
     //총 개수
     public int selectCountOfUser(@Param("search") Search search);
 
+    //어드민 메인 페이징없이조회
+    public List<UserVO> selectByRecent();
 }

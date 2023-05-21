@@ -38,16 +38,7 @@
             ON U.ID = N.ADMIN_ID AND ROWNUM <= #{pagination.page} * #{pagination.rowCount}
         ]]>
     <include refid="search"/>
-    ORDER BY
-    <choose>
-        <when test="search.order == 'popular'">
-            NOTICE_VIEWED_COUNT
-        </when>
-        <otherwise>
-            N.ID
-        </otherwise>
-    </choose>
-    ASC
+    ORDER BY N.ID DESC
     <![CDATA[
         ) N WHERE R > (#{pagination.page} - 1) * #{pagination.rowCount}
         ]]>

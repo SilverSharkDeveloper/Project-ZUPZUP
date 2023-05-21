@@ -48,4 +48,9 @@ public class UserServiceImpl implements UserService {
     public int getTotal(Search search) {
         return userDAO.findCountOfUser(search);
     }
+
+    @Override
+    public List<UserVO> getUserRecent() {
+        return userDAO.findByRecent();
+    }
 }
