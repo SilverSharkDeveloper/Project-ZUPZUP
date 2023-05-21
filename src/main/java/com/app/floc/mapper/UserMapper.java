@@ -31,8 +31,8 @@ public interface UserMapper {
 
     //회원정보,페이징 조회
 
-    public List<UserVO> selectAll(@Param("adminPagination") AdminPagination adminPagination, @Param("search") Search search);
 
+    public List<UserVO> selectAll(@Param("adminPagination") AdminPagination adminPagination, @Param("search") Search search);
 
     //총 개수
     public int selectCountOfUser(@Param("search") Search search);

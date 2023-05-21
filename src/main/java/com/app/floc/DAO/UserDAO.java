@@ -41,7 +41,6 @@ public class UserDAO {
     //admin
     //회원 정보 조회
 
-    public List<UserVO> findByUser(AdminPagination adminPagination, Search search){
 
     public List<UserVO> findByUser(AdminPagination adminPagination, Search search){
 
