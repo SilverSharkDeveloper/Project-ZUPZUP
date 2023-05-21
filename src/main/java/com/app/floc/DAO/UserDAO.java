@@ -34,4 +34,9 @@ public class UserDAO {
         return userMapper.selectByUserId(userId);
     }
 
+
+    //닉네임 중복검사
+    public Optional<UserVO> findByUserNickname(String nickname){
+        return userMapper.selectByUserNickname(nickname);
+    }
 }

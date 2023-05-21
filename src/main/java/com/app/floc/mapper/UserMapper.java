@@ -24,5 +24,6 @@ public interface UserMapper {
     //userid로 회원 조회
     public Optional<UserVO> selectByUserId(Long userId);
 
-
+    //닉네임 중복검사
+    public Optional<UserVO> selectByUserNickname(String nickname);
 }

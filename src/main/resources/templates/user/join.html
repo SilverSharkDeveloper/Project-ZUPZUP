@@ -31,17 +31,7 @@
             <div class="css-1sm71m3 e111gxds4">
                 <div class="css-1mld7di e111gxds3">SNS계정으로 간편하게 회원가입</div>
                 <ul class="css-zl1inp e111gxds2">
-                    <li class="css-lbtgsv e111gxds1"><a href="/users/auth/facebook" title="페이스북으로 가입하기"
-                                                        class="css-4zleql e111gxds0">
-                        <svg width="48" height="48" viewBox="0 0 48 48" preserveAspectRatio="xMidYMid meet">
-                            <g fill="none" fill-rule="evenodd">
-                                <path fill="#3B5998"
-                                      d="M0 24C0 10.745 10.745 0 24 0s24 10.745 24 24-10.745 24-24 24S0 37.255 0 24z"></path>
-                                <path fill="#FFF"
-                                      d="M25.77 35V24h3.384v-3.385h-3.385v-2.538c-.012-.756.08-1.285 1.693-1.692h1.692V13h-3.385c-3.25 0-4.52 1.84-4.23 5.077v2.538H19V24h2.538v11h4.231z"></path>
-                            </g>
-                        </svg>
-                    </a></li>
+
                     <li class="css-lbtgsv e111gxds1"><a href="/users/auth/kakao" title="카카오톡으로 가입하기"
                                                         class="css-4zleql e111gxds0">
                         <svg width="48" height="48" viewBox="0 0 48 48" preserveAspectRatio="xMidYMid meet">
@@ -66,37 +56,59 @@
                 </ul>
             </div>
             <form>
-                <div class="css-1xdhyk6 euhjq6q3"><label class="css-nv82x6 euhjq6q2">이메일</label>
+                <div class="css-1xdhyk6 euhjq6q3"><label class="css-nv82x6 euhjq6q2 email">이메일</label>
                     <div class="css-1eufcdp e159epbo1">
                         <div class="input-group email-input"><span class="email-input__local"><label><input
-                                class="form-control" placeholder="이메일" size="1" value><span
+                                class="form-control first-email" placeholder="이메일" size="1" value><span
                                 class="form-control-blind">이메일 앞 주소 입력하기</span></label></span><span
-                                class="email-input__separator">@</span><span class="email-input__domain"><label><select
-                                class="form-control empty"><option value="" disabled="">선택해주세요</option><option
-                                value="naver.com">naver.com</option><option value="hanmail.net">hanmail.net</option><option
-                                value="daum.net">daum.net</option><option value="gmail.com">gmail.com</option><option
-                                value="nate.com">nate.com</option><option value="hotmail.com">hotmail.com</option><option
-                                value="outlook.com">outlook.com</option><option value="icloud.com">icloud.com</option><option
-                                value="_manual">직접입력</option></select><span
-                                class="form-control-blind">이메일 도메인 선택하기</span></label><button
-                                class="email-input__domain__expand" aria-label="초기화" type="button" tabindex="-1"><svg
-                                class="icon" width="10" height="10" preserveAspectRatio="xMidYMid meet"
-                                style="fill: currentcolor;"><path fill-rule="evenodd"
-                                                                  d="M0 3l5 5 5-5z"></path></svg></button></span></div>
+                                class="email-input__separator">@</span> <span class="email-input__domain select">
+                            <label><select class="form-control empty select-email"><option value="" disabled
+                                                                                           class="choice"
+                                                                                           selected>선택해주세요</option><option
+                                    value="naver.com">naver.com</option><option value="hanmail.net">hanmail.net</option><option
+                                    value="daum.net">daum.net</option><option value="gmail.com">gmail.com</option><option
+                                    value="nate.com">nate.com</option><option value="hotmail.com">hotmail.com</option><option
+                                    value="outlook.com">outlook.com</option><option
+                                    value="icloud.com">icloud.com</option><option value="_manual"
+                                                                                  class="putEmail">직접입력</option></select><span
+                                    class="form-control-blind">이메일 도메인 선택하기</span></label>
+                            <button class="email-input__domain__expand" aria-label="초기화" type="button" tabindex="-1"><svg
+                                    class="icon" width="10" height="10" preserveAspectRatio="xMidYMid meet"
+                                    style="fill: currentcolor;"><path fill-rule="evenodd"
+                                                                      d="M0 3l5 5 5-5z"></path></svg></button>
+                            </span>
+
+                            <span class="email-input__domain direct" style="display: none;"><label><input
+                                    class="form-control direct-input" placeholder="입력해주세요" size="1" value=""><span
+                                    class="form-control-blind">이메일 도메인 입력하기</span></label><button
+                                    class="email-input__domain__expand active del-direct" aria-label="초기화" type="button"
+                                    tabindex="-1"><svg class="icon" width="10" height="10"
+                                                       preserveAspectRatio="xMidYMid meet" style="fill: currentcolor;"><path
+                                    fill-rule="evenodd"
+                                    d="M5 4L8.5.3l1 1.1L6.2 5l3.5 3.6-1 1L5 6.1 1.4 9.6l-1-1L3.9 5 .4 1.5l1.1-1L5 3.8z"></path></svg></button></span>
+                        </div>
                     </div>
                 </div>
+                <div class="css-1voj95g euhjq6q0 email-valid" style="display: none;">필수 입력 항목입니다.</div>
                 <div class="css-1t0swn9 e159epbo0">
-                    <button class="_1eWD8 _2wuTD _27do9 css-16ou9ef e1vl96vf0" name="emailAuth" type="button">이메일 인증하기
+                    <button class="_1eWD8 _2wuTD _27do9 css-16ou9ef e1vl96vf0 " name="emailAuth" type="button">이메일 인증하기
                     </button>
                 </div>
-                <div class="open expanded" style="overflow: hidden; margin-bottom: 20px;">
+                <div class="logo-area" style="display: none;">
+                    <img src="/image/dimmed-reply.png" class="infinite_rotating_logo" width="48">
+                </div>
+
+                <div class="expanded email-certification-box"
+                     style="overflow: hidden; margin-bottom: 20px; display: none">
                     <div class="css-g8had9 eqepphp7">
                         <div class="css-epwnf3 eqepphp6">이메일로 전송된 인증코드를 입력해주세요.</div>
                         <div class="css-6iq7la eqepphp5">
-                            <div class="css-1cvdtkt eqepphp4"><input type="text" placeholder="인증코드 6자리 입력"
-                                                                     class="css-jh3u7 eqepphp3" value=""><span
-                                    class="css-2ofpti eqepphp2">01:39</span>
-                                <button class="_3Z6oR _3AsCW _2tsrJ css-1gabnbc edfw59v0" type="button" disabled="">확인
+                            <div class="css-1cvdtkt eqepphp4"><input type="text" placeholder="인증코드 8자리 입력"
+                                                                     class="css-jh3u7 eqepphp3 email-code-input"
+                                                                     value=""><span
+                                    class="css-2ofpti eqepphp2 timer"></span>
+                                <button class="_3Z6oR _3AsCW _2tsrJ css-1gabnbc edfw59v0 email-code-check-btn"
+                                        type="button">확인
                                 </button>
                             </div>
                         </div>
@@ -108,27 +120,38 @@
                                           d="M0.25 7C0.25 10.7279 3.27208 13.75 7 13.75C10.7279 13.75 13.75 10.7279 13.75 7C13.75 3.27208 10.7279 0.25 7 0.25C3.27208 0.25 0.25 3.27208 0.25 7ZM13 7C13 10.3137 10.3137 13 7 13C3.68629 13 1 10.3137 1 7C1 3.68629 3.68629 1 7 1C10.3137 1 13 3.68629 13 7ZM7.125 3.75C7.47018 3.75 7.75 4.02982 7.75 4.375C7.75 4.72018 7.47018 5 7.125 5C6.77982 5 6.5 4.72018 6.5 4.375C6.5 4.02982 6.77982 3.75 7.125 3.75ZM6.65 10.5H7.58333V5.83333H6.65V10.5Z"
                                           fill="#828C94"></path>
                                 </svg>
-                                이메일을 받지 못하셨나요?<a class="css-3b6ywl ejevacd1">이메일 재전송하기</a></div>
+                                이메일을 받지 못하셨나요?<a class="css-3b6ywl ejevacd1 re-send">이메일 재전송하기</a></div>
                         </div>
                     </div>
                 </div>
-                <div class="css-1kfo0kb euhjq6q3"><label class="css-nv82x6 euhjq6q2">비밀번호</label>
-                    <div class="css-18zgq8s euhjq6q1">영문, 숫자를 포함한 8자 이상의 비밀번호를 입력해주세요.</div>
-                    <label><input class="_3ASDR _1qwAY" field="[object Object]" name="password" type="password"
-                                  placeholder="비밀번호" value=""><span class="css-oyhedo e8hfiu30">비밀번호 입력하기</span></label>
+                <div class="css-1kfo0kb euhjq6q3"><label class="css-nv82x6 euhjq6q2 password-title">비밀번호</label>
+                    <div class="css-18zgq8s euhjq6q1">영문, 숫자,특수기호를 포함한 8자 이상을 입력해주세요.</div>
+                    <label><input class="_3ASDR _1qwAY highlight" field="[object Object]" name="password"
+                                  type="password" placeholder="비밀번호" value="">
+                        <div class="css-1voj95g euhjq6q0 password-valid" style="display: none;">영문, 숫자,특수기호를 포함한 8자 이상
+                        </div>
+                    </label>
                 </div>
-                <div class="css-1kfo0kb euhjq6q3"><label class="css-nv82x6 euhjq6q2">비밀번호 확인</label><label><input
-                        class="_3ASDR _1qwAY" field="[object Object]" name="confirmPassword" type="password"
-                        placeholder="비밀번호 확인" value=""><span class="css-oyhedo e8hfiu30">입력한 비밀번호 확인하기</span></label>
+                <div class="css-1kfo0kb euhjq6q3"><label
+                        class="css-nv82x6 euhjq6q2 confirmPassword-title">비밀번호 확인</label><label><input
+                        class="_3ASDR _1qwAY highlight" field="[object Object]" name="confirmPassword" type="password"
+                        placeholder="비밀번호 확인" value="">
+                    <div class="css-1voj95g euhjq6q0 confirm-password-valid" style="display: none;">비밀번호가 일치하지 않습니다.
+                    </div>
+                </label>
                 </div>
-                <div class="css-1kfo0kb euhjq6q3"><label class="css-nv82x6 euhjq6q2">닉네임</label>
+                <div class="css-1kfo0kb euhjq6q3"><label class="css-nv82x6 euhjq6q2 nickname-title">닉네임</label>
                     <div class="css-18zgq8s euhjq6q1">다른 유저와 겹치지 않도록 입력해주세요. (2~15자)</div>
-                    <label><input class="_3ASDR _1qwAY" field="[object Object]" name="nickname" placeholder="별명 (2~15자)"
-                                  value=""><span class="css-9kms4c eakc7oz0">닉네임 입력하기</span></label></div>
-                <div class="css-1kfo0kb euhjq6q3"><label class="css-nv82x6 euhjq6q2">약관동의</label>
-                    <div class="css-53y8n8 e1hy3kq6">
+                    <label><input class="_3ASDR _1qwAY highlight" field="[object Object]" name="nickname"
+                                  placeholder="별명 (2~15자)" value="">
+                        <div class="css-1voj95g euhjq6q0 nickname-valid"
+                             style="display: none;">닉네임은 한글,영어,숫자 조합으로 <br>2~15자 사이만 가능합니다.
+                        </div>
+                    </label></div>
+                <div class="css-1kfo0kb euhjq6q3"><label class="css-nv82x6 euhjq6q2 checkbox-title">약관동의</label>
+                    <div class="css-53y8n8 e1hy3kq6 checkbox-form">
                         <div class="css-127yl2f e1hy3kq5"><label class="e1hy3kq4 css-xbe84c">
-                            <div class="css-1ht51ro">
+                            <div class="css-1ht51ro  check-box">
                                 <div class="css-edbsi7"><span class="_check_12 css-1jxc35f"></span></div>
                                 <input field="[object Object]" name="agreeAll" type="checkbox" class="css-8um586"
                                        value="false"></div>
@@ -136,7 +159,7 @@
                                     class="css-10odp2i e1hy3kq2">선택항목에 대한 동의 포함</span></span></span></label></div>
                         <hr class="e1hy3kq0 css-1ub9td3">
                         <div class="css-127yl2f e1hy3kq5"><label class="e1hy3kq4 css-xbe84c">
-                            <div class="css-1ht51ro">
+                            <div class="css-1ht51ro check-box">
                                 <div class="css-edbsi7"><span class="_check_12 css-1jxc35f"></span></div>
                                 <input field="[object Object]" name="agree1" type="checkbox" class="css-8um586"
                                        value="false"></div>
@@ -144,7 +167,7 @@
                                                            class="css-16dg5k0 e1hy3kq3">만 14세 이상입니다</span></span></label>
                         </div>
                         <div class="css-127yl2f e1hy3kq5"><label class="e1hy3kq4 css-xbe84c">
-                            <div class="css-1ht51ro">
+                            <div class="css-1ht51ro check-box">
                                 <div class="css-edbsi7"><span class="_check_12 css-1jxc35f"></span></div>
                                 <input field="[object Object]" name="agree2" type="checkbox" class="css-8um586"
                                        value="false"></div>
@@ -153,7 +176,7 @@
                                 target="_blank" class="css-1afr2ti e1hy3kq1" href="/usepolicy"><span
                                 class="_chevron_right_18 css-qu4qo8"></span></a></div>
                         <div class="css-127yl2f e1hy3kq5"><label class="e1hy3kq4 css-xbe84c">
-                            <div class="css-1ht51ro">
+                            <div class="css-1ht51ro check-box">
                                 <div class="css-edbsi7"><span class="_check_12 css-1jxc35f"></span></div>
                                 <input field="[object Object]" name="agree3" type="checkbox" class="css-8um586"
                                        value="false"></div>
@@ -161,7 +184,7 @@
                                 target="_blank" class="css-1afr2ti e1hy3kq1" href="/privacy?type=register"><span
                                 class="_chevron_right_18 css-qu4qo8"></span></a></div>
                         <div class="css-127yl2f e1hy3kq5"><label class="e1hy3kq4 css-xbe84c">
-                            <div class="css-1ht51ro">
+                            <div class="css-1ht51ro check-box" >
                                 <div class="css-edbsi7"><span class="_check_12 css-1jxc35f"></span></div>
                                 <input field="[object Object]" name="agreeMarketUsage" type="checkbox"
                                        class="css-8um586" value="false"></div>
@@ -171,13 +194,15 @@
                                                                                                         href="/privacy?type=register_marketing"><span
                                 class="_chevron_right_18 css-qu4qo8"></span></a></div>
                         <div class="css-127yl2f e1hy3kq5"><label class="e1hy3kq4 css-xbe84c">
-                            <div class="css-1ht51ro">
+                            <div class="css-1ht51ro check-box">
                                 <div class="css-edbsi7"><span class="_check_12 css-1jxc35f"></span></div>
                                 <input field="[object Object]" name="agreePromotion" type="checkbox" class="css-8um586"
                                        value="false"></div>
                             <span class="css-lc8zlb"><span
                                     class="css-1qfqwct e1hy3kq3">이벤트, 쿠폰, 특가 알림 메일 및 SMS 등 수신</span></span></label>
                         </div>
+                    </div>
+                    <div class="css-1voj95g euhjq6q0 checkbox-valid" style="display: none;">필수 동의란은 모두 체크해주세요!
                     </div>
                 </div>
                 <div class="g-recaptcha css-1yqaufb e9ksxky1" data-sitekey="6LcZ2tckAAAAAJFHN0VkV2kTYio8Uh3YViGT3ern"
@@ -199,11 +224,13 @@
                     <input field="[object Object]" name="recaptchaToken" value=""
                            class="form-control css-eivff4 e9ksxky0">
                 </div>
-                <button class="_3Z6oR _3AsCW _2tsrJ css-1d3w5wq e1y3odo22" type="submit">회원가입하기</button>
+                <button class="_3Z6oR _3AsCW _2tsrJ css-1d3w5wq e1y3odo22 join-btn" type="button">회원가입하기</button>
             </form>
             <p class="css-frl1s e1y3odo21">이미 아이디가 있으신가요?<a href="/users/sign_in" class="css-i9fa3q e1y3odo20">로그인</a>
             </p></div>
     </section>
 </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="/js/login/join.js"></script>
 </html>

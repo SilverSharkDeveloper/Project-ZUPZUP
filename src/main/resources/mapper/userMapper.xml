@@ -23,7 +23,12 @@
         WHERE ID = #{userId}
     </select>
 
-
+    <!--입력한 회원 nickname으로 회원 조회-->
+    <select id="selectByUserNickname" resultType="userVO">
+        SELECT ID, USER_IDENTIFICATION, USER_PASSWORD, USER_NAME, USER_NICKNAME, USER_STATUS, USER_TISSUE, USER_CREATED_DATE, USER_UPDATED_DATE, USER_ROLE, PROFIL_IMAGE_NAME, PROFIL_IMAGE_UUID, PROFIL_IMAGE_SIZE
+        FROM TBL_USER
+        WHERE USER_NICKNAME = #{nickname}
+    </select>
 
 
 </mapper>

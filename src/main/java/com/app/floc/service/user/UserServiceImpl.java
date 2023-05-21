@@ -33,4 +33,9 @@ public class UserServiceImpl implements UserService {
     public Optional<UserVO> getUser(Long userId) {
         return userDAO.findByUserId(userId);
     }
+
+    @Override
+    public Optional<UserVO> checkNickname(String nickname) {
+        return userDAO.findByUserNickname(nickname);
+    }
 }

@@ -19,4 +19,7 @@ public interface UserService {
     //userid로 회원 조회
     public Optional<UserVO> getUser(Long userId);
 
+    //닉네임 중복검사
+    public Optional<UserVO> checkNickname(String nickname);
+
 }
