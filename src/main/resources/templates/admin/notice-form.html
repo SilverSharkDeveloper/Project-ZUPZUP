@@ -31,16 +31,15 @@
         <!--side bar-->
         <nav>
             <ul class="mainNav">
-                <li><a href="./admin.html">관리자 계정 관리</a></li>
-                <li><a href="./main.html">메인 관리</a></li>
-                <li><a href="./member.html">회원 관리</a></li>
-                <li><a href="product.html" >상품 관리</a></li>
-                <li><a href="product-form.html" >상품 등록</a></li>
-                <li><a href="./floging.html" >플로깅 목록</a></li>
-                <li><a href="./notice.html" >공지 사항</a></li>
-                <li><a href="./notice-form.html" >공지 사항 작성</a></li>
-                <li><a href="./qna.html" >문의 목록</a></li>
-
+                <li><a th:href="@{amdin}">관리자 계정 관리</a></li>
+                <li><a th:href="@{main}">메인 관리</a></li>
+                <li><a th:href="@{member}">회원 관리</a></li>
+                <li><a th:href="@{product}">상품 관리</a></li>
+                <li><a th:href="@{product-form}">상품 등록</a></li>
+                <li><a th:href="@{flogging}">플로깅 목록</a></li>
+                <li><a th:href="@{notice}">공지 사항</a></li>
+                <li><a th:href="@{notice-form}">공지 사항 작성</a></li>
+                <li><a th:href="@{qna}">문의 목록</a></li>
             </ul>
         </nav>
 
@@ -50,7 +49,7 @@
             <div class="content-wrap">
 
                 <!-- [S] 공지사항 등록 -->
-                <form action="./notice.html" method="post"  class="submit-form">
+                <form th:action="@{notice-form}" method="post"  class="submit-form">
                     <div class="con-write-wrap">
                         <div class="notice-write">
                             <div class="write-title">공지사항 제목</div>
@@ -86,8 +85,8 @@
 
                     <!-- 작성하기 btn -->
                     <div class="write-btn-wrap">
-                        <button type="button" class="btn btn-list"><a href="./notice.html">공지 사항</a></button>
-                        <button type="button" class="btn btn-write">작성하기</button>
+                        <button type="button" class="btn btn-list"><a th:href="@{/admin/notice}">공지 사항</a></button>
+                        <button type="submit" class="btn btn-write">작성하기</button>
                     </div>
                 </form>
 

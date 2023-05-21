@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,7 +19,7 @@ public class NoticeDAO {
     private final NoticeMapper noticeMapper;
 
     //공지사항 목록
-    public List<NoticeDTO> findAll(Pagination pagination,Search search) {
+    public List<NoticeDTO> findAll(Pagination pagination, Search search) {
         return noticeMapper.selectAll(pagination, search);
     }
 

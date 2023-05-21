@@ -4,6 +4,7 @@ import com.app.floc.domain.VO.NoticeVO;
 import com.app.floc.domain.dto.NoticeDTO;
 import com.app.floc.domain.dto.Pagination;
 import com.app.floc.domain.dto.Search;
+import org.springframework.ui.Model;
 
 import java.util.List;
 import java.util.Optional;

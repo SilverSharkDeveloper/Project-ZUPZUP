@@ -13,8 +13,7 @@ import java.util.Optional;
 public interface NoticeMapper {
     //    공지사항 목록
 //    페이징 처리된거. 검색
-//    public List<NoticeDTO> selectAll(@Param("pagination")Pagination pagination, @Param("search")Search search);
-    public List<NoticeDTO> selectAll(@Param("pagination")Pagination pagination,@Param(""));
+    public List<NoticeDTO> selectAll(@Param("pagination")Pagination pagination, @Param("search")Search search);
     //공지사항 상세보기
      public Optional<NoticeDTO> select(Long id);
 

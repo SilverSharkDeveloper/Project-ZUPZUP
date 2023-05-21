@@ -272,7 +272,9 @@ input.modal_input {
 #modal_close_btn:active {
 	background-color:#bcbcbc;
 }
-
+page-list{
+    text-decoration: none;
+}
 
 #modal .modal_layer {
   position:fixed;

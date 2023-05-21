@@ -27,7 +27,7 @@ public class NoticeController {
     @GetMapping("list")
     public void list(Pagination pagination, Search search, Model model){
         pagination.setTotal(noticeService.getTotal(search));
-        pagination.progress();
+//        pagination.progress();
         model.addAttribute("notices", noticeService.getList(pagination,search));
     }
     //관리자가 작성

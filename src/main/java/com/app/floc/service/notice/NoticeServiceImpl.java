@@ -8,6 +8,7 @@ import com.app.floc.domain.dto.Pagination;
 import com.app.floc.domain.dto.Search;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,11 +20,14 @@ public class NoticeServiceImpl implements NoticeService {
 
     @Override
     public List<NoticeDTO> getList(Pagination pagination, Search search) {
-        return noticeDAO.findAll(pagination, search);
+        List<NoticeDTO> notices = noticeDAO.findAll(pagination, search);
+        return notices;
     }
 
+    //상세보기
     @Override
     public Optional<NoticeDTO> read(Long id) {
+
         return noticeDAO.findById(id);
     }
 

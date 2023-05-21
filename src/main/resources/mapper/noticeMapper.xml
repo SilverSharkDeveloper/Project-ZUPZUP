@@ -28,19 +28,28 @@
 
     <select id="selectAll" resultType="noticeDTO">
         SELECT N.ID, NOTICE_TITLE, NOTICE_CONTENT, NOTICE_CREATED_DATE, NOTICE_UPDATED_DATE, NOTICE_VIEWED_COUNT,
-        ADMIN_ID
+        USER_IDENTIFICATION
         FROM
         (
             SELECT ROWNUM R, N.ID, NOTICE_TITLE, NOTICE_CONTENT, NOTICE_CREATED_DATE, NOTICE_UPDATED_DATE,
-            NOTICE_VIEWED_COUNT, ADMIN_ID
+            NOTICE_VIEWED_COUNT, USER_IDENTIFICATION
             FROM TBL_USER U JOIN TBL_NOTICE N
-        <![CDATA[
-         )
-         ON U.ID = N.ADMIN_ID AND ROWNUM <= #{pagination.page} * #{pagination.rowCount}
+    <![CDATA[
+            ON U.ID = N.ADMIN_ID AND ROWNUM <= #{pagination.page} * #{pagination.rowCount}
         ]]>
-        <include refid="search"/>
-        <![CDATA[
-            ) N WHERE R > (#{pagination.page} - 1) * #{pagination.rowCount}
+    <include refid="search"/>
+    ORDER BY
+    <choose>
+        <when test="search.order == 'popular'">
+            NOTICE_VIEWED_COUNT
+        </when>
+        <otherwise>
+            N.ID
+        </otherwise>
+    </choose>
+    ASC
+    <![CDATA[
+        ) N WHERE R > (#{pagination.page} - 1) * #{pagination.rowCount}
         ]]>
     </select>
 
@@ -66,13 +75,10 @@
     </delete>
 
     <select id="selectCountOfNotice" resultType="_int">
-        SELECT COUNT(ID)
-        FROM TBL_NOTICE
-        <where>
-            <trim prefixOverrides="AND(" suffixOverrides=")">
+        SELECT COUNT(N.ID)
+        FROM TBL_USER U JOIN TBL_NOTICE N
+        ON U.ID = N.ADMIN_ID
                 <include refid="search"/>
-            </trim>
-        </where>
     </select>
 
 

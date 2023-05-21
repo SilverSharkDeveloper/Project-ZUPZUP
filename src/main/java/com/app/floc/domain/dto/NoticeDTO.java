@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 public class NoticeDTO {
     private Long id;
     private Long adminId;
+    private String userIdentification;
     private String noticeTitle;
     private String noticeContent;
     private String noticeCreatedDate;

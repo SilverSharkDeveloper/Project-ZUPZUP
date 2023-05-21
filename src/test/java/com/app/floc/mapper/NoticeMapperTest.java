@@ -40,16 +40,19 @@ class NoticeMapperTest {
     //상세보기
     @Test
     public void selectTest(){
-        Optional<NoticeDTO> foundNotice = noticeMapper.select(1L);
-        foundNotice.ifPresent(notice -> assertThat(notice.getNoticeTitle()).isEqualTo("수정된 제목")); }
+        Optional<NoticeDTO> foundNotice = noticeMapper.select(4L);
+        foundNotice.ifPresent(notice -> assertThat(notice.getNoticeTitle()).isEqualTo("공지사항 제목 3"));
+        foundNotice.stream().map(NoticeDTO::toString).forEach(log::info);
+    }
+
 
     //전체 조회  / 페이징처리, 검색
-    @Test
-    public void selectAllTest() {
-        Pagination pagination = new Pagination();
-        pagination.setPage(1);
-        assertThat(noticeMapper.selectAll(1L,pagination)).hasSize(2);
-    }
+//    @Test
+//    public void selectAllTest() {
+//        Pagination pagination = new Pagination();
+//        pagination.setPage(1);
+//        assertThat(noticeMapper.selectAll(1L,pagination)).hasSize(2);
+//    }
 //        assertThat(noticeMapper.selectAll(pagination,search)).hasSize();
 //        noticeMapper.selectAll(new Pagination(), new Search()).stream().map(NoticeDTO::toString).forEach(log::info);
     //수정

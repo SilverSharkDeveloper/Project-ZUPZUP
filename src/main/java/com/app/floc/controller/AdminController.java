@@ -7,14 +7,12 @@ import com.app.floc.domain.dto.Pagination;
 import com.app.floc.domain.dto.Search;
 import com.app.floc.service.admin.AdminService;
 import com.app.floc.service.notice.NoticeService;
+import com.app.floc.service.user.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -22,11 +20,14 @@ import java.util.List;
 
 @Controller
 @Slf4j
-@RequestMapping("/admin/*")
+@RequestMapping("/admin")
 @RequiredArgsConstructor
 public class AdminController {
+
     private final AdminService adminService;
+    private final UserService userService;
     private final NoticeService noticeService;
+
 
 //    admin관리
     @GetMapping("admin")
@@ -34,11 +35,18 @@ public class AdminController {
 
 
 
-//메인     ,
+
+//메인     ,상품,유저,플로깅 데이터 가져오기
     @GetMapping("main")
     public void goToMain(Model model){;}
 
 //회원 관리
+    @GetMapping("member")
+    public void list(Pagination pagination,Search search, Model model){
+        pagination.setTotal(userService.getTotal(search));
+        pagination.progress();
+        model.addAttribute("members", userService.getUserList(pagination,search));
+    }
 
 //상품 관리
     @GetMapping("product")
@@ -49,13 +57,16 @@ public class AdminController {
 
 //플로깅 목록
 
+
+
+
 //공지사항
     //목록
     @GetMapping("notice")
-    public void goToNotice(int page, Search search, Model model){
-        final Pagination pagination = new Pagination();
-        pagination.setPage(page);
-        model.addAttribute("notices", noticeService.getList(pagination, search));
+    public void noticeList(Pagination pagination, Search search, Model model){
+        pagination.setTotal(noticeService.getTotal(search));
+        pagination.progress();
+        model.addAttribute("notices", noticeService.getList(pagination,search));
     }
     //작성 페이지
     @GetMapping("notice-form")
@@ -63,6 +74,7 @@ public class AdminController {
 
     @PostMapping("notice-form")
     public RedirectView noticeWrite(NoticeDTO noticeDTO){
+        userService.login("1a2k","12341234");
         noticeService.write(noticeDTO);
         return new RedirectView("/notice");
     }
@@ -80,7 +92,7 @@ public class AdminController {
         return new RedirectView("/notice");
     }
     //삭제
-    @PostMapping("notice/remove")
+    @DeleteMapping
     public RedirectView remove(Long id){
         noticeService.remove(id);
         return new RedirectView("/notice");
