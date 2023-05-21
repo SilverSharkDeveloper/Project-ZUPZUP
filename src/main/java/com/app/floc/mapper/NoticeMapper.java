@@ -1,7 +1,8 @@
 package com.app.floc.mapper;
 
-import com.app.floc.domain.dto.NoticeDTO;
-import com.app.floc.domain.dto.Search;
+import com.app.floc.domain.DTO.AdminPagination;
+import com.app.floc.domain.DTO.NoticeDTO;
+import com.app.floc.domain.DTO.Search;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -12,7 +13,7 @@ import java.util.Optional;
 public interface NoticeMapper {
     //    공지사항 목록
 //    페이징 처리된거. 검색
-    public List<NoticeDTO> selectAll(@Param("pagination") com.app.floc.domain.dto.AdminPagination adminPagination, @Param("search")Search search);
+    public List<NoticeDTO> selectAll(@Param("adminPagination") AdminPagination adminPagination, @Param("search")Search search);
     //공지사항 상세보기
      public Optional<NoticeDTO> select(Long id);
 

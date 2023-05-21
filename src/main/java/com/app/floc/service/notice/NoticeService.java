@@ -1,8 +1,9 @@
 package com.app.floc.service.notice;
 
+import com.app.floc.domain.DTO.AdminPagination;
+import com.app.floc.domain.DTO.NoticeDTO;
+import com.app.floc.domain.DTO.Search;
 import com.app.floc.domain.VO.NoticeVO;
-import com.app.floc.domain.dto.NoticeDTO;
-import com.app.floc.domain.dto.Search;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,7 +11,7 @@ import java.util.Optional;
 public interface NoticeService {
 
     // 게시글 목록
-    public List<NoticeDTO> getList(com.app.floc.domain.dto.AdminPagination adminPagination, Search search);
+    public List<NoticeDTO> getList(AdminPagination adminPagination, Search search);
 
     //게시글 조회
     public Optional<NoticeDTO> read(Long id);

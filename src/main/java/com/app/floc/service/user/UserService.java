@@ -1,7 +1,8 @@
 package com.app.floc.service.user;
 
+import com.app.floc.domain.DTO.AdminPagination;
+import com.app.floc.domain.DTO.Search;
 import com.app.floc.domain.VO.UserVO;
-import com.app.floc.domain.dto.Search;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,7 +21,7 @@ public interface UserService {
     public Optional<UserVO> getUser(Long userId);
 
     //회원 목록 조회
-    public List<UserVO> getUserList(com.app.floc.domain.dto.AdminPagination adminPagination, Search search);
+    public List<UserVO> getUserList(AdminPagination adminPagination, Search search);
 
     //회원 총 명
     public int getTotal(Search search);
