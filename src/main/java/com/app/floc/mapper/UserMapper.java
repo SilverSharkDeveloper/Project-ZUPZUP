@@ -1,10 +1,14 @@
 package com.app.floc.mapper;
 
 import com.app.floc.domain.VO.UserVO;
+import com.app.floc.domain.dto.NoticeDTO;
+import com.app.floc.domain.dto.Pagination;
+import com.app.floc.domain.dto.Search;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.List;
 import java.util.Optional;
 
 @Mapper
@@ -18,11 +22,16 @@ public interface UserMapper {
     //로그인
     @Select("SELECT ID FROM TBL_USER WHERE USER_IDENTIFICATION = #{userIdentification} AND USER_PASSWORD = #{userPassword}")
     public Optional<Long> selectByUserIdentificationAndUserPassword(
-            @Param("userIdentification") String userIdentification,@Param("userPassword") String userPassword
-            );
+            @Param("userIdentification") String userIdentification, @Param("userPassword") String userPassword
+    );
 
     //userid로 회원 조회
     public Optional<UserVO> selectByUserId(Long userId);
 
+    //회원정보 조회
+    public List<UserVO> selectAll(@Param("pagination") Pagination pagination, @Param("search") Search search);
+
+    //총 개수
+    public int selectCountOfUser(@Param("search") Search search);
 
 }

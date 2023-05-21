@@ -47,4 +47,13 @@ class UserDAOTest {
         Optional<UserVO> foundUser = userDAO.findByUserId(21L);
         foundUser.ifPresent(user->assertThat(user.getUserName()).isEqualTo("허은상"));
     }
+
+    @Test
+    public void findByUserTest(){
+//        userDAO.findByUser().stream().map(UserVO::toString).forEach(log::info);
+//        final Optional<UserVO> foundAll = userDAO.findByUser();
+//        foundAll.ifPresent(user -> assertThat(user.getUserIdentification()).hasSize(2));
+//        assertThat(userDAO.findByUser()).hasSize(2);
+
+    }
 }
