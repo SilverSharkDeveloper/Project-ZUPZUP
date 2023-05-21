@@ -1,8 +1,9 @@
 package com.app.floc.controller;
 
+import com.app.floc.domain.DTO.AdminPagination;
+import com.app.floc.domain.DTO.NoticeDTO;
+import com.app.floc.domain.DTO.Search;
 import com.app.floc.domain.VO.UserVO;
-import com.app.floc.domain.dto.NoticeDTO;
-import com.app.floc.domain.dto.Search;
 import com.app.floc.service.admin.AdminService;
 import com.app.floc.service.notice.NoticeService;
 import com.app.floc.service.user.UserService;
@@ -41,7 +42,7 @@ public class AdminController {
 //회원 관리
 // 목록
     @GetMapping("member")
-    public void list(com.app.floc.domain.dto.AdminPagination adminPagination, Search search, Model model){
+    public void list(AdminPagination adminPagination, Search search, Model model){
         adminPagination.setTotal(userService.getTotal(search));
         adminPagination.progress();
         model.addAttribute("members", userService.getUserList(adminPagination,search));
@@ -73,7 +74,7 @@ public class AdminController {
 //공지사항 관리
     //목록
     @GetMapping("notice")
-    public void noticeList(com.app.floc.domain.dto.AdminPagination adminPagination, Search search, Model model){
+    public void noticeList(AdminPagination adminPagination, Search search, Model model){
         adminPagination.setTotal(noticeService.getTotal(search));
         adminPagination.progress();
         model.addAttribute("notices", noticeService.getList(adminPagination,search));

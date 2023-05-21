@@ -1,6 +1,7 @@
 package com.app.floc.controller;
 
-import com.app.floc.domain.dto.Search;
+import com.app.floc.domain.DTO.AdminPagination;
+import com.app.floc.domain.DTO.Search;
 import com.app.floc.service.notice.NoticeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +18,7 @@ public class NoticeController {
     private final NoticeService noticeService;
 
     @GetMapping("notice")
-    public void list(com.app.floc.domain.dto.AdminPagination adminPagination, Search search, Model model){
+    public void list(AdminPagination adminPagination, Search search, Model model){
 //        pagination.setTotal(noticeService.getTotal(search));
 //        pagination.progress();
 //        model.addAttribute("notices", noticeService.getList(pagination,search));
