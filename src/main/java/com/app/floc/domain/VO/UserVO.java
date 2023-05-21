@@ -20,7 +20,7 @@ public class UserVO {
     private String userRole;
     private Long userTissue;
     private String profileImageName;
-    private String profileUuid;
+    private String profileImageUuid;
     private Long profileImageSize;
 
 }

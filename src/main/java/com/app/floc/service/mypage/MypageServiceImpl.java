@@ -8,10 +8,4 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class MypageServiceImpl implements MypageService {
-
-
-    @Override
-    public void modify(UserEditDTO userEditDTO) {
-        UserDAO.updateUserDTO(userEditDTO);
-    }
 }
