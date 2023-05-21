@@ -1,5 +1,7 @@
 package com.app.floc.mapper;
 
+
+import com.app.floc.domain.DTO.AdminPagination;
 import com.app.floc.domain.DTO.Search;
 import com.app.floc.domain.VO.UserVO;
 import org.apache.ibatis.annotations.Mapper;
@@ -28,7 +30,9 @@ public interface UserMapper {
     public Optional<UserVO> selectByUserId(Long userId);
 
     //회원정보,페이징 조회
-    public List<UserVO> selectAll(@Param("pagination") com.app.floc.domain.DTO.AdminPagination adminPagination, @Param("search") Search search);
+
+
+    public List<UserVO> selectAll(@Param("adminPagination") AdminPagination adminPagination, @Param("search") Search search);
 
     //총 개수
     public int selectCountOfUser(@Param("search") Search search);

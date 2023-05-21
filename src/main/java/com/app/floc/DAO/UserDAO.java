@@ -1,5 +1,7 @@
 package com.app.floc.DAO;
 
+import com.app.floc.domain.DTO.AdminPagination;
+import com.app.floc.domain.DTO.Search;
 import com.app.floc.domain.VO.UserVO;
 import com.app.floc.domain.DTO.Search;
 import com.app.floc.mapper.UserMapper;
@@ -38,7 +40,10 @@ public class UserDAO {
 
     //admin
     //회원 정보 조회
-    public List<UserVO> findByUser(com.app.floc.domain.DTO.AdminPagination adminPagination, Search search){
+
+
+    public List<UserVO> findByUser(AdminPagination adminPagination, Search search){
+
         return userMapper.selectAll(adminPagination, search);
     }
     //admin 총명
