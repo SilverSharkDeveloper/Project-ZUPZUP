@@ -7,5 +7,13 @@ import org.springframework.stereotype.Repository;
 @Repository
 @RequiredArgsConstructor
 public class UserDAO {
-    private final UserMapper userMapper;
+    private static UserMapper userMapper;
+
+
+
+    //    회원정보 수정
+    public static void updateUserDTO(UserEditDTO userEditDTO){
+        userMapper.updateUser(userEditDTO);
+    }
+
 }
