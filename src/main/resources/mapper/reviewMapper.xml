@@ -1,5 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.floc.mapper.ReviewMapper">
+    <!--    검색 정규화-->
+    <!--<sql id="search">
+        <if test="search.type != null and !search.type.equals('')">
+            <trim prefix="AND(" prefixOverrides="OR" suffix=")">
+                <foreach item="type" collection="search.types">
+                    <trim prefix="OR">
+                        <choose>
+                            <when test="type=='t'.toString()">
+                                REVIEW_TITLE LIKE '%'||#{search.keyword}||'%'
+                            </when>
+                            <when test="type=='c'.toString()">
+                                REVIEW_CONTENT LIKE '%'||#{search.keyword}||'%'
+                            </when>
+                            <when test="type=='w'.toString()">
+                                MEMBER_NAME LIKE '%'||#{search.keyword}||'%'
+                            </when>
+                        </choose>
+                    </trim>
+                </foreach>
+            </trim>
+        </if>
+    </sql>-->
+    <!-- 플로깅 후기 작성 -->
+    <insert id="insert">
+        <!--<selectKey keyProperty="id" order="BEFORE" resultType="reviewVO">
+            SELECT SEQ_PLOGGING_REVIEW.NEXTVAL FROM DUAL
+        </selectKey>-->
+        INSERT INTO TBL_PLOGGING_REVIEW (ID, USER_ID, PLOGGING_ID, REVIEW_TITLE, REVIEW_CONTENT, REVIEW_REGISTER_DATE,
+        REVIEW_UPDATED_DATE)
+        VALUES(SEQ_PLOGGING_REVIEW.NEXTVAL, #{userId}, #{ploggingId} , #{reviewTitle} , #{reviewContent}, SYSDATE,
+        SYSDATE)
+    </insert>
 
+    <!--  플로깅 목록 조회  -->
+    <select id="selectAll" resultType="reviewDTO">
+        SELECT TRE.ID, TRE.USER_ID, TRE.PLOGGING_ID, TRE.REVIEW_TITLE, TRE.REVIEW_CONTENT, TRE.REVIEW_REGISTER_DATE, TRE.REVIEW_UPDATED_DATE, TU.USER_NICKNAME
+        FROM TBL_PLOGGING_REVIEW TRE, TBL_USER TU, TBL_PLOGGING TP
+        WHERE TRE.USER_ID = TU.ID AND TRE.PLOGGING_ID = TP.ID
+    </select>
+
+    <!--  플로깅 총 개수  -->
+    <select id="selectCount" resultType="_int">
+        SELECT COUNT(ID) FROM TBL_PLOGGING_REVIEW
+    </select>
+
+    <!--  플로깅 후기 조회  -->
+    <select id="select" resultType="reviewDTO">
+        SELECT ID, USER_ID, PLOGGING_ID, REVIEW_TITLE, REVIEW_CONTENT, REVIEW_REGISTER_DATE, REVIEW_UPDATED_DATE
+        FROM TBL_PLOGGING_REVIEW WHERE ID = #{id}
+    </select>
+
+    <!--  플로깅 내용 수정  -->
+    <update id="update">
+        UPDATE TBL_PLOGGING_REVIEW
+        SET REVIEW_TITLE = #{reviewTitle}, REVIEW_CONTENT = #{reviewContent}, REVIEW_UPDATED_DATE = SYSDATE
+        WHERE ID = #{id}
+    </update>
+
+    <!--  플로깅 후기 삭제  -->
+    <delete id="delete">
+        DELETE FROM TBL_PLOGGING_REVIEW WHERE ID = #{id}
+    </delete>
 </mapper>

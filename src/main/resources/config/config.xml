@@ -14,6 +14,7 @@
         <typeAlias type="com.app.floc.domain.VO.QnaResponseVO" alias="qnaResponseVO"/>
         <typeAlias type="com.app.floc.domain.VO.QRCheckVO" alias="QRcheckVO"/>
         <typeAlias type="com.app.floc.domain.VO.ReviewVO" alias="reviewVO"/>
+        <typeAlias type="com.app.floc.domain.DTO.ReviewDTO" alias="reviewDTO"/>
         <typeAlias type="com.app.floc.domain.VO.ReviewReplyVO" alias="reviewReplyVO"/>
         <typeAlias type="com.app.floc.domain.VO.ReviewImageVO" alias="reviewImageVO"/>
         <typeAlias type="com.app.floc.domain.VO.TissueVO" alias="tissueVO"/>
