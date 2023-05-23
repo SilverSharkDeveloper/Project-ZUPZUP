@@ -7,17 +7,49 @@
     <title>로컬크리에이터 후기 목록</title>
 </head>
 <style>
+    button.button:hover{
+        color: #FFFFFF;
+        border: 2px solid #FFFFFF;
+        background-color: #3B7661;
+    }
+    button.mainBtn:hover{
+        color: #FFFFFF;
+        border: 2px solid #FFFFFF;
+        background-color: #3B7661;
+    }
     button.orderActive{
-        color: #2e2e2e;
-        border: 2px solid #2e2e2e;
-        background-color: #9e9e9e;
+        color: #FFFFFF;
+        border: 2px solid #FFFFFF;
+        background-color: #7aab9a;
     }
 </style>
 <link rel="stylesheet" href="../../static/css/review/user_review_list.css">
-
+<link rel="stylesheet" href="/css/header-footer/header.css">
+<link rel="stylesheet" href="../../static/css/header-footer/header.css">
 <body>
 <div class="css-b3oum6">
     <div class="layout">
+        <header th:replace="~{/header-footer/header::header}"></header>
+        <div class="e18r2nwe4 css-12un3nt">
+            <div class="css-bh7d0o e18r2nwe2">
+                <div class="css-hhf500 e18r2nwe0">
+                    <button class="mainBtn css-hhk5mj">로컬 크리에이터 후기</button>
+                </div>
+                <div class="css-hhf500 e18r2nwe0">
+                    <button class="mainBtn css-hhk5mj">플로깅 참가자 후기 목록</button>
+                </div>
+                <div class="_2HVeX _28SKg _2HVeX button" aria-label="이전">
+                    <svg width="1em" height="1em" viewBox="0 0 20 20">
+                        <path d="M15.1 10l-.14-.14-8.68-8.68L4.9 2.55 12.36 10l-7.45 7.45 1.37 1.37 8.68-8.68z" fill="currentColor"></path>
+                    </svg>
+                </div>
+                <div class="_2HVeX _1VMwQ _2HVeX button" aria-label="다음">
+                    <svg width="1em" height="1em" viewBox="0 0 20 20">
+                        <path d="M15.1 10l-.14-.14-8.68-8.68L4.9 2.55 12.36 10l-7.45 7.45 1.37 1.37 8.68-8.68z" fill="currentColor"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
         <hr class="e18r2nwe1 css-13l0bfx">
         <div class="e1gt23lz1 css-12un3nt list-input">
             <div class="filter css-kwstsq el60dcz0">
@@ -59,6 +91,28 @@
             </div>
             <div class="css-1ljcge9 e1gt23lz0">
                 <!--전체개수 타임리프로 넣던가 그냥 값을 꽂아넣던가 해야함-->
+                <th:block th:text="게시글 + ${pagination.total} + 개">1</th:block>
+            </div>
+            <div class="css-xy5hx5 erfbhrp0" style="padding-top: 0px; transform: translateY(0px);">
+                <div class="item"><a th:href="@{/review/detail}">
+                    <article class="css-1evwse1 e1e2zisd6">
+                        <div class="css-1hnq8aw e1e2zisd5">
+                            <img class="css-j9woce e1e2zisd7" alt="대표 이미지" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/interior3ds/168057505001286882.png?gif=1&amp;w=480&amp;h=320&amp;c=c&amp;q=80&amp;webp=1" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/interior3ds/168057505001286882.png?gif=1&amp;w=640&amp;h=427&amp;c=c&amp;q=80&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/interior3ds/168057505001286882.png?gif=1&amp;w=850&amp;h=567&amp;c=c&amp;q=80&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/interior3ds/168057505001286882.png?gif=1&amp;w=1280&amp;h=854&amp;c=c&amp;q=80&amp;webp=1 3x">
+                            <span class="project-feed__item__image__new" aria-label="NEW"><svg class="icon" width="36" height="20" viewBox="0 0 36 20" preserveAspectRatio="xMidYMid meet"><g fill="none" fill-rule="evenodd"><rect width="36" height="20" fill="#FDBD39" rx="4"></rect><path fill="#FFF" fill-rule="nonzero" d="M6 14V6h1.668l3.446 5.644h.036V6h1.318v8h-1.475L7.354 7.97h-.036V14H6zm8.414 0V6h5.174v1.131h-3.687v2.193h2.865v1.12h-2.865v2.425h3.76V14h-5.247zm8.317 0l-2.067-8h1.511l1.414 5.924h.037L25.318 6h1.21l1.667 5.924h.037L29.658 6H31l-2.03 8h-1.476l-1.62-5.808h-.036L24.194 14H22.73z"></path></g></svg></span>
+                        </div>
+                        <div class="css-1647809 e1e2zisd4">
+                            <h2 class="css-z2d3s1 e1e2zisd2">나만의 작은 방, 블랙 컬러 인테리어로 무드 있게!</h2>
+                            <address class="project-feed__item__writer-wrap">
+                                <a class="project-feed__item__writer" href="/users/5921670?affect_type=ProjectSelfIndex&amp;affect_id=1"><img class="project-feed__item__writer__image" alt="" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168186561821130322.png?gif=1&amp;w=36&amp;h=36&amp;c=c&amp;webp=1" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168186561821130322.png?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168186561821130322.png?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168186561821130322.png?gif=1&amp;w=144&amp;h=144&amp;c=c&amp;webp=1 3x"><span class="project-feed__item__writer__name">dd_archive.1</span></a>
+                            </address>
+                            <div class="css-iadmuc e1e2zisd3">좋아요 16<span class="css-4vnul8 e1e2zisd8">조회 6,542</span>
+                            </div>
+                            <div class="css-iadmuc e1e2zisd3">
+                                <span class="css-4vnul9 e1e2zisd8">2023.09.01</span>
+                            </div>
+                        </div>
+                    </article>
+                </a></div>
             </div>
         </div>
     </div>
@@ -75,6 +129,12 @@
     $button = $("button.button");
     $button.on("click", function () {
         $button.removeClass("orderActive");
+        $(this).addClass("orderActive");
+    });
+
+    $mainbutton = $("button.mainBtn");
+    $mainbutton.on("click", function () {
+        $mainbutton.removeClass("orderActive");
         $(this).addClass("orderActive");
     });
 </script>

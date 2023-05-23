@@ -26,11 +26,11 @@ class ReviewMapperTest {
 
     @Test
     public void selectAllTest() {
-        Pagination pagination = new Pagination(3);
+        Pagination pagination = new Pagination(1);
         pagination.setPage(1); //화면에서 전달받은 페이지
 //        assertThat(postMapper.selectAll(pagination)).hasSize(2);
 //        postMapper.selectAll(pagination, new Search("popular")).stream().map(PostDTO::toString).forEach(log::info);
-//        postMapper.selectAll(pagination, new Search()).stream().map(PostDTO::toString).forEach(log::info);
+        reviewMapper.selectAll(pagination).stream().map(ReviewDTO::toString).forEach(log::info);
     }
 
     @Test
