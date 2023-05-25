@@ -6,6 +6,7 @@ import com.app.floc.domain.VO.UserVO;
 import com.app.floc.domain.DTO.Search;
 import com.app.floc.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -56,6 +57,21 @@ public class UserDAO {
     public List<UserVO> findByRecent(){
         return userMapper.selectByRecent();
 
+    }
+
+    //회원정보수정
+    public void updateUser(UserVO userVO){
+        userMapper.update(userVO);
+    }
+
+    //비밀번호 수정
+    public void crystalPassword(UserVO userVO){
+        userMapper.updatePassword(userVO);
+    }
+
+    //회원탈퇴
+    public void deleteUser(UserVO userVO){
+        userMapper.delete(userVO);
     }
 
 }

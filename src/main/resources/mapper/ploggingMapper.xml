@@ -2,10 +2,33 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.floc.mapper.PloggingMapper">
 
+    <sql id="search">
+        <if test="search.type != null and !search.type.equals('')">
+            <trim prefix="AND(" prefixOverrides="OR" suffix=")">
+                <foreach item="type" collection="search.types">
+                    <trim prefix="OR">
+                        <choose>
+                            <when test="type=='t'.toString()">
+                                POST_TITLE LIKE '%'||#{search.keyword}||'%'
+                            </when>
+                            <when test="type=='c'.toString()">
+                                POST_CONTENT LIKE '%'||#{search.keyword}||'%'
+                            </when>
+                            <when test="type=='w'.toString()">
+                                MEMBER_NAME LIKE '%'||#{search.keyword}||'%'
+                            </when>
+                        </choose>
+                    </trim>
+                </foreach>
+            </trim>
+        </if>
+    </sql>
+
     <insert id="insert">
         INSERT INTO TBL_PLOGGING(ID, LOCAL_CREATOR_ID, PLOGGING_TITLE, PLOGGING_CONTENT, PLOGGING_START_LOCATION, PLOGGING_END_LOCATION, PLOGGING_ESTIMATED_TIME, PLOGGING_MAXIMUM_PARTICIPANT, PLOGGING_START_DATETIME, PLOGGING_STATUS, PLOGGING_APPLY_DATE, PLOGGING_REJECTED_REASON, PLOGGING_REGISTER_DATE, PLOGGING_UPDATED_DATE, PLOGGING_VIEWED_COUNT, PLOGGING_IMAGE_NAME, PLOGGING_IMAGE_UUID, PLOGGING_IMAGE_SIZE)
         VALUES(SEQ_PLOGGING.NEXTVAL, #{localCreatorId}, #{ploggingTitle}, #{ploggingContent}, #{ploggingStartLocation}, #{ploggingEndLocation}, #{ploggingEstimatedTime}, #{ploggingMaximumParticipant}, #{ploggingStartDateTime}, #{ploggingStatus} , SYSDATE, #{ploggingRejectedReason}, SYSDATE, SYSDATE, (0) , #{ploggingImageName}, #{ploggingImageUuid}, #{ploggingImageSize})
     </insert>
+
     <select id="selectAll" resultType="ploggingDTO">
         SELECT p.ID, LOCAL_CREATOR_ID,USER_NICKNAME , PLOGGING_TITLE, PLOGGING_CONTENT, PLOGGING_START_LOCATION, PLOGGING_END_LOCATION, PLOGGING_ESTIMATED_TIME, PLOGGING_MAXIMUM_PARTICIPANT, PLOGGING_START_DATETIME, PLOGGING_STATUS, PLOGGING_APPLY_DATE, PLOGGING_REJECTED_REASON, PLOGGING_REGISTER_DATE, PLOGGING_UPDATED_DATE, PLOGGING_VIEWED_COUNT, PLOGGING_IMAGE_NAME, PLOGGING_IMAGE_UUID, PLOGGING_IMAGE_SIZE
         FROM TBL_USER u JOIN TBL_PLOGGING p
@@ -27,4 +50,17 @@
     <delete id="delete">
         DELETE FROM TBL_PLOGGING WHERE ID = #{id}
     </delete>
+
+    <select id="selectCountOfPlogging" resultType="_int">
+        SELECT COUNT(P.ID)
+        FROM TBL_USER U JOIN TBL_PLOGGING P
+        ON U.ID = P.LOCAL_CREATOR_ID
+        <include refid="search"/>
+    </select>
+
+    <select id="selectFiles" resultType="ploggingDTO">
+        SELECT p.ID, PLOGGING_IMAGE_NAME, PLOGGING_IMAGE_UUID, PLOGGING_IMAGE_SIZE
+        FROM TBL_USER u JOIN TBL_PLOGGING p
+        ON u.ID = p.ID
+    </select>
 </mapper>
