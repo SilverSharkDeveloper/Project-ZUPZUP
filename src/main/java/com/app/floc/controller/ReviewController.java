@@ -1,18 +1,22 @@
 package com.app.floc.controller;
 
+
 import com.app.floc.domain.DTO.Pagination;
 import com.app.floc.domain.DTO.ReviewDTO;
 import com.app.floc.domain.DTO.Search;
+import com.app.floc.service.login.LoginService;
 import com.app.floc.service.review.ReviewService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
 @Controller
 @Slf4j
@@ -20,11 +24,48 @@ import java.util.List;
 @RequestMapping("/review/*")
 public class ReviewController {
     private final ReviewService reviewService;
+    private final LoginService loginService;
     private final HttpSession session;
 
     @GetMapping("user_review_list")
-    public String list(Model model){
-        model.addAttribute("reviews", reviewService.getList());
-        return "review/user_review_list";
+    public void list(Pagination pagination, Search search, Model model){
+        pagination.setTotal(reviewService.getTotal(search));
+        pagination.progress();
+        model.addAttribute("reviews", reviewService.getList(pagination, search));
+    }
+
+//    @GetMapping("write")
+//    public void goToWriteForm(ReviewVO reviewVO, Model model){
+////        model.addAttribute("userName", LoginService.getUser((Long)session.getAttribute("id")).get().getMemberName());
+//    }
+//
+//    @PostMapping("write")
+//    public RedirectView write(ReviewDTO reviewDTO){
+//        reviewDTO.setUserId((Long)session.getAttribute("id"));
+//        reviewService.write(reviewDTO);
+//        return new RedirectView("/review/user_review_list");
+//    }
+    
+    @GetMapping(value = {"local_review_detail", "modify"})
+    public void reviewRead(Long id, Model model){
+        model.addAttribute("id", reviewService.read(id).get());
+    }
+
+    @PostMapping("modify")
+    public RedirectView modify(ReviewDTO reviewDTO, RedirectAttributes redirectAttributes){
+        reviewService.modify(reviewDTO);
+        redirectAttributes.addAttribute("id", reviewDTO.getId());
+        return new RedirectView("/review/local_review_detail");
+    }
+
+    @PostMapping("remove")
+    public RedirectView remove(Long id){
+        reviewService.remove(id);
+        return new RedirectView("/review/user_review_list");
+    }
+    
+    @GetMapping("local_review_list")
+    public void creatorList(Model model){
+        model.addAttribute("reviews", reviewService.getLocalList());
     }
 }

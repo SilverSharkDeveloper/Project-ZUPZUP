@@ -42,4 +42,41 @@
         ON (M.ID = P.USER_ID)
         ORDER BY P.ID DESC
     </select>
+    <select id="selectAllLocal" resultType="reviewDTO">
+        SELECT P.ID, REVIEW_TITLE, REVIEW_CONTENT, REVIEW_REGISTER_DATE, REVIEW_UPDATED_DATE, P.USER_ID, M.USER_NICKNAME, P.PLOGGING_ID, TP.LOCAL_CREATOR_ID
+        FROM TBL_PLOGGING TP, TBL_PLOGGING_REVIEW P, TBL_USER M
+        WHERE (TP.LOCAL_CREATOR_ID = P.USER_ID) AND P.USER_ID=M.ID
+        ORDER BY P.ID DESC
+    </select>
+    <select id="selectDetail" resultType="reviewDTO">
+        SELECT P.ID, REVIEW_TITLE, REVIEW_CONTENT, REVIEW_REGISTER_DATE, REVIEW_UPDATED_DATE, P.USER_ID, USER_NICKNAME, P.PLOGGING_ID
+        FROM(
+            SELECT ROWNUM R, P.ID, REVIEW_TITLE, REVIEW_CONTENT, REVIEW_REGISTER_DATE, REVIEW_UPDATED_DATE, P.USER_ID, M.USER_NICKNAME, P.PLOGGING_ID
+            FROM TBL_USER M JOIN TBL_PLOGGING_REVIEW P
+            ON M.ID = P.USER_ID AND P.ID = #{id}
+            ORDER BY
+            <choose>
+                <when test="search.order == 'popular'">
+                    P.REVIEW_TITLE
+                </when>
+                <otherwise>
+                    P.ID
+                </otherwise>
+            </choose>
+            DESC
+        ) P
+         <![CDATA[
+                WHERE ROWNUM <= #{pagination.page} * #{pagination.rowCount} AND ROWNUM > (#{pagination.page} - 1) * #{pagination.rowCount}
+        ]]>
+    </select>
+
+    <update id="update">
+        UPDATE TBL_REVIEW
+        SET REVIEW_TITLE = #{reviewTitle}, REVIEW_CONTENT = #{reviewContent}, REVIEW_UPDATED_DATE = SYSDATE
+        WHERE ID = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM TBL_PLOGGING_REVIEW WHERE ID = #{id}
+    </delete>
 </mapper>

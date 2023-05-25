@@ -14,5 +14,5 @@ public class ReviewVO {
     private String reviewTitle;
     private String reviewContent;
     private String reviewRegisterDate;
-    private String reviewUpdateDate;
+    private String reviewUpdatedDate;
 }
