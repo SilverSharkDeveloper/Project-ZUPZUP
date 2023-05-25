@@ -15,13 +15,14 @@ public class UserVO {
     private String userNickname;
     private String userMarketing;
     private String userAlarm;
+    private String userIntroducingMessage;
     private String userStatus;
     private String userCreatedDate;
     private String userUpdatedDate;
     private String userRole;
     private Long userTissue;
     private String profileImageName;
-    private String profileImageOriginalName;
+    private String profileImageUuid;
     private Long profileImageSize;
     private String profileImagePath;
 

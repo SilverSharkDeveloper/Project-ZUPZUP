@@ -1,17 +1,17 @@
-package com.app.floc.domain.VO;
+package com.app.floc.domain.DTO;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-@Data
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
-@NoArgsConstructor
-@Slf4j
-public class PloggingVO {
+@Data
+public class PloggingDTO {
     private Long id;
     private Long localCreatorId;
+    private String userNickname;
     private String ploggingTitle;
     private String ploggingContent;
     private String ploggingStartLocation;
@@ -28,4 +28,5 @@ public class PloggingVO {
     private String ploggingImageName;
     private String ploggingImageUuid;
     private Long ploggingImageSize;
+
 }

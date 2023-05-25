@@ -37,4 +37,72 @@
         WHERE ID = #{id}
     </update>
 
+    <!--회원 전체 목록 조회 admin에서-->
+    <sql id="search">
+        <if test="search.type != null and !search.type.equals('')">
+            <foreach item="type" collection="search.types">
+                <choose>
+                    <when test="type == 'n'.toString()">
+                        AND (USER_NAME LIKE '%'||#{search.keyword}||'%')
+                    </when>
+                    <when test="type == 'i'.toString()">
+                        AND (USER_NICKNAME LIKE '%'||#{search.keyword}||'%')
+                    </when>
+                </choose>
+            </foreach>
+        </if>
+    </sql>
+
+    <select id="selectAll" resultType="userVO">
+        SELECT ID, USER_IDENTIFICATION, USER_NICKNAME, USER_NAME, USER_ROLE, USER_TISSUE, USER_CREATED_DATE
+        FROM
+        (
+        SELECT ROWNUM R, U.ID, USER_IDENTIFICATION, USER_NICKNAME, USER_NAME, USER_ROLE, USER_TISSUE, USER_CREATED_DATE
+        FROM TBL_USER U
+        <![CDATA[
+    WHERE ROWNUM <= #{adminPagination.page} * #{adminPagination.rowCount}
+    ]]>
+        <include refid="search"/>
+        ORDER BY ID ASC
+        <![CDATA[
+) WHERE R > (#{adminPagination.page} - 1) * #{adminPagination.rowCount}
+]]>
+    </select>
+
+    <select id="selectCountOfUser" resultType="_int">
+        SELECT COUNT(ID) FROM TBL_USER
+        WHERE 1=1
+        <include refid="search"/>
+    </select>
+
+    <!-- 회원 목록 페이징 없이 id순 높은 5개조회-->
+    <select id="selectByRecent" resultType="userVO">
+        SELECT USER_IDENTIFICATION,USER_NICKNAME, USER_TISSUE, USER_ROLE,USER_CREATED_DATE
+        FROM (
+            SELECT USER_IDENTIFICATION,USER_NICKNAME, USER_TISSUE, USER_ROLE,USER_CREATED_DATE
+            FROM TBL_USER ORDER BY ID DESC
+            )
+        <![CDATA[
+        WHERE ROWNUM <=5
+        ]]>
+    </select>
+
+    <update id="update">
+        UPDATE TBL_USER
+        SET USER_IDENTIFICATION=#{userIdentification}, USER_INTRODUCING_MESSAGE=#{userIntroducingMessage}, PROFIL_IMAGE_NAME=#{profilImageName}, PROFIL_IMAGE_UUID=#{profilImageUuid}, PROFIL_IMAGE_SIZE=#{profilImageSize}, USER_MARKETING=#{userMarketing}, USER_NICKNAME=#{userNickname}
+        WHERE ID=#{Id};
+    </update>
+
+    <update id="updatePassword">
+        UPDATE TBL_USER
+        SET USER_PASSWORD=#{userPassword}
+        WHERE ID=#{Id};
+    </update>
+
+    <delete id="delete">
+        DELETE FROM TBL_USER
+        WHERE ID=#{Id};
+    </delete>
 </mapper>
+
+

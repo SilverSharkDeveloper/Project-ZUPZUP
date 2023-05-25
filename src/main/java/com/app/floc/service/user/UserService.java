@@ -1,9 +1,10 @@
 package com.app.floc.service.user;
 
+import com.app.floc.domain.DTO.AdminPagination;
+import com.app.floc.domain.DTO.Search;
 import com.app.floc.domain.VO.UserVO;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface UserService {
@@ -25,4 +26,12 @@ public interface UserService {
     //회원정보 모두수정 VO받기
     public void modifyUser(UserVO userVO);
 
+    //회원 목록 조회
+    public List<UserVO> getUserList(AdminPagination adminPagination, Search search);
+
+    //회원 총 명
+    public int getTotal(Search search);
+
+    //최근 5명 조회
+    public List<UserVO> getUserRecent();
 }

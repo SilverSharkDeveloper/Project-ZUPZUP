@@ -6,8 +6,10 @@
         <typeAlias type="com.app.floc.domain.VO.CouponVO" alias="couponVO"/>
         <typeAlias type="com.app.floc.domain.VO.FollowVO" alias="followVO"/>
         <typeAlias type="com.app.floc.domain.VO.NoticeVO" alias="noticeVO"/>
+        <typeAlias type="com.app.floc.domain.DTO.NoticeDTO" alias="noticeDTO"/>
         <typeAlias type="com.app.floc.domain.VO.ParticipantVO" alias="participantVO"/>
         <typeAlias type="com.app.floc.domain.VO.PloggingVO" alias="ploggingVO"/>
+        <typeAlias type="com.app.floc.domain.DTO.PloggingDTO" alias="ploggingDTO"/>
         <typeAlias type="com.app.floc.domain.VO.ProductVO" alias="productVO"/>
         <typeAlias type="com.app.floc.domain.VO.ProductWishVO" alias="productWishVO"/>
         <typeAlias type="com.app.floc.domain.VO.QnaVO" alias="qnaVO"/>
@@ -18,5 +20,6 @@
         <typeAlias type="com.app.floc.domain.VO.ReviewImageVO" alias="reviewImageVO"/>
         <typeAlias type="com.app.floc.domain.VO.TissueVO" alias="tissueVO"/>
         <typeAlias type="com.app.floc.domain.VO.PloggingQRVO" alias="ploggingQRVO"/>
+        <typeAlias type="com.app.floc.domain.DTO.LocalReviewDTO" alias="localReviewDTO"/>
     </typeAliases>
 </configuration>
