@@ -20,5 +20,6 @@
         <typeAlias type="com.app.floc.domain.VO.ReviewImageVO" alias="reviewImageVO"/>
         <typeAlias type="com.app.floc.domain.VO.TissueVO" alias="tissueVO"/>
         <typeAlias type="com.app.floc.domain.VO.PloggingQRVO" alias="ploggingQRVO"/>
+        <typeAlias type="com.app.floc.domain.DTO.LocalReviewDTO" alias="localReviewDTO"/>
     </typeAliases>
 </configuration>

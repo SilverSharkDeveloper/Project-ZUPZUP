@@ -13,6 +13,8 @@ public class UserVO {
     private String userPassword;
     private String userName;
     private String userNickname;
+    private String userMarketing;
+    private String userAlarm;
     private String userIntroducingMessage;
     private String userStatus;
     private String userCreatedDate;

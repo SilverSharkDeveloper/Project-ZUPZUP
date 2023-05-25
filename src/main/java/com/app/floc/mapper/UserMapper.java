@@ -39,4 +39,13 @@ public interface UserMapper {
 
     //어드민 메인 페이징없이조회
     public List<UserVO> selectByRecent();
+
+    //회원정보수정
+    public void update(UserVO userVO);
+
+    //비밀번호 수정
+    public void updatePassword(UserVO userVO);
+
+    //회원탈퇴
+    public void delete(UserVO userVO);
 }

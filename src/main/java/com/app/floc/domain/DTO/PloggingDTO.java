@@ -3,6 +3,9 @@ package com.app.floc.domain.DTO;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 @Data
 public class PloggingDTO {
@@ -25,4 +28,5 @@ public class PloggingDTO {
     private String ploggingImageName;
     private String ploggingImageUuid;
     private Long ploggingImageSize;
+
 }

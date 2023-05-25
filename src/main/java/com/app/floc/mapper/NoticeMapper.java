@@ -33,6 +33,7 @@ public interface NoticeMapper {
 
     //    게시글의 파일 전체 삭제?
 
+
     //    게시글 총 개수
     public int selectCountOfNotice(@Param("search") Search search);
 

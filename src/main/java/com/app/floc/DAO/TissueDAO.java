@@ -1,5 +1,7 @@
 package com.app.floc.DAO;
 
+
+import com.app.floc.domain.DTO.MyPloggingPagination;
 import com.app.floc.domain.VO.TissueVO;
 import com.app.floc.mapper.TissueMapper;
 
@@ -14,8 +16,8 @@ public class TissueDAO {
     private final TissueMapper tissueMapper;
 
     //    포인트 목록
-    public List<TissueVO> findAll(Pagination pagination){
-        return tissueMapper.selectAll(pagination);
+    public List<TissueVO> findAll(MyPloggingPagination myPloggingPagination){
+        return tissueMapper.selectAll(myPloggingPagination);
     }
 
     //    포인트 추가
