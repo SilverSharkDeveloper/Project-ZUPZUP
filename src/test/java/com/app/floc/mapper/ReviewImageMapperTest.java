@@ -26,4 +26,9 @@ class ReviewImageMapperTest {
         reviewImageVO.setReviewId(23L);
         reviewImageMapper.insert(reviewImageVO);
     }
+
+    @Test
+    public void selectAllTest(){
+        reviewImageMapper.selectAll(23L).stream().map(ReviewImageVO::getReviewImagePath).forEach(log::info);
+    }
 }

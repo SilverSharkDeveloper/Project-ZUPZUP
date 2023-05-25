@@ -15,8 +15,7 @@ $(document).ready(function () {
         //                 src="/reviewImage/display?reviewImageName=${file.reviewImagePath}/t_${file.reviewImageUuid}_${file.reviewImageName}">`;
         //     }
         // })
-        review.files.forEach(file => {
-            if (file.reviewImageType == "REPRESENTATIVE") {
+        //     if (file.reviewImageType == "REPRESENTATIVE") {
                 const date = new Date(review.reviewRegisterDate);
                 const year = date.getFullYear();
                 const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -28,8 +27,8 @@ $(document).ready(function () {
                 text += `
                         <img class="css-j9woce e1e2zisd7 preview" alt="대표 이미지"
                         src="${filePath}">`;
-            }
-        })
+            // }
+        // })
 
         text += `
                         </div>

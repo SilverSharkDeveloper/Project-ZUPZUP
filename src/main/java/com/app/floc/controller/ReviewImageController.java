@@ -3,20 +3,19 @@ package com.app.floc.controller;
 import lombok.extern.slf4j.Slf4j;
 import net.coobird.thumbnailator.Thumbnailator;
 import org.springframework.core.io.FileSystemResource;
-import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -53,38 +52,38 @@ public class ReviewImageController {
     }
 
     //    파일 불러오기
-//    @GetMapping("display")
-//    @ResponseBody
-//    public byte[] display(String reviewImageName) throws IOException{
-//        return FileCopyUtils.copyToByteArray(new File("C:/upload/", reviewImageName));
-//    }
-
-
     @GetMapping("display")
     @ResponseBody
-    public ResponseEntity<Resource> display(String reviewImageName) throws IOException {
-        String filePath = "C:/upload/" + reviewImageName;
-        File file = new File(filePath);
-        Resource resource = new InputStreamResource(new FileInputStream(file));
-
-        // 파일 확장자 추출
-        Path path = Paths.get(filePath);
-        String extension = Files.probeContentType(path);
-
-        // 적절한 MediaType 설정
-        MediaType mediaType;
-        if (extension != null) {
-            mediaType = MediaType.parseMediaType(extension);
-        } else {
-            // 기본적으로 이미지 파일로 처리
-            mediaType = MediaType.IMAGE_JPEG;
-        }
-
-        return ResponseEntity.ok()
-                .contentLength(file.length())
-                .contentType(mediaType)
-                .body(resource);
+    public byte[] display(String reviewImageName) throws IOException{
+        return FileCopyUtils.copyToByteArray(new File("C:/upload/", reviewImageName));
     }
+
+
+//    @GetMapping("display")
+//    @ResponseBody
+//    public ResponseEntity<Resource> display(String reviewImageName) throws IOException {
+//        String filePath = "C:/upload/" + reviewImageName;
+//        File file = new File(filePath);
+//        Resource resource = new InputStreamResource(new FileInputStream(file));
+//
+//        // 파일 확장자 추출
+//        Path path = Paths.get(filePath);
+//        String extension = Files.probeContentType(path);
+//
+//        // 적절한 MediaType 설정
+//        MediaType mediaType;
+//        if (extension != null) {
+//            mediaType = MediaType.parseMediaType(extension);
+//        } else {
+//            // 기본적으로 이미지 파일로 처리
+//            mediaType = MediaType.IMAGE_JPEG;
+//        }
+//
+//        return ResponseEntity.ok()
+//                .contentLength(file.length())
+//                .contentType(mediaType)
+//                .body(resource);
+//    }
 
 
 
