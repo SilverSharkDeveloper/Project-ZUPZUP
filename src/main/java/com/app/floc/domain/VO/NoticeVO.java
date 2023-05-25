@@ -19,3 +19,5 @@ public class NoticeVO {
     private String noticeImageUuid;
     private Long noticeImageSize;
 }
+
+

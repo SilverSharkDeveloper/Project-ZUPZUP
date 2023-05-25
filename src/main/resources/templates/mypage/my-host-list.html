@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleag.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -11,10 +11,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
           rel="stylesheet">
     <link href="/css/mypage/my-plogging-review.css" rel="stylesheet">
+    <link href="/css/header-footer/header.css" rel="stylesheet">
+    <link href="/css/header-footer/footer.css" rel="stylesheet">
 </head>
 <body>
+
 <div class="css-b3oum6">
     <div class="layout">
+        <header th:replace="~{/header-footer/header :: #header}"></header>
+
         <div class="css-18dsw15 e1ivswjr4">
             <div class="myhome-nav myhome-nav--owner">
                 <nav class="page-navigation myhome-nav__owner">
@@ -152,39 +157,7 @@
                         <div class="css-1w92ebd e1lm7yo61">
                             <div class="virtualized-list row"
                                  style="padding-top: 0px; padding-bottom: 0px; transform: translateY(0px);">
-                                <div class="col-6 col-lg-4" style="">
-                                    <div class="css-prip86 e1lm7yo60"><a class="css-beq49r e1vfbmcc3"
-                                                                         href="/projects/139467/detail"><img
-                                            class="css-1b4920d e1vfbmcc2"
-                                            src="https://image.ohou.se/i/bucketplace-v2-development/uploads/projects/cover_images/168204578341272060.png?gif=1&amp;w=480&amp;h=480&amp;c=c&amp;webp=1"
-                                            srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/projects/cover_images/168204578341272060.png?gif=1&amp;w=640&amp;h=640&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/projects/cover_images/168204578341272060.png?gif=1&amp;w=850&amp;h=850&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/projects/cover_images/168204578341272060.png?gif=1&amp;w=1280&amp;h=1280&amp;c=c&amp;webp=1 3x"></a>
-                                    </div>
-                                    <div class="css-1647809 e1e2zisd4"><h2 class="css-z2d3s1 e1e2zisd2">나만의 작은 방, 블랙 컬러
-                                        인테리어로 무드
-                                        있게!</h2>
-                                        <address class="project-feed__item__writer-wrap"><a
-                                                class="project-feed__item__writer"
-                                                href="/users/5921670?affect_type=ProjectSelfIndex&amp;affect_id=1"><img
-                                                class="project-feed__item__writer__image" alt=""
-                                                src="https://www.wishbeen.co.kr/geo.922951f5cf1908d9.svg">
-                                            <span
-                                                    class="project-feed__item__writer__name">경기도 용인시 기흥구 중동</span></a>
-                                        </address>
-                                        <address class="project-feed__item__writer-wrap"><a
-                                                class="project-feed__item__writer"
-                                                href="/users/5921670?affect_type=ProjectSelfIndex&amp;affect_id=1"><img
-                                                class="project-feed__item__writer__image" alt=""
-                                                src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168186561821130322.png?gif=1&amp;w=36&amp;h=36&amp;c=c&amp;webp=1"
-                                                srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168186561821130322.png?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168186561821130322.png?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168186561821130322.png?gif=1&amp;w=144&amp;h=144&amp;c=c&amp;webp=1 3x"><span
-                                                class="project-feed__item__writer__name">dd_archive.1</span></a>
-                                        </address>
-                                        <div class="css-iadmuc e1e2zisd3">좋아요 16<span class="css-4vnul8 e1e2zisd8">조회 6,542</span>
-                                        </div>
-                                        <div class="css-iadmuc e1e2zisd3">
-                                            <span class="css-4vnul9 e1e2zisd8">2023.09.01</span>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div class="col-6 col-lg-4" style="">
                                     <div class="css-prip86 e1lm7yo60"><a class="css-beq49r e1vfbmcc3"
                                                                          href="/projects/139611/detail"><img
@@ -301,7 +274,16 @@
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://rawgit.com/jackmoore/autosize/master/dist/autosize.min.js"></script>
+<script src="/js/mypage/my-host-list.js"></script>
+<script src="/js/mypage/post.js"></script>
+<script th:inline="javascript">
+    let ploggings = [[${ploggings}]];
+
+</script>
 </html>

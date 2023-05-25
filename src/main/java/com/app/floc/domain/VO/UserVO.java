@@ -13,6 +13,8 @@ public class UserVO {
     private String userPassword;
     private String userName;
     private String userNickname;
+    private String userMarketing;
+    private String userAlarm;
     private String userIntroducingMessage;
     private String userStatus;
     private String userCreatedDate;
@@ -20,7 +22,8 @@ public class UserVO {
     private String userRole;
     private Long userTissue;
     private String profileImageName;
-    private String profileImageOriginalName;
+    private String profileImageUuid;
     private Long profileImageSize;
+    private String profileImagePath;
 
 }

@@ -7,12 +7,18 @@ import com.app.floc.domain.VO.ReviewVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.web.bind.annotation.PathVariable;
+import com.app.floc.domain.DTO.LocalReviewDTO;
+import com.app.floc.domain.DTO.MyPloggingPagination;
+import com.app.floc.domain.DTO.Search;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Optional;
 
 @Mapper
 public interface ReviewMapper {
+
     public void insert(ReviewDTO reviewDTO);
 
     public int selectCountOfReview();
