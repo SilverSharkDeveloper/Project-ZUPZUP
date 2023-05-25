@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -184,6 +185,7 @@ public class UserController {
     //카카오 오어스
 
     @GetMapping("/login-kakao")
+    @Transactional()
     public RedirectView  kakaoCallback(@RequestParam String code, HttpSession session, RedirectAttributes redirectAttributes) throws Exception {
         String token = kakaoService.getKaKaoAccessToken(code);
         Optional<UserVO> kakaoUser = Optional.ofNullable(kakaoService.getKakaoInfo(token));
