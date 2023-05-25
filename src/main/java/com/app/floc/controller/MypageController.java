@@ -37,8 +37,10 @@ public class MypageController {
 
 
     @GetMapping("my-point")
-    public void userPoint(){
-
+    public void userPoint(MyPloggingPagination myPloggingPagination,Search search, Model model){
+        myPloggingPagination.setTotal(mypageService.getTotal(search));
+        myPloggingPagination.progress();
+        model.addAttribute("tissues", mypageService.getListPoint(myPloggingPagination, search));
     }
 
     @GetMapping("users-edit")
