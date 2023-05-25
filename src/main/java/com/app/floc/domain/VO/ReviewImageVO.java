@@ -10,7 +10,9 @@ import org.springframework.stereotype.Component;
 public class ReviewImageVO {
     private Long id;
     private Long reviewId;
+    private String reviewImagePath;
     private String reviewImageName;
     private String reviewImageUuid;
     private Long reviewImageSize;
+    private String reviewImageType;
 }

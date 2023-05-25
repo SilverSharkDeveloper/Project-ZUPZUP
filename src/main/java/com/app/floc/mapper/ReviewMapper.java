@@ -3,20 +3,25 @@ package com.app.floc.mapper;
 import com.app.floc.domain.DTO.Pagination;
 import com.app.floc.domain.DTO.ReviewDTO;
 import com.app.floc.domain.DTO.Search;
-import com.app.floc.domain.VO.ReviewVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.Optional;
 
 @Mapper
 public interface ReviewMapper {
+    public List<ReviewDTO> selectAll(@Param("pagination")Pagination pagination, @Param("search")Search search);
+
     public void insert(ReviewDTO reviewDTO);
 
-    public int selectCountOfReview();
+    public Optional<ReviewDTO> selectDetail(Long id);
 
-    public List<ReviewDTO> selectAll();
+    public void update(ReviewDTO reviewDTO);
 
+    public void delete(Long id);
+
+    public int selectCountOfReview(@Param("search") Search search);
+
+    public List<ReviewDTO> selectAllLocal();
 }

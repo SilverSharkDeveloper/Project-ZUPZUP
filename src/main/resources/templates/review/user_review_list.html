@@ -29,6 +29,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 <link href="/css/font.css" rel="stylesheet"/>
 <link rel="stylesheet" href="/css/header-footer/header.css">
+<link rel="stylesheet" href="/css/header-footer/footer.css">
 
 <body>
 <th:block th:replace="/header-footer/header::header"></th:block>
@@ -37,10 +38,11 @@
         <div class="e18r2nwe4 css-12un3nt">
             <div class="css-bh7d0o e18r2nwe2">
                 <div class="css-hhf500 e18r2nwe0">
-                    <button th:href="@{/review/local_review_list}" class="mainBtn css-hhk5mj">로컬 크리에이터 후기</button>
+                    <button href="{/review/local_review_list}" class="mainBtn css-hhk5mj">로컬 크리에이터 후기</button>
                 </div>
                 <div class="css-hhf500 e18r2nwe0">
-                    <button th:href="@{/review/user_review_list}" class="mainBtn css-hhk5mj">플로깅 참가자 후기 목록</button>
+                    <button href="{/review/user_review_list}" class="mainBtn css-hhk5mj orderActive">플로깅 참가자 후기
+                        목록</button>
                 </div>
             </div>
         </div>
@@ -52,16 +54,16 @@
                         <ul class="filter-bar__control-list__left">
                             <li class="filter-bar__control-list__item">
                                 <div class="drop-down panel-drop-down filter-bar-control">
-                                    <button href="recent"
-                                            class="button order button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">
+                                    <button id="recent"
+                                            class="button recent order orderActive button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">
                                         &nbsp최신순&nbsp
                                     </button>
                                 </div>
                             </li>
                             <li class="filter-bar__control-list__item">
                                 <div class="drop-down panel-drop-down filter-bar-control">
-                                    <button href="popular"
-                                            class="button order button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">
+                                    <button id="popular"
+                                            class="button popular order button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">
                                         &nbsp인기순&nbsp
                                     </button>
                                 </div>
@@ -71,20 +73,22 @@
                     <ul class="filter-bar__tag-list"></ul>
                 </div>
             </div>
-            <div class="css-1ljcge9 e1gt23lz0"></div>
-            <div class="item-list"></div>
+            <div class="css-1ljcge9 e1gt23lz0">게시글 목록 <th:block th:text="${pagination.total}+개"></th:block></div>
+            <div class="css-xy5hx5 erfbhrp0 item-list"
+                 style="padding-top: 0px; transform: translateY(0px);"></div>
         </div>
     </div>
 
 </div>
+<footer th:replace="/header-footer/footer::footer"></footer>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script>
-    $button = $("button.button");
+    /*$button = $("button.button");
     $button.on("click", function () {
         $button.removeClass("orderActive");
         $(this).addClass("orderActive");
-    });
+    });*/
 
     $mainbutton = $("button.mainBtn");
     $mainbutton.on("click", function () {
@@ -92,7 +96,14 @@
         $(this).addClass("orderActive");
     });
 </script>
+<script src="/js/review/review-main.js"></script>
 <script th:inline="javascript">
     let reviews =[[${reviews}]];
+    let nowPage = [[${pagination.page}]];
+    let order = [[${search.order}]];
+    let userId = [[${session.id}]];
 </script>
+<script src="/js/review/local-review.js"></script>
+<script src="/js/review/order.js"></script>
+<script src="/js/review/thumbnail.js"></script>
 </html>
