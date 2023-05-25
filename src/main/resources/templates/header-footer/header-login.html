@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -26,10 +26,10 @@
 
                 </a></div>
 
-                <div class="css-1h0hlgo"><a class="css-1scjy81" href="/"><span
-                        class="css-18nk785">플로깅 참가</span></a><a class="css-1scjy81" href="/store"><span
-                        class="css-18nk785">쿠폰</span></a><a class="css-1scjy81" href="/experts"><span
-                        class="css-18nk785">방방곡곡 플로깅후기</span></a></div>
+                <div class="css-1h0hlgo"><a class="css-1scjy81" href="/plogging/plogging"><span
+                        class="css-18nk785">플로깅 목록</span></a><a class="css-1scjy81" href="/product/product"><span
+                        class="css-18nk785">쿠폰 목록</span></a><a class="css-1scjy81" href="/review/local_review_list"><span
+                        class="css-18nk785">플로깅후기 목록</span></a></div>
                 <div class="css-ff6c76">
                     <div class="css-10vibjk">
                         <div class="css-1o64euu">
@@ -49,12 +49,12 @@
                             <button type="button" class="css-oh9y0"><span class="_search_24 css-cwcsvq"></span></button>
                         </div>
                         <div class="css-ff3m79"><a aria-label="스크랩북 페이지 링크 버튼" class="css-xh0ic1"
-                                                   href="/users/20617160/collections"><span
+                                                   href="#"><span
                                 class="_scrap_outline_24 css-17vaqfq"></span></a></div>
                         <div class="css-ff3m79"><a aria-label="내소식 페이지 링크 버튼" class="css-xh0ic1"
-                                                   href="/notifications/feed"><span
+                                                   href="#"><span
                                 class="_notification_outline_24 css-17vaqfq"></span></a></div>
-                        <a aria-label="장바구니 페이지 링크 버튼" class="css-xh0ic1" href="/cart"><span
+                        <a aria-label="장바구니 페이지 링크 버튼" class="css-xh0ic1" href="#"><span
                                 class="_cart_24 css-17vaqfq"></span></a>
                         <div class="css-1f624s9">
                             <div class="css-1fi7j8"><span class="css-1amee4m"><button type="button" aria-label="프로필 메뉴"
@@ -69,7 +69,7 @@
                                      data-popper-reference-hidden="false" data-popper-escaped="false"
                                      data-popper-placement="bottom">
                                     <div class="popper-item css-y2j1wi">
-                                        <div class="css-dyue77"><a class="css-1rvuwiz" href="/users/20617160">마이페이지
+                                        <div class="css-dyue77"><a class="css-1rvuwiz" href="/mypage/main">마이페이지
                                             <svg class="css-1dnrp50" fill="none" xmlns="http://www.w3.org/2000/svg"
                                                  viewBox="0 0 18 18" width="18" height="18">
                                                 <path d="M0 9a9 9 0 1118 0A9 9 0 010 9z" fill="#fff"></path>
@@ -77,14 +77,14 @@
                                                       d="M9 18A9 9 0 109 0a9 9 0 000 18zm-1.7-5.25H5.26v-7.5h2.61l2.8 4.2h.03v-4.2h2.06v7.5h-2.3L7.36 8.07h-.05v4.68z"
                                                       fill="#F77"></path>
                                             </svg>
-                                        </a><a class="css-1rvuwiz" href="/user_shopping_pages/order_list">나의 쿠폰</a><a
-                                                class="css-1rvuwiz" href="/competitions/feed">내 플로깅 목록</a><a
+                                        </a><a class="css-1rvuwiz" href="/mypage/my-product">나의 쿠폰</a><a
+                                                class="css-1rvuwiz" href="/mypage/my-host-list">내 플로깅 목록</a><a
                                                 class="css-1rvuwiz"
-                                                href="https://pro.ohou.se?utm_source=ohouse&amp;utm_medium=web&amp;utm_campaign=prosignup&amp;utm_content=myhome">내 후기 목록
+                                                href="/mypage/my-local-review">내 후기 목록
                                             </a><a class="css-1rvuwiz"
-                                                     href="https://partners.ohou.se/partner/applications/new">포인트 내역</a><a
-                                                class="css-1rvuwiz" href="/customer_center">공지사항</a>
-                                            <button type="button" class="css-1rvuwiz">로그아웃</button>
+                                                     href="/mypage/my-point">포인트 내역</a><a
+                                                class="css-1rvuwiz" href="/notice/notce">공지사항</a>
+                                            <a href="/user/logout"><button type="button" class="css-1rvuwiz logout-btn">로그아웃</button></a>
                                         </div>
                                     </div>
                                 </div>
@@ -96,7 +96,7 @@
                                  data-popper-placement="bottom"
                                  style="position: absolute; inset: 0px auto auto 0px; transform: translate3d(978.667px, 70px, 0px);display: none;">
                                 <div class="popper-item css-y2j1wi"><a class="css-1n4nww"
-                                                                       href="/contents/card_collections/new">
+                                                                       href="/plogging/plogging-form">
                                     <div class="css-bjn8wh">
                                         <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"
                                              width="36" height="36">
@@ -119,7 +119,7 @@
                                         <div class="css-1w2j28v">플로깅 주최하기</div>
                                         <div class="css-n1vjup">지역 로컬크리에이터로 플로깅을 열어 보세요.</div>
                                     </div>
-                                </a><a class="css-1n4nww" href="/expert_reviews/new?source=6">
+                                </a><a class="css-1n4nww" href="/mypage/my-local-review">
                                     <div class="css-bjn8wh">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"
                                              viewBox="0 0 36 36">

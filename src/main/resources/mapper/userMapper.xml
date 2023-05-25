@@ -5,25 +5,37 @@
     <!--회원가입-->
     <insert id="insert">
         INSERT INTO TBL_USER
-        (ID, USER_IDENTIFICATION, USER_PASSWORD, USER_NAME, USER_NICKNAME)
-        VALUES(SEQ_USER.NEXTVAL, #{userIdentification}, #{userPassword}, #{userName}, #{userNickname})
+        (ID, USER_IDENTIFICATION, USER_PASSWORD, USER_NAME, USER_NICKNAME,USER_MARKETING,USER_ALARM,USER_STATUS)
+        VALUES(SEQ_USER.NEXTVAL, #{userIdentification}, #{userPassword}, #{userNickname}, #{userNickname},#{userMarketing},#{userAlarm},#{userStatus})
     </insert>
 
     <!--입력한 회원 identification으로 회원 조회-->
     <select id="selectByUserIdentification" resultType="userVO">
-        SELECT ID, USER_IDENTIFICATION, USER_PASSWORD, USER_NAME, USER_NICKNAME, USER_STATUS, USER_TISSUE, USER_CREATED_DATE, USER_UPDATED_DATE, USER_ROLE, PROFIL_IMAGE_NAME, PROFIL_IMAGE_UUID, PROFIL_IMAGE_SIZE
+        SELECT ID, USER_IDENTIFICATION, USER_PASSWORD, USER_NAME, USER_NICKNAME, USER_STATUS, USER_TISSUE, USER_CREATED_DATE, USER_UPDATED_DATE, USER_ROLE, PROFILE_IMAGE_NAME, PROFILE_IMAGE_UUID, PROFILE_IMAGE_SIZE,PROFILE_IMAGE_PATH
         FROM TBL_USER
         WHERE USER_IDENTIFICATION = #{userIdentification}
     </select>
 
     <!--회원 id로 회원 조회-->
     <select id="selectByUserId" resultType="userVO">
-        SELECT ID, USER_IDENTIFICATION, USER_PASSWORD, USER_NAME, USER_NICKNAME, USER_STATUS, USER_TISSUE, USER_CREATED_DATE, USER_UPDATED_DATE, USER_ROLE, PROFIL_IMAGE_NAME, PROFIL_IMAGE_UUID, PROFIL_IMAGE_SIZE
+        SELECT ID, USER_IDENTIFICATION, USER_PASSWORD, USER_NAME, USER_NICKNAME, USER_STATUS, USER_TISSUE, USER_CREATED_DATE, USER_UPDATED_DATE, USER_ROLE, PROFILE_IMAGE_NAME, PROFILE_IMAGE_UUID, PROFILE_IMAGE_SIZE,PROFILE_IMAGE_PATH
         FROM TBL_USER
         WHERE ID = #{userId}
     </select>
 
+    <!--입력한 회원 nickname으로 회원 조회-->
+    <select id="selectByUserNickname" resultType="userVO">
+        SELECT ID, USER_IDENTIFICATION, USER_PASSWORD, USER_NAME, USER_NICKNAME, USER_STATUS, USER_TISSUE, USER_CREATED_DATE, USER_UPDATED_DATE, USER_ROLE, PROFILE_IMAGE_NAME, PROFILE_IMAGE_UUID, PROFILE_IMAGE_SIZE,PROFILE_IMAGE_PATH
+        FROM TBL_USER
+        WHERE USER_NICKNAME = #{nickname}
+    </select>
 
+    <!--비밀번호,카카오 네이버 관련 회원정보 수정, 휴지는 없음 -->
+    <update id="updateUser">
+        UPDATE TBL_USER
+        SET USER_IDENTIFICATION=#{userIdentification}, USER_PASSWORD=#{userPassword}, USER_NAME=#{userName},USER_NICKNAME = #{userNickname}, USER_STATUS=#{userStatus} , USER_UPDATED_DATE=SYSDATE
+        WHERE ID = #{id}
+    </update>
 
     <!--회원 전체 목록 조회 admin에서-->
     <sql id="search">
@@ -48,12 +60,12 @@
         SELECT ROWNUM R, U.ID, USER_IDENTIFICATION, USER_NICKNAME, USER_NAME, USER_ROLE, USER_TISSUE, USER_CREATED_DATE
         FROM TBL_USER U
         <![CDATA[
-    WHERE ROWNUM <= #{pagination.page} * #{pagination.rowCount}
+    WHERE ROWNUM <= #{adminPagination.page} * #{adminPagination.rowCount}
     ]]>
         <include refid="search"/>
         ORDER BY ID ASC
         <![CDATA[
-) WHERE R > (#{pagination.page} - 1) * #{pagination.rowCount}
+) WHERE R > (#{adminPagination.page} - 1) * #{adminPagination.rowCount}
 ]]>
     </select>
 
@@ -62,7 +74,35 @@
         WHERE 1=1
         <include refid="search"/>
     </select>
-</mapper>
 
+    <!-- 회원 목록 페이징 없이 id순 높은 5개조회-->
+    <select id="selectByRecent" resultType="userVO">
+        SELECT USER_IDENTIFICATION,USER_NICKNAME, USER_TISSUE, USER_ROLE,USER_CREATED_DATE
+        FROM (
+            SELECT USER_IDENTIFICATION,USER_NICKNAME, USER_TISSUE, USER_ROLE,USER_CREATED_DATE
+            FROM TBL_USER ORDER BY ID DESC
+            )
+        <![CDATA[
+        WHERE ROWNUM <=5
+        ]]>
+    </select>
+
+    <update id="update">
+        UPDATE TBL_USER
+        SET USER_IDENTIFICATION=#{userIdentification}, USER_INTRODUCING_MESSAGE=#{userIntroducingMessage}, PROFIL_IMAGE_NAME=#{profilImageName}, PROFIL_IMAGE_UUID=#{profilImageUuid}, PROFIL_IMAGE_SIZE=#{profilImageSize}, USER_MARKETING=#{userMarketing}, USER_NICKNAME=#{userNickname}
+        WHERE ID=#{Id};
+    </update>
+
+    <update id="updatePassword">
+        UPDATE TBL_USER
+        SET USER_PASSWORD=#{userPassword}
+        WHERE ID=#{Id};
+    </update>
+
+    <delete id="delete">
+        DELETE FROM TBL_USER
+        WHERE ID=#{Id};
+    </delete>
+</mapper>
 
 

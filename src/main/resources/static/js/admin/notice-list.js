@@ -13,7 +13,7 @@ notices.forEach(notice => {
                 <td>${notice.noticeCreatedDate}</td>
                 <td>${notice.noticeUpdatedDate}</td>
                 <td>
-                <a th:href="@{notice-update-form}">
+                <a th:href="@{/notice-update-form}">
                 <button type="button" class="update_btn">수정하기</button>
                 </a>
                 </td>

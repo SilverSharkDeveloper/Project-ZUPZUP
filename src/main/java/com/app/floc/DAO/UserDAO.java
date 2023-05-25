@@ -1,12 +1,12 @@
 package com.app.floc.DAO;
 
+import com.app.floc.domain.DTO.AdminPagination;
+import com.app.floc.domain.DTO.Search;
 import com.app.floc.domain.VO.UserVO;
-import com.app.floc.domain.dto.Pagination;
-import com.app.floc.domain.dto.Search;
+import com.app.floc.domain.DTO.Search;
 import com.app.floc.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -15,6 +15,7 @@ import java.util.Optional;
 @Repository
 @RequiredArgsConstructor
 public class UserDAO {
+
     private final UserMapper userMapper;
 
     //회원가입
@@ -38,14 +39,48 @@ public class UserDAO {
     }
 
 
+    //닉네임 중복검사
+    public Optional<UserVO> findByUserNickname(String nickname){
+        return userMapper.selectByUserNickname(nickname);
+    }
+
+    //회원정보 모두수정 VO받기
+    public void setUser(UserVO userVO){
+        userMapper.updateUser(userVO);
+    }
     //admin
     //회원 정보 조회
-    public List<UserVO> findByUser(Pagination pagination, Search search){
-        return userMapper.selectAll(pagination, search);
+
+
+    public List<UserVO> findByUser(AdminPagination adminPagination, Search search){
+
+        return userMapper.selectAll(adminPagination, search);
     }
     //admin 총명
     //회원 수 조회
     public int findCountOfUser(Search search){
         return userMapper.selectCountOfUser(search);
     };
+
+    //회원 목록 페이징 없이 id순 높은 5개조회
+    public List<UserVO> findByRecent(){
+        return userMapper.selectByRecent();
+
+    }
+
+    //회원정보수정
+    public void updateUser(UserVO userVO){
+        userMapper.update(userVO);
+    }
+
+    //비밀번호 수정
+    public void crystalPassword(UserVO userVO){
+        userMapper.updatePassword(userVO);
+    }
+
+    //회원탈퇴
+    public void deleteUser(UserVO userVO){
+        userMapper.delete(userVO);
+    }
+
 }

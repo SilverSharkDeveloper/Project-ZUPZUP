@@ -1,21 +1,14 @@
 package com.app.floc.controller;
 
-import com.app.floc.domain.VO.NoticeVO;
-import com.app.floc.domain.dto.NoticeDTO;
-import com.app.floc.domain.dto.Pagination;
-import com.app.floc.domain.dto.Search;
+import com.app.floc.domain.DTO.AdminPagination;
+import com.app.floc.domain.DTO.Search;
 import com.app.floc.service.notice.NoticeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.view.RedirectView;
-
-import javax.servlet.http.HttpSession;
-import java.awt.print.Pageable;
 
 @Controller
 @Slf4j
@@ -25,7 +18,7 @@ public class NoticeController {
     private final NoticeService noticeService;
 
     @GetMapping("notice")
-    public void list(Pagination pagination, Search search, Model model){
+    public void list(AdminPagination adminPagination, Search search, Model model){
 //        pagination.setTotal(noticeService.getTotal(search));
 //        pagination.progress();
 //        model.addAttribute("notices", noticeService.getList(pagination,search));

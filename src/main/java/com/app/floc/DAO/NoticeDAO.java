@@ -1,14 +1,11 @@
 package com.app.floc.DAO;
 
-import com.app.floc.domain.dto.NoticeDTO;
-import com.app.floc.domain.dto.Pagination;
-import com.app.floc.domain.dto.Search;
+import com.app.floc.domain.DTO.AdminPagination;
+import com.app.floc.domain.DTO.NoticeDTO;
+import com.app.floc.domain.DTO.Search;
 import com.app.floc.mapper.NoticeMapper;
 import lombok.RequiredArgsConstructor;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,8 +16,8 @@ public class NoticeDAO {
     private final NoticeMapper noticeMapper;
 
     //공지사항 목록
-    public List<NoticeDTO> findAll(Pagination pagination, Search search) {
-        return noticeMapper.selectAll(pagination, search);
+    public List<NoticeDTO> findAll(AdminPagination adminPagination, Search search) {
+        return noticeMapper.selectAll(adminPagination, search);
     }
 
     //    공지사항 상세보기

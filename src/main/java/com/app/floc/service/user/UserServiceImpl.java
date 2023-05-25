@@ -2,12 +2,11 @@ package com.app.floc.service.user;
 
 
 import com.app.floc.DAO.UserDAO;
+import com.app.floc.domain.DTO.AdminPagination;
+import com.app.floc.domain.DTO.Search;
 import com.app.floc.domain.VO.UserVO;
-import com.app.floc.domain.dto.Pagination;
-import com.app.floc.domain.dto.Search;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.w3c.dom.UserDataHandler;
 
 import java.util.List;
 import java.util.Optional;
@@ -37,15 +36,28 @@ public class UserServiceImpl implements UserService {
         return userDAO.findByUserId(userId);
     }
 
+    @Override
+    public Optional<UserVO> checkNickname(String nickname) {
+        return userDAO.findByUserNickname(nickname);
+    }
 
     @Override
-    public List<UserVO> getUserList(Pagination pagination, Search search) {
-        return userDAO.findByUser(pagination,search);
+    public void modifyUser(UserVO userVO) {
+        userDAO.setUser(userVO);
+    }
+    @Override
+    public List<UserVO> getUserList(AdminPagination adminPagination, Search search) {
+        return userDAO.findByUser(adminPagination,search);
 
     }
 
     @Override
     public int getTotal(Search search) {
         return userDAO.findCountOfUser(search);
+    }
+
+    @Override
+    public List<UserVO> getUserRecent() {
+        return userDAO.findByRecent();
     }
 }
