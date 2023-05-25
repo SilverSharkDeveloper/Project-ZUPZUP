@@ -4,7 +4,6 @@ package com.app.floc.controller;
 import com.app.floc.domain.DTO.Pagination;
 import com.app.floc.domain.DTO.ReviewDTO;
 import com.app.floc.domain.DTO.Search;
-import com.app.floc.service.login.LoginService;
 import com.app.floc.service.review.ReviewService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,7 +23,6 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/review/*")
 public class ReviewController {
     private final ReviewService reviewService;
-    private final LoginService loginService;
     private final HttpSession session;
 
     @GetMapping("user_review_list")
