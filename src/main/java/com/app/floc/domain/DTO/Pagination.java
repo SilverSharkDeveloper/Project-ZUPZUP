@@ -29,4 +29,5 @@ public class Pagination {
         this.prev = startPage > 1;
         this.next = endPage < realEnd;
     }
+
 }

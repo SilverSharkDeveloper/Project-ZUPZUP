@@ -24,5 +24,6 @@ public class UserVO {
     private String profileImageName;
     private String profileImageUuid;
     private Long profileImageSize;
+    private String profileImagePath;
 
 }

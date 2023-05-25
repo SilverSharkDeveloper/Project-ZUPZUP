@@ -36,7 +36,15 @@ public class UserServiceImpl implements UserService {
         return userDAO.findByUserId(userId);
     }
 
+    @Override
+    public Optional<UserVO> checkNickname(String nickname) {
+        return userDAO.findByUserNickname(nickname);
+    }
 
+    @Override
+    public void modifyUser(UserVO userVO) {
+        userDAO.setUser(userVO);
+    }
     @Override
     public List<UserVO> getUserList(AdminPagination adminPagination, Search search) {
         return userDAO.findByUser(adminPagination,search);

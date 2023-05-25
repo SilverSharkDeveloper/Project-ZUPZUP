@@ -17,3 +17,8 @@ $(".write-btn").on("click",e=>{
 $(".mypage-btn").on("click",e=>{
     $(".mypage").slideToggle();
 })
+
+$(".write").on("click",e=>{
+    alert("로그인 이후 사용 가능합니다. 로그인 페이지로 이동합니다.");
+    location.href ="/user/login";
+})

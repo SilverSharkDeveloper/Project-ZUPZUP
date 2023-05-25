@@ -26,4 +26,3 @@ public class Search {
         return type.split("");
     }
 }
-

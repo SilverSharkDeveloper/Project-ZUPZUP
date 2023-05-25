@@ -20,6 +20,12 @@ public interface UserService {
     //userid로 회원 조회
     public Optional<UserVO> getUser(Long userId);
 
+    //닉네임 중복검사
+    public Optional<UserVO> checkNickname(String nickname);
+
+    //회원정보 모두수정 VO받기
+    public void modifyUser(UserVO userVO);
+
     //회원 목록 조회
     public List<UserVO> getUserList(AdminPagination adminPagination, Search search);
 

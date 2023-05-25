@@ -39,6 +39,15 @@ public class UserDAO {
     }
 
 
+    //닉네임 중복검사
+    public Optional<UserVO> findByUserNickname(String nickname){
+        return userMapper.selectByUserNickname(nickname);
+    }
+
+    //회원정보 모두수정 VO받기
+    public void setUser(UserVO userVO){
+        userMapper.updateUser(userVO);
+    }
     //admin
     //회원 정보 조회
 
