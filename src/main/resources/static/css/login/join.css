@@ -850,3 +850,9 @@ textarea:-ms-input-placeholder {
     font-family: OhouseIcon;
     vertical-align: top;
 }
+
+
+.border-red{
+    border: 1px solid red !important;
+
+}

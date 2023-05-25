@@ -27,26 +27,26 @@ public class EmailServiceImpl implements EmailService{
 
     // 메일 내용 작성
     @Override
-    public MimeMessage createMessage(String to) throws MessagingException, UnsupportedEncodingException {
+    public MimeMessage createMessage(String to,String type) throws MessagingException, UnsupportedEncodingException {
 //		System.out.println("보내는 대상 : " + to);
 //		System.out.println("인증 번호 : " + ePw);
 
         MimeMessage message = emailsender.createMimeMessage();
 
         message.addRecipients(RecipientType.TO, to);// 보내는 대상
-        message.setSubject("줍줍 회원가입 이메일 인증");// 제목
+        message.setSubject(type.equals("join")?"줍줍 회원가입 이메일 인증":"줍줍 비밀번호 재설정 이메일 인증");// 제목
 
         String msgg = "";
         msgg += "<div style='margin:100px;'>";
         msgg += "<h1> 안녕하세요</h1>";
         msgg += "<h1> 플로깅을 통한 생활 환경 보호 플랫폼 줍줍 입니다</h1>";
         msgg += "<br>";
-        msgg += "<p>아래 코드를 회원가입 창으로 돌아가 입력해주세요<p>";
+        msgg += type.equals("join") ? "<p>아래 코드를 회원가입 창으로 돌아가 입력해주세요<p>":"<p>아래 코드를 비밀번호 재설정 창으로 돌아가 입력해주세요<p>";
         msgg += "<br>";
         msgg += "<p>항상 당신의 노력에 감사합니다!<p>";
         msgg += "<br>";
         msgg += "<div align='center' style='border:1px solid black; font-family:verdana';>";
-        msgg += "<h3 style='color:blue;'>회원가입 인증 코드입니다.</h3>";
+        msgg += type.equals("join")? "<h3 style='color:blue;'>회원가입 인증 코드입니다.</h3>" :  "<h3 style='color:blue;'>비밀번호 재설정 인증 코드입니다.</h3>";
         msgg += "<div style='font-size:130%'>";
         msgg += "CODE : <strong>";
         msgg += ePw + "</strong><div><br/> "; // 메일에 인증번호 넣기
@@ -91,13 +91,13 @@ public class EmailServiceImpl implements EmailService{
     // MimeMessage 객체 안에 내가 전송할 메일의 내용을 담는다.
     // 그리고 bean 으로 등록해둔 javaMail 객체를 사용해서 이메일 send!!
     @Override
-    public String sendSimpleMessage(String to) throws Exception {
+    public String sendSimpleMessage(String to,String type) throws Exception {
 
 
         ePw = createKey(); // 랜덤 인증번호 생성
 
         // TODO Auto-generated method stub
-        MimeMessage message = createMessage(to); // 메일 발송
+        MimeMessage message = createMessage(to,type); // 메일 발송
 
         try {// 예외처리
             log.info(to);

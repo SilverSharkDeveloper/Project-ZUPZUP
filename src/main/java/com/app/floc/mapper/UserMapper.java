@@ -26,4 +26,7 @@ public interface UserMapper {
 
     //닉네임 중복검사
     public Optional<UserVO> selectByUserNickname(String nickname);
+
+    //회원정보 모두수정 VO받기
+    public void updateUser(UserVO userVO);
 }

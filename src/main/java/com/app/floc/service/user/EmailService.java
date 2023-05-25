@@ -7,7 +7,7 @@ import javax.mail.internet.MimeMessage;
 
 
 public interface EmailService {
-    public MimeMessage createMessage(String to) throws MessagingException, UnsupportedEncodingException;
+    public MimeMessage createMessage(String to,String type) throws MessagingException, UnsupportedEncodingException;
     public String createKey();
-    public String sendSimpleMessage(String to) throws Exception;
+    public String sendSimpleMessage(String to,String type) throws Exception;
 }

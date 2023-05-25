@@ -39,4 +39,9 @@ public class UserDAO {
     public Optional<UserVO> findByUserNickname(String nickname){
         return userMapper.selectByUserNickname(nickname);
     }
+
+    //회원정보 모두수정 VO받기
+    public void setUser(UserVO userVO){
+        userMapper.updateUser(userVO);
+    }
 }

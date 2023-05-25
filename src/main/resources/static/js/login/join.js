@@ -14,7 +14,7 @@ let checkedEmail;
 
 
 
-
+let recaptchaCheck;
 let emailCodeCheck;
 let checkPassword;
 let checkConfirmPassword;
@@ -105,8 +105,14 @@ $(".first-email").on("keyup",e=>{
                 url : `/user/check-email/${email}`,
                 async : false,
                 success:function(result){
+                    console.log(result)
                     if(result){
-                        emailcheck =true;
+                        if(result.userStatus=="NORMAL"){
+                            $(".email-valid").prop("innerText","중복된 이메일이 존재합니다.");
+                        }else{
+                            $(".email-valid").prop("innerText","카카오,네이버 간편아이디로 가입된 이메일 입니다.");
+                        }
+                        emailcheck = true;
                     }
                 }
             })
@@ -114,7 +120,6 @@ $(".first-email").on("keyup",e=>{
             if(emailcheck){
                 $(".email").css("color","red");
                 $(".first-email").css("border","1px solid red");
-                $(".email-valid").prop("innerText","중복된 이메일이 존재합니다.");
                 $(".email-valid").css("display","block");
                 $(".direct-input").css("border","1px solid red");
                 $(".select-email").css("border","1px solid red");
@@ -141,14 +146,19 @@ $(".first-email").on("keyup",e=>{
             async : false,
             success:function(result){
                 if(result){
-                    emailcheck =true;
+                    console.log(result)
+                    if(result.userStatus=="NORMAL"){
+                        $(".email-valid").prop("innerText","중복된 이메일이 존재합니다.");
+                    }else{
+                        $(".email-valid").prop("innerText","카카오,네이버 간편아이디로 가입된 이메일 입니다.");
+                    }
+                    emailcheck = true;
                 }
             }
         })
         if(emailcheck){
             $(".email").css("color","red");
             $(".first-email").css("border","1px solid red");
-            $(".email-valid").prop("innerText","중복된 이메일이 존재합니다.");
             $(".email-valid").css("display","block");
             $(".direct-input").css("border","1px solid red");
             $(".select-email").css("border","1px solid red");
@@ -196,7 +206,8 @@ emailBtn.on("click",e=>{
         type : "POST",
         url : "login/mailConfirm",
         data : {
-            "email" : email
+            "email" : email,
+            "type" : "join"
         },
         success : function(code){
             $(".logo-area").hide();
@@ -227,6 +238,7 @@ $(".email-code-check-btn").on("click",e=>{
         $(".email-valid").css("display","none");
         $(".direct-input").css("border","1px solid #dbdbdb");
         $(".select-email").css("border","1px solid #dbdbdb");
+        clearInterval(timerInter);
 
     }else{
         alert("인증번호가 일치하지 않습니다.")
@@ -260,7 +272,8 @@ $(".re-send").on("click",e=>{
         type : "POST",
         url : "login/mailConfirm",
         data : {
-            "email" : email
+            "email" : email,
+            "type" : "join"
         },
         success : function(code){
             $(".logo-area").hide();
@@ -269,7 +282,6 @@ $(".re-send").on("click",e=>{
             timer();
             timerInter = setInterval(timer,1000);
 
-            /* chkEmailConfirm(data, $memailconfirm, $memailconfirmTxt);*/
         }
     })
 })
@@ -478,6 +490,44 @@ $checkBoxes.each((i,checkbox1)=>{
 
 
 
+
+//recaptcha 인증
+var onloadCallback = function() {
+    grecaptcha.render('g-recaptcha', {
+        'sitekey' : '6LdwOykmAAAAAO_wUpl5ihQpc1Jyq-y-cb5_7ft4',
+        'callback' : verifyCallback,
+        'expired-callback' : expiredCallback,
+    });
+
+};
+
+//	인증 성공 시
+var verifyCallback = function(response) {
+    recaptchaCheck = true;
+    $("#rc-anchor-container").removeClass("border-red")
+    $(".recaptcha-valid").css("display","none");
+
+};
+
+//	인증 만료 시
+var expiredCallback = function(response) {
+    recaptchaCheck = false;
+
+    $(".recaptcha-valid").css("display","block");
+}
+
+//	g-recaptcha 리셋
+var resetCallback = function() {
+    grecaptcha.reset();
+}
+
+
+$("#g-recaptcha").addClass("css-1yqaufb");
+$("#g-recaptcha").addClass("e9ksxky1");
+$(".rc-anchor-error-msg").html("인증이 만료되었습니다.<br> 체크박스를 다시 선택하세요.");
+
+
+
 //회원가입 버튼
 
 let $joinBtn= $(".join-btn");
@@ -560,10 +610,63 @@ $joinBtn.on("click",e=>{
         return;
     }
 
+    //7번 리캡챠 확인
+    if(!recaptchaCheck){
+
+        $(".recaptcha-valid").css("display","block");
+        return;
+    }
+
+    //리켑챠 백엔드
+    let backRecaptchaCheck= false;
+    $.ajax({
+        url : "/user/recaptcha/login",
+        async : false,
+        data : {gRecaptchaResponse : $("#g-recaptcha-response").val()},
+        success : function (result) {
+            if(result){
+                backRecaptchaCheck = true;
+                $("#rc-anchor-container").removeClass("border-red")
+                $(".recaptcha-valid").css("display","none");
+            }else{
+                backRecaptchaCheck = false;
+                
+                $(".recaptcha-valid").css("display","block");
+            }
+        }
+    })
+
+    if(!backRecaptchaCheck){
+
+        $(".recaptcha-valid").css("display","block");
+        return;
+    }
+
+    //서브밋
+    $(".submit-form input").each((i,input)=>{
+        console.log(input);
+        if(i==0){
+            input.value = email;
+        }else if(i==1){
+            input.value = $passwordInput.val();
+        }else if(i==2){
+            input.value = $nicknameInput.val();
+        }else if(i==3){
+            input.value = $nicknameInput.val();
+        }else if(i==4){
+            input.value = $checkBoxes.eq(4).hasClass("check") ? "AGREE" : "DISAGREE";
+        }else if(i==5){
+            input.value = $checkBoxes.eq(5).hasClass("check") ? "AGREE" : "DISAGREE";
+        }else if(i==6){
+            input.value ="NORMAL";
+        }
+    })
+
+    $(".submit-form").submit();
 
 
 })
 
-$checkBoxes.each((i,checkbox)=>{
 
-})
+
+
