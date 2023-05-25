@@ -6,10 +6,12 @@ import com.app.floc.service.user.EmailService;
 import com.app.floc.service.user.KaKaoService;
 import com.app.floc.service.user.NaverLoginBO;
 import com.app.floc.service.user.UserService;
+import com.github.scribejava.core.model.OAuth2AccessToken;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -20,13 +22,6 @@ import org.springframework.web.servlet.view.RedirectView;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Optional;
-
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import com.github.scribejava.core.model.OAuth2AccessToken;
-
-import org.json.simple.parser.ParseException;
 
 @Controller
 @Slf4j

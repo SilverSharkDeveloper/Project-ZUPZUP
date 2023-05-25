@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="../../static/css/header-footer/header.css" rel="stylesheet">
-    <link href="../../static/css/notice/notice.css" rel="stylesheet">
-    <link href="../../static/css/font.css" rel="stylesheet">
-    <link href="../../static/css/plogging/plogging-form.css" rel="stylesheet">
+    <link href="/css/notice/notice.css" rel="stylesheet">
+    <link href="/css/plogging/plogging-form.css" rel="stylesheet">
+    <link href="/css/font.css" rel="stylesheet">
+    <link href="/css/header-footer/header.css" rel="stylesheet">
 
 </head>
 <body>
+<th:block th:replace="/header-footer/header::header"></th:block>
 <div class="page">
     <div class="css-b3oum6">
         <div class="css-12bdpl9 e182177l4">
@@ -18,10 +19,8 @@
                     <div class="css-3nzkdh e187icax6">
                         <div class="css-oey6yo e187icax5">
                             <button type="button" title="뒤로" class="css-16z64wp er1dbiw1">
-                                <svg class="icon css-0 er1dbiw0" width="24" height="24"
-                                     preserveAspectRatio="xMidYMid meet">
-                                    <path d="M3.7 12.5h18.8v-1H3.7l7.8-7.8-.7-.7L2 11.7l.3.3-.3.3 8.8 8.7.7-.7-7.8-7.8z"
-                                          fill="#000" fill-opacity=".7" fill-rule="evenodd"></path>
+                                <svg class="icon css-0 er1dbiw0" width="24" height="24" preserveAspectRatio="xMidYMid meet">
+                                    <path d="M3.7 12.5h18.8v-1H3.7l7.8-7.8-.7-.7L2 11.7l.3.3-.3.3 8.8 8.7.7-.7-7.8-7.8z" fill="#000" fill-opacity=".7" fill-rule="evenodd"></path>
                                 </svg>
                             </button>
                         </div>
@@ -35,19 +34,16 @@
                 </div>
                 <div class="css-q3w6qr e10ttx5d5">
                     <div class="css-1fyeg2n e10ttx5d4"><a aria-label="오늘의집" class="css-1uq8wjk e10ttx5d2" href="/">
-                        <img src="../../static/image/logo.png" class="css-1dfyjem">
-                    </a>
+                        <img src="../../static/image/logo.png" class="css-1dfyjem"> </a>
                         <div class="css-svxhqj e10ttx5d1">
                             <div class="css-s5xdrg e1pjpjse1">
                                 <button class="css-c5xvys exfb88v1" aria-pressed="false" title="사진 추가" type="button">
-                                    <svg class="icon" viewBox="0 0 29 29" height="29" width="29"
-                                         preserveAspectRatio="xMidYMid meet">
+                                    <svg class="icon" viewBox="0 0 29 29" height="29" width="29" preserveAspectRatio="xMidYMid meet">
                                         <g fill-rule="evenodd" fill="none">
                                             <rect rx="4" height="29" width="29"></rect>
                                             <g stroke-width="1.6" stroke="#525b61" transform="translate(4 4)">
                                                 <rect rx="4" height="19.4" width="19.4" y=".8" x=".8"></rect>
-                                                <path stroke-linejoin="round"
-                                                      d="M.8 15.24L5.98 9.7l7.11 6.11 3.88-3.05 3.23 2.5"></path>
+                                                <path stroke-linejoin="round" d="M.8 15.24L5.98 9.7l7.11 6.11 3.88-3.05 3.23 2.5"></path>
                                                 <circle r="2.03" cy="6.87" cx="14.13"></circle>
                                             </g>
                                         </g>
@@ -55,49 +51,39 @@
                                 </button>
                                 <span class="css-zz70lp e1pjpjse0"></span>
                                 <div class="drop-down editor-command-list-dropdown">
-                                    <button class="css-13a5ipi exfb88v1" aria-pressed="false" type="button"><span
-                                            class="css-oxy5fc e1ohdqpx0">본문</span>
-                                        <svg width="1em" height="1em" viewBox="0 0 16 16"
-                                             preserveAspectRatio="xMidYMid meet" class="css-12vlsdc exfb88v0">
-                                            <path fill="currentColor" fill-rule="evenodd"
-                                                  d="M2.87 4L1.33 5.5 8 12l6.67-6.5L13.13 4 8 9z"></path>
+                                    <button class="css-13a5ipi exfb88v1" aria-pressed="false" type="button"><span class="css-oxy5fc e1ohdqpx0">본문</span>
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" preserveAspectRatio="xMidYMid meet" class="css-12vlsdc exfb88v0">
+                                            <path fill="currentColor" fill-rule="evenodd" d="M2.87 4L1.33 5.5 8 12l6.67-6.5L13.13 4 8 9z"></path>
                                         </svg>
                                     </button>
                                 </div>
                                 <span class="css-zz70lp e1pjpjse0"></span>
                                 <button class="css-c5xvys exfb88v1" aria-pressed="false" title="굵게" type="button">
-                                    <svg class="icon" width="29" height="29" viewBox="0 0 29 29"
-                                         preserveAspectRatio="xMidYMid meet">
+                                    <svg class="icon" width="29" height="29" viewBox="0 0 29 29" preserveAspectRatio="xMidYMid meet">
                                         <g fill="none" fill-rule="evenodd">
                                             <rect width="29" height="29" rx="4"></rect>
-                                            <path d="M8 6h5.46c2.49 0 4.3.34 5.42 1.03 1.13.68 1.69 1.77 1.69 3.27.04.89-.22 1.76-.74 2.5a2.96 2.96 0 01-1.96 1.17v.12c1.11.24 1.9.69 2.39 1.35.52.77.78 1.7.73 2.62a4.27 4.27 0 01-1.73 3.64c-1.16.87-2.73 1.3-4.71 1.3H8zm3.72 6.73h2.16c1.01 0 1.74-.15 2.2-.45.47-.36.73-.92.68-1.5a1.49 1.49 0 00-.74-1.4 4.94 4.94 0 00-2.34-.43h-1.96zm0 2.86V20h2.43c1.02 0 1.78-.19 2.26-.57.52-.43.79-1.08.73-1.74 0-1.4-1.04-2.11-3.12-2.11z"
-                                                  fill="#525b61" fill-rule="nonzero"></path>
+                                            <path d="M8 6h5.46c2.49 0 4.3.34 5.42 1.03 1.13.68 1.69 1.77 1.69 3.27.04.89-.22 1.76-.74 2.5a2.96 2.96 0 01-1.96 1.17v.12c1.11.24 1.9.69 2.39 1.35.52.77.78 1.7.73 2.62a4.27 4.27 0 01-1.73 3.64c-1.16.87-2.73 1.3-4.71 1.3H8zm3.72 6.73h2.16c1.01 0 1.74-.15 2.2-.45.47-.36.73-.92.68-1.5a1.49 1.49 0 00-.74-1.4 4.94 4.94 0 00-2.34-.43h-1.96zm0 2.86V20h2.43c1.02 0 1.78-.19 2.26-.57.52-.43.79-1.08.73-1.74 0-1.4-1.04-2.11-3.12-2.11z" fill="#525b61" fill-rule="nonzero"></path>
                                         </g>
                                     </svg>
                                 </button>
                                 <button class="css-c5xvys exfb88v1" aria-pressed="false" title="이탤릭" type="button">
-                                    <svg class="icon" viewBox="0 0 29 29" height="29" width="29"
-                                         preserveAspectRatio="xMidYMid meet">
+                                    <svg class="icon" viewBox="0 0 29 29" height="29" width="29" preserveAspectRatio="xMidYMid meet">
                                         <g fill-rule="evenodd" fill="none">
                                             <rect rx="4" height="29" width="29"></rect>
                                             <g fill="#525b61" transform="translate(9 5)">
                                                 <rect rx="1" height="2" width="8" y="16"></rect>
                                                 <rect rx="1" height="2" width="8" y="1" x="3"></rect>
-                                                <rect rx="1" height="17" width="2" y="1.04" x="4.55"
-                                                      transform="rotate(10 5.55 9.54)"></rect>
+                                                <rect rx="1" height="17" width="2" y="1.04" x="4.55" transform="rotate(10 5.55 9.54)"></rect>
                                             </g>
                                         </g>
                                     </svg>
                                 </button>
                                 <button class="css-c5xvys exfb88v1" aria-pressed="false" title="밑줄" type="button">
-                                    <svg class="icon" viewBox="0 0 29 29" height="29" width="29"
-                                         preserveAspectRatio="xMidYMid meet">
+                                    <svg class="icon" viewBox="0 0 29 29" height="29" width="29" preserveAspectRatio="xMidYMid meet">
                                         <g fill-rule="evenodd" fill="none">
                                             <rect rx="4" height="29" width="29"></rect>
                                             <g transform="translate(6 7)">
-                                                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.1"
-                                                      stroke="#525b61"
-                                                      d="M3.19 0v5.35c0 3.5 2.38 6.34 5.31 6.34 2.93 0 5.31-2.84 5.31-6.34V0"></path>
+                                                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.1" stroke="#525b61" d="M3.19 0v5.35c0 3.5 2.38 6.34 5.31 6.34 2.93 0 5.31-2.84 5.31-6.34V0"></path>
                                                 <rect rx="1" height="2.13" width="17" y="14.88" fill="#525b61"></rect>
                                             </g>
                                         </g>
@@ -108,21 +94,17 @@
                                     <button class="css-13a5ipi exfb88v1" type="button">
                                         <svg class="icon" width="29" height="29" viewBox="0 0 29 29">
                                             <circle cx="14.5" cy="14.5" r="8.5" fill="#424242"></circle>
-                                            <path fill="#424242"
-                                                  d="M10.75 10.59v1.07h3.01c-.24 2.04-1.38 3.5-3.52 4.6l.74 1.01a6.92 6.92 0 004.11-6.68zm8.08 2.57h-1.29V9.64h-1.32v9.2h1.32v-4.59h1.29z"></path>
+                                            <path fill="#424242" d="M10.75 10.59v1.07h3.01c-.24 2.04-1.38 3.5-3.52 4.6l.74 1.01a6.92 6.92 0 004.11-6.68zm8.08 2.57h-1.29V9.64h-1.32v9.2h1.32v-4.59h1.29z"></path>
                                         </svg>
-                                        <svg width="1em" height="1em" viewBox="0 0 16 16"
-                                             preserveAspectRatio="xMidYMid meet" class="css-12vlsdc exfb88v0">
-                                            <path fill="currentColor" fill-rule="evenodd"
-                                                  d="M2.87 4L1.33 5.5 8 12l6.67-6.5L13.13 4 8 9z"></path>
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" preserveAspectRatio="xMidYMid meet" class="css-12vlsdc exfb88v0">
+                                            <path fill="currentColor" fill-rule="evenodd" d="M2.87 4L1.33 5.5 8 12l6.67-6.5L13.13 4 8 9z"></path>
                                         </svg>
                                     </button>
                                 </div>
                                 <span class="css-zz70lp e1pjpjse0"></span>
                                 <div class="drop-down editor-command-list-dropdown">
                                     <button class="css-13a5ipi exfb88v1" title="정렬" type="button">
-                                        <svg class="icon" width="29" height="29" viewBox="0 0 29 29"
-                                             preserveAspectRatio="xMidYMid meet">
+                                        <svg class="icon" width="29" height="29" viewBox="0 0 29 29" preserveAspectRatio="xMidYMid meet">
                                             <g fill="none" fill-rule="evenodd">
                                                 <rect width="29" height="29" rx="4"></rect>
                                                 <g transform="translate(6 6)" fill="#525b61" fill-rule="nonzero">
@@ -133,23 +115,18 @@
                                                 </g>
                                             </g>
                                         </svg>
-                                        <svg width="1em" height="1em" viewBox="0 0 16 16"
-                                             preserveAspectRatio="xMidYMid meet" class="css-12vlsdc exfb88v0">
-                                            <path fill="currentColor" fill-rule="evenodd"
-                                                  d="M2.87 4L1.33 5.5 8 12l6.67-6.5L13.13 4 8 9z"></path>
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" preserveAspectRatio="xMidYMid meet" class="css-12vlsdc exfb88v0">
+                                            <path fill="currentColor" fill-rule="evenodd" d="M2.87 4L1.33 5.5 8 12l6.67-6.5L13.13 4 8 9z"></path>
                                         </svg>
                                     </button>
                                 </div>
                                 <span class="css-zz70lp e1pjpjse0"></span>
                                 <div class="drop-down">
                                     <button class="css-c5xvys exfb88v1" aria-pressed="false" title="링크" type="button">
-                                        <svg class="icon" viewBox="0 0 29 29" height="29" width="29"
-                                             preserveAspectRatio="xMidYMid meet">
+                                        <svg class="icon" viewBox="0 0 29 29" height="29" width="29" preserveAspectRatio="xMidYMid meet">
                                             <g fill-rule="evenodd" fill="none">
                                                 <rect rx="4" height="29" width="29"></rect>
-                                                <path fill-rule="nonzero" fill="#525b61" stroke-width=".2"
-                                                      stroke="#525b61"
-                                                      d="M14.24 8.82l2.51-2.52a4.37 4.37 0 012.7-1.29 4.24 4.24 0 014.5 3.6 4.25 4.25 0 01-1.19 3.62l-4.24 4.24a4.2 4.2 0 01-5.98 0 2.47 2.47 0 01-.33-.37.64.64 0 01.07-.88v0a.68.68 0 011 .05 2.85 2.85 0 002.28 1.1c.75 0 1.49-.3 2.04-.85l4.2-4.2c.5-.5.82-1.15.9-1.84a2.92 2.92 0 00-1.99-3.02 2.93 2.93 0 00-2.95.72l-1.9 1.91-.68.67a.68.68 0 01-.94 0v0a.68.68 0 010-.94zm.48 11.4a.68.68 0 000-.94v0a.68.68 0 00-.94 0l-2.53 2.53a2.89 2.89 0 01-2.93.72 2.9 2.9 0 01-1.15-4.8l4.26-4.26a2.85 2.85 0 012.05-.85c.78 0 1.5.3 2.05.85l.28.3c.23.32.69.37.99.1l.02-.03a.66.66 0 00.07-.85 4.15 4.15 0 00-3.64-1.68 4.38 4.38 0 00-2.79 1.28l-4.23 4.2A4.24 4.24 0 009.22 24a4.2 4.2 0 003-1.24z"></path>
+                                                <path fill-rule="nonzero" fill="#525b61" stroke-width=".2" stroke="#525b61" d="M14.24 8.82l2.51-2.52a4.37 4.37 0 012.7-1.29 4.24 4.24 0 014.5 3.6 4.25 4.25 0 01-1.19 3.62l-4.24 4.24a4.2 4.2 0 01-5.98 0 2.47 2.47 0 01-.33-.37.64.64 0 01.07-.88v0a.68.68 0 011 .05 2.85 2.85 0 002.28 1.1c.75 0 1.49-.3 2.04-.85l4.2-4.2c.5-.5.82-1.15.9-1.84a2.92 2.92 0 00-1.99-3.02 2.93 2.93 0 00-2.95.72l-1.9 1.91-.68.67a.68.68 0 01-.94 0v0a.68.68 0 010-.94zm.48 11.4a.68.68 0 000-.94v0a.68.68 0 00-.94 0l-2.53 2.53a2.89 2.89 0 01-2.93.72 2.9 2.9 0 01-1.15-4.8l4.26-4.26a2.85 2.85 0 012.05-.85c.78 0 1.5.3 2.05.85l.28.3c.23.32.69.37.99.1l.02-.03a.66.66 0 00.07-.85 4.15 4.15 0 00-3.64-1.68 4.38 4.38 0 00-2.79 1.28l-4.23 4.2A4.24 4.24 0 009.22 24a4.2 4.2 0 003-1.24z"></path>
                                             </g>
                                         </svg>
                                     </button>
@@ -157,18 +134,14 @@
                                 <span class="css-zz70lp e1pjpjse0"></span>
                                 <div class="drop-down editor-command-list-dropdown">
                                     <button class="css-13a5ipi exfb88v1" title="추가" type="button">
-                                        <svg class="icon" viewBox="0 0 29 29" height="29" width="29"
-                                             preserveAspectRatio="xMidYMid meet">
+                                        <svg class="icon" viewBox="0 0 29 29" height="29" width="29" preserveAspectRatio="xMidYMid meet">
                                             <g fill-rule="evenodd" fill="none">
                                                 <rect rx="4" height="29" width="29"></rect>
-                                                <path d="M14.5 7.07a.8.8 0 00-.81.8v5.8H7.8a.8.8 0 00-.81.8c0 .44.36.8.81.8h5.88v5.8c0 .44.36.8.81.8a.8.8 0 00.81-.8v-5.8h5.88a.8.8 0 00.81-.8.8.8 0 00-.81-.8H15.3v-5.8a.8.8 0 00-.81-.8z"
-                                                      fill-rule="nonzero" fill="#525b61"></path>
+                                                <path d="M14.5 7.07a.8.8 0 00-.81.8v5.8H7.8a.8.8 0 00-.81.8c0 .44.36.8.81.8h5.88v5.8c0 .44.36.8.81.8a.8.8 0 00.81-.8v-5.8h5.88a.8.8 0 00.81-.8.8.8 0 00-.81-.8H15.3v-5.8a.8.8 0 00-.81-.8z" fill-rule="nonzero" fill="#525b61"></path>
                                             </g>
                                         </svg>
-                                        <svg width="1em" height="1em" viewBox="0 0 16 16"
-                                             preserveAspectRatio="xMidYMid meet" class="css-12vlsdc exfb88v0">
-                                            <path fill="currentColor" fill-rule="evenodd"
-                                                  d="M2.87 4L1.33 5.5 8 12l6.67-6.5L13.13 4 8 9z"></path>
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" preserveAspectRatio="xMidYMid meet" class="css-12vlsdc exfb88v0">
+                                            <path fill="currentColor" fill-rule="evenodd" d="M2.87 4L1.33 5.5 8 12l6.67-6.5L13.13 4 8 9z"></path>
                                         </svg>
                                     </button>
                                 </div>
@@ -178,13 +151,13 @@
                             <div class="css-2x7ovp e182177l2">
                                 <div class="drop-down css-1r5gb7q e70fef70">
                                     <div class="css-pm6jyj e1ycrrnu7">
-                                        <button type="button" class="css-1ul51ys e1ycrrnu4"><span
-                                                class="css-tygob0 e1ycrrnu3">임시저장</span><span
-                                                class="css-l5m0d6 e1ycrrnu2">저장</span></button>
+                                        <button type="button" class="css-1ul51ys e1ycrrnu4"><span class="css-tygob0 e1ycrrnu3">임시저장</span><span class="css-l5m0d6 e1ycrrnu2">저장</span>
+                                        </button>
                                     </div>
                                 </div>
-                                <button type="button" class="css-1ganikp e1ung0862 submit-btn"><span class="css-tygob0 e1ung0861">발행신청</span><span
-                                        class="css-l5m0d6 e1ung0860">발행</span></button>
+                                <button type="button" class="css-1ganikp e1ung0862 submit-btn">
+                                    <span class="css-tygob0 e1ung0861">발행신청</span><span class="css-l5m0d6 e1ung0860">발행</span>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -194,12 +167,10 @@
                 <div class="css-0 e1558szd2">
                     <div class="css-1aavmz8 ewuco8y0">
                         <div class="css-1h2slj8 e83ulk0">
-                            <button type="button" id="id-70-header" aria-labelledby="id-70 -content"
-                                    aria-expanded="true" class="css-1csoo3q e83ulk7 guide">
+                            <button type="button" id="id-70-header" aria-labelledby="id-70 -content" aria-expanded="true" class="css-1csoo3q e83ulk7 guide">
                                 <div class="css-1el3o29 e83ulk6">
                                     <div class="css-1xdtfyo e83ulk5">
-                                        <svg class="icon" width="25" height="25" viewBox="0 0 25 25"
-                                             preserveAspectRatio="xMidYMid meet">
+                                        <svg class="icon" width="25" height="25" viewBox="0 0 25 25" preserveAspectRatio="xMidYMid meet">
                                             <rect width="25" height="25" fill="#6ADFC4" rx="10"></rect>
                                             <g fill="#FFF" transform="translate(7 8)">
                                                 <rect width="7" height="1.5" rx=".8"></rect>
@@ -212,16 +183,13 @@
                                     <div class="css-ka2iwm e83ulk3">원활한 후기 작성을 위해 꼭 읽어주세요.</div>
                                 </div>
                                 <div class="css-ou8xsw e83ulk2">
-                                    <svg class="css-u9pb3w etk68b90 toggle-icon" width="1em" height="1em" viewBox="0 0 16 16"
-                                         preserveAspectRatio="xMidYMid meet">
-                                        <path fill="currentColor" fill-rule="evenodd"
-                                              d="M2.87 4L1.33 5.5 8 12l6.67-6.5L13.13 4 8 9z"></path>
+                                    <svg class="css-u9pb3w etk68b90 toggle-icon" width="1em" height="1em" viewBox="0 0 16 16" preserveAspectRatio="xMidYMid meet">
+                                        <path fill="currentColor" fill-rule="evenodd" d="M2.87 4L1.33 5.5 8 12l6.67-6.5L13.13 4 8 9z"></path>
                                     </svg>
                                 </div>
                             </button>
                             <div class="open expanded guide-detail" style="overflow: hidden; display: none;">
-                                <div role="region" id="id-70 -content" aria-labelledby="id-70-header"
-                                     class="css-1i63qm1 e83ulk1">
+                                <div role="region" id="id-70 -content" aria-labelledby="id-70-header" class="css-1i63qm1 e83ulk1">
                                     <ul class="css-12oeinx e5lx9xf0">
                                         <li>본 게시글은 관리자 판단하에 부적합한 경우엔 확인 후 <b class="red">게시글이 삭제될 수 있습니다.</b>
                                         </li>
@@ -240,21 +208,15 @@
                     </div>
                     <div class="css-bjn8wh eflbbeu17 cover-image" style="display: none; height: 405px">
                         <button type="button" class="css-1y8go0x eflbbeu0 add-image-btn" style="display: none;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                 preserveAspectRatio="xMidYMid meet">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                      d="M18.25 3.05H5.75C4.25883 3.05 3.05 4.25883 3.05 5.75V17.5197L7.22591 13.2998C7.89564 12.623 8.99763 12.652 9.63089 13.363L10.599 14.4501C10.7321 14.5995 10.963 14.6072 11.1057 14.467L14.3958 11.2346C15.0442 10.5976 16.0856 10.6049 16.725 11.251L20.95 15.5205V5.75C20.95 4.25883 19.7412 3.05 18.25 3.05ZM5.75 20.95C4.59159 20.95 3.60356 20.2205 3.22029 19.1958L8.14995 14.2142C8.29201 14.0707 8.52577 14.0768 8.66009 14.2276L9.62825 15.3147C10.2554 16.0189 11.3441 16.0552 12.0168 15.3943L15.3069 12.1619C15.4444 12.0268 15.6653 12.0284 15.8009 12.1654L20.95 17.3687V18.25C20.95 19.7412 19.7412 20.95 18.25 20.95H5.75ZM5.75 1.75C3.54086 1.75 1.75 3.54086 1.75 5.75V18.25C1.75 20.4591 3.54086 22.25 5.75 22.25H18.25C20.4591 22.25 22.25 20.4591 22.25 18.25V5.75C22.25 3.54086 20.4591 1.75 18.25 1.75H5.75ZM9.2 8C9.2 8.66274 8.66274 9.2 8 9.2C7.33726 9.2 6.8 8.66274 6.8 8C6.8 7.33726 7.33726 6.8 8 6.8C8.66274 6.8 9.2 7.33726 9.2 8ZM10.5 8C10.5 9.38071 9.38071 10.5 8 10.5C6.61929 10.5 5.5 9.38071 5.5 8C5.5 6.61929 6.61929 5.5 8 5.5C9.38071 5.5 10.5 6.61929 10.5 8Z"
-                                      fill="#2F3438"></path>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" preserveAspectRatio="xMidYMid meet">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M18.25 3.05H5.75C4.25883 3.05 3.05 4.25883 3.05 5.75V17.5197L7.22591 13.2998C7.89564 12.623 8.99763 12.652 9.63089 13.363L10.599 14.4501C10.7321 14.5995 10.963 14.6072 11.1057 14.467L14.3958 11.2346C15.0442 10.5976 16.0856 10.6049 16.725 11.251L20.95 15.5205V5.75C20.95 4.25883 19.7412 3.05 18.25 3.05ZM5.75 20.95C4.59159 20.95 3.60356 20.2205 3.22029 19.1958L8.14995 14.2142C8.29201 14.0707 8.52577 14.0768 8.66009 14.2276L9.62825 15.3147C10.2554 16.0189 11.3441 16.0552 12.0168 15.3943L15.3069 12.1619C15.4444 12.0268 15.6653 12.0284 15.8009 12.1654L20.95 17.3687V18.25C20.95 19.7412 19.7412 20.95 18.25 20.95H5.75ZM5.75 1.75C3.54086 1.75 1.75 3.54086 1.75 5.75V18.25C1.75 20.4591 3.54086 22.25 5.75 22.25H18.25C20.4591 22.25 22.25 20.4591 22.25 18.25V5.75C22.25 3.54086 20.4591 1.75 18.25 1.75H5.75ZM9.2 8C9.2 8.66274 8.66274 9.2 8 9.2C7.33726 9.2 6.8 8.66274 6.8 8C6.8 7.33726 7.33726 6.8 8 6.8C8.66274 6.8 9.2 7.33726 9.2 8ZM10.5 8C10.5 9.38071 9.38071 10.5 8 10.5C6.61929 10.5 5.5 9.38071 5.5 8C5.5 6.61929 6.61929 5.5 8 5.5C9.38071 5.5 10.5 6.61929 10.5 8Z" fill="#2F3438"></path>
                             </svg>
                         </button>
                         <button type="button" class="css-1y8go0x eflbbeu0 delete-image-btn" style="display: none;">
-                            <svg class="icon" viewBox="0 0 29 29" height="29" width="29"
-                                 preserveAspectRatio="xMidYMid meet"
-                                 style="transform: rotate(45deg);">
+                            <svg class="icon" viewBox="0 0 29 29" height="29" width="29" preserveAspectRatio="xMidYMid meet" style="transform: rotate(45deg);">
                                 <g fill-rule="evenodd" fill="none">
                                     <rect rx="4" height="29" width="29"></rect>
-                                    <path d="M14.5 7.07a.8.8 0 00-.81.8v5.8H7.8a.8.8 0 00-.81.8c0 .44.36.8.81.8h5.88v5.8c0 .44.36.8.81.8a.8.8 0 00.81-.8v-5.8h5.88a.8.8 0 00.81-.8.8.8 0 00-.81-.8H15.3v-5.8a.8.8 0 00-.81-.8z"
-                                          fill-rule="nonzero" fill="#525b61"></path>
+                                    <path d="M14.5 7.07a.8.8 0 00-.81.8v5.8H7.8a.8.8 0 00-.81.8c0 .44.36.8.81.8h5.88v5.8c0 .44.36.8.81.8a.8.8 0 00.81-.8v-5.8h5.88a.8.8 0 00.81-.8.8.8 0 00-.81-.8H15.3v-5.8a.8.8 0 00-.81-.8z" fill-rule="nonzero" fill="#525b61"></path>
                                 </g>
                             </svg>
                         </button>
@@ -262,11 +224,11 @@
                     <div class="css-bjn8wh eflbbeu17 cover-image-add">
 
                         <div class="css-i0f99i eflbbeu16">
-                            <button type="button" class="css-fvirbu eflbbeu13 add-image"><p
-                                    class="css-1idkie2 eflbbeu11"><span
-                                    class="css-1wclmit eflbbeu12">추가하기 버튼으로<br></span>커버 사진을 업로드해주세요.</p>
-                                <p class="css-4c3vki eflbbeu10">*권장 사이즈<br>모바일: 1920 x 1920, 최소 1400 x 1400(1:1 비율)<br>PC:
-                                    1920 x 1080, 최소 1400 x 787(16:9 비율)<br></p>
+                            <button type="button" class="css-fvirbu eflbbeu13 add-image">
+                                <p class="css-1idkie2 eflbbeu11"><span class="css-1wclmit eflbbeu12">추가하기 버튼으로<br></span>커버 사진을 업로드해주세요.
+                                </p>
+                                <p class="css-4c3vki eflbbeu10">*권장 사이즈<br>모바일: 1920 x 1920, 최소 1400 x 1400(1:1 비율)<br>PC: 1920 x 1080, 최소 1400 x 787(16:9 비율)<br>
+                                </p>
                                 <div class="css-fj1jqk eflbbeu14">커버 사진 추가하기</div>
                             </button>
 
@@ -274,21 +236,15 @@
                     </div>
                     <div class="css-bjn8wh eflbbeu17 cover-image" style="display: none; height: 405px">
                         <button type="button" class="css-1y8go0x eflbbeu0 add-image-btn" style="display: none;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                 preserveAspectRatio="xMidYMid meet">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                      d="M18.25 3.05H5.75C4.25883 3.05 3.05 4.25883 3.05 5.75V17.5197L7.22591 13.2998C7.89564 12.623 8.99763 12.652 9.63089 13.363L10.599 14.4501C10.7321 14.5995 10.963 14.6072 11.1057 14.467L14.3958 11.2346C15.0442 10.5976 16.0856 10.6049 16.725 11.251L20.95 15.5205V5.75C20.95 4.25883 19.7412 3.05 18.25 3.05ZM5.75 20.95C4.59159 20.95 3.60356 20.2205 3.22029 19.1958L8.14995 14.2142C8.29201 14.0707 8.52577 14.0768 8.66009 14.2276L9.62825 15.3147C10.2554 16.0189 11.3441 16.0552 12.0168 15.3943L15.3069 12.1619C15.4444 12.0268 15.6653 12.0284 15.8009 12.1654L20.95 17.3687V18.25C20.95 19.7412 19.7412 20.95 18.25 20.95H5.75ZM5.75 1.75C3.54086 1.75 1.75 3.54086 1.75 5.75V18.25C1.75 20.4591 3.54086 22.25 5.75 22.25H18.25C20.4591 22.25 22.25 20.4591 22.25 18.25V5.75C22.25 3.54086 20.4591 1.75 18.25 1.75H5.75ZM9.2 8C9.2 8.66274 8.66274 9.2 8 9.2C7.33726 9.2 6.8 8.66274 6.8 8C6.8 7.33726 7.33726 6.8 8 6.8C8.66274 6.8 9.2 7.33726 9.2 8ZM10.5 8C10.5 9.38071 9.38071 10.5 8 10.5C6.61929 10.5 5.5 9.38071 5.5 8C5.5 6.61929 6.61929 5.5 8 5.5C9.38071 5.5 10.5 6.61929 10.5 8Z"
-                                      fill="#2F3438"></path>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" preserveAspectRatio="xMidYMid meet">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M18.25 3.05H5.75C4.25883 3.05 3.05 4.25883 3.05 5.75V17.5197L7.22591 13.2998C7.89564 12.623 8.99763 12.652 9.63089 13.363L10.599 14.4501C10.7321 14.5995 10.963 14.6072 11.1057 14.467L14.3958 11.2346C15.0442 10.5976 16.0856 10.6049 16.725 11.251L20.95 15.5205V5.75C20.95 4.25883 19.7412 3.05 18.25 3.05ZM5.75 20.95C4.59159 20.95 3.60356 20.2205 3.22029 19.1958L8.14995 14.2142C8.29201 14.0707 8.52577 14.0768 8.66009 14.2276L9.62825 15.3147C10.2554 16.0189 11.3441 16.0552 12.0168 15.3943L15.3069 12.1619C15.4444 12.0268 15.6653 12.0284 15.8009 12.1654L20.95 17.3687V18.25C20.95 19.7412 19.7412 20.95 18.25 20.95H5.75ZM5.75 1.75C3.54086 1.75 1.75 3.54086 1.75 5.75V18.25C1.75 20.4591 3.54086 22.25 5.75 22.25H18.25C20.4591 22.25 22.25 20.4591 22.25 18.25V5.75C22.25 3.54086 20.4591 1.75 18.25 1.75H5.75ZM9.2 8C9.2 8.66274 8.66274 9.2 8 9.2C7.33726 9.2 6.8 8.66274 6.8 8C6.8 7.33726 7.33726 6.8 8 6.8C8.66274 6.8 9.2 7.33726 9.2 8ZM10.5 8C10.5 9.38071 9.38071 10.5 8 10.5C6.61929 10.5 5.5 9.38071 5.5 8C5.5 6.61929 6.61929 5.5 8 5.5C9.38071 5.5 10.5 6.61929 10.5 8Z" fill="#2F3438"></path>
                             </svg>
                         </button>
                         <button type="button" class="css-1y8go0x eflbbeu0 delete-image-btn" style="display: none;">
-                            <svg class="icon" viewBox="0 0 29 29" height="29" width="29"
-                                 preserveAspectRatio="xMidYMid meet"
-                                 style="transform: rotate(45deg);">
+                            <svg class="icon" viewBox="0 0 29 29" height="29" width="29" preserveAspectRatio="xMidYMid meet" style="transform: rotate(45deg);">
                                 <g fill-rule="evenodd" fill="none">
                                     <rect rx="4" height="29" width="29"></rect>
-                                    <path d="M14.5 7.07a.8.8 0 00-.81.8v5.8H7.8a.8.8 0 00-.81.8c0 .44.36.8.81.8h5.88v5.8c0 .44.36.8.81.8a.8.8 0 00.81-.8v-5.8h5.88a.8.8 0 00.81-.8.8.8 0 00-.81-.8H15.3v-5.8a.8.8 0 00-.81-.8z"
-                                          fill-rule="nonzero" fill="#525b61"></path>
+                                    <path d="M14.5 7.07a.8.8 0 00-.81.8v5.8H7.8a.8.8 0 00-.81.8c0 .44.36.8.81.8h5.88v5.8c0 .44.36.8.81.8a.8.8 0 00.81-.8v-5.8h5.88a.8.8 0 00.81-.8.8.8 0 00-.81-.8H15.3v-5.8a.8.8 0 00-.81-.8z" fill-rule="nonzero" fill="#525b61"></path>
                                 </g>
                             </svg>
                         </button>
@@ -296,11 +252,11 @@
                     <div class="css-bjn8wh eflbbeu17 cover-image-add" style="display: none;">
 
                         <div class="css-i0f99i eflbbeu16">
-                            <button type="button" class="css-fvirbu eflbbeu13 add-image"><p
-                                    class="css-1idkie2 eflbbeu11"><span
-                                    class="css-1wclmit eflbbeu12">추가하기 버튼으로<br></span>커버 사진을 업로드해주세요.</p>
-                                <p class="css-4c3vki eflbbeu10">*권장 사이즈<br>모바일: 1920 x 1920, 최소 1400 x 1400(1:1 비율)<br>PC:
-                                    1920 x 1080, 최소 1400 x 787(16:9 비율)<br></p>
+                            <button type="button" class="css-fvirbu eflbbeu13 add-image">
+                                <p class="css-1idkie2 eflbbeu11"><span class="css-1wclmit eflbbeu12">추가하기 버튼으로<br></span>커버 사진을 업로드해주세요.
+                                </p>
+                                <p class="css-4c3vki eflbbeu10">*권장 사이즈<br>모바일: 1920 x 1920, 최소 1400 x 1400(1:1 비율)<br>PC: 1920 x 1080, 최소 1400 x 787(16:9 비율)<br>
+                                </p>
                                 <div class="css-fj1jqk eflbbeu14">커버 사진 추가하기</div>
                             </button>
 
@@ -308,21 +264,15 @@
                     </div>
                     <div class="css-bjn8wh eflbbeu17 cover-image" style="display: none; height: 405px">
                         <button type="button" class="css-1y8go0x eflbbeu0 add-image-btn" style="display: none;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                 preserveAspectRatio="xMidYMid meet">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                      d="M18.25 3.05H5.75C4.25883 3.05 3.05 4.25883 3.05 5.75V17.5197L7.22591 13.2998C7.89564 12.623 8.99763 12.652 9.63089 13.363L10.599 14.4501C10.7321 14.5995 10.963 14.6072 11.1057 14.467L14.3958 11.2346C15.0442 10.5976 16.0856 10.6049 16.725 11.251L20.95 15.5205V5.75C20.95 4.25883 19.7412 3.05 18.25 3.05ZM5.75 20.95C4.59159 20.95 3.60356 20.2205 3.22029 19.1958L8.14995 14.2142C8.29201 14.0707 8.52577 14.0768 8.66009 14.2276L9.62825 15.3147C10.2554 16.0189 11.3441 16.0552 12.0168 15.3943L15.3069 12.1619C15.4444 12.0268 15.6653 12.0284 15.8009 12.1654L20.95 17.3687V18.25C20.95 19.7412 19.7412 20.95 18.25 20.95H5.75ZM5.75 1.75C3.54086 1.75 1.75 3.54086 1.75 5.75V18.25C1.75 20.4591 3.54086 22.25 5.75 22.25H18.25C20.4591 22.25 22.25 20.4591 22.25 18.25V5.75C22.25 3.54086 20.4591 1.75 18.25 1.75H5.75ZM9.2 8C9.2 8.66274 8.66274 9.2 8 9.2C7.33726 9.2 6.8 8.66274 6.8 8C6.8 7.33726 7.33726 6.8 8 6.8C8.66274 6.8 9.2 7.33726 9.2 8ZM10.5 8C10.5 9.38071 9.38071 10.5 8 10.5C6.61929 10.5 5.5 9.38071 5.5 8C5.5 6.61929 6.61929 5.5 8 5.5C9.38071 5.5 10.5 6.61929 10.5 8Z"
-                                      fill="#2F3438"></path>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" preserveAspectRatio="xMidYMid meet">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M18.25 3.05H5.75C4.25883 3.05 3.05 4.25883 3.05 5.75V17.5197L7.22591 13.2998C7.89564 12.623 8.99763 12.652 9.63089 13.363L10.599 14.4501C10.7321 14.5995 10.963 14.6072 11.1057 14.467L14.3958 11.2346C15.0442 10.5976 16.0856 10.6049 16.725 11.251L20.95 15.5205V5.75C20.95 4.25883 19.7412 3.05 18.25 3.05ZM5.75 20.95C4.59159 20.95 3.60356 20.2205 3.22029 19.1958L8.14995 14.2142C8.29201 14.0707 8.52577 14.0768 8.66009 14.2276L9.62825 15.3147C10.2554 16.0189 11.3441 16.0552 12.0168 15.3943L15.3069 12.1619C15.4444 12.0268 15.6653 12.0284 15.8009 12.1654L20.95 17.3687V18.25C20.95 19.7412 19.7412 20.95 18.25 20.95H5.75ZM5.75 1.75C3.54086 1.75 1.75 3.54086 1.75 5.75V18.25C1.75 20.4591 3.54086 22.25 5.75 22.25H18.25C20.4591 22.25 22.25 20.4591 22.25 18.25V5.75C22.25 3.54086 20.4591 1.75 18.25 1.75H5.75ZM9.2 8C9.2 8.66274 8.66274 9.2 8 9.2C7.33726 9.2 6.8 8.66274 6.8 8C6.8 7.33726 7.33726 6.8 8 6.8C8.66274 6.8 9.2 7.33726 9.2 8ZM10.5 8C10.5 9.38071 9.38071 10.5 8 10.5C6.61929 10.5 5.5 9.38071 5.5 8C5.5 6.61929 6.61929 5.5 8 5.5C9.38071 5.5 10.5 6.61929 10.5 8Z" fill="#2F3438"></path>
                             </svg>
                         </button>
                         <button type="button" class="css-1y8go0x eflbbeu0 delete-image-btn" style="display: none;">
-                            <svg class="icon" viewBox="0 0 29 29" height="29" width="29"
-                                 preserveAspectRatio="xMidYMid meet"
-                                 style="transform: rotate(45deg);">
+                            <svg class="icon" viewBox="0 0 29 29" height="29" width="29" preserveAspectRatio="xMidYMid meet" style="transform: rotate(45deg);">
                                 <g fill-rule="evenodd" fill="none">
                                     <rect rx="4" height="29" width="29"></rect>
-                                    <path d="M14.5 7.07a.8.8 0 00-.81.8v5.8H7.8a.8.8 0 00-.81.8c0 .44.36.8.81.8h5.88v5.8c0 .44.36.8.81.8a.8.8 0 00.81-.8v-5.8h5.88a.8.8 0 00.81-.8.8.8 0 00-.81-.8H15.3v-5.8a.8.8 0 00-.81-.8z"
-                                          fill-rule="nonzero" fill="#525b61"></path>
+                                    <path d="M14.5 7.07a.8.8 0 00-.81.8v5.8H7.8a.8.8 0 00-.81.8c0 .44.36.8.81.8h5.88v5.8c0 .44.36.8.81.8a.8.8 0 00.81-.8v-5.8h5.88a.8.8 0 00.81-.8.8.8 0 00-.81-.8H15.3v-5.8a.8.8 0 00-.81-.8z" fill-rule="nonzero" fill="#525b61"></path>
                                 </g>
                             </svg>
                         </button>
@@ -330,11 +280,11 @@
                     <div class="css-bjn8wh eflbbeu17 cover-image-add" style="display: none;">
 
                         <div class="css-i0f99i eflbbeu16">
-                            <button type="button" class="css-fvirbu eflbbeu13 add-image"><p
-                                    class="css-1idkie2 eflbbeu11"><span
-                                    class="css-1wclmit eflbbeu12">추가하기 버튼으로<br></span>커버 사진을 업로드해주세요.</p>
-                                <p class="css-4c3vki eflbbeu10">*권장 사이즈<br>모바일: 1920 x 1920, 최소 1400 x 1400(1:1 비율)<br>PC:
-                                    1920 x 1080, 최소 1400 x 787(16:9 비율)<br></p>
+                            <button type="button" class="css-fvirbu eflbbeu13 add-image">
+                                <p class="css-1idkie2 eflbbeu11"><span class="css-1wclmit eflbbeu12">추가하기 버튼으로<br></span>커버 사진을 업로드해주세요.
+                                </p>
+                                <p class="css-4c3vki eflbbeu10">*권장 사이즈<br>모바일: 1920 x 1920, 최소 1400 x 1400(1:1 비율)<br>PC: 1920 x 1080, 최소 1400 x 787(16:9 비율)<br>
+                                </p>
                                 <div class="css-fj1jqk eflbbeu14">커버 사진 추가하기</div>
                             </button>
 
@@ -342,21 +292,15 @@
                     </div>
                     <div class="css-bjn8wh eflbbeu17 cover-image" style="display: none; height: 405px">
                         <button type="button" class="css-1y8go0x eflbbeu0 add-image-btn" style="display: none;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                 preserveAspectRatio="xMidYMid meet">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                      d="M18.25 3.05H5.75C4.25883 3.05 3.05 4.25883 3.05 5.75V17.5197L7.22591 13.2998C7.89564 12.623 8.99763 12.652 9.63089 13.363L10.599 14.4501C10.7321 14.5995 10.963 14.6072 11.1057 14.467L14.3958 11.2346C15.0442 10.5976 16.0856 10.6049 16.725 11.251L20.95 15.5205V5.75C20.95 4.25883 19.7412 3.05 18.25 3.05ZM5.75 20.95C4.59159 20.95 3.60356 20.2205 3.22029 19.1958L8.14995 14.2142C8.29201 14.0707 8.52577 14.0768 8.66009 14.2276L9.62825 15.3147C10.2554 16.0189 11.3441 16.0552 12.0168 15.3943L15.3069 12.1619C15.4444 12.0268 15.6653 12.0284 15.8009 12.1654L20.95 17.3687V18.25C20.95 19.7412 19.7412 20.95 18.25 20.95H5.75ZM5.75 1.75C3.54086 1.75 1.75 3.54086 1.75 5.75V18.25C1.75 20.4591 3.54086 22.25 5.75 22.25H18.25C20.4591 22.25 22.25 20.4591 22.25 18.25V5.75C22.25 3.54086 20.4591 1.75 18.25 1.75H5.75ZM9.2 8C9.2 8.66274 8.66274 9.2 8 9.2C7.33726 9.2 6.8 8.66274 6.8 8C6.8 7.33726 7.33726 6.8 8 6.8C8.66274 6.8 9.2 7.33726 9.2 8ZM10.5 8C10.5 9.38071 9.38071 10.5 8 10.5C6.61929 10.5 5.5 9.38071 5.5 8C5.5 6.61929 6.61929 5.5 8 5.5C9.38071 5.5 10.5 6.61929 10.5 8Z"
-                                      fill="#2F3438"></path>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" preserveAspectRatio="xMidYMid meet">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M18.25 3.05H5.75C4.25883 3.05 3.05 4.25883 3.05 5.75V17.5197L7.22591 13.2998C7.89564 12.623 8.99763 12.652 9.63089 13.363L10.599 14.4501C10.7321 14.5995 10.963 14.6072 11.1057 14.467L14.3958 11.2346C15.0442 10.5976 16.0856 10.6049 16.725 11.251L20.95 15.5205V5.75C20.95 4.25883 19.7412 3.05 18.25 3.05ZM5.75 20.95C4.59159 20.95 3.60356 20.2205 3.22029 19.1958L8.14995 14.2142C8.29201 14.0707 8.52577 14.0768 8.66009 14.2276L9.62825 15.3147C10.2554 16.0189 11.3441 16.0552 12.0168 15.3943L15.3069 12.1619C15.4444 12.0268 15.6653 12.0284 15.8009 12.1654L20.95 17.3687V18.25C20.95 19.7412 19.7412 20.95 18.25 20.95H5.75ZM5.75 1.75C3.54086 1.75 1.75 3.54086 1.75 5.75V18.25C1.75 20.4591 3.54086 22.25 5.75 22.25H18.25C20.4591 22.25 22.25 20.4591 22.25 18.25V5.75C22.25 3.54086 20.4591 1.75 18.25 1.75H5.75ZM9.2 8C9.2 8.66274 8.66274 9.2 8 9.2C7.33726 9.2 6.8 8.66274 6.8 8C6.8 7.33726 7.33726 6.8 8 6.8C8.66274 6.8 9.2 7.33726 9.2 8ZM10.5 8C10.5 9.38071 9.38071 10.5 8 10.5C6.61929 10.5 5.5 9.38071 5.5 8C5.5 6.61929 6.61929 5.5 8 5.5C9.38071 5.5 10.5 6.61929 10.5 8Z" fill="#2F3438"></path>
                             </svg>
                         </button>
                         <button type="button" class="css-1y8go0x eflbbeu0 delete-image-btn" style="display: none;">
-                            <svg class="icon" viewBox="0 0 29 29" height="29" width="29"
-                                 preserveAspectRatio="xMidYMid meet"
-                                 style="transform: rotate(45deg);">
+                            <svg class="icon" viewBox="0 0 29 29" height="29" width="29" preserveAspectRatio="xMidYMid meet" style="transform: rotate(45deg);">
                                 <g fill-rule="evenodd" fill="none">
                                     <rect rx="4" height="29" width="29"></rect>
-                                    <path d="M14.5 7.07a.8.8 0 00-.81.8v5.8H7.8a.8.8 0 00-.81.8c0 .44.36.8.81.8h5.88v5.8c0 .44.36.8.81.8a.8.8 0 00.81-.8v-5.8h5.88a.8.8 0 00.81-.8.8.8 0 00-.81-.8H15.3v-5.8a.8.8 0 00-.81-.8z"
-                                          fill-rule="nonzero" fill="#525b61"></path>
+                                    <path d="M14.5 7.07a.8.8 0 00-.81.8v5.8H7.8a.8.8 0 00-.81.8c0 .44.36.8.81.8h5.88v5.8c0 .44.36.8.81.8a.8.8 0 00.81-.8v-5.8h5.88a.8.8 0 00.81-.8.8.8 0 00-.81-.8H15.3v-5.8a.8.8 0 00-.81-.8z" fill-rule="nonzero" fill="#525b61"></path>
                                 </g>
                             </svg>
                         </button>
@@ -364,11 +308,11 @@
                     <div class="css-bjn8wh eflbbeu17 cover-image-add" style="display: none;">
 
                         <div class="css-i0f99i eflbbeu16">
-                            <button type="button" class="css-fvirbu eflbbeu13 add-image"><p
-                                    class="css-1idkie2 eflbbeu11"><span
-                                    class="css-1wclmit eflbbeu12">추가하기 버튼으로<br></span>커버 사진을 업로드해주세요.</p>
-                                <p class="css-4c3vki eflbbeu10">*권장 사이즈<br>모바일: 1920 x 1920, 최소 1400 x 1400(1:1 비율)<br>PC:
-                                    1920 x 1080, 최소 1400 x 787(16:9 비율)<br></p>
+                            <button type="button" class="css-fvirbu eflbbeu13 add-image">
+                                <p class="css-1idkie2 eflbbeu11"><span class="css-1wclmit eflbbeu12">추가하기 버튼으로<br></span>커버 사진을 업로드해주세요.
+                                </p>
+                                <p class="css-4c3vki eflbbeu10">*권장 사이즈<br>모바일: 1920 x 1920, 최소 1400 x 1400(1:1 비율)<br>PC: 1920 x 1080, 최소 1400 x 787(16:9 비율)<br>
+                                </p>
                                 <div class="css-fj1jqk eflbbeu14">커버 사진 추가하기</div>
                             </button>
 
@@ -376,21 +320,15 @@
                     </div>
                     <div class="css-bjn8wh eflbbeu17 cover-image" style="display: none; height: 405px">
                         <button type="button" class="css-1y8go0x eflbbeu0 add-image-btn" style="display: none;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                 preserveAspectRatio="xMidYMid meet">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                      d="M18.25 3.05H5.75C4.25883 3.05 3.05 4.25883 3.05 5.75V17.5197L7.22591 13.2998C7.89564 12.623 8.99763 12.652 9.63089 13.363L10.599 14.4501C10.7321 14.5995 10.963 14.6072 11.1057 14.467L14.3958 11.2346C15.0442 10.5976 16.0856 10.6049 16.725 11.251L20.95 15.5205V5.75C20.95 4.25883 19.7412 3.05 18.25 3.05ZM5.75 20.95C4.59159 20.95 3.60356 20.2205 3.22029 19.1958L8.14995 14.2142C8.29201 14.0707 8.52577 14.0768 8.66009 14.2276L9.62825 15.3147C10.2554 16.0189 11.3441 16.0552 12.0168 15.3943L15.3069 12.1619C15.4444 12.0268 15.6653 12.0284 15.8009 12.1654L20.95 17.3687V18.25C20.95 19.7412 19.7412 20.95 18.25 20.95H5.75ZM5.75 1.75C3.54086 1.75 1.75 3.54086 1.75 5.75V18.25C1.75 20.4591 3.54086 22.25 5.75 22.25H18.25C20.4591 22.25 22.25 20.4591 22.25 18.25V5.75C22.25 3.54086 20.4591 1.75 18.25 1.75H5.75ZM9.2 8C9.2 8.66274 8.66274 9.2 8 9.2C7.33726 9.2 6.8 8.66274 6.8 8C6.8 7.33726 7.33726 6.8 8 6.8C8.66274 6.8 9.2 7.33726 9.2 8ZM10.5 8C10.5 9.38071 9.38071 10.5 8 10.5C6.61929 10.5 5.5 9.38071 5.5 8C5.5 6.61929 6.61929 5.5 8 5.5C9.38071 5.5 10.5 6.61929 10.5 8Z"
-                                      fill="#2F3438"></path>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" preserveAspectRatio="xMidYMid meet">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M18.25 3.05H5.75C4.25883 3.05 3.05 4.25883 3.05 5.75V17.5197L7.22591 13.2998C7.89564 12.623 8.99763 12.652 9.63089 13.363L10.599 14.4501C10.7321 14.5995 10.963 14.6072 11.1057 14.467L14.3958 11.2346C15.0442 10.5976 16.0856 10.6049 16.725 11.251L20.95 15.5205V5.75C20.95 4.25883 19.7412 3.05 18.25 3.05ZM5.75 20.95C4.59159 20.95 3.60356 20.2205 3.22029 19.1958L8.14995 14.2142C8.29201 14.0707 8.52577 14.0768 8.66009 14.2276L9.62825 15.3147C10.2554 16.0189 11.3441 16.0552 12.0168 15.3943L15.3069 12.1619C15.4444 12.0268 15.6653 12.0284 15.8009 12.1654L20.95 17.3687V18.25C20.95 19.7412 19.7412 20.95 18.25 20.95H5.75ZM5.75 1.75C3.54086 1.75 1.75 3.54086 1.75 5.75V18.25C1.75 20.4591 3.54086 22.25 5.75 22.25H18.25C20.4591 22.25 22.25 20.4591 22.25 18.25V5.75C22.25 3.54086 20.4591 1.75 18.25 1.75H5.75ZM9.2 8C9.2 8.66274 8.66274 9.2 8 9.2C7.33726 9.2 6.8 8.66274 6.8 8C6.8 7.33726 7.33726 6.8 8 6.8C8.66274 6.8 9.2 7.33726 9.2 8ZM10.5 8C10.5 9.38071 9.38071 10.5 8 10.5C6.61929 10.5 5.5 9.38071 5.5 8C5.5 6.61929 6.61929 5.5 8 5.5C9.38071 5.5 10.5 6.61929 10.5 8Z" fill="#2F3438"></path>
                             </svg>
                         </button>
                         <button type="button" class="css-1y8go0x eflbbeu0 delete-image-btn" style="display: none;">
-                            <svg class="icon" viewBox="0 0 29 29" height="29" width="29"
-                                 preserveAspectRatio="xMidYMid meet"
-                                 style="transform: rotate(45deg);">
+                            <svg class="icon" viewBox="0 0 29 29" height="29" width="29" preserveAspectRatio="xMidYMid meet" style="transform: rotate(45deg);">
                                 <g fill-rule="evenodd" fill="none">
                                     <rect rx="4" height="29" width="29"></rect>
-                                    <path d="M14.5 7.07a.8.8 0 00-.81.8v5.8H7.8a.8.8 0 00-.81.8c0 .44.36.8.81.8h5.88v5.8c0 .44.36.8.81.8a.8.8 0 00.81-.8v-5.8h5.88a.8.8 0 00.81-.8.8.8 0 00-.81-.8H15.3v-5.8a.8.8 0 00-.81-.8z"
-                                          fill-rule="nonzero" fill="#525b61"></path>
+                                    <path d="M14.5 7.07a.8.8 0 00-.81.8v5.8H7.8a.8.8 0 00-.81.8c0 .44.36.8.81.8h5.88v5.8c0 .44.36.8.81.8a.8.8 0 00.81-.8v-5.8h5.88a.8.8 0 00.81-.8.8.8 0 00-.81-.8H15.3v-5.8a.8.8 0 00-.81-.8z" fill-rule="nonzero" fill="#525b61"></path>
                                 </g>
                             </svg>
                         </button>
@@ -398,19 +336,19 @@
                     <div class="css-bjn8wh eflbbeu17 cover-image-add" style="display: none;">
 
                         <div class="css-i0f99i eflbbeu16">
-                            <button type="button" class="css-fvirbu eflbbeu13 add-image"><p
-                                    class="css-1idkie2 eflbbeu11"><span
-                                    class="css-1wclmit eflbbeu12">추가하기 버튼으로<br></span>커버 사진을 업로드해주세요.</p>
-                                <p class="css-4c3vki eflbbeu10">*권장 사이즈<br>모바일: 1920 x 1920, 최소 1400 x 1400(1:1 비율)<br>PC:
-                                    1920 x 1080, 최소 1400 x 787(16:9 비율)<br></p>
+                            <button type="button" class="css-fvirbu eflbbeu13 add-image">
+                                <p class="css-1idkie2 eflbbeu11"><span class="css-1wclmit eflbbeu12">추가하기 버튼으로<br></span>커버 사진을 업로드해주세요.
+                                </p>
+                                <p class="css-4c3vki eflbbeu10">*권장 사이즈<br>모바일: 1920 x 1920, 최소 1400 x 1400(1:1 비율)<br>PC: 1920 x 1080, 최소 1400 x 787(16:9 비율)<br>
+                                </p>
                                 <div class="css-fj1jqk eflbbeu14">커버 사진 추가하기</div>
                             </button>
 
                         </div>
                     </div>
 
-                    <div class="css-2nc76j ej4h55t1"><input type="text" placeholder="제목을 입력해주세요." maxlength="80"
-                                                            class="css-m2kti2 ej4h55t2 title" value="">
+                    <div class="css-2nc76j ej4h55t1">
+                        <input type="text" placeholder="제목을 입력해주세요." maxlength="80" class="css-m2kti2 ej4h55t2 title" value="">
                         <div class="css-qidfq ej4h55t0 title-count">0 / 80</div>
                     </div>
                 </div>
@@ -427,8 +365,7 @@
                 <button type="button" title="도움말" class="css-7nipwj e16nrepm0">
                     <svg class="icon" width="28" height="28" viewBox="0 0 28 28" preserveAspectRatio="xMidYMid meet">
                         <rect width="28" height="28" fill="#FFF" rx="10"></rect>
-                        <path fill="#828C94"
-                              d="M14.24 6.22c.56.06 1.1.15 1.65.27 1.66.47 2.64 1.8 2.77 3.56A3.24 3.24 0 0117.35 13c-.44.35-.9.66-1.35 1a2.2 2.2 0 00-1 1.95 1.24 1.24 0 01-.89 1.25 1.38 1.38 0 01-1.6-.48 1.3 1.3 0 01-.2-.65 4.32 4.32 0 011.78-3.63c.5-.38.97-.8 1.41-1.24.21-.25.34-.55.36-.87.08-.88-.49-1.45-1.4-1.51-1.1-.07-2.03.22-2.68 1.19a1.3 1.3 0 01-1.35.62c-.93-.15-1.34-.91-.95-1.79a4 4 0 011.94-1.93 6.75 6.75 0 012.82-.69zm.93 13.96c.01 1-.55 1.6-1.53 1.6s-1.63-.58-1.64-1.41c0-1.16.52-1.74 1.56-1.77.84-.03 1.72.49 1.61 1.58z"></path>
+                        <path fill="#828C94" d="M14.24 6.22c.56.06 1.1.15 1.65.27 1.66.47 2.64 1.8 2.77 3.56A3.24 3.24 0 0117.35 13c-.44.35-.9.66-1.35 1a2.2 2.2 0 00-1 1.95 1.24 1.24 0 01-.89 1.25 1.38 1.38 0 01-1.6-.48 1.3 1.3 0 01-.2-.65 4.32 4.32 0 011.78-3.63c.5-.38.97-.8 1.41-1.24.21-.25.34-.55.36-.87.08-.88-.49-1.45-1.4-1.51-1.1-.07-2.03.22-2.68 1.19a1.3 1.3 0 01-1.35.62c-.93-.15-1.34-.91-.95-1.79a4 4 0 011.94-1.93 6.75 6.75 0 012.82-.69zm.93 13.96c.01 1-.55 1.6-1.53 1.6s-1.63-.58-1.64-1.41c0-1.16.52-1.74 1.56-1.77.84-.03 1.72.49 1.61 1.58z"></path>
                     </svg>
                 </button>
             </div>
@@ -448,7 +385,6 @@
 
 
 </form>
-
 
 
 </body>
