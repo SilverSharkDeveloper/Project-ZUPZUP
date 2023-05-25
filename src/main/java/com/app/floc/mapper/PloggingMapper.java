@@ -13,7 +13,7 @@ public interface PloggingMapper {
     public void insert(PloggingVO ploggingVO);
 
     //목록
-    public List<PloggingDTO> selectAll();
+    public List<PloggingDTO> selectAll(String location);
 
     //조회
     public Optional<PloggingDTO> selectOne(Long id);

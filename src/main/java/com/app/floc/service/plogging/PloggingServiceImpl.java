@@ -23,8 +23,8 @@ public class PloggingServiceImpl implements PloggingService {
     }
 
     @Override
-    public List<PloggingDTO> getList() {
-        return ploggingDAO.findAll();
+    public List<PloggingDTO> getList(String location) {
+        return ploggingDAO.findAll(location);
     }
 
     @Override

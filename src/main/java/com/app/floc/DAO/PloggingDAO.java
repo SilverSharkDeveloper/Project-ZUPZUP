@@ -20,8 +20,8 @@ public class PloggingDAO {
     }
 
     //목록
-    public List<PloggingDTO> findAll(){
-        return ploggingMapper.selectAll();
+    public List<PloggingDTO> findAll(String location){
+        return ploggingMapper.selectAll(location);
     }
 
     //조회

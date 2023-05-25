@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>플로깅 목록</title>
-    <link rel="stylesheet" href="static/css/header-footer/header.css">
-    <link rel="stylesheet" href="static/css/header-footer/footer.css">
-    <link rel="stylesheet" href="static/css/plogging/plogging.css">
-    <link rel="stylesheet" href="static/css/font.css">
+    <link rel="stylesheet" href="/css/header-footer/header.css">
+    <link rel="stylesheet" href="/css/header-footer/footer.css">
+    <link rel="stylesheet" href="/css/plogging/plogging.css">
+    <link rel="stylesheet" href="/css/font.css">
 </head>
 
 <body>
-<header th:replace=""></header>
+<!--<header th:replace=""></header>-->
 <div class="container">
     <div class="project-feed">
         <!-- 카테고리 -->
@@ -24,74 +24,47 @@
                     <ul class="filter-bar__control-list__left">
                         <li class="filter-bar__control-list__item">
                             <div class="filter-bar-control">
-                                <button
-                                        class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">
-                                    서울/경기도
-                                </button>
+                                <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">서울/경기도</button>
                             </div>
                         </li>
                         <li class="filter-bar__control-list__item">
                             <div class="drop-down panel-drop-down filter-bar-control">
-                                <button
-                                        class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">
-                                    강원도
-                                </button>
+                                <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">강원도</button>
                             </div>
                         </li>
                         <li class="filter-bar__control-list__item">
                             <div class="drop-down panel-drop-down filter-bar-control">
-                                <button
-                                        class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">
-                                    충청북도
-                                </button>
+                                <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">충청북도</button>
                             </div>
                         </li>
                         <li class="filter-bar__control-list__item">
                             <div class="drop-down panel-drop-down filter-bar-control">
-                                <button
-                                        class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">
-                                    충청남도
-                                </button>
+                                <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">충청남도</button>
                             </div>
                         </li>
                         <li class="filter-bar__control-list__item filter-bar__control-list__item--hide-mobile">
                             <div class="drop-down panel-drop-down filter-bar-control">
-                                <button
-                                        class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">
-                                    전라북도
-                                </button>
+                                <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">전라북도</button>
                             </div>
                         </li>
                         <li class="filter-bar__control-list__item filter-bar__control-list__item--hide-mobile">
                             <div class="drop-down panel-drop-down filter-bar-control">
-                                <button
-                                        class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">
-                                    전라남도
-                                </button>
+                                <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">전라남도</button>
                             </div>
                         </li>
                         <li class="filter-bar__control-list__item filter-bar__control-list__item--hide-mobile">
                             <div class="drop-down panel-drop-down filter-bar-control">
-                                <button
-                                        class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">
-                                    경상북도
-                                </button>
+                                <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">경상북도</button>
                             </div>
                         </li>
                         <li class="filter-bar__control-list__item filter-bar__control-list__item--hide-mobile">
                             <div class="drop-down panel-drop-down filter-bar-control">
-                                <button
-                                        class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">
-                                    경상남도
-                                </button>
+                                <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">경상남도</button>
                             </div>
                         </li>
                         <li class="filter-bar__control-list__item filter-bar__control-list__item--hide-mobile">
                             <div class="drop-down panel-drop-down filter-bar-control">
-                                <button
-                                        class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">
-                                    제주도
-                                </button>
+                                <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">제주도</button>
                             </div>
                         </li>
                     </ul>
@@ -104,55 +77,43 @@
         <div class="project-feed_count" style="margin-bottom: 10px;">
             <!--게시물 카운팅-->전체 n
         </div>
-        <!-- 목록 한줄 -->
-        <div class="virtualized-list row"
-             style="padding-top: 0px; padding-bottom: 0px; transform: translateY(0px);">
-            <div class="col-12 col-md-4">
-                <article class="project-feed__item">
-                    <a class="project-feed__item__link" href="/projects/139565/detail?affect_type=ProjectSelfIndex&amp;affect_id=0"></a>
-                    <div class="project-feed__item__image">
-                        <img class="image" alt="" src=""><!--플로깅 메인 사진-->
-                    </div>
-                    <h1 class="project-feed__item__title">Title</h1>
-                    <address class="project-feed__item__writer-wrap">
-                        <a class="project-feed__item__writer" href="">
-                            <img class="project-feed__item__writer__image" alt="" src=""> <!--프로필 사진-->
-                            <span class="project-feed__item__writer__name">username</span>
-                        </a>
-                    </address>
-                    <footer class="project-feed__item__status">
-                        <span class="entry">플로깅 n&nbsp;</span>
-                        <span class="entry">조회 n</span>
-                    </footer>
-                </article>
-            </div>
-
-        </div>
         <!-- 무한 스크롤 > -->
-        <div class="virtualized-list row"
-                   style="padding-top: 0px; padding-bottom: 0px; transform: translateY(0px);">
+        <div class="virtualized-list row" style="padding-top: 0px; padding-bottom: 0px; transform: translateY(0px);">
+
 
         </div>
     </div>
 </div>
-<footer th:replace=""></footer>
+<!--<footer th:replace=""></footer>-->
 </body>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
-    $list = $('li.filter-bar__control-list__item');
-    $list.on("click", function () {
-        $list.removeClass('liactive');
-        $list.children().children().css("color", "#757575")
-        $(this).addClass('liactive');
-        $(this).children().children().css(
-            "color", "#69c085"
-        )
+    function getParameter(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+</script>
+<script>
+    $lists = $('li.filter-bar__control-list__item');
+    // $list.on("click", function () {
+    //     $list.removeClass('liactive');
+    //     $(this).addClass('liactive');
+    // });
+
+    $("button.filter-bar-control__button").on("click",function() {
+        const locate = $(this).text();
+        let paraLocal = getParameter('location');
+        if(locate==paraLocal)
+            location.href=`/plogging/plogging`;
+        else location.href=`/plogging/plogging?location=${locate}`;
     });
 
 </script>
 <script th:inline="javascript">
     let ploggings=[[${ploggings}]];
-    console.log(ploggings);
+    $("div.project-feed_count").html("전체 "+ploggings.length);
 </script>
-<!--<script src="../../static/js/plogging/list.js"></script>-->
+<script src="/js/plogging/list.js"></script>
 </html>

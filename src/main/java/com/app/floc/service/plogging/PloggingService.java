@@ -11,7 +11,7 @@ public interface PloggingService {
     public void write(PloggingVO ploggingVO);
 
     //목록
-    public List<PloggingDTO> getList();
+    public List<PloggingDTO> getList(String location);
 
     //조회
     public Optional<PloggingDTO> read(Long id);

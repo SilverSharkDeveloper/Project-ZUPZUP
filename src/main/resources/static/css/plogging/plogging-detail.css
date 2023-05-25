@@ -1,0 +1,40 @@
+.production-selling-overview__option-form.production-selling-option-form {
+    margin-top: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.production-selling-header__info-wrap {
+    padding: 10px 0;
+    border-bottom: 1px solid #ededed;
+}
+
+.production-selling-header__delivery {
+    display: flex;
+    font-size: 14px;
+    line-height: 21px;
+    padding-top: 0;
+}
+
+.production-selling-header__delivery__title-wrap {
+    flex-basis: 100px;
+}
+
+.production-selling-header__delivery__content-wrap {
+    flex-basis: auto;
+    flex-grow: 1;
+    width: 42px;
+}
+
+.production-selling-header__delivery__title-wrap span {
+    font-size: 14px;
+    line-height: 21px;
+    color: #828c94;
+}
+
+.production-selling-header__delivery__type {
+    display: block;
+    margin-bottom: 4px;
+    color: #292929;
+}
