@@ -1,14 +1,18 @@
 $(document).ready(function(){
     const $div = $(".css-18ewygj");
     const $p = $(".css-of8h0b");
+    const $b = $(".css-12fah4g b");
 
+    var lifeTissue = 0;
     var totalTissue = 0;
     let text = "";
     tissues.forEach(tissue => {
         totalTissue += parseInt(`${tissue.tissuePoint}`);
         if((parseInt(`${tissue.tissuePoint}`))>=0)
         {
-        text += `
+            lifeTissue += parseInt(`${tissue.tissuePoint}`);
+
+            text += `
             <div class="css-oc7sge e1rx7pum8">
     <div class="css-1kwo4sf e1rx7pum7">
         <div class="css-3eylin e1rx7pum6">${tissue.id}</div>
@@ -45,8 +49,10 @@ $(document).ready(function(){
     });
 
     let point= totalTissue + `개`;
+    let lifePoint= lifeTissue + `개`;
     $div.html(text);
     $p.html(point);
+    $b.html(lifePoint);
 });
 
 
