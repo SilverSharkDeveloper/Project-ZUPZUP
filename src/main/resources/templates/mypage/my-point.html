@@ -173,14 +173,17 @@
                         </div>
                         <div class="css-e1gl82 e1v2ggz00">
                             <ul class="_2BEHX">
-                                <li class="_1B8WI"><a class="_2XI47 _1gwhd" href="/user_shopping_pages/mileages?page=1">
+                                <li class="_1B8WI"><a th:if="${myPloggingPagination.prev}" th:href="${myPloggingPagination.startPage - 1}" class="_2XI47 _1gwhd">
                                     <svg width="1em" height="1em" viewBox="0 0 24 24">
                                         <path fill="currentColor"
                                               d="M6 19.692L8.25 22 18 12 8.25 2 6 4.308 13.5 12z"></path>
                                     </svg>
                                 </a></li>
-                                <li><a class="_3b4ci R16_p" href="/user_shopping_pages/mileages?page=1">1</a></li>
-                                <li class="_1B8WI"><a class="_2XI47 _3I7ex" href="/user_shopping_pages/mileages?page=1">
+                                <th:block th:each="page:${#numbers.sequence(myPloggingPagination.startPage, myPloggingPagination.endPage)}">
+                                <li><a th:if="${page eq myPloggingPagination.page}" class="_3b4ci R16_p" th:text="${page}"></a></li>
+                                <li><a th:unless="${page eq myPloggingPagination.page}" class="_3b4ci R16_p" th:href="${page}" th:text="${page}"></a></li>
+                                </th:block>
+                                <li class="_1B8WI"><a th:if="${myPloggingPagination.next}" th:href="${myPloggingPagination.endPage + 1}">
                                     <svg width="1em" height="1em" viewBox="0 0 24 24">
                                         <path fill="currentColor"
                                               d="M6 19.692L8.25 22 18 12 8.25 2 6 4.308 13.5 12z"></path>

@@ -16,7 +16,5 @@ public interface TissueMapper {
     //    포인트 추가
     public void insert(TissueVO tissueVO);
 
-    //    포인트 삭제
-    public void delete(Long id);
 
 }

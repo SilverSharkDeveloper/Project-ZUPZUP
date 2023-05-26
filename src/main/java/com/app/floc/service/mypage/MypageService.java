@@ -3,7 +3,6 @@ package com.app.floc.service.mypage;
 import com.app.floc.domain.DTO.MyPloggingPagination;
 import com.app.floc.domain.DTO.PloggingDTO;
 import com.app.floc.domain.DTO.Search;
-import com.app.floc.domain.VO.PloggingVO;
 import com.app.floc.domain.VO.TissueVO;
 import com.app.floc.domain.VO.UserVO;
 
@@ -40,4 +39,7 @@ public interface MypageService {
 
     //포인트 목록
     public List<TissueVO> getListPoint(MyPloggingPagination myPloggingPagination, Search search);
+
+    //포인트 적립, 사용
+    public void usePoint(TissueVO tissueVO);
 }

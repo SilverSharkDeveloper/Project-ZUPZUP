@@ -26,8 +26,4 @@ public class TissueDAO {
         tissueMapper.insert(tissueVO);
     }
 
-    //    포인트 삭제
-    public void delete(Long id){
-        tissueMapper.delete(id);
-    }
 }

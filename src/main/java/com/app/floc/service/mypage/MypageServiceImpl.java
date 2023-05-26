@@ -85,4 +85,9 @@ public class MypageServiceImpl implements MypageService {
         final List<TissueVO> tissues = tissueDAO.findAll(myPloggingPagination,search);
         return tissues;
     }
+
+    @Override
+    public void usePoint(TissueVO tissueVO) {
+        tissueDAO.save(tissueVO);
+    }
 }

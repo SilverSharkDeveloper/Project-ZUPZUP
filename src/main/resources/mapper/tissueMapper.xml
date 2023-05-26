@@ -4,17 +4,11 @@
     <select id="selectAll" resultType="TIssueVO">
         SELECT ID, USER_ID, TISSUE_CREATED_DATE, TISSUE_POINT, TISSUE_HISTORY
         FROM TBL_TISSUE
+        ORDER BY ID DESC
     </select>
 
     <insert id="insert">
-        <selectKey keyProperty="id" order="BEFORE" resultType="TIssueVO">
-            SELECT SEQ_TISSUE.NEXTVAL FROM DUAL
-        </selectKey>
         INSERT INTO TBL_TISSUE(ID, USER_ID, TISSUE_CREATED_DATE, TISSUE_POINT, TISSUE_HISTORY)
         VALUES(#{id}, #{userId}, #{tissueCreatedDate}, #{tissuePoint}, #{tissueHistory})
     </insert>
-
-    <delete id="delete">
-        DELETE FROM TBL_TISSUE WHERE ID = #{id}
-    </delete>
 </mapper>

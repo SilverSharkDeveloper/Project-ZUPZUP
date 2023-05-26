@@ -2,6 +2,7 @@ package com.app.floc.controller;
 
 import com.app.floc.domain.DTO.MyPloggingPagination;
 import com.app.floc.domain.DTO.Search;
+import com.app.floc.domain.VO.TissueVO;
 import com.app.floc.domain.VO.UserVO;
 import com.app.floc.service.mypage.MypageService;
 import lombok.RequiredArgsConstructor;
@@ -37,7 +38,7 @@ public class MypageController {
 
 
     @GetMapping("my-point")
-    public void userPoint(MyPloggingPagination myPloggingPagination,Search search, Model model){
+    public void userPoint(MyPloggingPagination myPloggingPagination, Search search, Model model){
         myPloggingPagination.setTotal(mypageService.getTotal(search));
         myPloggingPagination.progress();
         model.addAttribute("tissues", mypageService.getListPoint(myPloggingPagination, search));
