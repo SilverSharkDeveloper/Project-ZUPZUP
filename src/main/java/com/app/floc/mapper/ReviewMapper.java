@@ -13,6 +13,7 @@ import java.util.Optional;
 public interface ReviewMapper {
     public List<ReviewDTO> selectAll(@Param("pagination") Pagination pagination, @Param("search")Search search);
 
+
     public void insert(ReviewDTO reviewDTO);
 
     public Optional<ReviewDTO> selectDetail(Long id);
