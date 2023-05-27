@@ -5,13 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>상품 목록</title>
-    <link rel="stylesheet" href="../../static/css/header-footer/header.css">
-    <link rel="stylesheet" href="../../static/css/header-footer/footer.css">
-    <link rel="stylesheet" href="../../static/css/product/main.css">
-    <link rel="stylesheet" href="../../static/css/font.css">
+    <link rel="stylesheet" href="/css/review/user_review_list.css">
+    <link rel="stylesheet" href="/css/header-footer/header.css">
+    <link rel="stylesheet" href="/css/header-footer/header-login.css">
+    <link rel="stylesheet" href="/css/header-footer/footer.css">
+    <link rel="stylesheet" href="/css/product/main.css">
+    <link rel="stylesheet" href="/css/font.css">
     <style>
-        .css-b3oum6 {
-            max-width: 1256px;
+        .css-b3oum7 {
+            max-width: 1136px;
             margin: 0 auto;
         }
 
@@ -23,1130 +25,229 @@
     </style>
 </head>
 <body>
-<header th:replace=""></header>
-<div class="css-b3oum6">
+<th:block th:if="${session.userId==null}">
+    <header class="header" th:replace="~{/header-footer/header :: header}"></header>
+</th:block>
+<th:block th:if="${session.userId!=null}">
+    <header class="header" th:replace="~{/header-footer/header-login :: header}"></header>
+</th:block>
+<div class="css-b3oum7">
+
     <div class="layout">
         <div id="store-index" style="text-align: justify-all; font-size: 16px; font-weight: bold">
-            <nav class="css-1qvkor6 ews609u1">
-                <ul class="css-1norycs ews609u0" style="">
-                    <li class="css-1ks8qr6 ecxk4434"><a href="#">
-                        <div class="css-ivqtox ecxk4430"><span>전국</span></div>
-                    </a></li>
-                    <li class="css-1ks8qr6 ecxk4434"><a href="#">
-                        <div class="css-ivqtox ecxk4430"><span>서울/경기도</span></div>
-                    </a></li>
-                    <li class="css-1ks8qr6 ecxk4434"><a href="#">
-                        <div class="css-ivqtox ecxk4430"><span>충청북도</span></div>
-                    </a></li>
-                    <li class="css-1ks8qr6 ecxk4434"><a
-                            href="#">
-                        <div class="css-ivqtox ecxk4430"><span>충청남도</span></div>
-                    </a></li>
-                    <li class="css-1ks8qr6 ecxk4434"><a
-                            href="#">
-                        <div class="css-ivqtox ecxk4430"><span>전라북도</span></div>
-                    </a></li>
-                    <li class="css-1ks8qr6 ecxk4434"><a
-                            href="#">
-                        <div class="css-ivqtox ecxk4430"><span>전라남도</span></div>
-                    </a></li>
-                    <li class="css-1ks8qr6 ecxk4434"><a
-                            href="#">
-                        <div class="css-ivqtox ecxk4430"><span>경상북도</span></div>
-                    </a></li>
-                    <li class="css-1ks8qr6 ecxk4434"><a
-                            href="#">
-                        <div class="css-ivqtox ecxk4430"><span>경상남도</span></div>
-                    </a></li>
-                    <li class="css-1ks8qr6 ecxk4434"><a
-                            href="#">
-                        <div class="css-ivqtox ecxk4430"><span>제주도</span></div>
-                    </a></li>
-                </ul>
-            </nav>
-            <hr>
-            <section class="container store-index-section store-index-category-list">
-                <h1 class="store-index-category-list__title" style="margin-left: 15px; font-weight: 700">카테고리</h1>
-                <div class="category-list-wrap" style="margin-top: 1.2rem">
-                    <div class="category-list fold" style="transition-duration: 0ms; transform: translateX(0%);">
-                        <div class="category-item-wrap"><a
-                                href="#">
-                            <div class="category-item"><img class="category-item__image"
-                                                            src="../../static/image/product/hot.png">
-                                <div class="category-item__title">전체</div>
-                            </div>
-                        </a></div>
-                        <div class="category-item-wrap"><a
-                                href="#">
-                            <div class="category-item"><img class="category-item__image"
-                                                            src=" ../../static/image/product/cafe.png">
-                                <div class="category-item__title">음료 교환권</div>
-                            </div>
-                        </a></div>
-                        <div class="category-item-wrap"><a
-                                href="#">
-                            <div class="category-item"><img class="category-item__image"
-                                                            src="../../static/image/product/spoon.png">
-                                <div class="category-item__title">외식 교환권</div>
-                            </div>
-                        </a></div>
-                        <div class="category-item-wrap"><a
-                                href="#">
-                            <div class="category-item"><img class="category-item__image"
-                                                            src="../../static/image/product/store.png">
-                                <div class="category-item__title">여가/생활</div>
-                            </div>
-                        </a></div>
-                       <!-- <div class="category-item-wrap"><a
-                                href="#">;
-                            <div class="category-item"><img class="category-item__image"
-                                                            src="/image/product/sale.png">
-                                <div class="category-item__title">뷰티/건강</div>
-                            </div>
-                        </a></div>-->
-                        <div class="category-item-wrap"><a
-                                href="#">
-                            <div class="category-item"><img class="category-item__image"
-                                                            src="../../static/image/product/beauty.png">
-                                <div class="category-item__title">뷰티/건강</div>
-                            </div>
-                        </a></div>
-                        <div class="category-item-wrap"><a
-                                href="#">
-                            <div class="category-item"><img class="category-item__image"
-                                                            src="../../static/image/product/lifestyle.png">
-                                <div class="category-item__title">문화/기념품</div>
-                            </div>
-                        </a></div>
+
+            <section class="container store-index-section store-index-category-list location">
+                <h1 class="store-index-category-list__title">지역</h1>
+                <div class="filter css-kwstsq el60dcz0">
+                    <div class="filter-bar">
+                        <div class="filter-bar__control-list">
+                            <ul class="filter-bar__control-list__left">
+                                <li class="filter-bar__control-list__item">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                        <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button location-active">전체</button>
+                                    </div>
+                                </li>
+                                <li class="filter-bar__control-list__item">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                        <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">서울특별시</button>
+                                    </div>
+                                </li>
+                                <li class="filter-bar__control-list__item">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                        <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">부산광역시</button>
+                                    </div>
+                                </li>
+                                <li class="filter-bar__control-list__item">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                        <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">대구광역시</button>
+                                    </div>
+                                </li>
+                                <li class="filter-bar__control-list__item">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                        <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">인천광역시</button>
+                                    </div>
+                                </li>
+                                <li class="filter-bar__control-list__item">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                        <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">광주광역시</button>
+                                    </div>
+                                </li>
+                                <li class="filter-bar__control-list__item">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                        <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">대전광역시</button>
+                                    </div>
+                                </li>
+                                <li class="filter-bar__control-list__item">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                        <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">울산광역시</button>
+                                    </div>
+                                </li>
+                                <li class="filter-bar__control-list__item">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                        <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">강원도</button>
+                                    </div>
+                                </li>
+                                <li class="filter-bar__control-list__item">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                        <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">경기도</button>
+                                    </div>
+                                </li>
+                                <li class="filter-bar__control-list__item">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                        <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">경상남도</button>
+                                    </div>
+                                </li>
+                                <li class="filter-bar__control-list__item">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                        <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">경상북도</button>
+                                    </div>
+                                </li>
+                                <li class="filter-bar__control-list__item">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                        <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">전라남도</button>
+                                    </div>
+                                </li>
+                                <li class="filter-bar__control-list__item">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                        <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">전라북도</button>
+                                    </div>
+                                </li>
+                                <li class="filter-bar__control-list__item">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                        <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">충청남도</button>
+                                    </div>
+                                </li>
+                                <li class="filter-bar__control-list__item">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                        <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">충청북도</button>
+                                    </div>
+                                </li>
+                                <li class="filter-bar__control-list__item">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                        <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">세종특별자치시</button>
+                                    </div>
+                                </li>
+                                <li class="filter-bar__control-list__item">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                        <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">제주특별자치도</button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <ul class="filter-bar__tag-list"></ul>
                     </div>
                 </div>
             </section>
-            <section class="category-wrap category-section location-wrap-product-list">
-                <h1>상품목록</h1>
-                <hr>
-                <div class="virtualized-list row"
-                     style="padding-top: 0px; padding-bottom: 3685px; transform: translateY(0px);">
-                    <div class="col-6 col-md-3 product-item-wrap" style="">
-                        <article class="production-item"><a class="production-item__overlay"
-                                                            href=""></a>
-                            <div class="production-item-image production-item__image"><img class="image" alt=""
-                                                                                           src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167168822852557476.jpg?gif=1&amp;w=360&amp;h=360&amp;c=c&amp;q=0.8&amp;webp=1"
-                                                                                           srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167168822852557476.jpg?gif=1&amp;w=640&amp;h=640&amp;c=c&amp;q=0.8&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167168822852557476.jpg?gif=1&amp;w=720&amp;h=720&amp;c=c&amp;q=0.8&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167168822852557476.jpg?gif=1&amp;w=1080&amp;h=1080&amp;c=c&amp;q=0.8&amp;webp=1 3x">
-                                <button class="production-item-scrap-badge production-item-image__scrap-badge"
-                                        type="button">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                         class="inactive-icon">
-                                        <defs>
-                                            <path id="scrap-icon-33-b"
-                                                  d="M12.472 6.93l7.056-3.811A1 1 0 0 1 21 4.002v15.496c0 .83-.672 1.502-1.5 1.502h-15c-.828 0-1.5-.673-1.5-1.502V4.002a1 1 0 0 1 1.472-.883l7.056 3.811a.999.999 0 0 0 .944 0z"></path>
-                                            <filter id="scrap-icon-33-a" width="150%" height="150%" x="-25%" y="-25%"
-                                                    filterUnits="objectBoundingBox">
-                                                <feOffset in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-                                                <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1"
-                                                                stdDeviation="1.5"></feGaussianBlur>
-                                                <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out"
-                                                             result="shadowBlurOuter1"></feComposite>
-                                                <feColorMatrix in="shadowBlurOuter1"
-                                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.26 0"></feColorMatrix>
-                                            </filter>
-                                            <filter id="scrap-icon-33-c" width="150%" height="150%" x="-25%" y="-25%"
-                                                    filterUnits="objectBoundingBox">
-                                                <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1"
-                                                                stdDeviation="1.5"></feGaussianBlur>
-                                                <feOffset in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
-                                                <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1"
-                                                             operator="arithmetic"
-                                                             result="shadowInnerInner1"></feComposite>
-                                                <feColorMatrix in="shadowInnerInner1"
-                                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"></feColorMatrix>
-                                            </filter>
-                                        </defs>
-                                        <g fill="none" fill-rule="nonzero" transform="matrix(1 0 0 -1 0 24)">
-                                            <use fill="#000" filter="url(#scrap-icon-33-a)"
-                                                 href="#scrap-icon-33-b"></use>
-                                            <use fill="#FFF" fill-opacity=".4" href="#scrap-icon-33-b"></use>
-                                            <use fill="#000" filter="url(#scrap-icon-33-c)"
-                                                 href="#scrap-icon-33-b"></use>
-                                            <path stroke="#FFF"
-                                                  d="M12.71 7.37h-.002a1.5 1.5 0 0 1-1.417 0L4.236 3.56a.499.499 0 0 0-.736.442v15.496c0 .553.448 1.002 1 1.002h15c.552 0 1-.449 1-1.002V4.002a.499.499 0 0 0-.734-.443l-7.057 3.81zm-.475-.88h-.001z"></path>
-                                        </g>
-                                    </svg>
-                                    <svg class="active-icon" width="24" height="24" viewBox="0 0 24 24"
-                                         preserveAspectRatio="xMidYMid meet">
-                                        <path fill="#35C5F0" fill-rule="nonzero"
-                                              d="M12.472 17.07a.999.999 0 0 0-.944 0l-7.056 3.811A.999.999 0 0 1 3 19.998V4.502C3 3.672 3.672 3 4.5 3h15c.828 0 1.5.673 1.5 1.502v15.496a1 1 0 0 1-1.472.883l-7.056-3.811z"></path>
-                                    </svg>
-                                </button>
-                                <div class="production-item-image__dark-overlay"></div>
-                            </div>
-                            <div class="production-item__content"><h1 class="production-item__header"><span
-                                    class="production-item__header__brand">헬로우슬립 </span><span
-                                    class="production-item__header__name">[오늘의딜][10%쿠폰] 부드러운 카스테라 항균 옥수수솜 여름/간절기/사계절 차렵이불세트</span>
-                            </h1><span class="production-item-price"><span
-                                    class="production-item-price__price">35,900</span></span>
-                                <p class="production-item-stats production-item-stats--review">
+            <section class="container store-index-section store-index-category-list category">
+                <h1 class="store-index-category-list__title">카테고리</h1>
+                <div class="filter css-kwstsq el60dcz0">
+                    <div class="filter-bar">
+                        <div class="filter-bar__control-list">
+                            <ul class="filter-bar__control-list__left">
+                                <li class="filter-bar__control-list__item">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                        <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button category-active">전체</button>
+                                    </div>
+                                </li>
+                                <li class="filter-bar__control-list__item">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                        <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">음식</button>
+                                    </div>
+                                </li>
+                                <li class="filter-bar__control-list__item">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                        <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">음료</button>
+                                    </div>
+                                </li>
+                                <li class="filter-bar__control-list__item">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                        <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">베이커리</button>
+                                    </div>
+                                </li>
+                                <li class="filter-bar__control-list__item">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                        <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">여가생활</button>
+                                    </div>
+                                </li>
+                                <li class="filter-bar__control-list__item">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                        <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">숙박시설</button>
+                                    </div>
+                                </li>
+                                <li class="filter-bar__control-list__item">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                        <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">문화체험</button>
+                                    </div>
+                                </li>
+                                <li class="filter-bar__control-list__item">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                        <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">특산품</button>
+                                    </div>
+                                </li>
+                                <li class="filter-bar__control-list__item">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                        <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">의류</button>
+                                    </div>
+                                </li>
+                                <li class="filter-bar__control-list__item">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                        <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">야외활동</button>
+                                    </div>
+                                </li>
+                                <li class="filter-bar__control-list__item">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                        <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">기타</button>
+                                    </div>
+                                </li>
 
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-6 col-md-3 product-item-wrap" style="">
-                        <article class="production-item"><a class="production-item__overlay"
-                                                            href=""></a>
-                            <div class="production-item-image production-item__image"><img class="image" alt=""
-                                                                                           src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168266558366770905.png?gif=1&amp;w=360&amp;h=360&amp;c=c&amp;q=0.8&amp;webp=1"
-                                                                                           srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168266558366770905.png?gif=1&amp;w=640&amp;h=640&amp;c=c&amp;q=0.8&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168266558366770905.png?gif=1&amp;w=720&amp;h=720&amp;c=c&amp;q=0.8&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168266558366770905.png?gif=1&amp;w=1080&amp;h=1080&amp;c=c&amp;q=0.8&amp;webp=1 3x">
-                                <button class="production-item-scrap-badge production-item-image__scrap-badge"
-                                        type="button">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                         class="inactive-icon">
-                                        <defs>
-                                            <path id="scrap-icon-34-b"
-                                                  d="M12.472 6.93l7.056-3.811A1 1 0 0 1 21 4.002v15.496c0 .83-.672 1.502-1.5 1.502h-15c-.828 0-1.5-.673-1.5-1.502V4.002a1 1 0 0 1 1.472-.883l7.056 3.811a.999.999 0 0 0 .944 0z"></path>
-                                            <filter id="scrap-icon-34-a" width="150%" height="150%" x="-25%" y="-25%"
-                                                    filterUnits="objectBoundingBox">
-                                                <feOffset in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-                                                <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1"
-                                                                stdDeviation="1.5"></feGaussianBlur>
-                                                <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out"
-                                                             result="shadowBlurOuter1"></feComposite>
-                                                <feColorMatrix in="shadowBlurOuter1"
-                                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.26 0"></feColorMatrix>
-                                            </filter>
-                                            <filter id="scrap-icon-34-c" width="150%" height="150%" x="-25%" y="-25%"
-                                                    filterUnits="objectBoundingBox">
-                                                <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1"
-                                                                stdDeviation="1.5"></feGaussianBlur>
-                                                <feOffset in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
-                                                <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1"
-                                                             operator="arithmetic"
-                                                             result="shadowInnerInner1"></feComposite>
-                                                <feColorMatrix in="shadowInnerInner1"
-                                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"></feColorMatrix>
-                                            </filter>
-                                        </defs>
-                                        <g fill="none" fill-rule="nonzero" transform="matrix(1 0 0 -1 0 24)">
-                                            <use fill="#000" filter="url(#scrap-icon-34-a)"
-                                                 href="#scrap-icon-34-b"></use>
-                                            <use fill="#FFF" fill-opacity=".4" href="#scrap-icon-34-b"></use>
-                                            <use fill="#000" filter="url(#scrap-icon-34-c)"
-                                                 href="#scrap-icon-34-b"></use>
-                                            <path stroke="#FFF"
-                                                  d="M12.71 7.37h-.002a1.5 1.5 0 0 1-1.417 0L4.236 3.56a.499.499 0 0 0-.736.442v15.496c0 .553.448 1.002 1 1.002h15c.552 0 1-.449 1-1.002V4.002a.499.499 0 0 0-.734-.443l-7.057 3.81zm-.475-.88h-.001z"></path>
-                                        </g>
-                                    </svg>
-                                    <svg class="active-icon" width="24" height="24" viewBox="0 0 24 24"
-                                         preserveAspectRatio="xMidYMid meet">
-                                        <path fill="#35C5F0" fill-rule="nonzero"
-                                              d="M12.472 17.07a.999.999 0 0 0-.944 0l-7.056 3.811A.999.999 0 0 1 3 19.998V4.502C3 3.672 3.672 3 4.5 3h15c.828 0 1.5.673 1.5 1.502v15.496a1 1 0 0 1-1.472.883l-7.056-3.811z"></path>
-                                    </svg>
-                                </button>
-                                <div class="production-item-image__dark-overlay"></div>
-                            </div>
-                            <div class="production-item__content"><h1 class="production-item__header"><span
-                                    class="production-item__header__brand">LG전자 </span><span
-                                    class="production-item__header__name">[오늘의딜] 트롬 오브제컬렉션 워시타워 W20WANQ 세탁23kg 건조20kg</span>
-                            </h1><span class="production-item-price"><span class="production-item-price__price">2,700,000</span></span>
-                                <p class="production-item-stats production-item-stats--review">
 
-                                </p>
-                            </div>
-                        </article>
+                            </ul>
+                        </div>
+                        <ul class="filter-bar__tag-list"></ul>
                     </div>
-                    <div class="col-6 col-md-3 product-item-wrap" style="">
-                        <article class="production-item"><a class="production-item__overlay"
-                                                            href=""></a>
-                            <div class="production-item-image production-item__image"><img class="image" alt=""
-                                                                                           src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168146328608033338.jpg?gif=1&amp;w=360&amp;h=360&amp;c=c&amp;q=0.8&amp;webp=1"
-                                                                                           srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168146328608033338.jpg?gif=1&amp;w=640&amp;h=640&amp;c=c&amp;q=0.8&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168146328608033338.jpg?gif=1&amp;w=720&amp;h=720&amp;c=c&amp;q=0.8&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168146328608033338.jpg?gif=1&amp;w=1080&amp;h=1080&amp;c=c&amp;q=0.8&amp;webp=1 3x">
-                                <button class="production-item-scrap-badge production-item-image__scrap-badge"
-                                        type="button">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                         class="inactive-icon">
-                                        <defs>
-                                            <path id="scrap-icon-35-b"
-                                                  d="M12.472 6.93l7.056-3.811A1 1 0 0 1 21 4.002v15.496c0 .83-.672 1.502-1.5 1.502h-15c-.828 0-1.5-.673-1.5-1.502V4.002a1 1 0 0 1 1.472-.883l7.056 3.811a.999.999 0 0 0 .944 0z"></path>
-                                            <filter id="scrap-icon-35-a" width="150%" height="150%" x="-25%" y="-25%"
-                                                    filterUnits="objectBoundingBox">
-                                                <feOffset in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-                                                <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1"
-                                                                stdDeviation="1.5"></feGaussianBlur>
-                                                <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out"
-                                                             result="shadowBlurOuter1"></feComposite>
-                                                <feColorMatrix in="shadowBlurOuter1"
-                                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.26 0"></feColorMatrix>
-                                            </filter>
-                                            <filter id="scrap-icon-35-c" width="150%" height="150%" x="-25%" y="-25%"
-                                                    filterUnits="objectBoundingBox">
-                                                <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1"
-                                                                stdDeviation="1.5"></feGaussianBlur>
-                                                <feOffset in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
-                                                <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1"
-                                                             operator="arithmetic"
-                                                             result="shadowInnerInner1"></feComposite>
-                                                <feColorMatrix in="shadowInnerInner1"
-                                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"></feColorMatrix>
-                                            </filter>
-                                        </defs>
-                                        <g fill="none" fill-rule="nonzero" transform="matrix(1 0 0 -1 0 24)">
-                                            <use fill="#000" filter="url(#scrap-icon-35-a)"
-                                                 href="#scrap-icon-35-b"></use>
-                                            <use fill="#FFF" fill-opacity=".4" href="#scrap-icon-35-b"></use>
-                                            <use fill="#000" filter="url(#scrap-icon-35-c)"
-                                                 href="#scrap-icon-35-b"></use>
-                                            <path stroke="#FFF"
-                                                  d="M12.71 7.37h-.002a1.5 1.5 0 0 1-1.417 0L4.236 3.56a.499.499 0 0 0-.736.442v15.496c0 .553.448 1.002 1 1.002h15c.552 0 1-.449 1-1.002V4.002a.499.499 0 0 0-.734-.443l-7.057 3.81zm-.475-.88h-.001z"></path>
-                                        </g>
-                                    </svg>
-                                    <svg class="active-icon" width="24" height="24" viewBox="0 0 24 24"
-                                         preserveAspectRatio="xMidYMid meet">
-                                        <path fill="#35C5F0" fill-rule="nonzero"
-                                              d="M12.472 17.07a.999.999 0 0 0-.944 0l-7.056 3.811A.999.999 0 0 1 3 19.998V4.502C3 3.672 3.672 3 4.5 3h15c.828 0 1.5.673 1.5 1.502v15.496a1 1 0 0 1-1.472.883l-7.056-3.811z"></path>
-                                    </svg>
-                                </button>
-                                <div class="production-item-image__dark-overlay"></div>
-                            </div>
-                            <div class="production-item__content"><h1 class="production-item__header"><span
-                                    class="production-item__header__brand">삼성전자 </span><span
-                                    class="production-item__header__name">비스포크 무풍 에어컨 AF17B7939WZWRS 멀티형 </span></h1>
-                                <span class="production-item-price"><span
-                                        class="production-item-price__price">1,839,000</span></span>
-                                <p class="production-item-stats production-item-stats--review">
+                </div>
+            </section>
+            <section class="container store-index-section store-index-category-list order-list">
+                <h1 class="store-index-category-list__title">로컬 쿠폰</h1>
+                <div class="filter css-kwstsq el60dcz0">
+                    <div class="filter-bar">
+                        <div class="filter-bar__control-list">
+                            <ul class="filter-bar__control-list__left">
+                                <li class="filter-bar__control-list__item">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                        <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button order-active">최신순</button>
+                                    </div>
+                                </li>
+                                <li class="filter-bar__control-list__item">
+                                    <div class="drop-down panel-drop-down filter-bar-control">
+                                        <button class="button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">인기순</button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <ul class="filter-bar__tag-list"></ul>
+                    </div>
+                </div>
+            </section>
+            <section class="container store-index-section store-index-product-list ">
+                <div class="virtualized-list row" style="padding-top: 0px;">
 
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-6 col-md-3 product-item-wrap" style="">
-                        <article class="production-item"><a class="production-item__overlay"
-                                                            href=""></a>
-                            <div class="production-item-image production-item__image"><img class="image" alt=""
-                                                                                           src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167410493975978867.jpg?gif=1&amp;w=360&amp;h=360&amp;c=c&amp;q=0.8&amp;webp=1"
-                                                                                           srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167410493975978867.jpg?gif=1&amp;w=640&amp;h=640&amp;c=c&amp;q=0.8&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167410493975978867.jpg?gif=1&amp;w=720&amp;h=720&amp;c=c&amp;q=0.8&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167410493975978867.jpg?gif=1&amp;w=1080&amp;h=1080&amp;c=c&amp;q=0.8&amp;webp=1 3x">
-                                <button class="production-item-scrap-badge production-item-image__scrap-badge"
-                                        type="button">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                         class="inactive-icon">
-                                        <defs>
-                                            <path id="scrap-icon-36-b"
-                                                  d="M12.472 6.93l7.056-3.811A1 1 0 0 1 21 4.002v15.496c0 .83-.672 1.502-1.5 1.502h-15c-.828 0-1.5-.673-1.5-1.502V4.002a1 1 0 0 1 1.472-.883l7.056 3.811a.999.999 0 0 0 .944 0z"></path>
-                                            <filter id="scrap-icon-36-a" width="150%" height="150%" x="-25%" y="-25%"
-                                                    filterUnits="objectBoundingBox">
-                                                <feOffset in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-                                                <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1"
-                                                                stdDeviation="1.5"></feGaussianBlur>
-                                                <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out"
-                                                             result="shadowBlurOuter1"></feComposite>
-                                                <feColorMatrix in="shadowBlurOuter1"
-                                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.26 0"></feColorMatrix>
-                                            </filter>
-                                            <filter id="scrap-icon-36-c" width="150%" height="150%" x="-25%" y="-25%"
-                                                    filterUnits="objectBoundingBox">
-                                                <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1"
-                                                                stdDeviation="1.5"></feGaussianBlur>
-                                                <feOffset in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
-                                                <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1"
-                                                             operator="arithmetic"
-                                                             result="shadowInnerInner1"></feComposite>
-                                                <feColorMatrix in="shadowInnerInner1"
-                                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"></feColorMatrix>
-                                            </filter>
-                                        </defs>
-                                        <g fill="none" fill-rule="nonzero" transform="matrix(1 0 0 -1 0 24)">
-                                            <use fill="#000" filter="url(#scrap-icon-36-a)"
-                                                 href="#scrap-icon-36-b"></use>
-                                            <use fill="#FFF" fill-opacity=".4" href="#scrap-icon-36-b"></use>
-                                            <use fill="#000" filter="url(#scrap-icon-36-c)"
-                                                 href="#scrap-icon-36-b"></use>
-                                            <path stroke="#FFF"
-                                                  d="M12.71 7.37h-.002a1.5 1.5 0 0 1-1.417 0L4.236 3.56a.499.499 0 0 0-.736.442v15.496c0 .553.448 1.002 1 1.002h15c.552 0 1-.449 1-1.002V4.002a.499.499 0 0 0-.734-.443l-7.057 3.81zm-.475-.88h-.001z"></path>
-                                        </g>
-                                    </svg>
-                                    <svg class="active-icon" width="24" height="24" viewBox="0 0 24 24"
-                                         preserveAspectRatio="xMidYMid meet">
-                                        <path fill="#35C5F0" fill-rule="nonzero"
-                                              d="M12.472 17.07a.999.999 0 0 0-.944 0l-7.056 3.811A.999.999 0 0 1 3 19.998V4.502C3 3.672 3.672 3 4.5 3h15c.828 0 1.5.673 1.5 1.502v15.496a1 1 0 0 1-1.472.883l-7.056-3.811z"></path>
-                                    </svg>
-                                </button>
-                                <div class="production-item-image__dark-overlay"></div>
-                            </div>
-                            <div class="production-item__content"><h1 class="production-item__header"><span
-                                    class="production-item__header__brand">LG전자 </span><span
-                                    class="production-item__header__name">[오늘의딜] 수도권충청대구부산 기본설치포함 휘센 멀티 에어컨 FQ17HCKWC2</span>
-                            </h1><span class="production-item-price"><span class="production-item-price__price">1,712,000</span></span>
-                                <p class="production-item-stats production-item-stats--review">
-
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-6 col-md-3 product-item-wrap" style="">
-                        <article class="production-item"><a class="production-item__overlay"
-                                                            href=""></a>
-                            <div class="production-item-image production-item__image"><img class="image" alt=""
-                                                                                           src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167461211113781617.jpg?gif=1&amp;w=360&amp;h=360&amp;c=c&amp;q=0.8&amp;webp=1"
-                                                                                           srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167461211113781617.jpg?gif=1&amp;w=640&amp;h=640&amp;c=c&amp;q=0.8&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167461211113781617.jpg?gif=1&amp;w=720&amp;h=720&amp;c=c&amp;q=0.8&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167461211113781617.jpg?gif=1&amp;w=1080&amp;h=1080&amp;c=c&amp;q=0.8&amp;webp=1 3x">
-                                <button class="production-item-scrap-badge production-item-image__scrap-badge"
-                                        type="button">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                         class="inactive-icon">
-                                        <defs>
-                                            <path id="scrap-icon-37-b"
-                                                  d="M12.472 6.93l7.056-3.811A1 1 0 0 1 21 4.002v15.496c0 .83-.672 1.502-1.5 1.502h-15c-.828 0-1.5-.673-1.5-1.502V4.002a1 1 0 0 1 1.472-.883l7.056 3.811a.999.999 0 0 0 .944 0z"></path>
-                                            <filter id="scrap-icon-37-a" width="150%" height="150%" x="-25%" y="-25%"
-                                                    filterUnits="objectBoundingBox">
-                                                <feOffset in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-                                                <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1"
-                                                                stdDeviation="1.5"></feGaussianBlur>
-                                                <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out"
-                                                             result="shadowBlurOuter1"></feComposite>
-                                                <feColorMatrix in="shadowBlurOuter1"
-                                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.26 0"></feColorMatrix>
-                                            </filter>
-                                            <filter id="scrap-icon-37-c" width="150%" height="150%" x="-25%" y="-25%"
-                                                    filterUnits="objectBoundingBox">
-                                                <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1"
-                                                                stdDeviation="1.5"></feGaussianBlur>
-                                                <feOffset in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
-                                                <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1"
-                                                             operator="arithmetic"
-                                                             result="shadowInnerInner1"></feComposite>
-                                                <feColorMatrix in="shadowInnerInner1"
-                                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"></feColorMatrix>
-                                            </filter>
-                                        </defs>
-                                        <g fill="none" fill-rule="nonzero" transform="matrix(1 0 0 -1 0 24)">
-                                            <use fill="#000" filter="url(#scrap-icon-37-a)"
-                                                 href="#scrap-icon-37-b"></use>
-                                            <use fill="#FFF" fill-opacity=".4" href="#scrap-icon-37-b"></use>
-                                            <use fill="#000" filter="url(#scrap-icon-37-c)"
-                                                 href="#scrap-icon-37-b"></use>
-                                            <path stroke="#FFF"
-                                                  d="M12.71 7.37h-.002a1.5 1.5 0 0 1-1.417 0L4.236 3.56a.499.499 0 0 0-.736.442v15.496c0 .553.448 1.002 1 1.002h15c.552 0 1-.449 1-1.002V4.002a.499.499 0 0 0-.734-.443l-7.057 3.81zm-.475-.88h-.001z"></path>
-                                        </g>
-                                    </svg>
-                                    <svg class="active-icon" width="24" height="24" viewBox="0 0 24 24"
-                                         preserveAspectRatio="xMidYMid meet">
-                                        <path fill="#35C5F0" fill-rule="nonzero"
-                                              d="M12.472 17.07a.999.999 0 0 0-.944 0l-7.056 3.811A.999.999 0 0 1 3 19.998V4.502C3 3.672 3.672 3 4.5 3h15c.828 0 1.5.673 1.5 1.502v15.496a1 1 0 0 1-1.472.883l-7.056-3.811z"></path>
-                                    </svg>
-                                </button>
-                                <div class="production-item-image__dark-overlay"></div>
-                            </div>
-                            <div class="production-item__content"><h1 class="production-item__header"><span
-                                    class="production-item__header__brand">삼성전자 </span><span
-                                    class="production-item__header__name">[주말특가]비스포크 그랑데AI 세탁기건조기 세트 WF24A9500KW+DV19A9740CW</span>
-                            </h1><span class="production-item-price"></span><span class="production-item-price__price">2,063,500</span></span>
-                                <p class="production-item-stats production-item-stats--review">
-
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-6 col-md-3 product-item-wrap" style="">
-                        <article class="production-item"><a class="production-item__overlay"
-                                                            href="/productions/212240/selling?affect_id&amp;affect_type=StoreHome"></a>
-                            <div class="production-item-image production-item__image"><img class="image" alt=""
-                                                                                           src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/162303132447303472.jpeg?gif=1&amp;w=360&amp;h=360&amp;c=c&amp;q=0.8&amp;webp=1"
-                                                                                           srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/162303132447303472.jpeg?gif=1&amp;w=640&amp;h=640&amp;c=c&amp;q=0.8&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/162303132447303472.jpeg?gif=1&amp;w=720&amp;h=720&amp;c=c&amp;q=0.8&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/162303132447303472.jpeg?gif=1&amp;w=1080&amp;h=1080&amp;c=c&amp;q=0.8&amp;webp=1 3x">
-                                <button class="production-item-scrap-badge production-item-image__scrap-badge"
-                                        type="button">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                         class="inactive-icon">
-                                        <defs>
-                                            <path id="scrap-icon-38-b"
-                                                  d="M12.472 6.93l7.056-3.811A1 1 0 0 1 21 4.002v15.496c0 .83-.672 1.502-1.5 1.502h-15c-.828 0-1.5-.673-1.5-1.502V4.002a1 1 0 0 1 1.472-.883l7.056 3.811a.999.999 0 0 0 .944 0z"></path>
-                                            <filter id="scrap-icon-38-a" width="150%" height="150%" x="-25%" y="-25%"
-                                                    filterUnits="objectBoundingBox">
-                                                <feOffset in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-                                                <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1"
-                                                                stdDeviation="1.5"></feGaussianBlur>
-                                                <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out"
-                                                             result="shadowBlurOuter1"></feComposite>
-                                                <feColorMatrix in="shadowBlurOuter1"
-                                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.26 0"></feColorMatrix>
-                                            </filter>
-                                            <filter id="scrap-icon-38-c" width="150%" height="150%" x="-25%" y="-25%"
-                                                    filterUnits="objectBoundingBox">
-                                                <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1"
-                                                                stdDeviation="1.5"></feGaussianBlur>
-                                                <feOffset in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
-                                                <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1"
-                                                             operator="arithmetic"
-                                                             result="shadowInnerInner1"></feComposite>
-                                                <feColorMatrix in="shadowInnerInner1"
-                                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"></feColorMatrix>
-                                            </filter>
-                                        </defs>
-                                        <g fill="none" fill-rule="nonzero" transform="matrix(1 0 0 -1 0 24)">
-                                            <use fill="#000" filter="url(#scrap-icon-38-a)"
-                                                 href="#scrap-icon-38-b"></use>
-                                            <use fill="#FFF" fill-opacity=".4" href="#scrap-icon-38-b"></use>
-                                            <use fill="#000" filter="url(#scrap-icon-38-c)"
-                                                 href="#scrap-icon-38-b"></use>
-                                            <path stroke="#FFF"
-                                                  d="M12.71 7.37h-.002a1.5 1.5 0 0 1-1.417 0L4.236 3.56a.499.499 0 0 0-.736.442v15.496c0 .553.448 1.002 1 1.002h15c.552 0 1-.449 1-1.002V4.002a.499.499 0 0 0-.734-.443l-7.057 3.81zm-.475-.88h-.001z"></path>
-                                        </g>
-                                    </svg>
-                                    <svg class="active-icon" width="24" height="24" viewBox="0 0 24 24"
-                                         preserveAspectRatio="xMidYMid meet">
-                                        <path fill="#35C5F0" fill-rule="nonzero"
-                                              d="M12.472 17.07a.999.999 0 0 0-.944 0l-7.056 3.811A.999.999 0 0 1 3 19.998V4.502C3 3.672 3.672 3 4.5 3h15c.828 0 1.5.673 1.5 1.502v15.496a1 1 0 0 1-1.472.883l-7.056-3.811z"></path>
-                                    </svg>
-                                </button>
-                                <div class="production-item-image__dark-overlay"></div>
-                            </div>
-                            <div class="production-item__content"><h1 class="production-item__header"><span
-                                    class="production-item__header__brand">아엠홈 </span><span
-                                    class="production-item__header__name">[5%쿠폰+사은품] 비침없는 도톰 레이스/쉬폰커튼(나비주름/핀형/봉집)</span>
-                            </h1><span class="production-item-price"><span
-                                    class="production-item-price__price">19,900</span></span>
-                                <p class="production-item-stats production-item-stats--review">
-
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-6 col-md-3 product-item-wrap" style="">
-                        <article class="production-item"><a class="production-item__overlay"
-                                                            href="/productions/1312285/selling?affect_id&amp;affect_type=StoreHome"></a>
-                            <div class="production-item-image production-item__image"><img class="image" alt=""
-                                                                                           src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167410488622650736.jpg?gif=1&amp;w=360&amp;h=360&amp;c=c&amp;q=0.8&amp;webp=1"
-                                                                                           srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167410488622650736.jpg?gif=1&amp;w=640&amp;h=640&amp;c=c&amp;q=0.8&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167410488622650736.jpg?gif=1&amp;w=720&amp;h=720&amp;c=c&amp;q=0.8&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167410488622650736.jpg?gif=1&amp;w=1080&amp;h=1080&amp;c=c&amp;q=0.8&amp;webp=1 3x">
-                                <button class="production-item-scrap-badge production-item-image__scrap-badge"
-                                        type="button">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                         class="inactive-icon">
-                                        <defs>
-                                            <path id="scrap-icon-39-b"
-                                                  d="M12.472 6.93l7.056-3.811A1 1 0 0 1 21 4.002v15.496c0 .83-.672 1.502-1.5 1.502h-15c-.828 0-1.5-.673-1.5-1.502V4.002a1 1 0 0 1 1.472-.883l7.056 3.811a.999.999 0 0 0 .944 0z"></path>
-                                            <filter id="scrap-icon-39-a" width="150%" height="150%" x="-25%" y="-25%"
-                                                    filterUnits="objectBoundingBox">
-                                                <feOffset in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-                                                <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1"
-                                                                stdDeviation="1.5"></feGaussianBlur>
-                                                <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out"
-                                                             result="shadowBlurOuter1"></feComposite>
-                                                <feColorMatrix in="shadowBlurOuter1"
-                                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.26 0"></feColorMatrix>
-                                            </filter>
-                                            <filter id="scrap-icon-39-c" width="150%" height="150%" x="-25%" y="-25%"
-                                                    filterUnits="objectBoundingBox">
-                                                <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1"
-                                                                stdDeviation="1.5"></feGaussianBlur>
-                                                <feOffset in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
-                                                <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1"
-                                                             operator="arithmetic"
-                                                             result="shadowInnerInner1"></feComposite>
-                                                <feColorMatrix in="shadowInnerInner1"
-                                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"></feColorMatrix>
-                                            </filter>
-                                        </defs>
-                                        <g fill="none" fill-rule="nonzero" transform="matrix(1 0 0 -1 0 24)">
-                                            <use fill="#000" filter="url(#scrap-icon-39-a)"
-                                                 href="#scrap-icon-39-b"></use>
-                                            <use fill="#FFF" fill-opacity=".4" href="#scrap-icon-39-b"></use>
-                                            <use fill="#000" filter="url(#scrap-icon-39-c)"
-                                                 href="#scrap-icon-39-b"></use>
-                                            <path stroke="#FFF"
-                                                  d="M12.71 7.37h-.002a1.5 1.5 0 0 1-1.417 0L4.236 3.56a.499.499 0 0 0-.736.442v15.496c0 .553.448 1.002 1 1.002h15c.552 0 1-.449 1-1.002V4.002a.499.499 0 0 0-.734-.443l-7.057 3.81zm-.475-.88h-.001z"></path>
-                                        </g>
-                                    </svg>
-                                    <svg class="active-icon" width="24" height="24" viewBox="0 0 24 24"
-                                         preserveAspectRatio="xMidYMid meet">
-                                        <path fill="#35C5F0" fill-rule="nonzero"
-                                              d="M12.472 17.07a.999.999 0 0 0-.944 0l-7.056 3.811A.999.999 0 0 1 3 19.998V4.502C3 3.672 3.672 3 4.5 3h15c.828 0 1.5.673 1.5 1.502v15.496a1 1 0 0 1-1.472.883l-7.056-3.811z"></path>
-                                    </svg>
-                                </button>
-                                <div class="production-item-image__dark-overlay"></div>
-                            </div>
-                            <div class="production-item__content"><h1 class="production-item__header"><span
-                                    class="production-item__header__brand">LG전자 </span><span
-                                    class="production-item__header__name">[오늘의딜] 수도권충청대구부산 기본설치포함 휘센 스탠드 에어컨 FQ17HCKWC1</span>
-                            </h1><span class="production-item-price"><span class="production-item-price__price">1,456,000</span></span>
-                                <p class="production-item-stats production-item-stats--review">
-
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-6 col-md-3 product-item-wrap" style="">
-                        <article class="production-item"><a class="production-item__overlay"
-                                                            href="/productions/1901247/selling?affect_id&amp;affect_type=StoreHome"></a>
-                            <div class="production-item-image production-item__image"><img class="image" alt=""
-                                                                                           src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168057519307602757.jpg?gif=1&amp;w=360&amp;h=360&amp;c=c&amp;q=0.8&amp;webp=1"
-                                                                                           srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168057519307602757.jpg?gif=1&amp;w=640&amp;h=640&amp;c=c&amp;q=0.8&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168057519307602757.jpg?gif=1&amp;w=720&amp;h=720&amp;c=c&amp;q=0.8&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168057519307602757.jpg?gif=1&amp;w=1080&amp;h=1080&amp;c=c&amp;q=0.8&amp;webp=1 3x">
-                                <button class="production-item-scrap-badge production-item-image__scrap-badge"
-                                        type="button">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                         class="inactive-icon">
-                                        <defs>
-                                            <path id="scrap-icon-40-b"
-                                                  d="M12.472 6.93l7.056-3.811A1 1 0 0 1 21 4.002v15.496c0 .83-.672 1.502-1.5 1.502h-15c-.828 0-1.5-.673-1.5-1.502V4.002a1 1 0 0 1 1.472-.883l7.056 3.811a.999.999 0 0 0 .944 0z"></path>
-                                            <filter id="scrap-icon-40-a" width="150%" height="150%" x="-25%" y="-25%"
-                                                    filterUnits="objectBoundingBox">
-                                                <feOffset in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-                                                <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1"
-                                                                stdDeviation="1.5"></feGaussianBlur>
-                                                <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out"
-                                                             result="shadowBlurOuter1"></feComposite>
-                                                <feColorMatrix in="shadowBlurOuter1"
-                                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.26 0"></feColorMatrix>
-                                            </filter>
-                                            <filter id="scrap-icon-40-c" width="150%" height="150%" x="-25%" y="-25%"
-                                                    filterUnits="objectBoundingBox">
-                                                <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1"
-                                                                stdDeviation="1.5"></feGaussianBlur>
-                                                <feOffset in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
-                                                <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1"
-                                                             operator="arithmetic"
-                                                             result="shadowInnerInner1"></feComposite>
-                                                <feColorMatrix in="shadowInnerInner1"
-                                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"></feColorMatrix>
-                                            </filter>
-                                        </defs>
-                                        <g fill="none" fill-rule="nonzero" transform="matrix(1 0 0 -1 0 24)">
-                                            <use fill="#000" filter="url(#scrap-icon-40-a)"
-                                                 href="#scrap-icon-40-b"></use>
-                                            <use fill="#FFF" fill-opacity=".4" href="#scrap-icon-40-b"></use>
-                                            <use fill="#000" filter="url(#scrap-icon-40-c)"
-                                                 href="#scrap-icon-40-b"></use>
-                                            <path stroke="#FFF"
-                                                  d="M12.71 7.37h-.002a1.5 1.5 0 0 1-1.417 0L4.236 3.56a.499.499 0 0 0-.736.442v15.496c0 .553.448 1.002 1 1.002h15c.552 0 1-.449 1-1.002V4.002a.499.499 0 0 0-.734-.443l-7.057 3.81zm-.475-.88h-.001z"></path>
-                                        </g>
-                                    </svg>
-                                    <svg class="active-icon" width="24" height="24" viewBox="0 0 24 24"
-                                         preserveAspectRatio="xMidYMid meet">
-                                        <path fill="#35C5F0" fill-rule="nonzero"
-                                              d="M12.472 17.07a.999.999 0 0 0-.944 0l-7.056 3.811A.999.999 0 0 1 3 19.998V4.502C3 3.672 3.672 3 4.5 3h15c.828 0 1.5.673 1.5 1.502v15.496a1 1 0 0 1-1.472.883l-7.056-3.811z"></path>
-                                    </svg>
-                                </button>
-                                <div class="production-item-image__dark-overlay"></div>
-                            </div>
-                            <div class="production-item__content"><h1 class="production-item__header"><span
-                                    class="production-item__header__brand">삼성전자 </span><span
-                                    class="production-item__header__name">[주말특가] 비스포크 무풍 에어컨 2등급 AF17B7538TZS 전국기본설치포함</span>
-                            </h1><span class="production-item-price"><span class="production-item-price__price">1,444,100</span></span>
-                                <p class="production-item-stats production-item-stats--review">
-
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-6 col-md-3 product-item-wrap">
-                        <article class="production-item"><a class="production-item__overlay"
-                                                            href="/productions/1193413/selling?affect_id&amp;affect_type=StoreHome"></a>
-                            <div class="production-item-image production-item__image"><img class="image" alt=""
-                                                                                           src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/164577697806583187.jpg?gif=1&amp;w=360&amp;h=360&amp;c=c&amp;q=0.8&amp;webp=1"
-                                                                                           srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/164577697806583187.jpg?gif=1&amp;w=640&amp;h=640&amp;c=c&amp;q=0.8&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/164577697806583187.jpg?gif=1&amp;w=720&amp;h=720&amp;c=c&amp;q=0.8&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/164577697806583187.jpg?gif=1&amp;w=1080&amp;h=1080&amp;c=c&amp;q=0.8&amp;webp=1 3x">
-                                <button class="production-item-scrap-badge production-item-image__scrap-badge"
-                                        type="button">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                         class="inactive-icon">
-                                        <defs>
-                                            <path id="scrap-icon-57-b"
-                                                  d="M12.472 6.93l7.056-3.811A1 1 0 0 1 21 4.002v15.496c0 .83-.672 1.502-1.5 1.502h-15c-.828 0-1.5-.673-1.5-1.502V4.002a1 1 0 0 1 1.472-.883l7.056 3.811a.999.999 0 0 0 .944 0z"></path>
-                                            <filter id="scrap-icon-57-a" width="150%" height="150%" x="-25%" y="-25%"
-                                                    filterUnits="objectBoundingBox">
-                                                <feOffset in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-                                                <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1"
-                                                                stdDeviation="1.5"></feGaussianBlur>
-                                                <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out"
-                                                             result="shadowBlurOuter1"></feComposite>
-                                                <feColorMatrix in="shadowBlurOuter1"
-                                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.26 0"></feColorMatrix>
-                                            </filter>
-                                            <filter id="scrap-icon-57-c" width="150%" height="150%" x="-25%" y="-25%"
-                                                    filterUnits="objectBoundingBox">
-                                                <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1"
-                                                                stdDeviation="1.5"></feGaussianBlur>
-                                                <feOffset in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
-                                                <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1"
-                                                             operator="arithmetic"
-                                                             result="shadowInnerInner1"></feComposite>
-                                                <feColorMatrix in="shadowInnerInner1"
-                                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"></feColorMatrix>
-                                            </filter>
-                                        </defs>
-                                        <g fill="none" fill-rule="nonzero" transform="matrix(1 0 0 -1 0 24)">
-                                            <use fill="#000" filter="url(#scrap-icon-57-a)"
-                                                 href="#scrap-icon-57-b"></use>
-                                            <use fill="#FFF" fill-opacity=".4" href="#scrap-icon-57-b"></use>
-                                            <use fill="#000" filter="url(#scrap-icon-57-c)"
-                                                 href="#scrap-icon-57-b"></use>
-                                            <path stroke="#FFF"
-                                                  d="M12.71 7.37h-.002a1.5 1.5 0 0 1-1.417 0L4.236 3.56a.499.499 0 0 0-.736.442v15.496c0 .553.448 1.002 1 1.002h15c.552 0 1-.449 1-1.002V4.002a.499.499 0 0 0-.734-.443l-7.057 3.81zm-.475-.88h-.001z"></path>
-                                        </g>
-                                    </svg>
-                                    <svg class="active-icon" width="24" height="24" viewBox="0 0 24 24"
-                                         preserveAspectRatio="xMidYMid meet">
-                                        <path fill="#35C5F0" fill-rule="nonzero"
-                                              d="M12.472 17.07a.999.999 0 0 0-.944 0l-7.056 3.811A.999.999 0 0 1 3 19.998V4.502C3 3.672 3.672 3 4.5 3h15c.828 0 1.5.673 1.5 1.502v15.496a1 1 0 0 1-1.472.883l-7.056-3.811z"></path>
-                                    </svg>
-                                </button>
-                                <div class="production-item-image__dark-overlay"></div>
-                            </div>
-                            <div class="production-item__content"><h1 class="production-item__header"><span
-                                    class="production-item__header__brand">까사미아 </span><span
-                                    class="production-item__header__name">[상품권10만원증정+25%쿠폰] 캄포 슬림 4인 소파</span></h1><span
-                                    class="production-item-price"><span
-                                    class="production-item-price__price">3,440,000</span></span>
-                                <p class="production-item-stats production-item-stats--review">
-
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-6 col-md-3 product-item-wrap">
-                        <article class="production-item"><a class="production-item__overlay"
-                                                            href="/productions/1486684/selling?affect_id&amp;affect_type=StoreHome"></a>
-                            <div class="production-item-image production-item__image"><img class="image" alt=""
-                                                                                           src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168394055272773451.gif?gif=1&amp;w=360&amp;h=360&amp;c=c&amp;q=0.8&amp;webp=1"
-                                                                                           srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168394055272773451.gif?gif=1&amp;w=640&amp;h=640&amp;c=c&amp;q=0.8&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168394055272773451.gif?gif=1&amp;w=720&amp;h=720&amp;c=c&amp;q=0.8&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168394055272773451.gif?gif=1&amp;w=1080&amp;h=1080&amp;c=c&amp;q=0.8&amp;webp=1 3x">
-                                <button class="production-item-scrap-badge production-item-image__scrap-badge"
-                                        type="button">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                         class="inactive-icon">
-                                        <defs>
-                                            <path id="scrap-icon-58-b"
-                                                  d="M12.472 6.93l7.056-3.811A1 1 0 0 1 21 4.002v15.496c0 .83-.672 1.502-1.5 1.502h-15c-.828 0-1.5-.673-1.5-1.502V4.002a1 1 0 0 1 1.472-.883l7.056 3.811a.999.999 0 0 0 .944 0z"></path>
-                                            <filter id="scrap-icon-58-a" width="150%" height="150%" x="-25%" y="-25%"
-                                                    filterUnits="objectBoundingBox">
-                                                <feOffset in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-                                                <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1"
-                                                                stdDeviation="1.5"></feGaussianBlur>
-                                                <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out"
-                                                             result="shadowBlurOuter1"></feComposite>
-                                                <feColorMatrix in="shadowBlurOuter1"
-                                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.26 0"></feColorMatrix>
-                                            </filter>
-                                            <filter id="scrap-icon-58-c" width="150%" height="150%" x="-25%" y="-25%"
-                                                    filterUnits="objectBoundingBox">
-                                                <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1"
-                                                                stdDeviation="1.5"></feGaussianBlur>
-                                                <feOffset in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
-                                                <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1"
-                                                             operator="arithmetic"
-                                                             result="shadowInnerInner1"></feComposite>
-                                                <feColorMatrix in="shadowInnerInner1"
-                                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"></feColorMatrix>
-                                            </filter>
-                                        </defs>
-                                        <g fill="none" fill-rule="nonzero" transform="matrix(1 0 0 -1 0 24)">
-                                            <use fill="#000" filter="url(#scrap-icon-58-a)"
-                                                 href="#scrap-icon-58-b"></use>
-                                            <use fill="#FFF" fill-opacity=".4" href="#scrap-icon-58-b"></use>
-                                            <use fill="#000" filter="url(#scrap-icon-58-c)"
-                                                 href="#scrap-icon-58-b"></use>
-                                            <path stroke="#FFF"
-                                                  d="M12.71 7.37h-.002a1.5 1.5 0 0 1-1.417 0L4.236 3.56a.499.499 0 0 0-.736.442v15.496c0 .553.448 1.002 1 1.002h15c.552 0 1-.449 1-1.002V4.002a.499.499 0 0 0-.734-.443l-7.057 3.81zm-.475-.88h-.001z"></path>
-                                        </g>
-                                    </svg>
-                                    <svg class="active-icon" width="24" height="24" viewBox="0 0 24 24"
-                                         preserveAspectRatio="xMidYMid meet">
-                                        <path fill="#35C5F0" fill-rule="nonzero"
-                                              d="M12.472 17.07a.999.999 0 0 0-.944 0l-7.056 3.811A.999.999 0 0 1 3 19.998V4.502C3 3.672 3.672 3 4.5 3h15c.828 0 1.5.673 1.5 1.502v15.496a1 1 0 0 1-1.472.883l-7.056-3.811z"></path>
-                                    </svg>
-                                </button>
-                                <div class="production-item-image__dark-overlay"></div>
-                            </div>
-                            <div class="production-item__content"><h1 class="production-item__header"><span
-                                    class="production-item__header__brand">삼성전자 </span><span
-                                    class="production-item__header__name">[혜택가144만]비스포크 냉장고 RF85B90P1AP 875리터 1등급 메탈 글래스색상선택</span>
-                            </h1><span class="production-item-price"><span class="production-item-price__price">1,599,000</span></span>
-                                <p class="production-item-stats production-item-stats--review">
-
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-6 col-md-3 product-item-wrap">
-                        <article class="production-item"><a class="production-item__overlay"
-                                                            href="/productions/1321488/selling?affect_id&amp;affect_type=StoreHome"></a>
-                            <div class="production-item-image production-item__image"><img class="image" alt=""
-                                                                                           src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168146304430302877.jpg?gif=1&amp;w=360&amp;h=360&amp;c=c&amp;q=0.8&amp;webp=1"
-                                                                                           srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168146304430302877.jpg?gif=1&amp;w=640&amp;h=640&amp;c=c&amp;q=0.8&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168146304430302877.jpg?gif=1&amp;w=720&amp;h=720&amp;c=c&amp;q=0.8&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168146304430302877.jpg?gif=1&amp;w=1080&amp;h=1080&amp;c=c&amp;q=0.8&amp;webp=1 3x">
-                                <button class="production-item-scrap-badge production-item-image__scrap-badge"
-                                        type="button">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                         class="inactive-icon">
-                                        <defs>
-                                            <path id="scrap-icon-59-b"
-                                                  d="M12.472 6.93l7.056-3.811A1 1 0 0 1 21 4.002v15.496c0 .83-.672 1.502-1.5 1.502h-15c-.828 0-1.5-.673-1.5-1.502V4.002a1 1 0 0 1 1.472-.883l7.056 3.811a.999.999 0 0 0 .944 0z"></path>
-                                            <filter id="scrap-icon-59-a" width="150%" height="150%" x="-25%" y="-25%"
-                                                    filterUnits="objectBoundingBox">
-                                                <feOffset in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-                                                <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1"
-                                                                stdDeviation="1.5"></feGaussianBlur>
-                                                <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out"
-                                                             result="shadowBlurOuter1"></feComposite>
-                                                <feColorMatrix in="shadowBlurOuter1"
-                                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.26 0"></feColorMatrix>
-                                            </filter>
-                                            <filter id="scrap-icon-59-c" width="150%" height="150%" x="-25%" y="-25%"
-                                                    filterUnits="objectBoundingBox">
-                                                <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1"
-                                                                stdDeviation="1.5"></feGaussianBlur>
-                                                <feOffset in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
-                                                <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1"
-                                                             operator="arithmetic"
-                                                             result="shadowInnerInner1"></feComposite>
-                                                <feColorMatrix in="shadowInnerInner1"
-                                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"></feColorMatrix>
-                                            </filter>
-                                        </defs>
-                                        <g fill="none" fill-rule="nonzero" transform="matrix(1 0 0 -1 0 24)">
-                                            <use fill="#000" filter="url(#scrap-icon-59-a)"
-                                                 href="#scrap-icon-59-b"></use>
-                                            <use fill="#FFF" fill-opacity=".4" href="#scrap-icon-59-b"></use>
-                                            <use fill="#000" filter="url(#scrap-icon-59-c)"
-                                                 href="#scrap-icon-59-b"></use>
-                                            <path stroke="#FFF"
-                                                  d="M12.71 7.37h-.002a1.5 1.5 0 0 1-1.417 0L4.236 3.56a.499.499 0 0 0-.736.442v15.496c0 .553.448 1.002 1 1.002h15c.552 0 1-.449 1-1.002V4.002a.499.499 0 0 0-.734-.443l-7.057 3.81zm-.475-.88h-.001z"></path>
-                                        </g>
-                                    </svg>
-                                    <svg class="active-icon" width="24" height="24" viewBox="0 0 24 24"
-                                         preserveAspectRatio="xMidYMid meet">
-                                        <path fill="#35C5F0" fill-rule="nonzero"
-                                              d="M12.472 17.07a.999.999 0 0 0-.944 0l-7.056 3.811A.999.999 0 0 1 3 19.998V4.502C3 3.672 3.672 3 4.5 3h15c.828 0 1.5.673 1.5 1.502v15.496a1 1 0 0 1-1.472.883l-7.056-3.811z"></path>
-                                    </svg>
-                                </button>
-                                <div class="production-item-image__dark-overlay"></div>
-                            </div>
-                            <div class="production-item__content"><h1 class="production-item__header"><span
-                                    class="production-item__header__brand">삼성전자 </span><span
-                                    class="production-item__header__name">BESPOKE 무풍에어컨 AF17B7939WZWS 스탠드형</span></h1>
-                                <span class="production-item-price"><span
-                                        class="production-item-price__price">1,439,000</span></span>
-                                <p class="production-item-stats production-item-stats--review">
-
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-6 col-md-3 product-item-wrap">
-                        <article class="production-item"><a class="production-item__overlay"
-                                                            href="/productions/111255/selling?affect_id&amp;affect_type=StoreHome"></a>
-                            <div class="production-item-image production-item__image"><img class="image" alt=""
-                                                                                           src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/1554432441250_K6wX5dopzz.jpg?gif=1&amp;w=360&amp;h=360&amp;c=c&amp;q=0.8&amp;webp=1"
-                                                                                           srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/1554432441250_K6wX5dopzz.jpg?gif=1&amp;w=640&amp;h=640&amp;c=c&amp;q=0.8&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/1554432441250_K6wX5dopzz.jpg?gif=1&amp;w=720&amp;h=720&amp;c=c&amp;q=0.8&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/1554432441250_K6wX5dopzz.jpg?gif=1&amp;w=1080&amp;h=1080&amp;c=c&amp;q=0.8&amp;webp=1 3x">
-                                <button class="production-item-scrap-badge production-item-image__scrap-badge"
-                                        type="button">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                         class="inactive-icon">
-                                        <defs>
-                                            <path id="scrap-icon-60-b"
-                                                  d="M12.472 6.93l7.056-3.811A1 1 0 0 1 21 4.002v15.496c0 .83-.672 1.502-1.5 1.502h-15c-.828 0-1.5-.673-1.5-1.502V4.002a1 1 0 0 1 1.472-.883l7.056 3.811a.999.999 0 0 0 .944 0z"></path>
-                                            <filter id="scrap-icon-60-a" width="150%" height="150%" x="-25%" y="-25%"
-                                                    filterUnits="objectBoundingBox">
-                                                <feOffset in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-                                                <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1"
-                                                                stdDeviation="1.5"></feGaussianBlur>
-                                                <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out"
-                                                             result="shadowBlurOuter1"></feComposite>
-                                                <feColorMatrix in="shadowBlurOuter1"
-                                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.26 0"></feColorMatrix>
-                                            </filter>
-                                            <filter id="scrap-icon-60-c" width="150%" height="150%" x="-25%" y="-25%"
-                                                    filterUnits="objectBoundingBox">
-                                                <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1"
-                                                                stdDeviation="1.5"></feGaussianBlur>
-                                                <feOffset in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
-                                                <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1"
-                                                             operator="arithmetic"
-                                                             result="shadowInnerInner1"></feComposite>
-                                                <feColorMatrix in="shadowInnerInner1"
-                                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"></feColorMatrix>
-                                            </filter>
-                                        </defs>
-                                        <g fill="none" fill-rule="nonzero" transform="matrix(1 0 0 -1 0 24)">
-                                            <use fill="#000" filter="url(#scrap-icon-60-a)"
-                                                 href="#scrap-icon-60-b"></use>
-                                            <use fill="#FFF" fill-opacity=".4" href="#scrap-icon-60-b"></use>
-                                            <use fill="#000" filter="url(#scrap-icon-60-c)"
-                                                 href="#scrap-icon-60-b"></use>
-                                            <path stroke="#FFF"
-                                                  d="M12.71 7.37h-.002a1.5 1.5 0 0 1-1.417 0L4.236 3.56a.499.499 0 0 0-.736.442v15.496c0 .553.448 1.002 1 1.002h15c.552 0 1-.449 1-1.002V4.002a.499.499 0 0 0-.734-.443l-7.057 3.81zm-.475-.88h-.001z"></path>
-                                        </g>
-                                    </svg>
-                                    <svg class="active-icon" width="24" height="24" viewBox="0 0 24 24"
-                                         preserveAspectRatio="xMidYMid meet">
-                                        <path fill="#35C5F0" fill-rule="nonzero"
-                                              d="M12.472 17.07a.999.999 0 0 0-.944 0l-7.056 3.811A.999.999 0 0 1 3 19.998V4.502C3 3.672 3.672 3 4.5 3h15c.828 0 1.5.673 1.5 1.502v15.496a1 1 0 0 1-1.472.883l-7.056-3.811z"></path>
-                                    </svg>
-                                </button>
-                                <div class="production-item-image__dark-overlay"></div>
-                            </div>
-                            <div class="production-item__content"><h1 class="production-item__header"><span
-                                    class="production-item__header__brand">퀵슬립 </span><span
-                                    class="production-item__header__name">Q4 유로탑 롤팩 매트리스 2size</span></h1><span
-                                    class="production-item-price"><span
-                                    class="production-item-price__price">297,900</span></span>
-                                <p class="production-item-stats production-item-stats--review">
-
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-6 col-md-3 product-item-wrap">
-                        <article class="production-item"><a class="production-item__overlay"
-                                                            href="/productions/1450530/selling?affect_id&amp;affect_type=StoreHome"></a>
-                            <div class="production-item-image production-item__image">
-                                <div class="image"></div>
-                                <button class="production-item-scrap-badge production-item-image__scrap-badge"
-                                        type="button">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                         class="inactive-icon">
-                                        <defs>
-                                            <path id="scrap-icon-61-b"
-                                                  d="M12.472 6.93l7.056-3.811A1 1 0 0 1 21 4.002v15.496c0 .83-.672 1.502-1.5 1.502h-15c-.828 0-1.5-.673-1.5-1.502V4.002a1 1 0 0 1 1.472-.883l7.056 3.811a.999.999 0 0 0 .944 0z"></path>
-                                            <filter id="scrap-icon-61-a" width="150%" height="150%" x="-25%" y="-25%"
-                                                    filterUnits="objectBoundingBox">
-                                                <feOffset in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-                                                <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1"
-                                                                stdDeviation="1.5"></feGaussianBlur>
-                                                <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out"
-                                                             result="shadowBlurOuter1"></feComposite>
-                                                <feColorMatrix in="shadowBlurOuter1"
-                                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.26 0"></feColorMatrix>
-                                            </filter>
-                                            <filter id="scrap-icon-61-c" width="150%" height="150%" x="-25%" y="-25%"
-                                                    filterUnits="objectBoundingBox">
-                                                <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1"
-                                                                stdDeviation="1.5"></feGaussianBlur>
-                                                <feOffset in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
-                                                <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1"
-                                                             operator="arithmetic"
-                                                             result="shadowInnerInner1"></feComposite>
-                                                <feColorMatrix in="shadowInnerInner1"
-                                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"></feColorMatrix>
-                                            </filter>
-                                        </defs>
-                                        <g fill="none" fill-rule="nonzero" transform="matrix(1 0 0 -1 0 24)">
-                                            <use fill="#000" filter="url(#scrap-icon-61-a)"
-                                                 href="#scrap-icon-61-b"></use>
-                                            <use fill="#FFF" fill-opacity=".4" href="#scrap-icon-61-b"></use>
-                                            <use fill="#000" filter="url(#scrap-icon-61-c)"
-                                                 href="#scrap-icon-61-b"></use>
-                                            <path stroke="#FFF"
-                                                  d="M12.71 7.37h-.002a1.5 1.5 0 0 1-1.417 0L4.236 3.56a.499.499 0 0 0-.736.442v15.496c0 .553.448 1.002 1 1.002h15c.552 0 1-.449 1-1.002V4.002a.499.499 0 0 0-.734-.443l-7.057 3.81zm-.475-.88h-.001z"></path>
-                                        </g>
-                                    </svg>
-                                    <svg class="active-icon" width="24" height="24" viewBox="0 0 24 24"
-                                         preserveAspectRatio="xMidYMid meet">
-                                        <path fill="#35C5F0" fill-rule="nonzero"
-                                              d="M12.472 17.07a.999.999 0 0 0-.944 0l-7.056 3.811A.999.999 0 0 1 3 19.998V4.502C3 3.672 3.672 3 4.5 3h15c.828 0 1.5.673 1.5 1.502v15.496a1 1 0 0 1-1.472.883l-7.056-3.811z"></path>
-                                    </svg>
-                                </button>
-                                <div class="production-item-image__dark-overlay"></div>
-                            </div>
-                            <div class="production-item__content"><h1 class="production-item__header"><span
-                                    class="production-item__header__brand">LG전자 </span><span
-                                    class="production-item__header__name">[주말특가]LG 디오스 노크온 오브제컬렉션 T873MEE312</span></h1>
-                                <span class="production-item-price"><span
-                                        class="production-item-price__price">1,799,000</span></span>
-                                <p class="production-item-stats production-item-stats--review">
-
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-6 col-md-3 product-item-wrap">
-                        <article class="production-item"><a class="production-item__overlay"
-                                                            href="/productions/1404150/selling?affect_id&amp;affect_type=StoreHome"></a>
-                            <div class="production-item-image production-item__image">
-                                <div class="image"></div>
-                                <button class="production-item-scrap-badge production-item-image__scrap-badge"
-                                        type="button">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                         class="inactive-icon">
-                                        <defs>
-                                            <path id="scrap-icon-62-b"
-                                                  d="M12.472 6.93l7.056-3.811A1 1 0 0 1 21 4.002v15.496c0 .83-.672 1.502-1.5 1.502h-15c-.828 0-1.5-.673-1.5-1.502V4.002a1 1 0 0 1 1.472-.883l7.056 3.811a.999.999 0 0 0 .944 0z"></path>
-                                            <filter id="scrap-icon-62-a" width="150%" height="150%" x="-25%" y="-25%"
-                                                    filterUnits="objectBoundingBox">
-                                                <feOffset in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-                                                <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1"
-                                                                stdDeviation="1.5"></feGaussianBlur>
-                                                <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out"
-                                                             result="shadowBlurOuter1"></feComposite>
-                                                <feColorMatrix in="shadowBlurOuter1"
-                                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.26 0"></feColorMatrix>
-                                            </filter>
-                                            <filter id="scrap-icon-62-c" width="150%" height="150%" x="-25%" y="-25%"
-                                                    filterUnits="objectBoundingBox">
-                                                <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1"
-                                                                stdDeviation="1.5"></feGaussianBlur>
-                                                <feOffset in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
-                                                <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1"
-                                                             operator="arithmetic"
-                                                             result="shadowInnerInner1"></feComposite>
-                                                <feColorMatrix in="shadowInnerInner1"
-                                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"></feColorMatrix>
-                                            </filter>
-                                        </defs>
-                                        <g fill="none" fill-rule="nonzero" transform="matrix(1 0 0 -1 0 24)">
-                                            <use fill="#000" filter="url(#scrap-icon-62-a)"
-                                                 href="#scrap-icon-62-b"></use>
-                                            <use fill="#FFF" fill-opacity=".4" href="#scrap-icon-62-b"></use>
-                                            <use fill="#000" filter="url(#scrap-icon-62-c)"
-                                                 href="#scrap-icon-62-b"></use>
-                                            <path stroke="#FFF"
-                                                  d="M12.71 7.37h-.002a1.5 1.5 0 0 1-1.417 0L4.236 3.56a.499.499 0 0 0-.736.442v15.496c0 .553.448 1.002 1 1.002h15c.552 0 1-.449 1-1.002V4.002a.499.499 0 0 0-.734-.443l-7.057 3.81zm-.475-.88h-.001z"></path>
-                                        </g>
-                                    </svg>
-                                    <svg class="active-icon" width="24" height="24" viewBox="0 0 24 24"
-                                         preserveAspectRatio="xMidYMid meet">
-                                        <path fill="#35C5F0" fill-rule="nonzero"
-                                              d="M12.472 17.07a.999.999 0 0 0-.944 0l-7.056 3.811A.999.999 0 0 1 3 19.998V4.502C3 3.672 3.672 3 4.5 3h15c.828 0 1.5.673 1.5 1.502v15.496a1 1 0 0 1-1.472.883l-7.056-3.811z"></path>
-                                    </svg>
-                                </button>
-                                <div class="production-item-image__dark-overlay"></div>
-                            </div>
-                            <div class="production-item__content"><h1 class="production-item__header"><span
-                                    class="production-item__header__brand">위니아 </span><span
-                                    class="production-item__header__name">6형 인버터 벽걸이에어컨 ERV06GHP 18.7㎡ 기본설치무료</span>
-                            </h1><span class="production-item-price"><span
-                                    class="production-item-price__price">519,000</span></span>
-                                <p class="production-item-stats production-item-stats--review">
-
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-6 col-md-3 product-item-wrap">
-                        <article class="production-item"><a class="production-item__overlay"
-                                                            href="/productions/858905/selling?affect_id&amp;affect_type=StoreHome"></a>
-                            <div class="production-item-image production-item__image">
-                                <div class="image"></div>
-                                <button class="production-item-scrap-badge production-item-image__scrap-badge"
-                                        type="button">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                         class="inactive-icon">
-                                        <defs>
-                                            <path id="scrap-icon-63-b"
-                                                  d="M12.472 6.93l7.056-3.811A1 1 0 0 1 21 4.002v15.496c0 .83-.672 1.502-1.5 1.502h-15c-.828 0-1.5-.673-1.5-1.502V4.002a1 1 0 0 1 1.472-.883l7.056 3.811a.999.999 0 0 0 .944 0z"></path>
-                                            <filter id="scrap-icon-63-a" width="150%" height="150%" x="-25%" y="-25%"
-                                                    filterUnits="objectBoundingBox">
-                                                <feOffset in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-                                                <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1"
-                                                                stdDeviation="1.5"></feGaussianBlur>
-                                                <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out"
-                                                             result="shadowBlurOuter1"></feComposite>
-                                                <feColorMatrix in="shadowBlurOuter1"
-                                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.26 0"></feColorMatrix>
-                                            </filter>
-                                            <filter id="scrap-icon-63-c" width="150%" height="150%" x="-25%" y="-25%"
-                                                    filterUnits="objectBoundingBox">
-                                                <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1"
-                                                                stdDeviation="1.5"></feGaussianBlur>
-                                                <feOffset in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
-                                                <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1"
-                                                             operator="arithmetic"
-                                                             result="shadowInnerInner1"></feComposite>
-                                                <feColorMatrix in="shadowInnerInner1"
-                                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"></feColorMatrix>
-                                            </filter>
-                                        </defs>
-                                        <g fill="none" fill-rule="nonzero" transform="matrix(1 0 0 -1 0 24)">
-                                            <use fill="#000" filter="url(#scrap-icon-63-a)"
-                                                 href="#scrap-icon-63-b"></use>
-                                            <use fill="#FFF" fill-opacity=".4" href="#scrap-icon-63-b"></use>
-                                            <use fill="#000" filter="url(#scrap-icon-63-c)"
-                                                 href="#scrap-icon-63-b"></use>
-                                            <path stroke="#FFF"
-                                                  d="M12.71 7.37h-.002a1.5 1.5 0 0 1-1.417 0L4.236 3.56a.499.499 0 0 0-.736.442v15.496c0 .553.448 1.002 1 1.002h15c.552 0 1-.449 1-1.002V4.002a.499.499 0 0 0-.734-.443l-7.057 3.81zm-.475-.88h-.001z"></path>
-                                        </g>
-                                    </svg>
-                                    <svg class="active-icon" width="24" height="24" viewBox="0 0 24 24"
-                                         preserveAspectRatio="xMidYMid meet">
-                                        <path fill="#35C5F0" fill-rule="nonzero"
-                                              d="M12.472 17.07a.999.999 0 0 0-.944 0l-7.056 3.811A.999.999 0 0 1 3 19.998V4.502C3 3.672 3.672 3 4.5 3h15c.828 0 1.5.673 1.5 1.502v15.496a1 1 0 0 1-1.472.883l-7.056-3.811z"></path>
-                                    </svg>
-                                </button>
-                                <div class="production-item-image__dark-overlay"></div>
-                            </div>
-                            <div class="production-item__content"><h1 class="production-item__header"><span
-                                    class="production-item__header__brand">웰퍼니쳐 </span><span
-                                    class="production-item__header__name">[5%쿠폰][오늘의딜]허리엔 더매직 허리특화 포켓스프링 매트리스 S/SS/Q/K/SK</span>
-                            </h1><span class="production-item-price"><span
-                                    class="production-item-price__price">229,000</span></span>
-                                <p class="production-item-stats production-item-stats--review">
-
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-6 col-md-3 product-item-wrap">
-                        <article class="production-item"><a class="production-item__overlay"
-                                                            href="/productions/121821/selling?affect_id&amp;affect_type=StoreHome"></a>
-                            <div class="production-item-image production-item__image">
-                                <div class="image"></div>
-                                <button class="production-item-scrap-badge production-item-image__scrap-badge"
-                                        type="button">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                         class="inactive-icon">
-                                        <defs>
-                                            <path id="scrap-icon-64-b"
-                                                  d="M12.472 6.93l7.056-3.811A1 1 0 0 1 21 4.002v15.496c0 .83-.672 1.502-1.5 1.502h-15c-.828 0-1.5-.673-1.5-1.502V4.002a1 1 0 0 1 1.472-.883l7.056 3.811a.999.999 0 0 0 .944 0z"></path>
-                                            <filter id="scrap-icon-64-a" width="150%" height="150%" x="-25%" y="-25%"
-                                                    filterUnits="objectBoundingBox">
-                                                <feOffset in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-                                                <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1"
-                                                                stdDeviation="1.5"></feGaussianBlur>
-                                                <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out"
-                                                             result="shadowBlurOuter1"></feComposite>
-                                                <feColorMatrix in="shadowBlurOuter1"
-                                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.26 0"></feColorMatrix>
-                                            </filter>
-                                            <filter id="scrap-icon-64-c" width="150%" height="150%" x="-25%" y="-25%"
-                                                    filterUnits="objectBoundingBox">
-                                                <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1"
-                                                                stdDeviation="1.5"></feGaussianBlur>
-                                                <feOffset in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
-                                                <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1"
-                                                             operator="arithmetic"
-                                                             result="shadowInnerInner1"></feComposite>
-                                                <feColorMatrix in="shadowInnerInner1"
-                                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"></feColorMatrix>
-                                            </filter>
-                                        </defs>
-                                        <g fill="none" fill-rule="nonzero" transform="matrix(1 0 0 -1 0 24)">
-                                            <use fill="#000" filter="url(#scrap-icon-64-a)"
-                                                 href="#scrap-icon-64-b"></use>
-                                            <use fill="#FFF" fill-opacity=".4" href="#scrap-icon-64-b"></use>
-                                            <use fill="#000" filter="url(#scrap-icon-64-c)"
-                                                 href="#scrap-icon-64-b"></use>
-                                            <path stroke="#FFF"
-                                                  d="M12.71 7.37h-.002a1.5 1.5 0 0 1-1.417 0L4.236 3.56a.499.499 0 0 0-.736.442v15.496c0 .553.448 1.002 1 1.002h15c.552 0 1-.449 1-1.002V4.002a.499.499 0 0 0-.734-.443l-7.057 3.81zm-.475-.88h-.001z"></path>
-                                        </g>
-                                    </svg>
-                                    <svg class="active-icon" width="24" height="24" viewBox="0 0 24 24"
-                                         preserveAspectRatio="xMidYMid meet">
-                                        <path fill="#35C5F0" fill-rule="nonzero"
-                                              d="M12.472 17.07a.999.999 0 0 0-.944 0l-7.056 3.811A.999.999 0 0 1 3 19.998V4.502C3 3.672 3.672 3 4.5 3h15c.828 0 1.5.673 1.5 1.502v15.496a1 1 0 0 1-1.472.883l-7.056-3.811z"></path>
-                                    </svg>
-                                </button>
-                                <div class="production-item-image__dark-overlay"></div>
-                            </div>
-                            <div class="production-item__content"><h1 class="production-item__header"><span
-                                    class="production-item__header__brand">큐브 </span><span
-                                    class="production-item__header__name">[주말특가][5%쿠폰]판매1위 맞춤제작 블라인드 시스템 드레스룸 9colors</span>
-                            </h1><span class="production-item-price"><span
-                                    class="production-item-price__price">8,100</span></span>
-                                <p class="production-item-stats production-item-stats--review">
-
-                                </p>
-                            </div>
-                        </article>
-                    </div>
                 </div>
             </section>
         </div>
     </div>
 </div>
-<footer th:replace=""></footer>
+<footer class="footer" th:replace="~{/header-footer/footer :: footer}"></footer>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="../../static/js/product/main.js"></script>
+<script src="/js/header-footer/header.js"></script>
+<script th:inline="javascript">
+
+</script>
+
+
+<script src="/js/product/product-list.js"></script>
+
+
+
 </html>

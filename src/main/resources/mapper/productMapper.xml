@@ -3,19 +3,58 @@
 <mapper namespace="com.app.floc.mapper.ProductMapper">
     <insert id="insert">
         INSERT INTO TBL_PRODUCT
-        (ID, PRODUCT_NAME, PRODUCT_DETAIL, PRODUCT_COST, PRODUCT_STOCK,  PRODUCT_CATEGORY, PRODUCT_USED_LOCATION, PRODUCT_IMAGE_NAME, PRODUCT_IMAGE_UUID, PRODUCT_IMAGE_SIZE)
-        VALUES(SEQ_PRODUCT.NEXTVAL,#{productName}, #{productDetail}, #{productCost}, #{productStock}, #{productCategory} , #{productUsedLocation} , #{productImageName},#{productImageUuid}, #{productImageSize})
+        (ID, PRODUCT_NAME, PRODUCT_DETAIL, PRODUCT_COST, PRODUCT_STOCK,  PRODUCT_CATEGORY, PRODUCT_USED_LOCATION, PRODUCT_IMAGE_NAME, PRODUCT_IMAGE_UUID, PRODUCT_IMAGE_SIZE, PRODUCT_IMAGE_PATH)
+        VALUES(SEQ_PRODUCT.NEXTVAL,#{productName}, #{productDetail}, #{productCost}, #{productStock}, #{productCategory} , #{productUsedLocation} , #{productImageName},#{productImageUuid}, #{productImageSize},#{productImagePath})
     </insert>
 
     <select id="selectOneByProductId" resultType="productVO">
-        SELECT ID, PRODUCT_NAME, PRODUCT_DETAIL, PRODUCT_COST, PRODUCT_STOCK, PRODUCT_REGISTER_DATE, PRODUCT_UPDATED_DATE, PRODUCT_CATEGORY, PRODUCT_USED_LOCATION, PRODUCT_IMAGE_NAME, PRODUCT_IMAGE_UUID, PRODUCT_IMAGE_SIZE
+        SELECT ID, PRODUCT_NAME, PRODUCT_DETAIL, PRODUCT_COST, PRODUCT_STOCK, PRODUCT_REGISTER_DATE, PRODUCT_UPDATED_DATE, PRODUCT_CATEGORY, PRODUCT_USED_LOCATION, PRODUCT_IMAGE_NAME, PRODUCT_IMAGE_UUID, PRODUCT_IMAGE_SIZE,PRODUCT_IMAGE_PATH
         FROM TBL_PRODUCT
         WHERE ID = #{productId}
     </select>
 
-    <select id="selectAll" resultType="productVO">
-        SELECT ID, PRODUCT_NAME, PRODUCT_DETAIL, PRODUCT_COST, PRODUCT_STOCK, PRODUCT_REGISTER_DATE, PRODUCT_UPDATED_DATE, PRODUCT_CATEGORY, PRODUCT_USED_LOCATION, PRODUCT_IMAGE_NAME, PRODUCT_IMAGE_UUID, PRODUCT_IMAGE_SIZE
-        FROM TBL_PRODUCT
+
+    <select id="selectSixteen" resultType="productDTO">
+        SELECT  R ,TP.ID, PRODUCT_NAME, PRODUCT_DETAIL, PRODUCT_COST, PRODUCT_STOCK, PRODUCT_REGISTER_DATE, PRODUCT_UPDATED_DATE, PRODUCT_CATEGORY, PRODUCT_USED_LOCATION, PRODUCT_IMAGE_NAME, PRODUCT_IMAGE_UUID, PRODUCT_IMAGE_SIZE,USER_WISH_COUNT
+            FROM (
+                SELECT ROWNUM R ,TP.ID, PRODUCT_NAME, PRODUCT_DETAIL, PRODUCT_COST, PRODUCT_STOCK, PRODUCT_REGISTER_DATE, PRODUCT_UPDATED_DATE, PRODUCT_CATEGORY, PRODUCT_USED_LOCATION, PRODUCT_IMAGE_NAME, PRODUCT_IMAGE_UUID, PRODUCT_IMAGE_SIZE,USER_WISH_COUNT
+                FROM
+                    (
+                    SELECT TP.ID, PRODUCT_NAME, PRODUCT_DETAIL, PRODUCT_COST, PRODUCT_STOCK, PRODUCT_REGISTER_DATE, PRODUCT_UPDATED_DATE, PRODUCT_CATEGORY, PRODUCT_USED_LOCATION, PRODUCT_IMAGE_NAME, PRODUCT_IMAGE_UUID, PRODUCT_IMAGE_SIZE,COUNT(USER_ID) USER_WISH_COUNT
+                    FROM TBL_PRODUCT TP LEFT OUTER JOIN TBL_PRODUCT_WISH TPW
+                    ON TP.ID = TPW.PRODUCT_ID
+                    GROUP BY TP.ID, PRODUCT_NAME, PRODUCT_DETAIL, PRODUCT_COST, PRODUCT_STOCK, PRODUCT_REGISTER_DATE, PRODUCT_UPDATED_DATE, PRODUCT_CATEGORY, PRODUCT_USED_LOCATION, PRODUCT_IMAGE_NAME, PRODUCT_IMAGE_UUID, PRODUCT_IMAGE_SIZE
+                    <choose>
+                        <when test="order.equals('최신순')">
+                            ORDER BY ID DESC
+                        </when>
+                        <otherwise>
+                            ORDER BY  USER_WISH_COUNT DESC
+                        </otherwise>
+                    </choose>
+                    ) TP
+                <choose>
+                    <when test="category!='전체' and location=='전체'">
+                        WHERE TP.PRODUCT_CATEGORY =#{category}
+                    </when>
+                    <when test="category=='전체' and location!='전체'">
+                        WHERE TP.PRODUCT_USED_LOCATION LIKE '%'||#{location}||'%'
+                    </when>
+                    <when test="category!='전체' and location!='전체'">
+                        WHERE TP.PRODUCT_CATEGORY =#{category} AND TP.PRODUCT_USED_LOCATION LIKE '%'||#{location}||'%'
+                    </when>
+                </choose>
+
+            )TP
+        <![CDATA[
+           WHERE R>=#{count} AND R<#{count}+16
+        ]]>
+
+    </select>
+
+    <select id="selectAllWishProductsByUserId" resultType="long">
+        SELECT PRODUCT_ID FROM  TBL_PRODUCT_WISH tpw
+        WHERE USER_ID =#{userId}
     </select>
 
     <delete id="delete">

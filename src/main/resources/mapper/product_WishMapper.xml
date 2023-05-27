@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.floc.mapper.ProductWishMapper">
+        <insert id="insert">
+            INSERT INTO TBL_PRODUCT_WISH
+            (ID, USER_ID, PRODUCT_ID)
+            VALUES(SEQ_PRODUCT_WISH.NEXTVAL, #{userId}, #{productId})
+        </insert>
+    <select id="selectOne" resultType="productWishVO">
+        SELECT ID, USER_ID, PRODUCT_ID
+        FROM TBL_PRODUCT_WISH
+        WHERE USER_ID = #{userId} AND PRODUCT_ID = #{productId}
+    </select>
+
+    <delete id="delete">
+        DELETE FROM TBL_PRODUCT_WISH
+        WHERE ID = #{id}
+    </delete>
+
 
 </mapper>

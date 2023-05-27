@@ -5,11 +5,16 @@
     <title>제품 상세정보 페이지</title>
     <link rel="stylesheet" href="/css/header-footer/header.css">
     <link rel="stylesheet" href="/css/header-footer/footer.css">
-    <link rel="stylesheet" href="../../static/css/product/detail.css">
+    <link rel="stylesheet" href="/css/product/detail.css">
     <link rel="stylesheet" href="/css/font.css">
 </head>
 <body>
-<header th:replace=""></header>
+<th:block th:if="${session.userId==null}">
+    <header class="header" th:replace="~{/header-footer/header :: header}"></header>
+</th:block>
+<th:block th:if="${session.userId!=null}">
+    <header class="header" th:replace="~{/header-footer/header-login :: header}"></header>
+</th:block>
 <div class="wrap">
     <div class="layout">
         <div class="production-selling">
@@ -17,7 +22,7 @@
                 <nav class="commerce-category-breadcrumb-wrap production-selling-overview__category">
                     <ol class="commerce-category-breadcrumb">
                         <li class="commerce-category-breadcrumb__entry"><a class="link"
-                                                                           href="/store/category?category_id=18000000&amp;affect_type= ProductSaleDetail&amp;affect_id=767440">패브릭</a>
+                                                                           href="/product/product-detail?productId=">패브릭</a>
                             <svg class="icon" width="8" height="8" viewBox="0 0 8 8" fill="currentColor"
                                  preserveAspectRatio="xMidYMid meet">
                                 <path d="M4.95 4L2.12 1.19l.7-.71 3.54 3.54-3.53 3.53-.7-.7z"></path>
@@ -292,7 +297,7 @@
         </div>
     </div>
 </div>
-<footer th:replace=""></footer>
+<footer class="footer" th:replace="~{/header-footer/footer :: footer}"></footer>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>

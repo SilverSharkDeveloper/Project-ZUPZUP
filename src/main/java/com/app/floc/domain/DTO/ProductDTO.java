@@ -1,13 +1,13 @@
-package com.app.floc.domain.VO;
+package com.app.floc.domain.DTO;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
-@Data
 @Component
 @NoArgsConstructor
-public class ProductVO {
+@Data
+public class ProductDTO {
     private Long id;
     private String productName;
     private Long productCost;
@@ -20,5 +20,7 @@ public class ProductVO {
     private String productImageName;
     private String ProductImageUuid;
     private Long productImageSize;
-    private String productImagePath;
+
+    private Long userWishCount;
+    private boolean isWished;
 }

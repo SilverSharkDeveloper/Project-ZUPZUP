@@ -1,5 +1,8 @@
 package com.app.floc.DAO;
 
+import com.app.floc.domain.DTO.Pagination;
+import com.app.floc.domain.DTO.ProductDTO;
+import com.app.floc.domain.DTO.ProductPagination;
 import com.app.floc.domain.VO.ProductVO;
 import com.app.floc.mapper.ProductMapper;
 import lombok.RequiredArgsConstructor;
@@ -24,9 +27,15 @@ public class ProductDAO {
     }
 
     //상품전체조회 -> 목록조회 ->pagination
-    public List<ProductVO> findAll(){
-        return productMapper.selectAll();
+    public List<ProductDTO> findSixteenProducts(ProductPagination productPagination){
+        return productMapper.selectSixteen(productPagination);
     }
+
+    //유저아이디로 위시누른 상품id 다가져오기
+    public List<Long> findAllWishProductsByUserId(Long userId){
+        return productMapper.selectAllWishProductsByUserId(userId);
+    }
+
 
     //상품 제거
     public void delete(Long productId){

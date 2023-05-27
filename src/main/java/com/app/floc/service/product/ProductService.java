@@ -1,5 +1,7 @@
 package com.app.floc.service.product;
 
+import com.app.floc.domain.DTO.ProductDTO;
+import com.app.floc.domain.DTO.ProductPagination;
 import com.app.floc.domain.VO.ProductVO;
 
 import java.util.List;
@@ -13,9 +15,17 @@ public interface ProductService {
     public Optional<ProductVO> read(Long productId);
 
     //상품전체조회 -> 목록조회 ->pagination
-    public List<ProductVO> getList();
+    public List<ProductDTO> getList(ProductPagination pagination, Long userId);
+
+
 
     //상품 제거
     public void remove(Long productId);
+
+
+
+    //위시 추가 또는 삭제
+    public void addOrDeleteWish(Long userId,Long productID);
+
 
 }
