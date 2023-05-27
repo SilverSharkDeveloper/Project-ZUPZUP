@@ -49,13 +49,15 @@
                 <div class="memberSearch">
                     <div class="memberSearchInput">
                         <select name="type">
-                            <option value="n" th:selected="${search.type eq 'n'}">이름</option>
-                            <option value="i" th:selected="${search.type eq 'i'}">닉네임</option>
+                            <option value="n" th:selected="${search != null and search.type eq 'n'}">이름</option>
+                            <option value="i" th:selected="${search != null and search.type eq 'i'}">닉네임</option>
                         </select>
                         <div>
-                            <input type="text" name ="keyword" th:value="${search.keyword}" placeholder="검색어를 입력하세요">
+                            <input type="text" name ="keyword" th:value="${search != null ? search.keyword : ''}" placeholder="검색어를 입력하세요">
                         </div>
-
+<!--                        <input type = "hidden" name = "page" value = "${criteria.page}">&ndash;&gt;-->
+<!--                        <input type = "hidden" name = "type" value = "${criteria.type}">-->
+<!--                        <input type = "hidden" name = "keyword" value = "${criteria.keyword}">-->
 
                         <button class = "searchBtn">
                             <img src="/image/search.png">
@@ -69,27 +71,26 @@
                     <div>
                         <span>총<th:block th:text="${adminPagination.total} +'명'">
                         </th:block></span>
-                        <button class="deleteBtn">삭제</button>
+                        <button type="button" onclick="deleteUser()" class="btn11 deleteBtn">삭제</button>
                     </div>
                 </div>
-                <form th:action="@{member}" class = "deleteForm">
-<!--                    <input type = "hidden" name = "page" value = "${criteria.page}">-->
-<!--                    <input type = "hidden" name = "type" value = "${criteria.type}">-->
-<!--                    <input type = "hidden" name = "keyword" value = "${criteria.keyword}">-->
+                        <button type="button" onclick="getUserList()" class="rightbtn deleteBtn">새로고침</button>
+                <form th:action="@{member}" class = "userForm">
                     <table class="userTable">
                         <thead>
-                            <tr class="tableTh" style="border-top:3px solid #6e6e6e;">
-                                <td class="inputCheckBoxAllBtn"><input class="inputCheckBoxAll" type="checkbox"></td>
-                                <td>유저번호</td>
-                                <td>이메일</td>
-                                <td>닉네임</td>
-                                <td>이름</td>
-                                <td>구분</td>
-                                <td>티슈</td>
-                                <td>가입날짜</td>
-                                <td>비고</td>
-
-                            </tr>
+                        <tr class="tableTh" style="border-top:3px solid #6e6e6e;">
+                            <td class="inputCheckBoxAllBtn">
+                                <input class="inputCheckBoxAll" type="checkbox" id="checkAll">
+                            </td>
+                            <td>유저번호</td>
+                            <td>이메일</td>
+                            <td>닉네임</td>
+                            <td>이름</td>
+                            <td>구분</td>
+                            <td>티슈</td>
+                            <td>가입날짜</td>
+                            <td>비고</td>
+                        </tr>
                         </thead>
                         <tbody>
                         </tbody>
@@ -98,45 +99,49 @@
                 <!-- [S] 페이지 컨트롤러 -->
                 <div class="page-controller-wrap">
                     <!-- 이전 버튼 -->
-                    <a th:if="${adminPagination.prev}" th:href="${adminPagination.startPage -1}"
+                    <a th:if="${adminPagination.prev}" th:href="@{member(page =${adminPagination.startPage -1})}"
                        class="change-page page-list page-list-move page-before">
                         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAHCAQAAABqrk9lAAAAGElEQVR42mNgAIPi/8X/4QwwE5PBQJADAAKSG3cyVhtXAAAAAElFTkSuQmCC"
                              alt="이전 페이지로 이동하기 아이콘">
                     </a>
                     <th:block th:each="page:${#numbers.sequence(adminPagination.startPage, adminPagination.endPage)}">
-                        <a th:if="${page eq adminPagination.page}" class="page-list list-first"
+                        <a th:if="${page eq adminPagination.page}" th:href="@{member(page=${page})}" class="page-list list-first"
                            th:text="${page}"></a>
-                        <a th:unless="${page eq adminPagination.page}" th:href="${page}"
+                        <a th:unless="${page eq adminPagination.page}" th:href="@{member(page=${page})}"
                            class="change-page page-list page-list-first list-on" th:text="${page}"></a>
                     </th:block>
                     <!-- 다음 페이지로 이동하기 -->
-                    <a th:if="${adminPagination.next}" th:href="${adminPagination.endPage + 1}"
+                    <a th:if="${adminPagination.next}" th:href="@{member(page =${adminPagination.endPage +1})}"
                        class="change-page page-list page-list-move page-after">
                         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAHCAQAAABqrk9lAAAAGUlEQVR42mMo/l/8nwECQEwCHEwGhAlRBgA2mht3SwgzrwAAAABJRU5ErkJggg=="
                              alt="다음 페이지로 이동하기 아이콘">
                     </a>
                 </div>
-                <!-- [E] 페이지 컨트롤러 -->
             </div>
         </div>
     </section>
-<!--    <form action="#" name = "page-form">-->
-<!--        <input id="page" type = "hidden" name = "page" value = "${criteria.page}">-->
-<!--        <input type = "hidden" name = "type" value = "${criteria.type}">-->
-<!--        <input type = "hidden" name = "keyword" value = "${criteria.keyword}">-->
-<!--    </form>-->
+    <!--    <form action="#" name = "page-form">-->
+    <!--        <input id="page" type = "hidden" name = "page" value = "${criteria.page}">-->
+    <!--        <input type = "hidden" name = "type" value = "${criteria.type}">-->
+    <!--        <input type = "hidden" name = "keyword" value = "${criteria.keyword}">-->
+    <!--    </form>-->
 </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="/js/admin/side-bar.js"></script>
 <script th:inline="javascript">
-    let members = [[${members}]];
-    console.log(members);
+    let users = [[${members}]];
+    console.log(users);
+    let page = [[${adminPagination.page}]];
+
     let adminPagination = [[${adminPagination}]];
     console.log(adminPagination);
+    console.log(page);
+
+
 </script>
-<script src="/js/admin/member.js"></script>
 <script src="/js/admin/userpaging.js"></script>
+<script src="/js/admin/member.js"></script>
 </html>
 
 

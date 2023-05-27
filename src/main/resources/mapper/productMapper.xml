@@ -23,4 +23,62 @@
     </delete>
 
 
+    <!--    상품 번호	상품명	지역	카테고리	재고	가격	등록 날짜-->
+    <select id="selectAllByAdmin" resultType="productVO">
+        SELECT ID, PRODUCT_NAME, PRODUCT_USED_LOCATION, PRODUCT_CATEGORY, PRODUCT_STOCK, PRODUCT_COST, PRODUCT_REGISTER_DATE
+        FROM
+        (
+        SELECT ROWNUM R,ID, PRODUCT_NAME, PRODUCT_USED_LOCATION, PRODUCT_CATEGORY, PRODUCT_STOCK, PRODUCT_COST, PRODUCT_REGISTER_DATE
+        FROM
+        (
+        SELECT ID, PRODUCT_NAME, PRODUCT_USED_LOCATION, PRODUCT_CATEGORY, PRODUCT_STOCK, PRODUCT_COST, PRODUCT_REGISTER_DATE
+        FROM TBL_PRODUCT
+        ORDER BY ID DESC
+        )
+        <![CDATA[
+                WHERE ROWNUM <= #{adminPagination.page} * #{adminPagination.rowCount}
+                ]]>
+        <include refid="search"/>
+        <![CDATA[
+            ) WHERE R > (#{adminPagination.page} - 1) * #{adminPagination.rowCount}
+                ]]>
+    </select>
+
+    <sql id="search">
+        <if test="search.type != null and !search.type.equals('')">
+            <trim prefix="AND(" prefixOverrides="OR" suffix=")">
+                <foreach item="type" collection="search.types">
+                    <trim prefix="OR">
+                        <choose>
+                            <when test="type=='n'.toString()">
+                                PRODUCT_NAME LIKE '%'||#{search.keyword}||'%'
+                            </when>
+                            <when test="type=='l'.toString()">
+                                PRODUCT_USED_LOCATION LIKE '%'||#{search.keyword}||'%'
+                            </when>
+                            <when test="type=='c'.toString()">
+                                PRODUCT_CATEGORY LIKE '%'||#{search.keyword}||'%'
+                            </when>
+                        </choose>
+                    </trim>
+                </foreach>
+            </trim>
+        </if>
+    </sql>
+
+    <select id="selectCountOfProduct" resultType="_int">
+        SELECT COUNT(ID)
+        FROM TBL_PRODUCT
+        WHERE 1=1
+        <include refid="search"/>
+    </select>
+
+    <delete id="deleteProductsByIds" parameterType="java.util.List">
+        DELETE FROM TBL_PRODUCT
+        WHERE ID IN
+        <foreach item="id" collection="list" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
 </mapper>

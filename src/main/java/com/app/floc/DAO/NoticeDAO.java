@@ -46,5 +46,10 @@ public class NoticeDAO {
     public int findCountOfNotice(Search search){
         return noticeMapper.selectCountOfNotice(search);
     }
+
+    public void deleteNoticeByIds(List<Long> noticeIds){
+
+        noticeMapper.deleteNoticeByIds(noticeIds);
+    }
 }
 

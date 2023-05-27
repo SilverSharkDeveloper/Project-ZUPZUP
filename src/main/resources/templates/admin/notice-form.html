@@ -45,7 +45,6 @@
 
         <!--mainScreen 공지사항 작성하기-->
         <div class="mainContent">
-
             <div class="content-wrap">
                 <!-- [S] 공지사항 등록 -->
                 <form th:action="@{notice-form}" method="post" th:object="${noticeDTO}" class="submit-form">
@@ -84,7 +83,7 @@
 
                     <!-- 작성하기 btn -->
                     <div class="write-btn-wrap">
-                        <button type="button" class="btn btn-list"><a th:href="@{/admin/notice}">공지 사항</a></button>
+                        <button type="button" class="btn btn-list"><a th:href="@{notice}">공지 사항</a></button>
                         <button type="submit" class="btn btn-write">작성하기</button>
                     </div>
                 </form>

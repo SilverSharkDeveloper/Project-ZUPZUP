@@ -1,5 +1,7 @@
 package com.app.floc.DAO;
 
+import com.app.floc.domain.DTO.AdminPagination;
+import com.app.floc.domain.DTO.Search;
 import com.app.floc.domain.VO.ProductVO;
 import com.app.floc.mapper.ProductMapper;
 import lombok.RequiredArgsConstructor;
@@ -33,4 +35,18 @@ public class ProductDAO {
         productMapper.delete(productId);
     }
 
+
+    //admin 상품 전체 조회 페이징 처리
+    public List<ProductVO> findAllByAdmin(AdminPagination adminPagination, Search search){
+     return productMapper.selectAllByAdmin(adminPagination, search);
+    }
+
+    //admin 상품 총 개수
+    public int findCountOfProduct(Search search){
+     return productMapper.selectCountOfProduct(search);
+    }
+    //admin 삭제
+    public void deleteProductsByIds(List<Long> productIds){
+        productMapper.deleteProductsByIds(productIds);
+    }
 }

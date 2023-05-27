@@ -2,6 +2,8 @@ package com.app.floc.service.notice;
 
 
 import com.app.floc.DAO.NoticeDAO;
+
+
 import com.app.floc.domain.DTO.AdminPagination;
 import com.app.floc.domain.DTO.NoticeDTO;
 import com.app.floc.domain.DTO.Search;
@@ -48,6 +50,11 @@ public class NoticeServiceImpl implements NoticeService {
     public int getTotal(Search search) {
         return noticeDAO.findCountOfNotice(search);
 
+    }
+
+    @Override
+    public void deleteNoticeByIds(List<Long> noticeIds) {
+        noticeDAO.deleteNoticeByIds(noticeIds);
     }
 }
 

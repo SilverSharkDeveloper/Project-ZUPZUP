@@ -49,43 +49,51 @@
             <div class="content-wrap">
 
                 <!-- [S] 공지사항 등록 -->
-                <form action="./product.html" method="post" class="submit-form">
+                <form th:action="@{product-form}" th:object="${productVO}" method="post" class="submit-form">
                     <div class="con-write-wrap">
                         <div class="notice-write">
                             <div class="write-title">상품명</div>
                             <div class="write-sec">
-                                <input class="write-text write-input" type="text" placeholder="상품명을 적어주세요.">
+                                <input class="write-text write-input" type="text" th:field="*{productName}" placeholder="상품명을 적어주세요.">
                             </div>
                         </div>
                         <div class="notice-write">
                             <div class="write-title">상품 설명</div>
                             <div class="write-sec">
-                                <textarea style="height: 120px;" class="write-text write-notice" type="text" placeholder="상품 설명을 적어주세요."></textarea>
+                                <textarea style="height: 120px;" th:field="*{productDetail}" class="write-text write-notice" type="text" placeholder="상품 설명을 적어주세요."></textarea>
                             </div>
                         </div>
                         <div class="notice-write">
-                            <div class="select-boxes-title">지역,카테고리</div>
+                            <div class="select-boxes-title">카테고리</div>
                             <div class="write-sec">
-                                <select style=" margin-right: 10px;">
-                                    <option>전체</option>
-                                    <option>지역</option>
-                                </select>
-                                <select>
-                                    <option>전체</option>
-                                    <option>카테고리</option>
+                                <!--                                <select th:field="*{productUsedLocation}"style=" margin-right: 10px;">-->
+                                <!--                                    <option th:value="'전체'"></option>-->
+                                <!--                                    <option th:value="'서울 '"></option>-->
+                                <!--                                    <option th:value="'전체'"></option>-->
+                                <!--                                    <option th:value="'전체'"></option>-->
+                                <!--                                    <option th:value="'전체'"></option>-->
+                                <!--                                    <option th:value="'전체'"></option>-->
+                                <!--                                    <option th:value="'전체'"></option>-->
+                                <!--                                    <option th:value="'전체'"></option>-->
+                                <!--                                </select>-->
+                                <select th:field="*{productCategory}">
+                                    <option th:value="'전체'" th:text="전체"></option>
+                                    <option th:value="'음료'" th:text="음료"></option>
+                                    <option th:value="'빵'" th:text="빵"></option>
+                                    <option th:value="'외식'" th:text="외식"></option>
                                 </select>
                             </div>
                         </div>
                         <div class="notice-write">
                             <div class="write-title">사용 가능처</div>
                             <div class="write-sec">
-                                <input class="write-text write-input" type="text" placeholder="사용 가능처를 적어주세요.">
+                                <input th:field="*{productUsedLocation}" class="write-text write-input" type="text" placeholder="사용 가능처를 적어주세요.">
                             </div>
                         </div>
                         <div class="notice-write">
                             <div class="write-title">수량(숫자만)</div>
                             <div class="write-sec">
-                                <input class="write-text write-input" type="number" placeholder="수량을 적어주세요.">
+                                <input th:field="*{productStock}"class="write-text write-input" type="number" placeholder="수량을 적어주세요.">
                             </div>
                         </div>
 
@@ -93,7 +101,7 @@
                         <div class="notice-write">
                             <div class="write-title" >가격(숫자만)</div>
                             <div class="write-sec">
-                                <input class="write-text write-input " type="number" placeholder="가격을 적어주세요.">
+                                <input th:field="*{productCost}" class="write-text write-input " type="number" placeholder="가격을 적어주세요.">
                             </div>
                         </div>
 
@@ -121,8 +129,8 @@
 
                     <!-- 작성하기 btn -->
                     <div class="write-btn-wrap">
-                        <button type="button" class="btn btn-list"><a href="./product.html">취소 하기</a></button>
-                        <button type="button" class="btn btn-write">상품 등록</button>
+                        <button type="button" class="btn btn-list"><a th:href="@{product}">취소 하기</a></button>
+                        <button type="submit" class="btn btn-write">상품 등록</button>
                     </div>
                 </form>
 
@@ -142,4 +150,5 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="/js/admin/side-bar.js"></script>
 <script src="/js/admin/product-form.js"></script>
+<script src="/js/admin/productlist.js"></script>
 </html>
