@@ -11,29 +11,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
           rel="stylesheet">
     <link href="/css/mypage/my-point.css" rel="stylesheet">
+    <link href="/css/notice/notice.css" rel="stylesheet">
+    <link href="/css/font.css" rel="stylesheet">
+    <link href="/css/header-footer/header-login.css" rel="stylesheet">
+    <link href="/css/header-footer/footer.css" rel="stylesheet">
 </head>
 <body>
 <div class="css-b3oum6">
     <div class="layout">
+        <header th:replace="~{/header-footer/header-login}"></header>
         <div class="css-18dsw15 e1ivswjr4">
             <div class="myhome-nav myhome-nav--owner">
                 <nav class="page-navigation myhome-nav__owner">
                     <ul style="transform: translateX(0px);">
-                        <li class="page-navigation__item"><a class="" href="/users/20617180"
+                        <li class="page-navigation__item"><a class="" href="/mypage/main"
                                                              target="_self">프로필</a></li>
-                        <li class="page-navigation__item"><a class="" href="/user_shopping_pages/order_list"
+                        <li class="page-navigation__item"><a class="" href="/mypage/my-host-list"
                                                              target="_self">나의 플로깅</a></li>
-                        <li class="page-navigation__item"><a class="active" href="/production_reviews/write" target="_self">나의
+                        <li class="page-navigation__item"><a class="active" href="/mypage/my-product" target="_self">나의
                             상품</a></li>
+
                     </ul>
                 </nav>
                 <nav class="page-navigation myhome-nav__contents">
                     <ul style="transform: translateX(0px);">
-                        <li class="page-navigation__item"><a class="" href="/users/20617180" target="_self">내가 구매한 상품</a>
+                        <li class="page-navigation__item"><a class="" href="/mypage/my-product" target="_self">내가 구매한 상품</a>
                         </li>
-                        <li class="page-navigation__item"><a class="" href="/users/20617180/card_collections"
+                        <li class="page-navigation__item"><a class="" href="/mypage/my-like-product"
                                                              target="_self">내가 찜한 상품</a></li>
-                        <li class="page-navigation__item"><a class="active" href="/users/20617180/praises"
+                        <li class="page-navigation__item"><a class="active" href="/mypage/my-point"
                                                              target="_self">나의 휴지롤</a></li>
                     </ul>
                 </nav>
@@ -185,6 +191,7 @@
                 </div>
             </div>
         </div>
+        <footer th:replace="~{/header-footer/footer :: .css-f93bbn}"></footer>
     </div>
 </div>
 </body>
@@ -196,4 +203,5 @@
     let tissues = [[${tissues}]];
 
 </script>
+<script src="/js/header-footer/header.js"></script>
 </html>

@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleag.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="../../static/css/header-footer/header.css" rel="stylesheet">
-    <link href="../../static/css/notice/notice.css" rel="stylesheet">
-    <link href="../../static/css/font.css" rel="stylesheet">
-    <link href="../../static/css/plogging/plogging-form.css" rel="stylesheet">
+    <link href="/css/plogging/plogging-form.css" rel="stylesheet">
+    <link href="/css/notice/notice.css" rel="stylesheet">
+    <link href="/css/font.css" rel="stylesheet">
+    <link href="/css/header-footer/header-login.css" rel="stylesheet">
+    <link href="/css/header-footer/footer.css" rel="stylesheet">
 
 </head>
 <body>
+<header th:replace="~{/header-footer/header-login}"></header>
+
 <div class="page">
     <div class="css-b3oum6">
         <div class="css-12bdpl9 e182177l4">
@@ -34,9 +37,7 @@
                     </div>
                 </div>
                 <div class="css-q3w6qr e10ttx5d5">
-                    <div class="css-1fyeg2n e10ttx5d4"><a aria-label="오늘의집" class="css-1uq8wjk e10ttx5d2" href="/">
-                        <img src="../../static/image/logo.png" class="css-1dfyjem">
-                    </a>
+                    <div class="css-1fyeg2n e10ttx5d4">
                         <div class="css-svxhqj e10ttx5d1">
                             <div class="css-s5xdrg e1pjpjse1">
                                 <button class="css-c5xvys exfb88v1" aria-pressed="false" title="사진 추가" type="button">
@@ -2290,7 +2291,6 @@
     </div>
 </div>
 
-
 <form action="plogging.html" method="post" class="submit-form">
     <input type="file" name="representingImage" id="representingImage" style="display: none;">
 
@@ -2299,10 +2299,12 @@
 
 </form>
 
+<footer th:replace="~{/header-footer/footer :: .css-f93bbn}"></footer>
 
 
 </body>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="../../static/js/plogging/plogging-form.js"></script>
+<script src="/js/plogging/plogging-form.js"></script>
+<script src="/js/header-footer/header.js"></script>
 
 </html>
