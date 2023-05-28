@@ -3,7 +3,7 @@ package com.app.floc.service.mypage;
 import com.app.floc.domain.DTO.MyPloggingPagination;
 import com.app.floc.domain.DTO.PloggingDTO;
 import com.app.floc.domain.DTO.Search;
-import com.app.floc.domain.VO.PloggingVO;
+import com.app.floc.domain.VO.TissueVO;
 import com.app.floc.domain.VO.UserVO;
 
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.Optional;
 
 public interface MypageService {
     //    게시글 목록
-    public List<PloggingDTO> getList(MyPloggingPagination myPloggingPaginationpagination, Search search);
+    public List<PloggingDTO> getList(MyPloggingPagination myPloggingPagination, Search search);
 
     //    게시글 추가
     public void write(PloggingDTO ploggingDTO);
@@ -35,5 +35,11 @@ public interface MypageService {
     public void modifyPassword(UserVO userVO);
 
     //  회원탈퇴
-    public void exitUser(UserVO userVO);
+    public void exitUser(Long id);
+
+    //포인트 목록
+    public List<TissueVO> getListPoint(MyPloggingPagination myPloggingPagination, Search search);
+
+    //포인트 적립, 사용
+    public void usePoint(TissueVO tissueVO);
 }

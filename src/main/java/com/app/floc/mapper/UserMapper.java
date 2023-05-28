@@ -52,5 +52,5 @@ public interface UserMapper {
     public void updatePassword(UserVO userVO);
 
     //회원탈퇴
-    public void delete(UserVO userVO);
+    public void delete(Long id);
 }

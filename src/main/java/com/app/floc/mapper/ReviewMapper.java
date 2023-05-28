@@ -12,6 +12,7 @@ import java.util.Optional;
 @Mapper
 public interface ReviewMapper {
 //    플로깅 후기 조회(사용자)
+
     public List<ReviewDTO> selectAll(@Param("pagination")Pagination pagination, @Param("search")Search search);
     //    플로깅 후기 조회(로컬크리에이터)
     public List<ReviewDTO> selectAllLocal(@Param("pagination")Pagination pagination, @Param("search")Search search);
