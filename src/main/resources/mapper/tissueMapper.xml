@@ -2,36 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.floc.mapper.TissueMapper">
     <select id="selectAll" resultType="TIssueVO">
-        SELECT T.ID, T.USER_ID, TISSUE_CREATED_DATE, TISSUE_POINT, TISSUE_HISTORY, T.USER_ID, USER_NICKNAME
-        FROM
-        (
-        SELECT ROWNUM R, T.ID, T.USER_ID, TISSUE_CREATED_DATE, TISSUE_POINT, TISSUE_HISTORY, T.USER_ID, USER_NICKNAME
-        FROM TBL_USER U JOIN TBL_TISSUE T
-        <![CDATA[
-            ON U.ID = U.MEMBER_ID AND ROWNUM <= #{pagination.page} * #{pagination.rowCount}
-        ]]>
-        ORDER BY
-                T.ID
-        DESC
-        <![CDATA[
-        ) T WHERE R > (#{pagination.page} - 1) * #{pagination.rowCount}
-        ]]>
+        SELECT ID, USER_ID, TISSUE_CREATED_DATE, TISSUE_POINT, TISSUE_HISTORY
+        FROM TBL_TISSUE
+        ORDER BY ID DESC
     </select>
 
     <insert id="insert">
-        <selectKey keyProperty="id" order="BEFORE" resultType="TIssueVO">
-            SELECT SEQ_TISSUE.NEXTVAL FROM DUAL
-        </selectKey>
         INSERT INTO TBL_TISSUE(ID, USER_ID, TISSUE_CREATED_DATE, TISSUE_POINT, TISSUE_HISTORY)
         VALUES(#{id}, #{userId}, #{tissueCreatedDate}, #{tissuePoint}, #{tissueHistory})
     </insert>
 
-    <delete id="delete">
-        DELETE FROM TBL_TISSUE WHERE ID = #{id}
-    </delete>
+
 
     <insert id="insertByBuyProduct">
         INSERT INTO TBL_TISSUE(ID, USER_ID,  TISSUE_POINT, TISSUE_HISTORY)
         VALUES(SEQ_TISSUE.NEXTVAL, #{userId},  #{tissuePoint}, #{tissueHistory})
     </insert>
+
 </mapper>

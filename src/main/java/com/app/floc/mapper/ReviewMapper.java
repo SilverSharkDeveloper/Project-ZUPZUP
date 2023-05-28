@@ -11,6 +11,7 @@ import java.util.Optional;
 
 @Mapper
 public interface ReviewMapper {
+
     public List<ReviewDTO> selectAll(@Param("pagination")Pagination pagination, @Param("search")Search search);
 
     public void insert(ReviewDTO reviewDTO);
