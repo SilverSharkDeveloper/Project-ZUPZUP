@@ -35,7 +35,7 @@ public interface MypageService {
     public void modifyPassword(UserVO userVO);
 
     //  회원탈퇴
-    public void exitUser(UserVO userVO);
+    public void exitUser(Long id);
 
     //포인트 목록
     public List<TissueVO> getListPoint(MyPloggingPagination myPloggingPagination, Search search);
