@@ -72,12 +72,12 @@ public class MypageServiceImpl implements MypageService {
 
     @Override
     public void modifyPassword(UserVO userVO) {
-        userDAO.crystalPassword(userVO);
+        userDAO.updateUser(userVO);
     }
 
     @Override
-    public void exitUser(UserVO userVO) {
-        userDAO.deleteUser(userVO);
+    public void exitUser(Long id) {
+        userDAO.deleteUser(id);
     }
 
     @Override

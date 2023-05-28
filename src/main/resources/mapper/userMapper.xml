@@ -91,20 +91,20 @@
     <update id="update">
         UPDATE TBL_USER
         SET USER_IDENTIFICATION=#{userIdentification}, USER_INTRODUCING_MESSAGE=#{userIntroducingMessage}, PROFIL_IMAGE_NAME=#{profilImageName}, PROFIL_IMAGE_UUID=#{profilImageUuid}, PROFIL_IMAGE_SIZE=#{profilImageSize}, USER_MARKETING=#{userMarketing}, USER_NICKNAME=#{userNickname}
-        WHERE ID=#{Id};
+        WHERE ID=#{id};
     </update>
 
     <!--마이페이지 비밀번호 수정-->
     <update id="updatePassword">
         UPDATE TBL_USER
         SET USER_PASSWORD=#{userPassword}
-        WHERE ID=#{Id};
+        WHERE ID=#{id};
     </update>
 
     <!--마이페이지 회원탈퇴-->
     <delete id="delete">
         DELETE FROM TBL_USER
-        WHERE ID=#{Id};
+        WHERE ID=#{id};
     </delete>
 </mapper>
 

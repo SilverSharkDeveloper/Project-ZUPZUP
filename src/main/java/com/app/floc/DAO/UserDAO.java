@@ -73,14 +73,10 @@ public class UserDAO {
         userMapper.update(userVO);
     }
 
-    //비밀번호 수정
-    public void crystalPassword(UserVO userVO){
-        userMapper.updatePassword(userVO);
-    }
 
     //회원탈퇴
-    public void deleteUser(UserVO userVO){
-        userMapper.delete(userVO);
+    public void deleteUser(Long id){
+        userMapper.delete(id);
     }
 
 }
