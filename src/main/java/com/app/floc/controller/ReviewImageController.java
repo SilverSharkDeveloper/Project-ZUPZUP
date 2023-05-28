@@ -24,7 +24,7 @@ import java.util.UUID;
 
 @Controller
 @Slf4j
-@RequestMapping("/reviewImage/*")
+@RequestMapping("/reviewImages/*")
 public class ReviewImageController {
     //    파일 업로드
     @PostMapping("upload")
@@ -54,38 +54,9 @@ public class ReviewImageController {
     //    파일 불러오기
     @GetMapping("display")
     @ResponseBody
-    public byte[] display(String reviewImageName) throws IOException{
-        return FileCopyUtils.copyToByteArray(new File("C:/upload/", reviewImageName));
+    public byte[] display(String reviewImageImageName) throws IOException{
+        return FileCopyUtils.copyToByteArray(new File("C:/upload/", reviewImageImageName));
     }
-
-
-//    @GetMapping("display")
-//    @ResponseBody
-//    public ResponseEntity<Resource> display(String reviewImageName) throws IOException {
-//        String filePath = "C:/upload/" + reviewImageName;
-//        File file = new File(filePath);
-//        Resource resource = new InputStreamResource(new FileInputStream(file));
-//
-//        // 파일 확장자 추출
-//        Path path = Paths.get(filePath);
-//        String extension = Files.probeContentType(path);
-//
-//        // 적절한 MediaType 설정
-//        MediaType mediaType;
-//        if (extension != null) {
-//            mediaType = MediaType.parseMediaType(extension);
-//        } else {
-//            // 기본적으로 이미지 파일로 처리
-//            mediaType = MediaType.IMAGE_JPEG;
-//        }
-//
-//        return ResponseEntity.ok()
-//                .contentLength(file.length())
-//                .contentType(mediaType)
-//                .body(resource);
-//    }
-
-
 
     //    파일 다운로드
     @GetMapping

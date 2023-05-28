@@ -9,7 +9,10 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ReviewService {
+    // 후기 목록과 파일 목록을 가져오기
     public List<ReviewDTO> getList(Pagination pagination, Search search);
+
+    public List<ReviewDTO> getLocalList(Pagination pagination, Search search);
 
     public void write(ReviewDTO reviewDTO);
 
@@ -20,8 +23,6 @@ public interface ReviewService {
     public void remove(Long id);
 
     public int getTotal(Search search);
-
-    public List<ReviewDTO> getLocalList();
 
     default ReviewDTO toDTO(ReviewVO reviewVO){
         ReviewDTO reviewDTO = new ReviewDTO();

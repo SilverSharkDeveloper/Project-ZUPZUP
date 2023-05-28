@@ -19,7 +19,7 @@ import java.util.Optional;
 public class ReviewServiceImpl implements ReviewService {
     private final ReviewDAO reviewDAO;
     private final ReviewImageDAO reviewImageDAO;
-
+// 후기 목록과 파일 목록을 가져와 사용하기 위해 reviews객체에 담기
     @Override
     @Transactional(rollbackFor = Exception.class)
     public List<ReviewDTO> getList(Pagination pagination, Search search ) {
@@ -76,7 +76,10 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public List<ReviewDTO> getLocalList() {
-        return reviewDAO.findAllLocal();
+    @Transactional(rollbackFor = Exception.class)
+    public List<ReviewDTO> getLocalList(Pagination pagination, Search search) {
+        final List<ReviewDTO> reviews = reviewDAO.findAllLocal(pagination, search);
+        reviews.forEach(review -> review.setFiles(reviewImageDAO.findAll(review.getId())));
+        return reviews;
     }
 }

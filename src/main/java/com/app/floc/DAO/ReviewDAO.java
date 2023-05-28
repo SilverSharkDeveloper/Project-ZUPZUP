@@ -39,7 +39,7 @@ public class ReviewDAO {
         return reviewMapper.selectCountOfReview(search);
     }
 
-    public List<ReviewDTO> findAllLocal() {
-        return reviewMapper.selectAllLocal();
+    public List<ReviewDTO> findAllLocal(Pagination pagination, Search search) {
+        return reviewMapper.selectAllLocal(pagination, search);
     }
 }
