@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleag.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -11,40 +11,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
           rel="stylesheet">
     <link href="/css/mypage/my-plogging-review.css" rel="stylesheet">
+    <link href="/css/notice/notice.css" rel="stylesheet">
+    <link href="/css/font.css" rel="stylesheet">
+    <link href="/css/header-footer/header-login.css" rel="stylesheet">
+    <link href="/css/header-footer/footer.css" rel="stylesheet">
 </head>
 <body>
 <div class="css-b3oum6">
     <div class="layout">
+        <header th:replace="~{/header-footer/header-login}"></header>
         <div class="css-18dsw15 e1ivswjr4">
             <div class="myhome-nav myhome-nav--owner">
                 <nav class="page-navigation myhome-nav__owner">
                     <ul style="transform: translateX(0px);">
-                        <li class="page-navigation__item"><a class="active" href="/users/20617180"
+                        <li class="page-navigation__item"><a class="" href="/mypage/main"
                                                              target="_self">프로필</a></li>
-                        <li class="page-navigation__item"><a class="" href="/user_shopping_pages/order_list"
-                                                             target="_self">나의 쇼핑</a></li>
-                        <li class="page-navigation__item"><a class="" href="/production_reviews/write" target="_self">나의
-                            리뷰</a></li>
-                        <li class="page-navigation__item"><a class="" href="/users/20617180/edit" target="_self">설정</a>
-                        </li>
+                        <li class="page-navigation__item"><a class="active" href="/mypage/my-host-list"
+                                                             target="_self">나의 플로깅</a></li>
+                        <li class="page-navigation__item"><a class="" href="/mypage/my-product" target="_self">나의
+                            상품</a></li>
                     </ul>
                 </nav>
                 <nav class="page-navigation myhome-nav__contents">
                     <ul style="transform: translateX(0px);">
-                        <li class="page-navigation__item"><a class="" href="/users/20617180" target="_self">모두보기</a>
+                        <li class="page-navigation__item"><a class="" href="/mypage/my-host-list" target="_self">플로깅 관리</a>
                         </li>
-                        <li class="page-navigation__item"><a class="" href="/users/20617180/card_collections"
-                                                             target="_self">사진</a></li>
-                        <li class="page-navigation__item"><a class="" href="/users/20617180/projects"
-                                                             target="_self">집들이</a></li>
-                        <li class="page-navigation__item"><a class="" href="/users/20617180/advices"
-                                                             target="_self">노하우</a></li>
-                        <li class="page-navigation__item"><a class="" href="/users/20617180/questions" target="_self">질문과답변</a>
-                        </li>
-                        <li class="page-navigation__item"><a class="" href="/users/20617180/collections" target="_self">스크랩북</a>
-                        </li>
-                        <li class="page-navigation__item"><a class="active" href="/users/20617180/praises"
-                                                             target="_self">좋아요</a></li>
+                        <li class="page-navigation__item"><a class="" href="/plogging/plogging-form"
+                                                             target="_self">플로깅 모집</a></li>
+                        <li class="page-navigation__item"><a class="active" href="/mypage/my-local-review"
+                                                             target="_self">후기 관리</a></li>
+                        <li class="page-navigation__item"><a class="" href="/review/review-form"
+                                                             target="_self">후기 작성</a></li>
                     </ul>
                 </nav>
             </div>
@@ -144,10 +141,10 @@
                     <div class="css-1ltj86z e15wafbq0">
                         <div class="css-1sl5jc2 e1063pje4">
                             <div class="css-0 e1063pje3"><a class="css-s4qby9 e1063pje2"
-                                                            href="/users/20617180/questions">주최 후기</a><a
-                                    class="css-ril2vk e1063pje2" href="/users/20617180/reply_questions">참여 후기</a></div>
+                                                            href="/mypage/my-local-review">나의 주최 후기</a><a
+                                    class="css-ril2vk e1063pje2" href="/mypage/my-user-review">나의 참여 후기</a></div>
                             <div class="css-0 e1063pje1"><a class="_3Z6oR _3AsCW _1BDvx css-1fi7ukg e1063pje0"
-                                                            href="/questions">후기 작성 바로가기</a></div>
+                                                            href="/review/review-form">후기 작성 바로가기</a></div>
                         </div>
                         <div class="css-1w92ebd e1lm7yo61">
                             <div class="virtualized-list row"
@@ -301,7 +298,10 @@
                 </div>
             </div>
         </div>
+        <footer th:replace="~{/header-footer/footer :: .css-f93bbn}"></footer>
     </div>
 </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="/js/header-footer/header.js"></script>
 </html>

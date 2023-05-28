@@ -13,29 +13,41 @@
     <link href="/css/font.css" rel="stylesheet">
     <link href="/css/mypage/users.css" rel="stylesheet">
     <link href="/css/mypage/users-edit.css" rel="stylesheet">
-    <link href="/css/header-footer/header.css" rel="stylesheet">
+    <link href="/css/notice/notice.css" rel="stylesheet">
+    <link href="/css/font.css" rel="stylesheet">
+    <link href="/css/header-footer/header-login.css" rel="stylesheet">
     <link href="/css/header-footer/footer.css" rel="stylesheet">
 </head>
 </head>
 <body>
 <div>
-    <header th:replace="~{/header-footer/header :: #header}"></header>
+    <header th:replace="~{/header-footer/header-login}"></header>
 
     <div class="css-18dsw15 e1ivswjr4">
         <div class="myhome-nav myhome-nav--owner">
             <nav class="page-navigation myhome-nav__owner">
                 <ul style="transform: translateX(0px);">
-                    <li class="page-navigation__item"><a class="active" href="#" target="_self">프로필 설정</a>
-                    </li>
-                    <li class="page-navigation__item"><a class="" href="#" target="_self">플로깅</a></li>
-                    <li class="page-navigation__item"><a class="" href="#" target="_self">나의 개인관리</a></li>
+                    <li class="page-navigation__item"><a class="active" href="/mypage/main"
+                                                         target="_self">프로필</a></li>
+                    <li class="page-navigation__item"><a class="" href="/mypage/my-host-list"
+                                                         target="_self">나의 플로깅</a></li>
+                    <li class="page-navigation__item"><a class="" href="/mypage/my-product" target="_self">나의
+                        상품</a></li>
                 </ul>
             </nav>
             <nav class="page-navigation myhome-nav__contents">
                 <ul style="transform: translateX(0px);">
-                    <li class="page-navigation__item"><a class="" href="#" target="_self">모두보기</a></li>
-                    <li class="page-navigation__item"><a class="active" href="#" target="_self">회원정보수정</a></li>
-                    <li class="page-navigation__item"><a class="" href="#" target="_self">비밀번호 변경</a></li>
+                    <li class="page-navigation__item"><a class="" href="/mypage/main" target="_self">홈</a>
+                    </li>
+                    <li class="page-navigation__item"><a class="active" href="/mypage/users-edit"
+                                                         target="_self">회원정보 수정</a></li>
+                    <li class="page-navigation__item"><a class="" href="/mypage/users-edit-password"
+                                                         target="_self">비밀번호 수정</a></li>
+                    <li class="page-navigation__item"><a class="" href="/mypage/my-question"
+                                                         target="_self">1대1 문의</a></li>
+                    <li class="page-navigation__item"><a class="" href="/mypage/my-following" target="_self">나의 팔로잉</a>
+                    </li>
+                    <li class="page-navigation__item"><a class="" href="/mypage/my-follower" target="_self">나의 팔로워</a>
                     </li>
                 </ul>
             </nav>
@@ -180,6 +192,10 @@
             </form>
         </div>
     </div>
+</div>
+    <footer th:replace="~{/header-footer/footer :: .css-f93bbn}"></footer>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="/js/header-footer/header.js"></script>
 </html>
 
