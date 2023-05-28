@@ -75,4 +75,11 @@ public class ReviewController {
 //        pagination.progress();
 //        model.addAttribute("reviews", reviewService.getList(pagination, search));
 //    }
+
+
+    //마이페이지에서 작성폼으로 가기 위한 매핑
+    @GetMapping("review-form")
+    public void review() {
+
+    }
 }
