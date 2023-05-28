@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.floc.mapper.CouponMapper">
+    <insert id="insert">
+        INSERT INTO TBL_COUPON
+        (ID, USER_ID, PRODUCT_ID,   COUPON_STATUS, COUPON_QRCODE_PATH)
+        VALUES(SEQ_COUPON.NEXTVAL, #{userId},#{productId} ,  ('VALID'), #{couponQrcodePath})
+    </insert>
+
+    <update id="update">
+        UPDATE TBL_COUPON
+        SET COUPON_USED_DATE=SYSDATE, COUPON_STATUS='INVALID', COUPON_QRCODE_PATH=NULL
+        WHERE ID=#{id}
+    </update>
+
+    <select id="select" resultType="couponVO">
+        SELECT ID, USER_ID, PRODUCT_ID, COUPON_CREATED_DATE, COUPON_USED_DATE, COUPON_STATUS, COUPON_QRCODE_PATH
+        FROM TBL_COUPON
+        WHERE ID = #{couponId}
+    </select>
 
 </mapper>

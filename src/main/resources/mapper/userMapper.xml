@@ -30,10 +30,10 @@
         WHERE USER_NICKNAME = #{nickname}
     </select>
 
-    <!--비밀번호,카카오 네이버 관련 회원정보 수정, 휴지는 없음 -->
+    <!--비밀번호,카카오 네이버 관련 회원정보 수정, 휴지까지 수정 -->
     <update id="updateUser">
         UPDATE TBL_USER
-        SET USER_IDENTIFICATION=#{userIdentification}, USER_PASSWORD=#{userPassword}, USER_NAME=#{userName},USER_NICKNAME = #{userNickname}, USER_STATUS=#{userStatus} , USER_UPDATED_DATE=SYSDATE
+        SET USER_IDENTIFICATION=#{userIdentification}, USER_PASSWORD=#{userPassword}, USER_NAME=#{userName},USER_NICKNAME = #{userNickname}, USER_STATUS=#{userStatus} , USER_UPDATED_DATE=SYSDATE,USER_TISSUE = #{userTissue}
         WHERE ID = #{id}
     </update>
 

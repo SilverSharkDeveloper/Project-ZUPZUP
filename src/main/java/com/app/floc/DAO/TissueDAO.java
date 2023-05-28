@@ -26,4 +26,12 @@ public class TissueDAO {
         tissueMapper.insert(tissueVO);
     }
 
+
+
+
+    //상품 구매로 인한 티슈 히스토리
+    public void buyProductHistory(TissueVO tissueVO){
+        tissueMapper.insertByBuyProduct(tissueVO);
+    }
+
 }
