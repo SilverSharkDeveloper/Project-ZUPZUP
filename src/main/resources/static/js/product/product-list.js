@@ -45,18 +45,7 @@ $(".order-list button").each((i,btn)=>{
 })
 
 
-//wish 체크
-$(".scrap-btn").each((i,btn)=>{
-    $(btn).on("click",e=>{
-        if( $(".scrap-btn .scrap-icon").eq(i).hasClass("active-icon")){
 
-            $(".scrap-btn .scrap-icon").eq(i).removeClass("active-icon");
-        }else{
-            $(".scrap-btn .scrap-icon").eq(i).addClass("active-icon");
-
-        }
-    })
-})
 
 
 
@@ -76,13 +65,14 @@ function showList() {
     $.ajax({
         url:"/product/getList",
         data : {"order" : order, "category" :category ,"location":location,"count":count},
+        async :false,
         success : function (products) {
             console.log(products)
             let text = ``;
-            products.forEach(product =>{
-                text +=` <div class="col-6 col-md-3 product-item-wrap">
+            products.forEach((product,index) =>{
+                text +=` <div class="col-6 col-md-3 product-item-wrap" ${product.productStock==0?'style="opacity:0.5;"':''}>
                         <article class="production-item"><a class="production-item__overlay"
-                                                            href="//product/product-detail?productId=${product.id}"></a>
+                                                            href="/product/product-detail?productId=${product.id}"></a>
                             <div class="production-item-image production-item__image"><img class="image" alt=""
                                                                                            src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168266558366770905.png?gif=1&amp;w=360&amp;h=360&amp;c=c&amp;q=0.8&amp;webp=1"
                                                                                            srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168266558366770905.png?gif=1&amp;w=640&amp;h=640&amp;c=c&amp;q=0.8&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168266558366770905.png?gif=1&amp;w=720&amp;h=720&amp;c=c&amp;q=0.8&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168266558366770905.png?gif=1&amp;w=1080&amp;h=1080&amp;c=c&amp;q=0.8&amp;webp=1 3x">
@@ -188,13 +178,29 @@ function showList() {
 
             })
 
-            $(".virtualized-list").append(text);
-            addBtnClick();
+            if(products.length!=0){
+                $(".virtualized-list").append(text);
+                addBtnClick();
+                count = count+products.length;
+
+            }
 
         }
     })
 
 }
+
+//버튼 추가
+function addBtnClick(){
+    $(".scrap-btn").filter((i,btn)=>i>count-2).each((i,btn)=>{
+
+        $(btn).on("click",e=>{
+                wishing(btn,i);
+        })
+    })
+}
+
+//wish 체크
 
 //위싱 리스트 넣기
 function wishing(btn,i){
@@ -203,14 +209,18 @@ function wishing(btn,i){
         data: {productId : $(btn).attr("id")},
         async : false,
         success : function (sessionId) {
-            console.log(sessionId)
 
             if(sessionId){
-                if( $(".scrap-btn .scrap-icon").eq(i).hasClass("active-icon")){
+                if($(btn).find(".scrap-icon").hasClass("active-icon")){
+                    console.log("들어옴");
+                    $(btn).find(".scrap-icon").removeClass("active-icon");
 
-                    $(".scrap-btn .scrap-icon").eq(i).removeClass("active-icon");
+                    console.log( $(btn).closest(".production-item").find(".scrap-cnt"));
+
+                    $(btn).closest(".production-item").find(".scrap-cnt").html(Number($(btn).closest(".production-item").find(".scrap-cnt").html())+1)
                 }else{
-                    $(".scrap-btn .scrap-icon").eq(i).addClass("active-icon");
+                    $(btn).find(".scrap-icon").addClass("active-icon");
+                    $(btn).closest(".production-item").find(".scrap-cnt").html(Number($(btn).closest(".production-item").find(".scrap-cnt").html())-1)
 
                 }
             }else{
@@ -222,13 +232,26 @@ function wishing(btn,i){
 
     })
 }
-//버튼 추가
-function addBtnClick(){
-    $(".scrap-btn").each((i,btn)=>{
-        $(btn).on("click",e=>{
-            wishing(btn,i);
 
-        })
-    })
+
+
+
+
+//무한스크롤
+window.addEventListener("scroll", infiniteScroll);
+
+
+function infiniteScroll(){
+    const currentScroll = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const bodyHeight = document.querySelector(".css-b3oum7").clientHeight;
+
+
+    if(currentScroll + windowHeight +200>= bodyHeight){
+
+
+           showList();
+
+    }
 }
 

@@ -12,7 +12,7 @@ public interface ProductService {
     public void register(ProductVO productVO);
 
     //상품한개조회 -> 화면에서 상세보기
-    public Optional<ProductVO> read(Long productId);
+    public Optional<ProductDTO> read(Long productId, Long userId);
 
     //상품전체조회 -> 목록조회 ->pagination
     public List<ProductDTO> getList(ProductPagination pagination, Long userId);
@@ -26,6 +26,10 @@ public interface ProductService {
 
     //위시 추가 또는 삭제
     public void addOrDeleteWish(Long userId,Long productID);
+
+
+    //쿠폰 사기
+    public void buyProduct(Long userId, Long productId);
 
 
 }

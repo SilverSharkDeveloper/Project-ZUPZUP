@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <title>제품 상세정보 페이지</title>
     <link rel="stylesheet" href="/css/header-footer/header.css">
+    <link rel="stylesheet" href="/css/header-footer/header-login.css">
     <link rel="stylesheet" href="/css/header-footer/footer.css">
+    <link rel="stylesheet" href="/css/product/main.css">
     <link rel="stylesheet" href="/css/product/detail.css">
     <link rel="stylesheet" href="/css/font.css">
+
 </head>
 <body>
 <th:block th:if="${session.userId==null}">
@@ -15,306 +18,19 @@
 <th:block th:if="${session.userId!=null}">
     <header class="header" th:replace="~{/header-footer/header-login :: header}"></header>
 </th:block>
-<div class="wrap">
+<div class="css-b3oum7">
     <div class="layout">
         <div class="production-selling">
-            <div class="production-selling-overview container">
-                <nav class="commerce-category-breadcrumb-wrap production-selling-overview__category">
-                    <ol class="commerce-category-breadcrumb">
-                        <li class="commerce-category-breadcrumb__entry"><a class="link"
-                                                                           href="/product/product-detail?productId=">패브릭</a>
-                            <svg class="icon" width="8" height="8" viewBox="0 0 8 8" fill="currentColor"
-                                 preserveAspectRatio="xMidYMid meet">
-                                <path d="M4.95 4L2.12 1.19l.7-.71 3.54 3.54-3.53 3.53-.7-.7z"></path>
-                            </svg>
-                        </li>
-                    </ol>
-                </nav>
-                <div class="production-selling-overview__container row">
-                    <div class="production-selling-overview__cover-image-wrap col-12 col-md-6 col-lg-7">
-                        <div class="production-selling-cover-image-container">
-                            <div class="carousel production-selling-cover-image production-selling-overview__cover-image"
-                                 role="region" aria-roledescription="carousel">
-                                <div class="carousel__list-wrap production-selling-cover-image__carousel-wrap">
-                                    <div class="carousel__list" aria-live="polite" style="transform: translateX(0%);">
-                                        <div class="carousel__list__entry production-selling-cover-image__entry"
-                                             role="group" aria-roledescription="slide" aria-label="1 of 8"
-                                             style="width: 100%;"><img
-                                                class="production-selling-cover-image__entry__image" tabindex="0"
-                                                alt="상품의 대표 이미지"
-                                                src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167168822852557476.jpg?gif=1&amp;w=640&amp;h=640&amp;c=c"
-                                                srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167168822852557476.jpg?gif=1&amp;w=960&amp;h=960&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167168822852557476.jpg?gif=1&amp;w=1280&amp;h=1280&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167168822852557476.jpg?gif=1&amp;w=1920&amp;h=1920&amp;c=c 3x">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="production-selling-overview__content col-12 col-md-6 col-lg-5">
-                        <div class="production-selling-header">
-                            <h1 class="production-selling-header__title">
-                                <p style="margin-bottom: 1rem"
-                                   class="production-selling-header__title__brand-wrap"><a
-                                        class="production-selling-header__title__brand"
-                                        href="#">
-                                    <!--사용처-->
-                                    wework</a>
-                                    <button class="production-selling-header__action__button production-selling-header__action__button-scrap"
-                                            style="border: none; background-color: transparent; color: #6e6e6e; position: absolute; right: 4px;"
-                                            type="button">
-                                        <svg class="icon--stroke" aria-label="스크랩" width="24" height="24"
-                                             fill="currentColor" stroke="currentColor" stroke-width="0.5"
-                                             viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
-                                            <path d="M11.53 18.54l-8.06 4.31A1 1 0 0 1 2 21.97V3.5A1.5 1.5 0 0 1 3.5 2h17A1.5 1.5 0 0 1 22 3.5v18.47a1 1 0 0 1-1.47.88l-8.06-4.31a1 1 0 0 0-.94 0z"></path>
-                                        </svg>
-                                        <span class="count"></span></button>
-                                </p>
-                                <div class="production-selling-header__content">
-                                    <div class="production-selling-header__price"><span
-                                            class="production-selling-header__price__price-wrap"><span
-                                            class="production-selling-header__price__separator"></span><div
-                                            class="production-selling-header__price__price-value-wrap"><div
-                                            class="production-selling-header__price__price"><span
-                                            class="number">상품명:</span><span
-                                            class="won"><!--상품명--></span></div></div></span></div>
-                                </div>
-                            </h1>
-                            <div class="production-selling-header__content">
-                                <div class="production-selling-header__price"><span
-                                        class="production-selling-header__price__price-wrap"><span
-                                        class="production-selling-header__price__separator"></span><div
-                                        class="production-selling-header__price__price-value-wrap"><div
-                                        class="production-selling-header__price__price"><span
-                                        class="number">지역:</span><span class="won"><!--상품 사용 가능 지역--></span></div></div></span>
-                                </div>
-                            </div>
-                            <div class="production-selling-header__content">
-                                <div class="production-selling-header__price"><span
-                                        class="production-selling-header__price__price-wrap"><span
-                                        class="production-selling-header__price__separator"></span><div
-                                        class="production-selling-header__price__price-value-wrap"><div
-                                        class="production-selling-header__price__price"><span
-                                        class="number">재고:</span><span
-                                        class="won"><!--잔여 상품 수--></span></div></div></span></div>
-                            </div>
-                            <div class="production-selling-header__content">
-                                <div class="production-selling-header__price"><span
-                                        class="production-selling-header__price__price-wrap"><span
-                                        class="production-selling-header__price__separator"></span><div
-                                        class="production-selling-header__price__price-value-wrap"><div
-                                        class="production-selling-header__price__price"><span
-                                        class="number">지역:</span><span
-                                        class="won"><!--상품 사용지역--></span></div></div></span></div>
-                            </div>
-                            <div class="production-selling-header__content">
-                                <div class="production-selling-header__price"><span
-                                        class="production-selling-header__price__price-wrap"><span
-                                        class="production-selling-header__price__separator"></span><div
-                                        class="production-selling-header__price__price-value-wrap"><div
-                                        class="production-selling-header__price__price"><span
-                                        class="number">등록일:</span><span
-                                        class="won"><!--상품 등록일--></span></div></div></span></div>
-                            </div>
-                            <div class="production-selling-header__info-wrap"></div>
-                            <a class="css-1jw8uh0 e3xbt9p7"
-                               href="/brands/home?query=%ED%97%AC%EB%A1%9C%EC%9A%B0%EC%8A%AC%EB%A6%BD&amp;affect_type=ProductSaleDetail&amp;affect_id=767440">
-                                <div class="css-gshsra e3xbt9p6">
-                                    <!--<svg width="24" height="24" fill="none" preserveAspectRatio="xMidYMid meet">
-                                        <path d="M3.972 8.694c0-.26.212-.472.472-.472h12.278a.472.472 0 010 .945H4.444a.472.472 0 01-.472-.473z"
-                                              fill="#35C5F0"></path>
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                              d="M17.51 5.5H6.492a1 1 0 00-.93.632l-.99 2.5A1 1 0 005.498 10h13.004a1 1 0 00.927-1.368l-.99-2.5a1 1 0 00-.93-.632zM3.642 8.263a2.002 2.002 0 001.397 2.684V17.5a2.5 2.5 0 002.5 2.5H16.474a2.5 2.5 0 002.487-2.5v-6.553a2.002 2.002 0 001.398-2.684l-.99-2.5a2 2 0 00-1.86-1.263H6.493a2 2 0 00-1.86 1.263l-.99 2.5zM6.04 17.5V11h11.921v6.5a1.5 1.5 0 01-1.487 1.5v-4a2 2 0 00-2-2h-.97a2 2 0 00-2 2v4H7.54a1.5 1.5 0 01-1.5-1.5zm6.464 1.5h2.97v-4a1 1 0 00-1-1h-.97a1 1 0 00-1 1v1h.847a.5.5 0 110 1h-.847v2zM8 13h1.5v1.5H8V13zm-1 0a1 1 0 011-1h1.5a1 1 0 011 1v1.5a1 1 0 01-1 1H8a1 1 0 01-1-1V13z"
-                                              fill="#3F474D"></path>
-                                    </svg>-->
-                                    <!--<div class="css-158icaa e3xbt9p5"><span class="css-16kia55 e3xbt9p4">헬로우슬립</span>
-                                    </div>-->
-                                </div>
-                                <!-- <div class="css-xq185e e3xbt9p0"><span>브랜드</span>
-                                     <svg width="14" height="14" fill="none" preserveAspectRatio="xMidYMid meet">
-                                         <path d="M4.083 11.375L8.312 7 4.083 2.625l.803-.875L9.916 7l-5.03 5.25-.803-.875z"
-                                               fill="#828C94"></path>
-                                     </svg>
-                                 </div>-->
-                            </a></div>
-                        <div class="production-selling-option-form production-selling-overview__option-form"><p
-                                class="css-49v6aj ejhg2ki2"><span class="css-7c0zb9 ejhg2ki1">주문금액</span><span
-                                class="css-q02jxk ejhg2ki0"><span>0</span>원</span></p>
-                            <div class="production-selling-option-form__footer">
-                                <button class="button button--color-blue button--size-55 button--shape-4" type="button">
-                                    교환하기
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="production-selling-navigation__border"></div>
-                <div class="sticky-container production-selling-navigation__wrap"
-                     style="position: sticky; top: 131px; transition: top 0.1s ease 0s;">
-                    <div class="sticky-child production-selling-navigation" style="position: relative;">
-                        <nav class="production-selling-navigation__content">
-                            <ol class="production-selling-navigation__list">
-                                <li>
-                                    <a class="production-selling-navigation__item production-selling-navigation__item--active"
-                                       href="#production-selling-information">상품정보</a></li>
-                            </ol>
-                        </nav>
-                    </div>
-                    <div class="production-selling__detail-wrap container">
-                        <div class="production-selling__detail row">
-                            <div class="production-selling__detail__content col-12 col-lg-8">
-                                <div class="production-selling-content">
-                                    <a id="production-selling-information"></a>
-                                    <section class="production-selling-section">
-                                        <div class="production-selling-description production-selling-description--notice">
-                                            <div class="production-selling-description__expand-wrap">
-                                                <button class="button button--color-blue button--size-60 button--shape-4 production-selling-description__expand"
-                                                        type="button">펼치기
-                                                    <svg class="icon" width="1em" height="1em" viewBox="0 0 16 16"
-                                                         preserveAspectRatio="xMidYMid meet">
-                                                        <path fill="currentColor" fill-rule="evenodd"
-                                                              d="M2.87 4L1.33 5.5 8 12l6.67-6.5L13.13 4 8 9z"></path>
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <div class="production-selling-description__content"
-                                                 style=""><p
-                                                    style="text-align: left;"><span style="font-size: 18pt;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</strong></span>
-                                            </p>
-                                                <p>
-                                                    <a href="https://ohou.se/productions/2035030/selling?affect_id=2&amp;affect_type=StoreSearchResult"
-                                                       target="_blank" rel="noopener"> <img
-                                                            src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/168230834663274126.jpg"
-                                                            alt="상품의 상세 설명 이미지" width="1000" height="412"></a></p>
-                                                <p><a href="https://www.instagram.com/hellosleep_official/"
-                                                      target="_blank" rel="noopener"> <img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/167875861045851978.jpg"
-                                                        alt="상품의 상세 설명 이미지" width="1000" height="4494"></a></p>
-                                                <p>&nbsp;</p>
-                                                <p style="text-align: left;"><span style="font-size: 18pt;"><strong>&nbsp; &nbsp; &nbsp; &nbsp;</strong></span><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/164420850182301607.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/167325176579404443.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/165483919242829770.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/164420856501396146.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/167996540756111278.jpg"
-                                                        alt="상품의 상세 설명 이미지" width="1000" height="2464"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/164420859551584218.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/164005374660344770.gif"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/164007582366265592.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/168204869756970928.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/164420862298452600.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/166613712412683931.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/167325239392299585.jpg"
-                                                        alt="상품의 상세 설명 이미지" width="1000" height="2456"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/164005378653820965.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/162884287098227662.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/164005380474652470.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/166245437357659170.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/164396545799462534.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/164396549827430539.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/167325242046497605.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/164005385635593683.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/167325262082776926.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/163955247042052627.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/163955247790043084.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/164421100526459679.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/167325347923944187.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/167325349725328240.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/167325244377212637.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/164396555208152247.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/164396556821527746.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/166245425371749892.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/166245423654386588.jpg"
-                                                        alt="상품의 상세 설명 이미지" width="1000" height="8911"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/166253541230454937.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/166253543349129445.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/168059400719908716.jpg"
-                                                        alt="상품의 상세 설명 이미지" width="1000" height="9900"></p>
-                                                <p>&nbsp;</p>
-                                                <p>&nbsp;</p>
-                                                <p>&nbsp;</p>
-                                                <p>&nbsp;</p>
-                                                <p>&nbsp;</p>
-                                                <p>&nbsp;</p>
-                                                <p>&nbsp;</p>
-                                                <p>
-                                                    <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/165483920295901113.jpg"
-                                                         alt="상품의 상세 설명 이미지"></p>
-                                                <p>&nbsp;</p>
-                                                <p>&nbsp;</p>
-                                                <p>&nbsp;</p>
-                                                <p>&nbsp;</p>
-                                                <p>
-                                                    <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/167515171882201538.jpg"
-                                                         alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/167515174543212936.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/167515193105988467.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/163755578571075796.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/163755579201054808.jpg"
-                                                        alt="상품의 상세 설명 이미지"><img
-                                                        src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/descriptions/url/168076967959530505.jpg"
-                                                        alt="상품의 상세 설명 이미지"></p></div>
-                                        </div>
-                                    </section>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
 </div>
 <footer class="footer" th:replace="~{/header-footer/footer :: footer}"></footer>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script>
-    $bookmark = $("svg.icon--stroke");
-    $bookmark.on("click", function () {
-        if ($(this).hasClass("check")) {
-            $(this).removeClass("check");
-            $(this).css({
-                "fill": "transparent"
-            });
-        } else {
-            $(this).addClass("check");
-            $(this).css({
-                "fill": "#69c085"
-            });
-
-        }
-    })
+<script th:inline="javascript">
+    let productDTO = [[${productDTO}]];
 </script>
+<script src="/js/product/product-detail.js"></script>
+<script src="/js/header-footer/header.js"></script>
 </html>

@@ -29,4 +29,9 @@
     <delete id="delete">
         DELETE FROM TBL_TISSUE WHERE ID = #{id}
     </delete>
+
+    <insert id="insertByBuyProduct">
+        INSERT INTO TBL_TISSUE(ID, USER_ID,  TISSUE_POINT, TISSUE_HISTORY)
+        VALUES(SEQ_TISSUE.NEXTVAL, #{userId},  #{tissuePoint}, #{tissueHistory})
+    </insert>
 </mapper>

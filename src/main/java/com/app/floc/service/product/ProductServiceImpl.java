@@ -1,13 +1,12 @@
 package com.app.floc.service.product;
 
-import com.app.floc.DAO.ProductDAO;
-import com.app.floc.DAO.ProductWishDAO;
+import com.app.floc.DAO.*;
 import com.app.floc.domain.DTO.ProductDTO;
 import com.app.floc.domain.DTO.ProductPagination;
-import com.app.floc.domain.VO.ProductVO;
-import com.app.floc.domain.VO.ProductWishVO;
+import com.app.floc.domain.VO.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,19 +17,31 @@ import java.util.Optional;
 public class ProductServiceImpl implements ProductService {
     private final ProductDAO productDAO;
     private final ProductWishDAO productWishDAO;
+    private final UserDAO userDAO;
+    private final TissueDAO tissueDAO;
+    private final CouponDAO couponDAO;
 
     @Override
     public void register(ProductVO productVO) {
         productDAO.save(productVO);
     }
 
+
+    //상품 상세보기
     @Override
-    public Optional<ProductVO> read(Long productId) {
-        return productDAO.findByProductId(productId);
+    public Optional<ProductDTO> read(Long productId, Long userId) {
+
+        Optional<ProductDTO> foundProduct = productDAO.findByProductId(productId);
+        if(userId !=null){
+            Optional<ProductWishVO> foundWish = productWishDAO.findOne(userId, productId);
+            foundWish.ifPresent(wish -> foundProduct.get().setWished(true));
+        }
+        return foundProduct;
     }
 
     //16개씩 가져오기
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public List<ProductDTO> getList(ProductPagination productPagination,Long userId) {
         List<ProductDTO> productDTOS = productDAO.findSixteenProducts(productPagination);
         if(userId!=null){
@@ -55,6 +66,40 @@ public class ProductServiceImpl implements ProductService {
         }else{
             productWishDAO.save(userId,productID);
         }
+
+    }
+
+
+    //상품 구매
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void buyProduct(Long userId, Long productId) {
+        //유저 티슈 감소
+        Optional<UserVO> foundUser = userDAO.findByUserId(userId);
+        foundUser.ifPresent(user -> user.setUserTissue(user.getUserTissue()-(productDAO.findByProductId(productId).get().getProductCost())));
+        userDAO.setUser(foundUser.get());
+
+        //상품 재고 감소
+        productDAO.stockDecrease(productId);
+
+        //티슈 테이블에 히스토리 남기기
+        TissueVO tissueVO = new TissueVO();
+        tissueVO.setUserId(userId);
+        tissueVO.setTissueHistory(productDAO.findByProductId(productId).get().getProductName()+" 쿠폰 구매");
+        tissueVO.setTissuePoint(productDAO.findByProductId(productId).get().getProductCost()*(-1));
+        tissueDAO.buyProductHistory(tissueVO);
+
+        //쿠폰 밝급
+        CouponVO couponVO = new CouponVO();
+        couponVO.setProductId(productId);
+        couponVO.setUserId(userId);
+        //패스 생성해서 넣기
+
+
+
+
+        /*couponDAO.addCoupon();*/
+
 
     }
 

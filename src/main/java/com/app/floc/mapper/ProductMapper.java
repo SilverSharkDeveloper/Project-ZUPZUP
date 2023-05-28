@@ -14,7 +14,7 @@ public interface ProductMapper {
     public void insert(ProductVO productVO);
 
     //상품한개조회 -> 화면에서 상세보기
-    public Optional<ProductVO> selectOneByProductId(Long productId);
+    public Optional<ProductDTO> selectOneByProductId(Long productId);
 
     //상품전체조회 -> 목록조회 ->pagination,위시까지 보이게하기
     public List<ProductDTO> selectSixteen(ProductPagination productPagination);
@@ -25,5 +25,6 @@ public interface ProductMapper {
     //상품 제거
     public void delete(Long productId);
 
-
+    //재고감소
+    public void decrease(Long productId);
 }

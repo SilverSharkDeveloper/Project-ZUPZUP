@@ -39,16 +39,15 @@ public class UserController {
 
     //회원가입 폼으로
     @GetMapping("join")
-    public void goToJoinForm(UserVO userVO, HttpSession session, String location){
-        session.setAttribute("location",location);
+    public void goToJoinForm(UserVO userVO){
+
     }
 
     //회원가입
     @PostMapping("join")
     public RedirectView join(UserVO userVO,HttpSession session){
         userService.join(userVO);
-        session.setAttribute("userId",userService.login(userVO.getUserIdentification(),userVO.getUserPassword()).get());
-        return new RedirectView(session.getAttribute("location").toString());
+        return new RedirectView("/user/login");
     }
 
     //로그인창
@@ -72,7 +71,7 @@ public class UserController {
         Optional<Long> foundUser = userService.login(identification, password);
         if(foundUser.isPresent()){
             session.setAttribute("userId",foundUser.get());
-            return new RedirectView(session.getAttribute("location").toString());
+            return new RedirectView(session.getAttribute("location")==null?"/main/main" :session.getAttribute("location").toString() );
         }else{
             redirectAttributes.addFlashAttribute("login","fail");
             redirectAttributes.addFlashAttribute("identification",identification);
@@ -206,7 +205,7 @@ public class UserController {
                 return new RedirectView("/user/login?location=" + session.getAttribute("location"));
             }else{   //네이버, 노말아닌 카카오 계정일경우 -> update
                 kakaoUser.get().setId(foundUser.get().getId());
-                log.info(kakaoUser.get().toString());
+                kakaoUser.get().setUserTissue(foundUser.get().getUserTissue());
                 userService.modifyUser(kakaoUser.get());
                 session.setAttribute("token", token);
                 session.setAttribute("userId",foundUser.get().getId());

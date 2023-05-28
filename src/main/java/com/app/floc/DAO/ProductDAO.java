@@ -22,7 +22,7 @@ public class ProductDAO {
     }
 
     //상품한개조회 -> 화면에서 상세보기
-    public Optional<ProductVO> findByProductId(Long productId){
+    public Optional<ProductDTO> findByProductId(Long productId){
         return productMapper.selectOneByProductId(productId);
     }
 
@@ -40,6 +40,11 @@ public class ProductDAO {
     //상품 제거
     public void delete(Long productId){
         productMapper.delete(productId);
+    }
+
+    //재고감소
+    public void stockDecrease(Long productId){
+        productMapper.decrease(productId);
     }
 
 }
