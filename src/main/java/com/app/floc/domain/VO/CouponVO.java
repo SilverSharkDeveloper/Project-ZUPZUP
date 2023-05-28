@@ -14,6 +14,6 @@ public class CouponVO {
     private String couponCreatedDate;
     private String couponUsedDate;
     private String couponStatus;
-    private String couponQRCodePath;
+    private String couponQrcodePath;
 
 }

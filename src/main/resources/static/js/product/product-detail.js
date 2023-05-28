@@ -213,7 +213,7 @@ $(".coupon-btn").on("click",e=>{
             //모든 조건이 통과되어 쿠폰을 발급할경우
             if(condition=="success"){
                 alert("쿠폰이 발급되었습니다. 마이페이지에서 확인해주세요!")
-                /*location.href="/mypage/my-product";*/
+                location.href="/mypage/my-product";
             }
 
 

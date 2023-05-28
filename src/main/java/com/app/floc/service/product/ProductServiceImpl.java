@@ -89,16 +89,17 @@ public class ProductServiceImpl implements ProductService {
         tissueVO.setTissuePoint(productDAO.findByProductId(productId).get().getProductCost()*(-1));
         tissueDAO.buyProductHistory(tissueVO);
 
-        //쿠폰 밝급
+        //쿠폰 밝급 ->qr 생성
         CouponVO couponVO = new CouponVO();
         couponVO.setProductId(productId);
         couponVO.setUserId(userId);
-        //패스 생성해서 넣기
+        couponVO.setCouponQrcodePath("https://api.qr-code-generator.com/v1/create?access-token=kROO-WIIea6Pba5qQB1smTFioF8VS_kfpY_w9aoEdNnNE8GAS8o0kj5SLXgUlhVn&qr_code_text=http://192.168.62.201:10000/coupon/use-coupon");
+        couponDAO.addCoupon(couponVO);
 
 
 
 
-        /*couponDAO.addCoupon();*/
+
 
 
     }

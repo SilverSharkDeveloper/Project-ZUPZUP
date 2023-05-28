@@ -5,6 +5,8 @@ import com.app.floc.mapper.CouponMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 @RequiredArgsConstructor
 public class CouponDAO {
@@ -22,5 +24,8 @@ public class CouponDAO {
         couponMapper.update(couponVO);
     }
 
-    //쿠폰 가져오기
+    //쿠폰 한개 가져오기
+    public Optional<CouponVO> select(Long couponId){
+        return couponMapper.select(couponId);
+    }
 }
