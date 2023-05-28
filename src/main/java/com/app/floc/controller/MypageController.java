@@ -156,5 +156,9 @@ public class MypageController {
     public void goToProduct() {;
     }
 
+    @GetMapping("mypage-cute")
+    public void goToCute() {;
+    }
+
 
 }
