@@ -24,7 +24,7 @@ import javax.servlet.http.HttpSession;
 public class ReviewController {
     private final ReviewService reviewService;
     private final HttpSession session;
-
+// 후기 목록 가져오기 및 총 개수 가져오기
     @GetMapping("user_review_list")
     public void list(Pagination pagination, Search search, Model model){
         pagination.setTotal(reviewService.getTotal(search));
@@ -34,7 +34,7 @@ public class ReviewController {
 
 //    @GetMapping("write")
 //    public void goToWriteForm(ReviewVO reviewVO, Model model){
-////        model.addAttribute("userName", LoginService.getUser((Long)session.getAttribute("id")).get().getMemberName());
+////        model.addAttribute("userNickName", LoginService.getUser((Long)session.getAttribute("id")).get().getUserNickName());
 //    }
 //
 //    @PostMapping("write")
@@ -63,7 +63,16 @@ public class ReviewController {
     }
     
     @GetMapping("local_review_list")
-    public void creatorList(Model model){
-        model.addAttribute("reviews", reviewService.getLocalList());
+    public void creatorList(Pagination pagination, Search search, Model model){
+        pagination.setTotal(reviewService.getTotal(search));
+        pagination.progress();
+        model.addAttribute("reviews", reviewService.getLocalList(pagination, search));
     }
+
+//    @GetMapping("user_review_detail")
+//    public void userList(Pagination pagination, Search search, Model model){
+//        pagination.setTotal(reviewService.getTotal(search));
+//        pagination.progress();
+//        model.addAttribute("reviews", reviewService.getList(pagination, search));
+//    }
 }

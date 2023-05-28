@@ -24,7 +24,6 @@
     </sql>
     <!-- 플로깅 후기 작성 -->
     <insert id="insert">
-/*아마 파일 등록관련해서 필요하지 않을까....*/
         INSERT INTO TBL_PLOGGING_REVIEW (ID, USER_ID, PLOGGING_ID, REVIEW_TITLE, REVIEW_CONTENT, REVIEW_REGISTER_DATE,
         REVIEW_UPDATED_DATE)
         VALUES(SEQ_PLOGGING_REVIEW, #{userId}, #{ploggingId} , #{reviewTitle} , #{reviewContent}, SYSDATE,
@@ -37,45 +36,48 @@
 <!--  플로깅 목록 조회  -->
     <!--  플로깅 후기 조회(사용자)  -->
     <select id="selectAll" resultType="reviewDTO">
-        SELECT P.ID, REVIEW_TITLE, REVIEW_CONTENT, REVIEW_REGISTER_DATE, REVIEW_UPDATED_DATE, P.USER_ID, M.USER_NICKNAME, P.PLOGGING_ID
-        FROM TBL_USER M JOIN TBL_PLOGGING_REVIEW P
-        ON (M.ID = P.USER_ID)
+        SELECT P.ID, REVIEW_TITLE, REVIEW_CONTENT, REVIEW_REGISTER_DATE, REVIEW_UPDATED_DATE, P.USER_ID, M.USER_NICKNAME, P.PLOGGING_ID, TR.REVIEW_IMAGE_IMAGE_UUID, TR.REVIEW_IMAGE_IMAGE_NAME
+        FROM TBL_USER M ,TBL_PLOGGING_REVIEW P, TBL_REVIEW_IMAGE TR
+        WHERE (M.ID = P.USER_ID) AND P.ID = TR.PLOGGING_REVIEW_ID
         ORDER BY P.ID DESC
     </select>
+    <!--  플로깅 후기 조회(로컬)  -->
     <select id="selectAllLocal" resultType="reviewDTO">
         SELECT P.ID, REVIEW_TITLE, REVIEW_CONTENT, REVIEW_REGISTER_DATE, REVIEW_UPDATED_DATE, P.USER_ID, M.USER_NICKNAME, P.PLOGGING_ID, TP.LOCAL_CREATOR_ID
         FROM TBL_PLOGGING TP, TBL_PLOGGING_REVIEW P, TBL_USER M
         WHERE (TP.LOCAL_CREATOR_ID = P.USER_ID) AND P.USER_ID=M.ID
         ORDER BY P.ID DESC
     </select>
+
+    <!--  플로깅 후기 상세조회  -->
     <select id="selectDetail" resultType="reviewDTO">
         SELECT P.ID, REVIEW_TITLE, REVIEW_CONTENT, REVIEW_REGISTER_DATE, REVIEW_UPDATED_DATE, P.USER_ID, USER_NICKNAME, P.PLOGGING_ID
-        FROM(
-            SELECT ROWNUM R, P.ID, REVIEW_TITLE, REVIEW_CONTENT, REVIEW_REGISTER_DATE, REVIEW_UPDATED_DATE, P.USER_ID, M.USER_NICKNAME, P.PLOGGING_ID
+--         FROM(
+--             SELECT ROWNUM R, P.ID, REVIEW_TITLE, REVIEW_CONTENT, REVIEW_REGISTER_DATE, REVIEW_UPDATED_DATE, P.USER_ID, M.USER_NICKNAME, P.PLOGGING_ID
             FROM TBL_USER M JOIN TBL_PLOGGING_REVIEW P
             ON M.ID = P.USER_ID AND P.ID = #{id}
-            ORDER BY
-            <choose>
-                <when test="search.order == 'popular'">
-                    P.REVIEW_TITLE
-                </when>
-                <otherwise>
-                    P.ID
-                </otherwise>
-            </choose>
-            DESC
-        ) P
-         <![CDATA[
-                WHERE ROWNUM <= #{pagination.page} * #{pagination.rowCount} AND ROWNUM > (#{pagination.page} - 1) * #{pagination.rowCount}
-        ]]>
+<!--            ORDER BY-->
+<!--            <choose>-->
+<!--                <when test="search.order == 'popular'">-->
+<!--                    P.REVIEW_TITLE-->
+<!--                </when>-->
+<!--                <otherwise>-->
+<!--                    P.ID-->
+<!--                </otherwise>-->
+<!--            </choose>-->
+<!--            DESC-->
+<!--        ) P-->
+<!--         <![CDATA[-->
+<!--                WHERE ROWNUM <= #{pagination.page} * #{pagination.rowCount} AND ROWNUM > (#{pagination.page} - 1) * #{pagination.rowCount}-->
+<!--        ]]>-->
     </select>
-
+    <!--  플로깅 후기 수정  -->
     <update id="update">
         UPDATE TBL_REVIEW
         SET REVIEW_TITLE = #{reviewTitle}, REVIEW_CONTENT = #{reviewContent}, REVIEW_UPDATED_DATE = SYSDATE
         WHERE ID = #{id}
     </update>
-
+    <!--  플로깅 후기 삭제  -->
     <delete id="delete">
         DELETE FROM TBL_PLOGGING_REVIEW WHERE ID = #{id}
     </delete>

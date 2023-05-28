@@ -1,5 +1,7 @@
 package com.app.floc.controller;
 
+import com.app.floc.domain.DTO.Pagination;
+import com.app.floc.domain.DTO.Search;
 import com.app.floc.service.plogging.PloggingService;
 import com.app.floc.service.product.ProductService;
 import com.app.floc.service.review.ReviewService;
@@ -20,9 +22,9 @@ public class MainController {
     private final ProductService productService;
 
     @GetMapping("main")
-    public void main(Model model){
-//        model.addAttribute("products", productService.getList());
-//        model.addAttribute("ploggings", ploggingService.getList());
-//        model.addAttribute("reviews",reviewService.getList());
+    public void main(Pagination pagination, Search search, Model model){
+        model.addAttribute("products", productService.getList());
+//        model.addAttribute("ploggings", ploggingService.getList(pagination, search));
+        model.addAttribute("reviews",reviewService.getList(pagination, search));
     }
 }
