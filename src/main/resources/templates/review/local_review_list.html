@@ -70,7 +70,7 @@
                 </div>
             </div>
             <div class="css-1ljcge9 e1gt23lz0">
-                <!--전체개수 타임리프로 넣던가 그냥 값을 꽂아넣던가 해야함-->게시글 ${reviews.getTotal}개
+                <!--전체개수 타임리프로 넣던가 그냥 값을 꽂아넣던가 해야함-->게시글 목록 <th:block th:text="${pagination.total}+개"></th:block>
             </div>
             <div class="css-xy5hx5 erfbhrp0 item-list" style="padding-top: 0px; transform: translateY(0px);"></div>
         </div>
@@ -79,9 +79,12 @@
 <footer th:replace="/header-footer/footer::footer"></footer>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script src="/js/review/local-review.js"></script>
+<script src="/js/review/user-review.js"></script>
 <script th:inline="javascript">
     let reviews = [[${reviews}]];
+    let nowPage = [[${pagination.page}]];
+    let order = [[${search.order}]];
+    let userId = [[${session.id}]];
 </script>
 <script>
     $button = $("button.button");
