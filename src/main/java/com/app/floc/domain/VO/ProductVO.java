@@ -20,4 +20,5 @@ public class ProductVO {
     private String productImageName;
     private String ProductImageUuid;
     private Long productImageSize;
+    private String productImagePath;
 }

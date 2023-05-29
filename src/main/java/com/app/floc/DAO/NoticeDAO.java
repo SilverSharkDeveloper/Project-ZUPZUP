@@ -27,8 +27,7 @@ public class NoticeDAO {
 
     //    공지사항 등록
     public void save(NoticeDTO noticeDTO){
-            noticeMapper.insert(noticeDTO);
-        };
+            noticeMapper.insert(noticeDTO); };
 
 
     //    공지사항 수정
@@ -46,5 +45,21 @@ public class NoticeDAO {
     public int findCountOfNotice(Search search){
         return noticeMapper.selectCountOfNotice(search);
     }
+
+    public void deleteNoticeByIds(List<Long> noticeIds){
+
+        noticeMapper.deleteNoticeByIds(noticeIds);
+    }
+
+    //    조회수
+    public void updateReadCount(Long id){
+        noticeMapper.updateReadCount(id);
+    }
+
+    public List<NoticeDTO> selectByRecent(){
+     return noticeMapper.selectByRecent();
+    }
 }
+
+
 

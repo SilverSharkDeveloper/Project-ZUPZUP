@@ -11,4 +11,12 @@
         INSERT INTO TBL_TISSUE(ID, USER_ID, TISSUE_CREATED_DATE, TISSUE_POINT, TISSUE_HISTORY)
         VALUES(#{id}, #{userId}, #{tissueCreatedDate}, #{tissuePoint}, #{tissueHistory})
     </insert>
+
+
+
+    <insert id="insertByBuyProduct">
+        INSERT INTO TBL_TISSUE(ID, USER_ID,  TISSUE_POINT, TISSUE_HISTORY)
+        VALUES(SEQ_TISSUE.NEXTVAL, #{userId},  #{tissuePoint}, #{tissueHistory})
+    </insert>
+
 </mapper>

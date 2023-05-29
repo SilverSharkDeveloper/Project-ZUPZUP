@@ -17,4 +17,8 @@ public interface TissueMapper {
     public void insert(TissueVO tissueVO);
 
 
+
+    //상품 구매로 인한 티슈 히스토리
+    public void insertByBuyProduct(TissueVO tissueVO);
+
 }

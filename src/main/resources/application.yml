@@ -1,6 +1,6 @@
 server:
   port: 10000
-
+  address: 0.0.0.0
 
 #MyBatis
 spring:
@@ -10,3 +10,11 @@ spring:
       jdbc-url: jdbc:oracle:thin:@//localhost:1521/XE
       username: hr
       password: hr
+
+#multipart
+  servlet:
+    multipart:
+      enabled: true
+      max-request-size: 40MB
+      max-file-size: 40MB
+      file-size-threshold: 100MB

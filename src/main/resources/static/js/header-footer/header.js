@@ -22,3 +22,14 @@ $(".write").on("click",e=>{
     alert("로그인 이후 사용 가능합니다. 로그인 페이지로 이동합니다.");
     location.href ="/user/login";
 })
+
+
+$(".login-header").on("click",e=>{
+    location.href = `/user/login?location=${location.href}`
+})
+
+
+
+$(".join-header").on("click",e=>{
+    location.href = `/user/join?location=${location.href}`
+})

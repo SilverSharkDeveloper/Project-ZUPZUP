@@ -23,7 +23,6 @@ public class MainController {
 
     @GetMapping("main")
     public void main(Pagination pagination, Search search, Model model){
-        pagination.progress();
         model.addAttribute("products", productService.getList(ProductPagination productPagination, Long id));
 //        model.addAttribute("ploggings", ploggingService.getList(pagination, search));
         model.addAttribute("reviews",reviewService.getList(pagination, search));

@@ -52,7 +52,7 @@ public class MypageController {
 
     @GetMapping("users-edit")
     public void userEdit(UserVO userVO) {
-        mypageService.modifyUser(userVO);
+        ;
     }
 
     @GetMapping("users-edit-password")
@@ -79,6 +79,11 @@ public class MypageController {
         myPloggingPagination.progress();
         model.addAttribute("ploggings", mypageService.getList(myPloggingPagination, search));
     }
+
+    @GetMapping("my-participate-list")
+    public void goToparti() {;
+    }
+
 
     @PostMapping("upload")
     @ResponseBody
@@ -122,12 +127,23 @@ public class MypageController {
         return new ResponseEntity<>(resource, headers, HttpStatus.OK);
     }*/
 
+
+    @GetMapping("my-local-review")
+    public void horeview() {
+
+    }
+
     @GetMapping("my-user-review")
     public void review() {
 
     }
 
     @GetMapping("my-follower")
+    public void Follower(){
+
+    }
+
+    @GetMapping("my-following")
     public void Follow(){
 
     }
@@ -139,5 +155,10 @@ public class MypageController {
     @GetMapping("my-product")
     public void goToProduct() {;
     }
+
+    @GetMapping("mypage-cute")
+    public void goToCute() {;
+    }
+
 
 }

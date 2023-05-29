@@ -1,9 +1,6 @@
 package com.app.floc.mapper;
 
-import com.app.floc.domain.DTO.MyPloggingPagination;
-import com.app.floc.domain.DTO.Pagination;
-import com.app.floc.domain.DTO.PloggingDTO;
-import com.app.floc.domain.DTO.Search;
+import com.app.floc.domain.DTO.*;
 import com.app.floc.domain.VO.PloggingVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -40,4 +37,15 @@ public interface PloggingMapper {
 
     //  마이페이지 파일 목록
     public List<PloggingDTO> selectFiles(Long id);
+
+    //amdin페이지
+    // admin
+
+    //전체 목록 조회 페이징,검색
+    public List<PloggingDTO> selectAllByAdmin(@Param("adminPagination") AdminPagination adminPagination, @Param("search") Search search);
+    //여러개 삭제
+    public void deletePloggingByIds(List<Long> ploggingIds);
+
+    //최근 5개 조회
+    public List<PloggingVO> selectByRecent();
 }

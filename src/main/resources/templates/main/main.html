@@ -17,7 +17,7 @@
 <th:block th:if="${session.userId==null}">
     <header class="header" th:replace="~{/header-footer/header :: header}"></header>
 </th:block>
-<th:block th:unless="${session.userId==null}">
+<th:block th:if="${session.userId!=null}">
     <header class="header" th:replace="~{/header-footer/header-login :: header}"></header>
 </th:block>
 <div class="e1ixivdu2 css-139mcwb">
