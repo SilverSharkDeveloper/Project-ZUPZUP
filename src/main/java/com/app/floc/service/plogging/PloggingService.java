@@ -1,6 +1,7 @@
 package com.app.floc.service.plogging;
 
 import com.app.floc.domain.DTO.PloggingDTO;
+import com.app.floc.domain.DTO.PloggingPagination;
 import com.app.floc.domain.VO.PloggingVO;
 
 import java.util.List;
@@ -22,4 +23,5 @@ public interface PloggingService {
     //삭제
     public void remove(Long id);
 
+    public int getTotal(String location);
 }

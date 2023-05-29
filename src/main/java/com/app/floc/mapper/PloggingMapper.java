@@ -1,9 +1,6 @@
 package com.app.floc.mapper;
 
-import com.app.floc.domain.DTO.MyPloggingPagination;
-import com.app.floc.domain.DTO.Pagination;
-import com.app.floc.domain.DTO.PloggingDTO;
-import com.app.floc.domain.DTO.Search;
+import com.app.floc.domain.DTO.*;
 import com.app.floc.domain.VO.PloggingVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -42,4 +39,6 @@ public interface PloggingMapper {
 
     //  마이페이지 파일 목록
     public List<PloggingDTO> selectFiles(Long id);
+
+    public int getTotal(String location);
 }

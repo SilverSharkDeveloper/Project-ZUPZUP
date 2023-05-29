@@ -1,6 +1,7 @@
 package com.app.floc.controller;
 
 import com.app.floc.domain.DTO.PloggingDTO;
+import com.app.floc.domain.DTO.PloggingPagination;
 import com.app.floc.domain.VO.PloggingVO;
 import com.app.floc.service.plogging.PloggingService;
 import lombok.RequiredArgsConstructor;

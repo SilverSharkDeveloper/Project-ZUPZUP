@@ -2,9 +2,8 @@ package com.app.floc.service.plogging;
 
 import com.app.floc.DAO.PloggingDAO;
 import com.app.floc.domain.DTO.PloggingDTO;
+import com.app.floc.domain.DTO.PloggingPagination;
 import com.app.floc.domain.VO.PloggingVO;
-import com.app.floc.mapper.PloggingMapper;
-import com.app.floc.service.plogging.PloggingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -41,5 +40,10 @@ public class PloggingServiceImpl implements PloggingService {
     @Override
     public void remove(Long id) {
         ploggingDAO.delete(id);
+    }
+
+    @Override
+    public int getTotal(String location) {
+        return ploggingDAO.getTotal(location);
     }
 }

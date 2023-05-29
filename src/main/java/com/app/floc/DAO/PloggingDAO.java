@@ -1,14 +1,8 @@
 package com.app.floc.DAO;
 
-<<<<<<< HEAD
-import com.app.floc.domain.DTO.PloggingDTO;
+import com.app.floc.domain.DTO.*;
 import com.app.floc.domain.VO.PloggingVO;
-=======
-import com.app.floc.domain.DTO.MyPloggingPagination;
-import com.app.floc.domain.DTO.Pagination;
 import com.app.floc.domain.DTO.PloggingDTO;
-import com.app.floc.domain.DTO.Search;
->>>>>>> d49fbf72a94e57f6a1b44f41f65adb7ad273bd97
 import com.app.floc.mapper.PloggingMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -70,5 +64,9 @@ public class PloggingDAO {
 
     public List<PloggingDTO> findFiles(Long ploggingId){
         return ploggingMapper.selectFiles(ploggingId);
+    }
+
+    public int getTotal(String location) {
+        return ploggingMapper.getTotal(location);
     }
 }
