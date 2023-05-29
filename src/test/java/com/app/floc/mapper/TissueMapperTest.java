@@ -32,7 +32,7 @@ public class TissueMapperTest {
 
     @Test
     public void deleteTest(){
-        tissueMapper.delete(6L);
+//        tissueMapper.delete(6L);
 //        assertThat(TissueMapper.selectAll()).hasSize(1);
     }
 

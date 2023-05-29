@@ -4,6 +4,7 @@ package com.app.floc.mapper;
 import com.app.floc.domain.DTO.AdminPagination;
 import com.app.floc.domain.DTO.NoticeDTO;
 import com.app.floc.domain.DTO.Search;
+import com.app.floc.domain.VO.UserVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -13,10 +14,8 @@ import java.util.Optional;
 @Mapper
 public interface NoticeMapper {
     //    공지사항 목록
-//    페이징 처리된거. 검색
-
-
-    public List<NoticeDTO> selectAll(@Param("adminPagination") AdminPagination adminPagination, @Param("search")Search search);
+    //    페이징 처리된거. 검색
+    public List<NoticeDTO> selectAll(@Param("adminPagination") AdminPagination adminPagination, @Param("search") Search search);
     
     //공지사항 상세보기
      public Optional<NoticeDTO> select(Long id);
@@ -37,7 +36,13 @@ public interface NoticeMapper {
     //    게시글 총 개수
     public int selectCountOfNotice(@Param("search") Search search);
 
+    //  공지사항 여러개 삭제
+    public void deleteNoticeByIds(List<Long> noticeIds);
 
+    //    조회수
+    public void updateReadCount(Long id);
+
+    public List<NoticeDTO> selectByRecent();
 }
 
 
