@@ -149,6 +149,7 @@ public class AdminController {
             productVO.setProductImageUuid(uuid);
             productVO.setProductImageSize(uploadFile.getSize());
             productVO.setProductImageName(originalFilename);
+            productVO.setProductImagePath(path);
         } else {
             productVO.setProductImageUuid("");
             productVO.setProductImageSize(0L);
