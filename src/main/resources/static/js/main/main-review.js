@@ -7,25 +7,18 @@ $(document).ready(function () {
     let productText = "";
     let ploggingText = "";
 
-/*    products.forEach((product) => {
+/*products.forEach((product) => {
         productText += `
-                <div class="item"><a href="/review/local_review_detail?id=${product.id}}">
+                <div class="item"><a href="/product/_detail?id=${product.id}}">
                     <article class="css-1evwse1 e1e2zisd6">
                         <div class="css-1hnq8aw e1e2zisd5">
-                `
-        // product.files.forEach(file => {
-        //     if (file.fileType == "REPRESENTATIVE") {
-        //         productText += `
-        //                 <img class="css-j9woce e1e2zisd7" alt="대표 이미지"
-        //                 src="/reviewImage/display?reviewImageName=${file.filePath}/t_${file.fileUuid}_${file.fileName}">`;
-        //     }
-        // })
-        productText += `
+<!--                <img class="css-j9woce e1e2zisd7 preview" alt=""-->
+<!--                src="">;-->
 
                         <div class="css-fyyvpx e1fm144d2">
                 <div class="e1fm144d7 css-wpil38 e193wc2k3">
                     <!--before위치-->
-                    <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168138560511525706.jpg?w=360&amp;h=180&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168138560511525706.jpg?w=480&amp;h=360&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168138560511525706.jpg?w=640&amp;h=360&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168138560511525706.jpg?w=850&amp;h=640&amp;c=c 3x" class="e193wc2k2 css-gnpvt2 css-a0qkmc">
+<!--                    <img src="">-->
                 </div>
                 <div class="css-1t28ktu e193wc2k0">
                     <span type="fill" variant="primary2" class="css-ueburv">NEW</span>
@@ -50,9 +43,9 @@ $(document).ready(function () {
             </div>
         `
     });
-    $productList.append(productText);
+    $productList.append(productText);*/
 
-    ploggings.forEach(( plogging) => {
+/*    ploggings.forEach(( plogging) => {
         ploggingText += `
                 <div class="item"><a href="/review/local_review_detail?id=${plogging.id}">
                     <article class="css-1evwse1 e1e2zisd6">

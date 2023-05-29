@@ -1,12 +1,9 @@
 package com.app.floc.service.product;
 
 import com.app.floc.DAO.*;
-import com.app.floc.domain.DTO.ProductDTO;
-import com.app.floc.domain.DTO.ProductPagination;
+import com.app.floc.domain.DTO.*;
 import com.app.floc.domain.VO.*;
 import com.app.floc.DAO.ProductDAO;
-import com.app.floc.domain.DTO.AdminPagination;
-import com.app.floc.domain.DTO.Search;
 import com.app.floc.domain.VO.ProductVO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

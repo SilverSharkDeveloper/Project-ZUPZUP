@@ -3,8 +3,6 @@ package com.app.floc.controller;
 
 import com.app.floc.domain.DTO.AdminPagination;
 import com.app.floc.domain.DTO.NoticeDTO;
-
-import com.app.floc.domain.DTO.PloggingDTO;
 import com.app.floc.domain.DTO.Search;
 import com.app.floc.domain.VO.ProductVO;
 import com.app.floc.domain.VO.UserVO;
@@ -16,10 +14,6 @@ import com.app.floc.service.user.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.coobird.thumbnailator.Thumbnailator;
-import org.springframework.core.io.FileSystemResource;
-import org.springframework.core.io.Resource;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,14 +24,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpSession;
-import javax.xml.ws.Service;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -149,11 +140,12 @@ public class AdminController {
             productVO.setProductImageUuid(uuid);
             productVO.setProductImageSize(uploadFile.getSize());
             productVO.setProductImageName(originalFilename);
+            productVO.setProductImagePath(path);
         } else {
             productVO.setProductImageUuid("");
             productVO.setProductImageSize(0L);
             productVO.setProductImageName("");
-
+            productVO.setProductImagePath("");
         }
             productService.register(productVO);
             return new RedirectView("/admin/product");

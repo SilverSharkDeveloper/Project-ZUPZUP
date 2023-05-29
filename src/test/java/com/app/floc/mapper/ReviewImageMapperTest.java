@@ -22,7 +22,6 @@ class ReviewImageMapperTest {
         reviewImageVO.setReviewImageSize(1231231L);
         reviewImageVO.setReviewImageUuid(UUID.randomUUID().toString());
         reviewImageVO.setReviewImagePath("2023/05/18");
-        reviewImageVO.setReviewImageType(ReviewImageType.REPRESENTATIVE.name());
         reviewImageVO.setReviewId(23L);
         reviewImageMapper.insert(reviewImageVO);
     }
