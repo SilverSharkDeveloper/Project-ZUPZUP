@@ -52,7 +52,10 @@
             background-color: #b6b6b6;
             border: 1px solid #b6b6b6;
         }
-
+        .b{
+            width: 500px;
+            height: 500px;
+        }
 
     </style>
 </head>
@@ -62,6 +65,7 @@
         <div class="message" th:text="${product.productName}"></div>
         <div class="message">상품 쿠폰을 사용하시겠습니까?</div>
         <div class="btn-wrap">
+
             <button class="btn reject">취소</button>
             <button class="btn commit">사용</button>
         </div>
@@ -109,6 +113,7 @@
                //브라우저 창닫기
             })
         })
+
 
     </script>
 </html>
