@@ -14,10 +14,15 @@
 </head>
 
 <body>
-<th:block th:replace="/header-footer/header::header"></th:block>
+<th:block th:if="${session.userId==null}">
+    <header class="header" th:replace="~{/header-footer/header :: header}"></header>
+</th:block>
+<th:block th:unless="${session.userId==null}">
+    <header class="header" th:replace="~{/header-footer/header-login :: header}"></header>
+</th:block>
 <div class="e1ixivdu2 css-139mcwb">
     <div class="css-1micng0 e1ixivdu1">
-        <section class="css-12oi7vi e10oizx47">
+        <section class="css-12oi7vi e10oizx47" style="height: 10rem">
             <a class="css-j2pfbl e10oizx46" href="/projects/140166/detail?affect_type=Home&amp;affect_id=0">
                 <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/projects/cover_images/168412454092055673.jpeg?w=850&amp;h=512&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/projects/cover_images/168412454092055673.jpeg?w=1280&amp;h=850&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/projects/cover_images/168412454092055673.jpeg?w=1700&amp;h=1024&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/projects/cover_images/168412454092055673.jpeg?w=2560&amp;h=1536&amp;c=c 3x" class="e10oizx45 css-h9ang">
                 <div class="css-5ycwsz e10oizx44"><p class="css-1n3vfvi e10oizx43">대면형 주방! 엄마의 꿀팁은 보너스</p>
@@ -82,7 +87,7 @@
 <div class="e4cq32f2 css-1obbfpy">
     <div class="css-14vj981">
         <div class="css-dlv2hg">
-            <a th:href="@{/product/product-list}">
+            <a href="/product/product-list">
                 <div class="css-147wp72">
                     <strong class="css-1d0kvw3">상품 목록~🍎
                     </strong>
@@ -90,7 +95,7 @@
             </a>
         </div>
         <div class="css-7z0c8w">
-            <a th:href="@{/product/product-list}">
+            <a href="/product/product-list">
                 <button type="button" class="css-av2k9l">더보기</button>
             </a>
         </div>
@@ -104,14 +109,14 @@
 <div class="e4cq32f2 css-1obbfpy">
     <div class="css-14vj981">
         <div class="css-dlv2hg">
-            <a th:href="@{/plogging/plogging}">
+            <a href="/plogging/plogging">
                 <div class="css-147wp72">
                     <strong class="css-1d0kvw3">플로깅 모여라~ 🏡</strong>
                 </div>
             </a>
         </div>
         <div class="css-7z0c8w">
-            <a th:href="@{/plogging/plogging}">
+            <a href="/plogging/plogging">
                 <button type="button" class="css-av2k9l">더보기</button>
             </a>
         </div>
@@ -127,14 +132,14 @@
 <div class="e4cq32f2 css-1obbfpy">
     <div class="css-14vj981">
         <div class="css-dlv2hg">
-            <a th:href="@{/review/user_review_list}">
+            <a href="/review/user_review_list">
                 <div class="css-147wp72">
                     <strong class="css-1d0kvw3">플로깅 다녀온 후기</strong>
                 </div>
             </a>
         </div>
         <div class="css-7z0c8w">
-            <a th:href="@{/review/user_review_list}">
+            <a href="/review/user_review_list">
                 <button type="button" class="css-av2k9l">더보기</button>
             </a>
         </div>
@@ -186,6 +191,6 @@
     let order = [[${search.order}]];
     let userId = [[${session.id}]];
 </script>
-<script src="main-review.js"></script>
+<script src="/js/main/main-review.js"></script>
 <script src="/js/header-footer/header.js"></script>
 </html>

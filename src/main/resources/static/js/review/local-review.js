@@ -1,30 +1,20 @@
 $(document).ready(function () {
     const $list = $("div.item-list");
-
     let text = "";
-
     reviews.forEach(review => {
-        const date = new Date(review.reviewRegisterDate);
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const day = String(date.getDate()-2).padStart(2, '0');
-        const uuid = review.reviewImageImageUuid;
-        const filename = review.reviewImageImageName;
-        const filePath = `C:/upload/2023/05/18/t_48bc88c1-942f-471e-beb3-90aafc855543_문우람짱.png`;
-        // const filePath = `C:/upload/${year}/${month}/${day}/${uuid}_${filename}`;
-        console.log(filePath);
         text += `
-                <div class="item"><a href="/review/local_review_detail?id=${review.id}}">
+                <div class="item">
+                <a href="/review/user_review_detail?id=${review.id}">
                     <article class="css-1evwse1 e1e2zisd6">
-                        <div class="css-1hnq8aw e1e2zisd5">
-                        <img class="css-j9woce e1e2zisd7 preview" alt="대표
-                         이미지" src="${filePath}">
+                        <div class="css-1hnq8aw e1e2zisd5">`
+        text += `<img src="/reviewImages/display?reviewImageName=${review.reviewImagePath}/t_${review.reviewImageImageUuid}_${review.reviewImageImageName}" class="css-j9woce e1e2zisd7 preview">`;
+        text += `
                         </div>
                         <div class="css-1647809 e1e2zisd4">
                             <h2 class="css-z2d3s1 e1e2zisd2">${review.reviewTitle}</h2>
                             <address class="project-feed__item__writer-wrap">
                                 <a class="project-feed__item__writer" href="/mypage/my-host-list?id=${review.userId}">
-                                    <img class="project-feed__item__writer__image" alt="" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168186561821130322.png?gif=1&amp;w=36&amp;h=36&amp;c=c&amp;webp=1">
+                                    <img class="project-feed__item__writer__image" alt="" src="/reviewImages/display?reviewImageName=${review.reviewImagePath}/t_${review.reviewImageImageUuid}_${review.reviewImageImageName}">
                                     <span class="project-feed__item__writer__name"
                                           >${review.userNickname}</span>
                                 </a>
@@ -42,7 +32,7 @@ $(document).ready(function () {
         `
     });
     $list.append(text);
-});
+})
 /*if(order == 'popular'){
         let $order = $("button.order");
         $("button.order-checked").removeClass("order-checked");
@@ -60,7 +50,6 @@ $(document).ready(function () {
         location.href = `/review/list?page=${nowPage}&type=${type}&keyword=${keyword}&order=${order}`;
     }
 });*/
-
 
 
 // review.files.forEach(file => {

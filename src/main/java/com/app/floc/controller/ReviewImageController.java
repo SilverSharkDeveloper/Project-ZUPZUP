@@ -54,8 +54,11 @@ public class ReviewImageController {
     //    파일 불러오기
     @GetMapping("display")
     @ResponseBody
-    public byte[] display(String reviewImageImageName) throws IOException{
-        return FileCopyUtils.copyToByteArray(new File("C:/upload/", reviewImageImageName));
+    public byte[] display(String reviewImageName) throws IOException{
+//        Path path = Paths.get("C:/upload/"+reviewImageName);
+//        return Files.readAllBytes(path);
+        log.info( reviewImageName);
+        return FileCopyUtils.copyToByteArray(new File("C:/upload/", reviewImageName));
     }
 
     //    파일 다운로드
