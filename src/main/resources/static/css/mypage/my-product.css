@@ -1069,7 +1069,6 @@ button, input, select, textarea {
     display: inline-block;
     width: 16px;
     height: 16px;
-    margin-right: 6px;
     border-radius: 100%;
     background-color: #ededed;
     vertical-align: -3px;
@@ -1143,4 +1142,21 @@ button, input, select, textarea {
     .css-1sravj:hover, .css-1sravj:active {
         background-color: #a4c2b8;
     }
+}
+
+
+
+.e1e2zisd8{
+    display: block;
+}
+
+.status{
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #3b7661;
+}
+
+.css-1647809 a{
+    cursor: default;
 }

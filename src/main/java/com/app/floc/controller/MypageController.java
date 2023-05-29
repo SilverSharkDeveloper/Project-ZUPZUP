@@ -1,10 +1,15 @@
 package com.app.floc.controller;
 
 import com.app.floc.domain.DTO.MyPloggingPagination;
+import com.app.floc.domain.DTO.ProductDTO;
 import com.app.floc.domain.DTO.Search;
+import com.app.floc.domain.VO.CouponVO;
+import com.app.floc.domain.VO.ProductVO;
 import com.app.floc.domain.VO.TissueVO;
 import com.app.floc.domain.VO.UserVO;
+import com.app.floc.service.coupon.CouponService;
 import com.app.floc.service.mypage.MypageService;
+import com.app.floc.service.product.ProductService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.coobird.thumbnailator.Thumbnailator;
@@ -40,7 +45,10 @@ import java.util.UUID;
 @RequestMapping("/mypage/*")
 public class MypageController {
     private final MypageService mypageService;
+    private final CouponService couponService;
+    private final ProductService productService;
     private final HttpSession session;
+
 
 
     @GetMapping("my-point")
@@ -152,8 +160,23 @@ public class MypageController {
     public void goToMain() {;
     }
 
+    //쿠폰 목록으로 가기
     @GetMapping("my-product")
-    public void goToProduct() {;
+    public void goToProduct(Model model) {
+        List<CouponVO> coupons = couponService.getList((Long) session.getAttribute("userId"));
+        List<ProductDTO> products = new ArrayList<>();
+        coupons.stream().forEach(couponVO -> products.add(
+                productService.read(
+                        couponVO.getProductId(),(Long)session.getAttribute("userId")
+                ).get()
+        ));
+
+        log.info(coupons.toString());
+        log.info(products.toString());
+
+        model.addAttribute("coupons",coupons);
+        model.addAttribute("products",products);
+
     }
 
     @GetMapping("mypage-cute")

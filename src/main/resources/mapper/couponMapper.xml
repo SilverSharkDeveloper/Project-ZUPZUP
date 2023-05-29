@@ -19,4 +19,17 @@
         WHERE ID = #{couponId}
     </select>
 
+    <select id="selectAll" resultType="couponVO">
+        SELECT ID, USER_ID, PRODUCT_ID, COUPON_CREATED_DATE, COUPON_USED_DATE, COUPON_STATUS, COUPON_QRCODE_PATH
+        FROM TBL_COUPON
+        WHERE USER_ID = #{userId}
+        ORDER BY ID DESC
+    </select>
+
+    <select id="selectByCouponPath" resultType="couponVO">
+        SELECT ID, USER_ID, PRODUCT_ID, COUPON_CREATED_DATE, COUPON_USED_DATE, COUPON_STATUS, COUPON_QRCODE_PATH
+        FROM TBL_COUPON
+        WHERE COUPON_QRCODE_PATH = #{couponQrcodePath}
+    </select>
+
 </mapper>

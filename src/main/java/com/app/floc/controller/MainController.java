@@ -41,7 +41,6 @@ public class MainController {
     @GetMapping("main")
     public void main(Pagination pagination, Search search, Model model){
 //        model.addAttribute("products", productService.getProductList(pagination));
-//        model.addAttribute("products", productService.getList(productPagination, session.getAttribute("userId")!=null ? (Long)session.getAttribute("userId"):null));
 //        model.addAttribute("ploggings", ploggingService.getList(pagination, search));
         model.addAttribute("reviews",reviewService.getList(pagination, search));
     }
