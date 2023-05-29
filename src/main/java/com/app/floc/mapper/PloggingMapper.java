@@ -14,6 +14,8 @@ public interface PloggingMapper {
     //  등록
     public void insert(PloggingVO ploggingVO);
 
+    //목록
+    public List<PloggingDTO> selectAll(String location);
     //  DTO 등록
     public void insertList(PloggingDTO ploggingDTO);
 
@@ -38,6 +40,7 @@ public interface PloggingMapper {
     //  마이페이지 파일 목록
     public List<PloggingDTO> selectFiles(Long id);
 
+    public int getTotal(String location);
     //amdin페이지
     // admin
 
