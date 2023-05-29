@@ -74,8 +74,8 @@ function showList() {
                         <article class="production-item"><a class="production-item__overlay"
                                                             href="/product/product-detail?productId=${product.id}"></a>
                             <div class="production-item-image production-item__image"><img class="image" alt=""
-                                                                                           src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168266558366770905.png?gif=1&amp;w=360&amp;h=360&amp;c=c&amp;q=0.8&amp;webp=1"
-                                                                                           srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168266558366770905.png?gif=1&amp;w=640&amp;h=640&amp;c=c&amp;q=0.8&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168266558366770905.png?gif=1&amp;w=720&amp;h=720&amp;c=c&amp;q=0.8&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168266558366770905.png?gif=1&amp;w=1080&amp;h=1080&amp;c=c&amp;q=0.8&amp;webp=1 3x">
+                                                                                           src="/admin/display?fileName=${product.productImagePath}/t_${product.productImageUuid}_${product.productImageName}"
+                                                                                           >
                                 <button class="production-item-scrap-badge production-item-image__scrap-badge scrap-btn" id="${product.id}"
                                         type="button">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"

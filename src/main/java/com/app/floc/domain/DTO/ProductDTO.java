@@ -18,8 +18,9 @@ public class ProductDTO {
     private String productCategory;
     private String productUsedLocation;
     private String productImageName;
-    private String ProductImageUuid;
+    private String productImageUuid;
     private Long productImageSize;
+    private String productImagePath;
 
     private Long userWishCount;
     private boolean isWished;
