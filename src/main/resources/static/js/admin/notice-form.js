@@ -1,4 +1,5 @@
 
+
 let submitBtn = document.querySelector(".btn-write");
 let writeTitle = document.querySelectorAll(".write-title");
 submitBtn.addEventListener("click", form)
@@ -68,4 +69,3 @@ input_file.addEventListener("change", e => {
         image_div[0].style.display = "none";
     };
 });
-

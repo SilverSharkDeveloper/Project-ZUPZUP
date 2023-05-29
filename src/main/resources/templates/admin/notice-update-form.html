@@ -49,18 +49,25 @@
             <div class="content-wrap">
 
                 <!-- [S] 공지사항 등록 -->
-                <form action="./notice.html" method="post" class="submit-form">
+                <form th:action="@{notice-update-form}" method="post" th:object="${notice}"class="submit-form">
+                    <input type= "hidden" th:field="*{id}">
+                    <input type= "hidden" th:field="*{userIdentification}">
+                    <input type= "hidden" th:field="*{noticeUpdatedDate}">
+                    <input type= "hidden" th:field="*{noticeImageName}">
+                    <input type= "hidden" th:field="*{noticeImageUuid}">
+                    <input type= "hidden" th:field="*{noticeImageSize}">
+
                     <div class="con-write-wrap">
                         <div class="notice-write">
                             <div class="write-title">공지사항 제목</div>
                             <div class="write-sec">
-                                <input class="write-text write-input" type="text" placeholder="공지사항 제목을 적어주세요." name = "title">
+                                <input th:field="*{noticeTitle}" class="write-text write-input" type="text" placeholder="공지사항 제목을 적어주세요." name = "noticeTitle">
                             </div>
                         </div>
                         <div class="notice-write">
                             <div class="write-title">공지사항 내용</div>
                             <div class="write-sec">
-                                <textarea class="write-text write-notice" type="text" placeholder="공지사항 내용을 적어주세요." name ="content"></textarea>
+                                <textarea  th:field="*{noticeContent}" class="write-text write-notice" type="text" placeholder="공지사항 내용을 적어주세요." name ="noticeContent"></textarea>
                             </div>
                         </div>
 
@@ -81,13 +88,18 @@
                         </div>
                     </div>
                     <!-- [E] 공지사항 등록 -->
-
-
                     <!-- 작성하기 btn -->
                     <div class="write-btn-wrap">
-                        <button type="button" class="btn btn-list"><a href="./notice.html">공지 사항</a></button>
-                        <button type="button" class="btn btn-write">수정하기</button>
+                        <a th:href="@{notice}">
+                            <button type="button" class="btn btn-list">공지 사항</button></a>
+                        <button type="submit" class="btn btn-write">수정하기</button>
                     </div>
+                    <input type="hidden" th:value="*{id}">
+                    <input type="hidden" th:value="*{userIdentification}">
+                    <input type="hidden" th:value="*{noticeUpdatedDate}">
+                    <input type="hidden" th:value="*{noticeImageName}">
+                    <input type="hidden" th:value="*{noticeImageUuid}">
+                    <input type="hidden" th:value="*{noticeImageSize}">
                 </form>
 
             </div>
@@ -105,5 +117,5 @@
 </body>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="/js/admin/side-bar.js"></script>
-<script src="/js/admin/notice-form.js"></script>
+<!--<script src="/js/admin/notice-form.js"></script>-->
 </html>

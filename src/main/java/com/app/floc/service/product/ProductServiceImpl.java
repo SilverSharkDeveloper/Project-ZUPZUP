@@ -4,6 +4,10 @@ import com.app.floc.DAO.*;
 import com.app.floc.domain.DTO.ProductDTO;
 import com.app.floc.domain.DTO.ProductPagination;
 import com.app.floc.domain.VO.*;
+import com.app.floc.DAO.ProductDAO;
+import com.app.floc.domain.DTO.AdminPagination;
+import com.app.floc.domain.DTO.Search;
+import com.app.floc.domain.VO.ProductVO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -107,4 +111,18 @@ public class ProductServiceImpl implements ProductService {
     }
 
 
+    @Override
+    public List<ProductVO> getAdminList(AdminPagination adminPagination, Search search) {
+        return productDAO.findAllByAdmin(adminPagination,search);
+    }
+
+    @Override
+    public int getTotal(Search search) {
+        return productDAO.findCountOfProduct(search);
+    }
+
+    @Override
+    public void deleteProductsByIds(List<Long> productIds) {
+        productDAO.deleteProductsByIds(productIds);
+    }
 }
