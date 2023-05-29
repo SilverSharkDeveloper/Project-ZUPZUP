@@ -3,22 +3,18 @@ $(document).ready(function () {
     let text = "";
     reviews.forEach(review => {
         text += `
-                <div class="item"><a href="/review/local_review_detail?id=${review.id}}">
+                <div class="item">
+                <a href="/review/user_review_detail?id=${review.id}">
                     <article class="css-1evwse1 e1e2zisd6">
                         <div class="css-1hnq8aw e1e2zisd5">`
-    review.files.forEach(file => {
-        if (file.fileType == "REPRESENTATIVE") {
-            console.log(`${file.reviewImagePath}/${file.reviewImageImageUuid}_${file.reivewImageImageName}`)
-            text += `<img src="/reviewImages/display?reviewImageImageName=${file.reviewImagePath}/${file.reviewImageImageUuid}_${file.reivewImageImageName}" class="css-j9woce e1e2zisd7 preview">`;
-        }
-    })
-    text += `
+        text += `<img src="/reviewImages/display?reviewImageName=${review.reviewImagePath}/t_${review.reviewImageImageUuid}_${review.reviewImageImageName}" class="css-j9woce e1e2zisd7 preview">`;
+        text += `
                         </div>
                         <div class="css-1647809 e1e2zisd4">
                             <h2 class="css-z2d3s1 e1e2zisd2">${review.reviewTitle}</h2>
                             <address class="project-feed__item__writer-wrap">
                                 <a class="project-feed__item__writer" href="/mypage/my-host-list?id=${review.userId}">
-                                    <img class="project-feed__item__writer__image" alt="" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168186561821130322.png?gif=1&amp;w=36&amp;h=36&amp;c=c&amp;webp=1">
+                                    <img class="project-feed__item__writer__image" alt="" src="/reviewImages/display?reviewImageName=${review.reviewImagePath}/t_${review.reviewImageImageUuid}_${review.reviewImageImageName}">
                                     <span class="project-feed__item__writer__name"
                                           >${review.userNickname}</span>
                                 </a>
@@ -34,10 +30,19 @@ $(document).ready(function () {
                 </a>
                 </div>
         `
-});
+    });
     $list.append(text);
-
-});
+})
+// //무한스크롤
+// window.addEventListener("scroll", infiniteScroll);
+// function infiniteScroll(){
+//     const currentScroll = window.scrollY;
+//     const windowHeight = window.innerHeight;
+//     const bodyHeight = document.querySelector(".css-b3oum6").clientHeight;
+//     if(currentScroll + windowHeight +50>= bodyHeight){
+//         showList();
+//     }
+// }
 /*if(order == 'popular'){
         let $order = $("button.order");
         $("button.order-checked").removeClass("order-checked");

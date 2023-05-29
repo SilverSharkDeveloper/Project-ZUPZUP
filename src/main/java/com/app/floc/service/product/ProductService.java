@@ -1,9 +1,6 @@
 package com.app.floc.service.product;
 
-import com.app.floc.domain.DTO.ProductDTO;
-import com.app.floc.domain.DTO.ProductPagination;
-import com.app.floc.domain.DTO.AdminPagination;
-import com.app.floc.domain.DTO.Search;
+import com.app.floc.domain.DTO.*;
 import com.app.floc.domain.VO.ProductVO;
 
 import java.util.List;
@@ -18,7 +15,6 @@ public interface ProductService {
 
     //상품전체조회 -> 목록조회 ->pagination
     public List<ProductDTO> getList(ProductPagination pagination, Long userId);
-
 
 
     //상품 제거
