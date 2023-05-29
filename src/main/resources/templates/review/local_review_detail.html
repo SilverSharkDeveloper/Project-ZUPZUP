@@ -29,8 +29,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 <link href="/css/font.css" rel="stylesheet"/>
 <link rel="stylesheet" href="/css/header-footer/header.css">
+<link rel="stylesheet" href="/css/header-footer/header-login.css">
 <body>
-<th:block th:replace="/header-footer/header::header"></th:block>
+<th:block th:if="${session.userId==null}">
+    <header class="header" th:replace="~{/header-footer/header :: header}"></header>
+</th:block>
+<th:block th:unless="${session.userId==null}">
+    <header class="header" th:replace="~{/header-footer/header-login :: header}"></header>
+</th:block>
 <div class="css-b3oum6">
     <div class="layout">
         <main class="content-detail">
@@ -155,7 +161,7 @@
                                 <dd class="project-detail-metadata-overview-item__text">신혼부부</dd>
                             </div>
                         </dl>
-                        <div class="project-detail-foldable">
+                        <!--<div class="project-detail-foldable">
                             <div class="project-detail-foldable__content">
                                 <dl class="project-detail-metadata-detail">
                                     <div class="project-detail-metadata-detail-item">
@@ -209,7 +215,7 @@
                                     </svg>
                                 </button>
                             </div>
-                        </div>
+                        </div>-->
                     </section>
                     <div class="bpd-view project-detail__content-bpd">
                         <p class="bpd-view-text bpd-view-p-block" th:text="${reviewContent}">&nbsp</p>
@@ -537,6 +543,7 @@
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script src="/js/review/review-main.js"></script>
+<script src="/js/review/header.js"></script>
 <script>
 
     $mainbutton = $("button.mainBtn");

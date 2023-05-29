@@ -31,6 +31,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 <link href="/css/font.css" rel="stylesheet"/>
 <link rel="stylesheet" href="/css/header-footer/header.css">
+<link rel="stylesheet" href="/css/header-footer/header-login.css">
 <body>
 <th:block th:if="${session.userId==null}">
     <header class="header" th:replace="~{/header-footer/header :: header}"></header>
@@ -544,6 +545,7 @@
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script src="/js/review/review-main.js"></script>
+<script src="/js/review/header.js"></script>
 <script>
 
     $mainbutton = $("button.mainBtn");
