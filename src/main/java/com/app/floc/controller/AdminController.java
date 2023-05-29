@@ -122,7 +122,8 @@ public class AdminController {
     public RedirectView productWrite(ProductVO productVO, @RequestParam(value= "uploadFile",required = false) MultipartFile uploadFile) throws IOException {
 
         if (!uploadFile.isEmpty()) {
-            String path = "C:/upload/" + getPath();
+            String pathWithoutC = getPath();
+            String path = "C:/upload/" + pathWithoutC;
             String uuid = UUID.randomUUID().toString();
             String originalFilename = uploadFile.getOriginalFilename();
            log.info(originalFilename);
@@ -140,7 +141,7 @@ public class AdminController {
             productVO.setProductImageUuid(uuid);
             productVO.setProductImageSize(uploadFile.getSize());
             productVO.setProductImageName(originalFilename);
-            productVO.setProductImagePath(path);
+            productVO.setProductImagePath(pathWithoutC);
         } else {
             productVO.setProductImageUuid("");
             productVO.setProductImageSize(0L);
