@@ -20,6 +20,7 @@ public class NoticeDTO {
     private String noticeImageName;
     private String noticeImageUuid;
     private Long noticeImageSize;
+    private String noticeImagePath;
 }
 
 
