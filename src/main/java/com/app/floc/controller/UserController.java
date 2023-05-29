@@ -69,6 +69,15 @@ public class UserController {
     @PostMapping("login")
     public RedirectView login(String identification, String password, HttpSession session, RedirectAttributes redirectAttributes){
         Optional<Long> foundUser = userService.login(identification, password);
+
+        if(foundUser.isPresent()){
+            if(userService.getUser(foundUser.get()).get().getUserRole().equals("admin")){
+                log.info("들");
+                return new RedirectView("/admin/admin");
+            }
+        }
+
+
         if(foundUser.isPresent()){
             session.setAttribute("userId",foundUser.get());
             log.info(session.getAttribute("userId").toString());
