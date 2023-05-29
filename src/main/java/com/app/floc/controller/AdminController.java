@@ -208,38 +208,44 @@ public class AdminController {
         return "/admin/notice-form";
     }
 
-    // 작성
+
+//    컨트롤러
     @ResponseBody
     @PostMapping("notice-form")
-    public RedirectView noticeWrite(NoticeDTO noticeDTO, @RequestParam("imageFile") MultipartFile imageFile) {
-//        noticeDTO.setAdminId((Long)session.getAttribute("userId"));
-//        noticeDTO.setAdminId((Long)session.getAttribute("userId"));
-        noticeDTO.setAdminId(1L);
-        noticeDTO.setUserIdentification("alsl910@nate.com");
+    public RedirectView noticeWrite(NoticeDTO noticeDTO, @RequestParam("uploadFile") MultipartFile uploadFile) throws IOException{
+        if (!uploadFile.isEmpty()) {
+            String pathWithoutC = getPath();
+            String path = "C:/upload/" + pathWithoutC;
+            String uuid = UUID.randomUUID().toString();
+            String originalFilename = uploadFile.getOriginalFilename();
+            log.info(originalFilename);
 
-//        noticeDTO.setUserIdentification((String)session.getAttribute("userIdentification"));
+            File file = new File(path);
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            uploadFile.transferTo(new File(path, uuid + "_" + uploadFile.getOriginalFilename()));
+            if (uploadFile.getContentType().startsWith("image")) {
+                FileOutputStream out = new FileOutputStream(new File(path, "t_" + uuid + "_" + uploadFile.getOriginalFilename()));
+                Thumbnailator.createThumbnail(uploadFile.getInputStream(), out, 100, 100);
+                out.close();
+            }
+            noticeDTO.setNoticeImageUuid(uuid);
+            noticeDTO.setNoticeImageSize(uploadFile.getSize());
+            noticeDTO.setNoticeImageName(originalFilename);
+            noticeDTO.setNoticeImagePath(pathWithoutC);
+        } else {
+            noticeDTO.setNoticeImageUuid("");
+            noticeDTO.setNoticeImagePath("");
+            noticeDTO.setNoticeImageSize(0L);
+            noticeDTO.setNoticeImageName("");
 
-        log.info("=------uuid값");
-//        String uuid = UUID.randomUUID().toString();
-//
-//        if (!imageFile.isEmpty()) {
-//            String imageName = imageFile.getOriginalFilename();
-//            long imageSize = imageFile.getSize();
-//
-//            noticeDTO.setNoticeImageUuid(uuid);
-//            noticeDTO.setNoticeImageName(imageName);
-//            noticeDTO.setNoticeImageSize(imageSize);
-//        } else {
-//            noticeDTO.setNoticeImageName("");
-//            noticeDTO.setNoticeImageUuid("");
-//            noticeDTO.setNoticeImageSize(0L);
-//        }
-
-
-        noticeService.write(noticeDTO);
+        }
         log.info(noticeDTO.toString());
+        noticeService.write(noticeDTO);
         return new RedirectView("/admin/notice");
     }
+
 
     //상세보기,수정
     @GetMapping(value = {"notice-update-form"})

@@ -25,6 +25,11 @@
             <time class="customer-notice-detail__date"th:text="*{noticeCreatedDate}"></time>
                 <h6 id="detail-read-count" th:text="*{'조회 ' + noticeViewedCount}"></h6>
                 <div class="customer-notice-detail__content"><p th:text="*{noticeContent}"></p>
+
+                    <div id="noticedetail-img">
+
+                    </div>
+
                     <a th:href="@{notice}">
                 <button class="customer-notice-detail__back" type="button">목록으로 돌아가기</button>
                     </a>
@@ -163,10 +168,12 @@
     </div>
 </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <!--<script src="/js/header-footer/header.js"></script>-->
 <script th:inline="javascript">
-    const notices = [[${notices}]];
-    console.log(notices);
+    const notice = [[${notice}]];
+    console.log(notice);
 </script>
+<script src="/js/admin/noticeimage.js"></script>
 <!--<script src="/js/admin/notice-detail.js"></script>-->
 </html>

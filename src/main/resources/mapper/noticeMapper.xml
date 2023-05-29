@@ -22,8 +22,8 @@
     </sql>
 
     <insert id="insert">
-        INSERT INTO TBL_NOTICE (ID, ADMIN_ID, NOTICE_TITLE, NOTICE_CONTENT, NOTICE_IMAGE_NAME, NOTICE_IMAGE_UUID, NOTICE_IMAGE_SIZE)
-        VALUES(SEQ_NOTICE.NEXTVAL,#{adminId}, #{noticeTitle}, #{noticeContent}, #{noticeImageName}, #{noticeImageUuid},#{noticeImageSize} )
+        INSERT INTO TBL_NOTICE (ID, ADMIN_ID, NOTICE_TITLE, NOTICE_CONTENT, NOTICE_IMAGE_NAME, NOTICE_IMAGE_UUID, NOTICE_IMAGE_SIZE,NOTICE_IMAGE_PATH)
+        VALUES(SEQ_NOTICE.NEXTVAL,#{adminId}, #{noticeTitle}, #{noticeContent}, #{noticeImageName}, #{noticeImageUuid},#{noticeImageSize},#{noticeImagePath} )
     </insert>
 
     <select id="selectAll" resultType="noticeDTO">
