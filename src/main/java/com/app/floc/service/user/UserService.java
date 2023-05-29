@@ -34,4 +34,8 @@ public interface UserService {
 
     //최근 5명 조회
     public List<UserVO> getUserRecent();
+
+    //admin회원  삭제
+    public void deleteUsersByIds(List<Long> userIds);
 }
+

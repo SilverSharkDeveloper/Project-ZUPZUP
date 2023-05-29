@@ -1,6 +1,5 @@
 package com.app.floc.domain.DTO;
 
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
