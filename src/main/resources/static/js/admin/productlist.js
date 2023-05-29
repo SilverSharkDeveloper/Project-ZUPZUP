@@ -60,7 +60,7 @@ function deleteProduct() {
         data: JSON.stringify(selectItems),
         contentType: 'application/json',
         dataType: 'json',
-        success: function(deletedNoticeIds) {
+        success: function(deletedProductIds) {
             location.href = "/admin/product";
         },
         error: function(error) {

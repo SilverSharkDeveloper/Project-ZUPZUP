@@ -51,6 +51,12 @@
                 <!-- [S] 공지사항 등록 -->
                 <form th:action="@{notice-update-form}" method="post" th:object="${notice}"class="submit-form">
                     <input type= "hidden" th:field="*{id}">
+                    <input type= "hidden" th:field="*{userIdentification}">
+                    <input type= "hidden" th:field="*{noticeUpdatedDate}">
+                    <input type= "hidden" th:field="*{noticeImageName}">
+                    <input type= "hidden" th:field="*{noticeImageUuid}">
+                    <input type= "hidden" th:field="*{noticeImageSize}">
+
                     <div class="con-write-wrap">
                         <div class="notice-write">
                             <div class="write-title">공지사항 제목</div>
@@ -88,6 +94,12 @@
                             <button type="button" class="btn btn-list">공지 사항</button></a>
                         <button type="submit" class="btn btn-write">수정하기</button>
                     </div>
+                    <input type="hidden" th:value="*{id}">
+                    <input type="hidden" th:value="*{userIdentification}">
+                    <input type="hidden" th:value="*{noticeUpdatedDate}">
+                    <input type="hidden" th:value="*{noticeImageName}">
+                    <input type="hidden" th:value="*{noticeImageUuid}">
+                    <input type="hidden" th:value="*{noticeImageSize}">
                 </form>
 
             </div>

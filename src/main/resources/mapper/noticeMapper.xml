@@ -80,4 +80,22 @@
         </foreach>
     </delete>
 
+    <update id="updateReadCount">
+        UPDATE TBL_NOTICE
+        SET NOTICE_VIEWED_COUNT = NOTICE_VIEWED_COUNT + 1
+        WHERE ID = #{id}
+    </update>
+
+
+    <select id="selectByRecent" resultType="noticeDTO">
+        SELECT NOTICE_TITLE, USER_IDENTIFICATION,NOTICE_VIEWED_COUNT,NOTICE_CREATED_DATE
+        FROM (
+            SELECT NOTICE_TITLE, USER_IDENTIFICATION,NOTICE_VIEWED_COUNT,NOTICE_CREATED_DATE
+            FROM TBL_USER U JOIN TBL_NOTICE N ON U.ID = N.ADMIN_ID ORDER BY N.ID DESC
+            )
+        <![CDATA[
+        WHERE ROWNUM <=5
+        ]]>
+
+    </select>
 </mapper>

@@ -45,10 +45,10 @@
                     <trim prefix="OR">
                         <choose>
                             <when test="type == 'n'.toString()">
-                                AND (USER_NAME LIKE '%'||#{search.keyword}||'%')
+                                USER_NAME LIKE '%'||#{search.keyword}||'%'
                             </when>
                             <when test="type == 'i'.toString()">
-                                AND (USER_NICKNAME LIKE '%'||#{search.keyword}||'%')
+                                USER_NICKNAME LIKE '%'||#{search.keyword}||'%'
                             </when>
                         </choose>
                     </trim>
@@ -112,6 +112,14 @@
     <delete id="delete">
         DELETE FROM TBL_USER
         WHERE ID=#{Id};
+    </delete>
+
+    <delete id="deleteUsersByIds" parameterType="java.util.List">
+        DELETE FROM TBL_USER
+        WHERE ID IN
+        <foreach item="id" collection="list" open="(" separator="," close=")">
+            #{id}
+        </foreach>
     </delete>
 </mapper>
 

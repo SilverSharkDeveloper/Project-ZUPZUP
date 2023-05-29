@@ -47,18 +47,19 @@
         <div class="mainContent">
             <div class="content-wrap">
                 <!-- [S] 공지사항 등록 -->
-                <form th:action="@{notice-form}" method="post" th:object="${noticeDTO}" class="submit-form">
+                <form th:action="@{notice-form}" method="post" th:object="${noticeDTO}" class="submit-form" enctype="multipart/form-data">
+                    <input type="hidden" th:field="*{userIdentification}" name="userIdentification">
                     <div class="con-write-wrap">
                         <div class="notice-write">
                             <div class="write-title">공지사항 제목</div>
                             <div class="write-sec">
-                                <input type="text" class="write-text write-input"th:field="*{noticeTitle}" placeholder="공지사항 제목을 적어주세요." name="title">
+                                <input type="text" class="write-text write-input"th:field="*{noticeTitle}" placeholder="공지사항 제목을 적어주세요." name="noticeTitle">
                             </div>
                         </div>
                         <div class="notice-write">
                             <div class="write-title">공지사항 내용</div>
                             <div class="write-sec">
-                                <textarea class="write-text write-notice" type="text" th:field="*{noticeContent}" placeholder="공지사항 내용을 적어주세요." name ="content"></textarea>
+                                <textarea class="write-text write-notice" type="text" th:field="*{noticeContent}" placeholder="공지사항 내용을 적어주세요." name ="noticeContent"></textarea>
                             </div>
                         </div>
 
@@ -74,7 +75,11 @@
                                 <label for="attach">
                                     <div class="search-notice-img">찾아보기</div>
                                 </label>
-                                <input type="file" class="file" id="attach" style="display: none;" name= "upload" >
+                                <input type="file" class="file" id="attach" style="display: none;" name= "imageFile" >
+
+                                <input type="hidden" name="fileUuid" value="${uuid}">
+                                <input type="hidden" name="fileName" value="${imageName}">
+                                <input type="hidden" name="fileSize" value="${fileSize}">
                             </div>
                         </div>
                     </div>

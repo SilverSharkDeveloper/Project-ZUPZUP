@@ -45,16 +45,16 @@
 
         <!--mainScreen 회원관리-->
         <div class="mainContent">
-            <form action="#" class = "searchForm">
+            <form th:action="${floging}" class = "searchForm">
                 <div class="memberSearch">
                     <div class="memberSearchInput">
                         <select name = "type">
-                            <option>주최자</option>
-                            <option>주최 날짜</option>
-                            <option>위치</option>
+                            <option value="n" th:selected="${search != null and search.type eq 'n'}">주최자</option>
+                            <option value="l" th:selected="${search != null and search.type eq 'l'}">주최 날짜</option>
+                            <option value="s" th:selected="${search != null and search.type eq 's'}">위치</option>
                         </select>
                         <div>
-                            <input type="text" name ="keyword" placeholder="검색어를 입력하세요">
+                            <input type="text" name ="keyword" th:value="${search != null ? search.keyword : ''}" placeholder="검색어를 입력하세요">
                         </div>
 
 
@@ -68,16 +68,16 @@
             <div class="memberLists">
                 <div id="root">
                     <div>
-                        <!--                        <span>총 <th:block th:text="${adminPagination.total} +'개'">-->
-                        <!--                        </th:block></span>-->
-                        <button class="deleteBtn">삭제</button>
+                        <span>총<th:block th:text="${adminPagination.total} +'개'">
+                        </th:block></span>
+                        <button onclick="deletePlog()" class="deleteBtn">삭제</button>
                     </div>
                 </div>
                 <form action="#" class = "deleteForm">
                     <input type = "hidden" name = "page" value = "${criteria.page}">
                     <input type = "hidden" name = "type" value = "${criteria.type}">
                     <input type = "hidden" name = "keyword" value = "${criteria.keyword}">
-                    <table class="userTable">
+                    <table class="plogTable">
                         <thead>
                         <tr class="tableTh" style="border-top:3px solid #6e6e6e;">
                             <td class = "inputCheckBoxAllBtn"><input class="inputCheckBoxAll"type="checkbox"></td>
@@ -90,8 +90,8 @@
                             <!--신청중,모집중,모집종료,기각),신청중 상태에서만 버튼으로 만들어 신청서 볼수 있게 만들기 -->
                             <td>상태</td>
                             <td>신청서</td>
-
                         </tr>
+                        </thead>
                         <tr>
                             <td class = "inputCheckBoxBtn"><input class="inputCheckBox"type="checkbox"></td>
                             <td>1</td>
@@ -100,48 +100,35 @@
                             <td>부산 해운대</td>
                             <td>완주시 휴지 1롤</td>
                             <td>16/30</td>
-                            <!--신청중,모집중,모집종료,기각),신청중 상태에서만 버튼으로 만들어 신청서 볼수 있게 만들기 -->
+                            <!-- 신청중,모집중,모집종료,기각),신청중 상태에서만 버튼으로 만들어 신청서 볼수 있게 만들기 -->
                             <td>모집중</td>
                             <td><a th:href="@{floging-detail}"><button type="button" class = "register-detail-btn">상세보기</button></a></td>
 
                         </tr>
-                        <tr>
-                            <td class = "inputCheckBoxBtn"><input class="inputCheckBox"type="checkbox"></td>
-                            <td>2</td>
-                            <td>마린보이</td>
-                            <td>2023-05-15</td>
-                            <td>부산 해운대</td>
-                            <td>완주시 휴지 1롤</td>
-                            <td>0/30</td>
-                            <!--신청중,모집중,모집종료,기각),신청중 상태에서만 버튼으로 만들어 신청서 볼수 있게 만들기 -->
-                            <td><a th:href="@{floging-estimate}"><button type="button" class = "register-estimate-btn">심사 대기</button></a></td>
-
-                            <td><a th:href="@{floging-detail}"><button type="button" class = "register-detail-btn">상세보기</button></a></td>
-
-                        </tr>
-                        </thead>
-
+                        <tbody>
+                        </tbody>
                     </table>
                 </form>
                 <!-- [S] 페이지 컨트롤러 -->
                 <div class="page-controller-wrap">
-
-                    <!-- 이전 페이지로 이동하기 -->
-                    <a class="page-list page-list-move page-before"> <img
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAHCAQAAABqrk9lAAAAGElEQVR42mNgAIPi/8X/4QwwE5PBQJADAAKSG3cyVhtXAAAAAElFTkSuQmCC"
-                            alt="이전 페이지로 이동하기 아이콘"></a>
-                    <a class="page-list page-list-first list-on">1</a>
-                    <a class="page-list page-list-second">2</a>
-                    <a class="page-list page-list-third">3</a>
-                    <a class="page-list page-list-fourth">4</a>
-                    <a class="page-list page-list-fifth">5</a>
-
-                    <!-- 다음 페이지로 이동하기 -->
-                    <a class="page-list page-list-move page-after"> <img
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAHCAQAAABqrk9lAAAAGUlEQVR42mMo/l/8nwECQEwCHEwGhAlRBgA2mht3SwgzrwAAAABJRU5ErkJggg=="
-                            alt="다음 페이지로 이동하기 아이콘">
+                    <!-- 이전 버튼 -->
+                    <a th:if="${adminPagination.prev}" th:href="${adminPagination.startPage -1}"
+                       class="change-page page-list page-list-move page-before">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAHCAQAAABqrk9lAAAAGElEQVR42mNgAIPi/8X/4QwwE5PBQJADAAKSG3cyVhtXAAAAAElFTkSuQmCC"
+                             alt="이전 페이지로 이동하기 아이콘">
                     </a>
-
+                    <th:block th:each="page:${#numbers.sequence(adminPagination.startPage, adminPagination.endPage)}">
+                        <a th:if="${page eq adminPagination.page}" class="page-list list-first"
+                           th:text="${page}"></a>
+                        <a th:unless="${page eq adminPagination.page}" th:href="${page}"
+                           class="change-page page-list page-list-first list-on" th:text="${page}"></a>
+                    </th:block>
+                    <!-- 다음 페이지로 이동하기 -->
+                    <a th:if="${adminPagination.next}" th:href="${adminPagination.endPage + 1}"
+                       class="change-page page-list page-list-move page-after">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAHCAQAAABqrk9lAAAAGUlEQVR42mMo/l/8nwECQEwCHEwGhAlRBgA2mht3SwgzrwAAAABJRU5ErkJggg=="
+                             alt="다음 페이지로 이동하기 아이콘">
+                    </a>
                 </div>
                 <!-- [E] 페이지 컨트롤러 -->
             </div>
@@ -156,4 +143,9 @@
 </body>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="/js/admin/side-bar.js"></script>
+<script th:inline="javascript">
+    let ploggings = [[${ploggings}]];
+    let adminPagination = [[${adminPagination}]];
+</script>
+
 </html>

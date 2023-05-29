@@ -4,6 +4,7 @@ package com.app.floc.mapper;
 import com.app.floc.domain.DTO.AdminPagination;
 import com.app.floc.domain.DTO.NoticeDTO;
 import com.app.floc.domain.DTO.Search;
+import com.app.floc.domain.VO.UserVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -38,6 +39,10 @@ public interface NoticeMapper {
     //  공지사항 여러개 삭제
     public void deleteNoticeByIds(List<Long> noticeIds);
 
+    //    조회수
+    public void updateReadCount(Long id);
+
+    public List<NoticeDTO> selectByRecent();
 }
 
 

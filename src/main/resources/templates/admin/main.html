@@ -53,8 +53,8 @@
                         <tr style="border-top:3px solid #6e6e6e;" >
                             <td>아이디</td>
                             <td>닉네임</td>
-                            <td>성별</td>
-                            <td>핸드폰 번호</td>
+                            <td>티슈</td>
+                            <td>구분</td>
                             <td>가입날짜</td>
                         </tr>
                         <tr th:each="user : ${userRecents}">
@@ -80,7 +80,14 @@
                             <td>주최날</td>
                             <td>상태</td>
                         </tr>
-
+                        <tr th:each="plog : ${plogRecents}">
+                            <td th:text="${plog.ploggingTitle}"></td>
+                            <td th:text="${plog.localCreatorID}"></td>
+                            <td th:text="${plog.ploggingMaximumParticipant}"></td>
+                            <td th:text="${plog.ploggingStartLocation}"></td>
+                            <td th:text="${plog.ploggingStartDateTime}"></td>
+                            <td th:text="${flog.ploggingStatus}"></td>
+                        </tr>
                     </table>
                 </div>
             </div>
@@ -112,7 +119,12 @@
                             <td>조회수</td>
                             <td>등록날짜</td>
                         </tr>
-
+                        <tr th:each="notice : ${noticeRecents}">
+                            <td th:text="${notice.noticeTitle}"></td>
+                            <td th:text="${notice.userIdentification}"></td>
+                            <td th:text="${notice.noticeViewedCount}"></td>
+                            <td th:text="${notice.noticeCreatedDate}"></td>
+                        </tr>
                     </table>
                 </div>
             </div>
