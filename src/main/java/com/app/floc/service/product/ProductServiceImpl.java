@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 
 @Service
@@ -93,7 +94,8 @@ public class ProductServiceImpl implements ProductService {
         CouponVO couponVO = new CouponVO();
         couponVO.setProductId(productId);
         couponVO.setUserId(userId);
-        couponVO.setCouponQrcodePath("https://api.qr-code-generator.com/v1/create?access-token=kROO-WIIea6Pba5qQB1smTFioF8VS_kfpY_w9aoEdNnNE8GAS8o0kj5SLXgUlhVn&qr_code_text=http://192.168.62.201:10000/coupon/use-coupon");
+        String uuid = UUID.randomUUID().toString();
+        couponVO.setCouponQrcodePath("https://api.qr-code-generator.com/v1/create?access-token=kROO-WIIea6Pba5qQB1smTFioF8VS_kfpY_w9aoEdNnNE8GAS8o0kj5SLXgUlhVn&qr_code_text=http://192.168.62.201:10000/coupon/use-coupon?randomId="+uuid);
         couponDAO.addCoupon(couponVO);
 
 

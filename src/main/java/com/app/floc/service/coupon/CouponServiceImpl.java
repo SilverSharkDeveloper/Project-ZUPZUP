@@ -6,6 +6,7 @@ import com.app.floc.mapper.CouponMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -26,5 +27,15 @@ public class CouponServiceImpl implements CouponService {
     @Override
     public void useCoupon(CouponVO couponVO) {
         couponDAO.setCoupon(couponVO);
+    }
+
+    @Override
+    public Optional<CouponVO> findOneByCouponQrcodePath(String couponQrcodePath) {
+        return couponDAO.findOneByCouponPath(couponQrcodePath);
+    }
+
+    @Override
+    public List<CouponVO> getList(Long userId) {
+        return couponDAO.findAll(userId);
     }
 }

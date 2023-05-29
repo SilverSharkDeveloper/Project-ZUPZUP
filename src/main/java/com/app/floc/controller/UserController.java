@@ -71,6 +71,7 @@ public class UserController {
         Optional<Long> foundUser = userService.login(identification, password);
         if(foundUser.isPresent()){
             session.setAttribute("userId",foundUser.get());
+            log.info(session.getAttribute("userId").toString());
             return new RedirectView(session.getAttribute("location")==null?"/main/main" :session.getAttribute("location").toString() );
         }else{
             redirectAttributes.addFlashAttribute("login","fail");
