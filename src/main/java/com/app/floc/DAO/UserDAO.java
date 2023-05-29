@@ -3,10 +3,8 @@ package com.app.floc.DAO;
 import com.app.floc.domain.DTO.AdminPagination;
 import com.app.floc.domain.DTO.Search;
 import com.app.floc.domain.VO.UserVO;
-import com.app.floc.domain.DTO.Search;
 import com.app.floc.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -48,10 +46,9 @@ public class UserDAO {
     public void setUser(UserVO userVO){
         userMapper.updateUser(userVO);
     }
+
     //admin
     //회원 정보 조회
-
-
     public List<UserVO> findByUser(AdminPagination adminPagination, Search search){
 
         return userMapper.selectAll(adminPagination, search);
@@ -64,8 +61,11 @@ public class UserDAO {
 
     //회원 목록 페이징 없이 id순 높은 5개조회
     public List<UserVO> findByRecent(){
-        return userMapper.selectByRecent();
+        return userMapper.selectByRecent(); }
 
+    //admin 회원 삭제
+    public void deleteUsersByIds(List<Long> userIds) {
+        userMapper.deleteUsersByIds(userIds);
     }
 
     //회원정보수정
@@ -73,14 +73,10 @@ public class UserDAO {
         userMapper.update(userVO);
     }
 
-    //비밀번호 수정
-    public void crystalPassword(UserVO userVO){
-        userMapper.updatePassword(userVO);
-    }
 
     //회원탈퇴
-    public void deleteUser(UserVO userVO){
-        userMapper.delete(userVO);
+    public void deleteUser(Long id){
+        userMapper.delete(id);
     }
 
 }

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Title</title>
+
+    <style>
+        .wrap{
+            width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .img{
+            width: 500px;
+            height: 300px;
+            background: url("/image/huge.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0 auto;
+        }
+        .message{
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .btn{
+            width: 49%;
+            margin-top: 20px;
+            height: 50px;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: #7aab9a;
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+            border: 1px solid #7aab9a;
+            border-radius: 3px;
+        }
+
+        .commit:hover{
+            background-color: #3b7661;
+            border: 1px solid #3b7661;
+        }
+        .reject{
+            background-color: #dddddd;
+            border: 1px solid #dddddd;
+            color: black;
+        }
+        .reject:hover{
+            background-color: #b6b6b6;
+            border: 1px solid #b6b6b6;
+        }
+        .b{
+            width: 500px;
+            height: 500px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="img"></div>
+        <div class="message" th:text="${product.productName}"></div>
+        <div class="message">상품 쿠폰을 사용하시겠습니까?</div>
+        <div class="btn-wrap">
+
+            <button class="btn reject">취소</button>
+            <button class="btn commit">사용</button>
+        </div>
+        <div class="message success" style="display: none">쿠폰이 성공적으로 사용되었습니다. <button class="btn close" >닫기</button></div>
+        <div class="message fail" style="display:none;">쿠폰 사용이 거부되었습니다. <button class="btn close">닫기</button></div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script th:inline="javascript">
+        let coupon = [[${coupon}]];
+        $(".commit").on("click",e=>{
+            $.ajax({
+                url :"/coupon/check-coupon",
+                data :{
+                    check : "true",
+                    couponId : coupon.id
+                },
+                success:function (result) {
+                    $(".success").show()
+                    $(".btn").each((i,btn)=>{
+                        $(btn).attr("disabled",false)
+                    })
+
+                }
+            })
+        })
+
+        $(".reject").on("click",e=>{
+            $.ajax({
+                url :"/coupon/check-coupon",
+                data :{
+                    check : "false",
+                    couponId : coupon.id
+                },
+                success:function (result) {
+                   $(".fail").show();
+                    $(".btn").each((i,btn)=>{
+                        $(btn).attr("disabled",true)
+                    })
+                }
+            })
+        })
+        $(".close").each((i,btn)=>{
+            $(btn).on("click",e=>{
+               //브라우저 창닫기
+            })
+        })
+
+
+    </script>
+</html>

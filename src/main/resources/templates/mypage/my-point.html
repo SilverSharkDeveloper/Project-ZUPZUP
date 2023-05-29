@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleag.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -11,40 +11,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
           rel="stylesheet">
     <link href="/css/mypage/my-point.css" rel="stylesheet">
+    <link href="/css/notice/notice.css" rel="stylesheet">
+    <link href="/css/font.css" rel="stylesheet">
+    <link href="/css/header-footer/header-login.css" rel="stylesheet">
+    <link href="/css/header-footer/footer.css" rel="stylesheet">
 </head>
 <body>
 <div class="css-b3oum6">
     <div class="layout">
+        <header th:replace="~{/header-footer/header-login}"></header>
         <div class="css-18dsw15 e1ivswjr4">
             <div class="myhome-nav myhome-nav--owner">
                 <nav class="page-navigation myhome-nav__owner">
                     <ul style="transform: translateX(0px);">
-                        <li class="page-navigation__item"><a class="" href="/users/20617180"
+                        <li class="page-navigation__item"><a class="" href="/mypage/main"
                                                              target="_self">프로필</a></li>
-                        <li class="page-navigation__item"><a class="active" href="/user_shopping_pages/order_list"
-                                                             target="_self">나의 쇼핑</a></li>
-                        <li class="page-navigation__item"><a class="" href="/production_reviews/write" target="_self">나의
-                            리뷰</a></li>
-                        <li class="page-navigation__item"><a class="" href="/users/20617180/edit" target="_self">설정</a>
-                        </li>
+                        <li class="page-navigation__item"><a class="" href="/mypage/my-host-list"
+                                                             target="_self">나의 플로깅</a></li>
+                        <li class="page-navigation__item"><a class="active" href="/mypage/my-product" target="_self">나의
+                            상품</a></li>
+
                     </ul>
                 </nav>
                 <nav class="page-navigation myhome-nav__contents">
                     <ul style="transform: translateX(0px);">
-                        <li class="page-navigation__item"><a class="" href="/users/20617180" target="_self">모두보기</a>
+                        <li class="page-navigation__item"><a class="" href="/mypage/my-product" target="_self">내가 구매한 상품</a>
                         </li>
-                        <li class="page-navigation__item"><a class="" href="/users/20617180/card_collections"
-                                                             target="_self">사진</a></li>
-                        <li class="page-navigation__item"><a class="" href="/users/20617180/projects"
-                                                             target="_self">집들이</a></li>
-                        <li class="page-navigation__item"><a class="" href="/users/20617180/advices"
-                                                             target="_self">노하우</a></li>
-                        <li class="page-navigation__item"><a class="" href="/users/20617180/questions" target="_self">질문과답변</a>
-                        </li>
-                        <li class="page-navigation__item"><a class="" href="/users/20617180/collections" target="_self">스크랩북</a>
-                        </li>
-                        <li class="page-navigation__item"><a class="active" href="/users/20617180/praises"
-                                                             target="_self">휴지롤 관리</a></li>
+                        <li class="page-navigation__item"><a class="" href="/mypage/my-like-product"
+                                                             target="_self">내가 찜한 상품</a></li>
+                        <li class="page-navigation__item"><a class="active" href="/mypage/my-point"
+                                                             target="_self">나의 휴지롤</a></li>
                     </ul>
                 </nav>
             </div>
@@ -144,8 +140,8 @@
                     <div class="css-ow22sl e1v2ggz01">
                         <div class="css-1h25ori e1t6i3i25">
                             <div class="css-0 e1t6i3i24"><h2 class="css-o538wr e1t6i3i23">사용 가능한 휴지롤</h2>
-                                <p class="css-of8h0b e1t6i3i22">1,000 P</p></div>
-                            <div class="css-1yu4f1z e1t6i3i21"><p class="css-12fah4g e1t6i3i20">30일 이내 소멸 예정 휴지롤<b>0
+                                <p class="css-of8h0b e1t6i3i22"></p></div>
+                            <div class="css-1yu4f1z e1t6i3i21"><p class="css-12fah4g e1t6i3i20">현재까지 모은 휴지롤:<b>
                                 P</b></p></div>
                         </div>
                         <div class="css-a4hf5k e1rx7pum13">
@@ -154,7 +150,7 @@
                                         class="icon _chevron_right_12 css-w9u1sc"></span></button>
                             </div>
                             <div class="css-18ewygj e1rx7pum9">
-                                <div class="css-oc7sge e1rx7pum8">
+                                <!--<div class="css-oc7sge e1rx7pum8">
                                     <div class="css-1kwo4sf e1rx7pum7">
                                         <div class="css-3eylin e1rx7pum6">2023.05.15</div>
                                         <div class="css-15jzb03 e1rx7pum5">
@@ -168,19 +164,22 @@
                                         </div>
                                     </div>
                                     <div class="css-lgp5e9 e1rx7pum0">+ 1,000P</div>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                         <div class="css-e1gl82 e1v2ggz00">
                             <ul class="_2BEHX">
-                                <li class="_1B8WI"><a class="_2XI47 _1gwhd" href="/user_shopping_pages/mileages?page=1">
+                                <li class="_1B8WI"><a th:if="${myPloggingPagination.prev}" th:href="${myPloggingPagination.startPage - 1}" class="_2XI47 _1gwhd">
                                     <svg width="1em" height="1em" viewBox="0 0 24 24">
                                         <path fill="currentColor"
                                               d="M6 19.692L8.25 22 18 12 8.25 2 6 4.308 13.5 12z"></path>
                                     </svg>
                                 </a></li>
-                                <li><a class="_3b4ci R16_p" href="/user_shopping_pages/mileages?page=1">1</a></li>
-                                <li class="_1B8WI"><a class="_2XI47 _3I7ex" href="/user_shopping_pages/mileages?page=1">
+                                <th:block th:each="page:${#numbers.sequence(myPloggingPagination.startPage, myPloggingPagination.endPage)}">
+                                <li><a th:if="${page eq myPloggingPagination.page}" class="_3b4ci R16_p" th:text="${page}"></a></li>
+                                <li><a th:unless="${page eq myPloggingPagination.page}" class="_3b4ci R16_p" th:href="${page}" th:text="${page}"></a></li>
+                                </th:block>
+                                <li class="_1B8WI"><a th:if="${myPloggingPagination.next}" th:href="${myPloggingPagination.endPage + 1}">
                                     <svg width="1em" height="1em" viewBox="0 0 24 24">
                                         <path fill="currentColor"
                                               d="M6 19.692L8.25 22 18 12 8.25 2 6 4.308 13.5 12z"></path>
@@ -192,7 +191,17 @@
                 </div>
             </div>
         </div>
+        <footer th:replace="~{/header-footer/footer :: .css-f93bbn}"></footer>
     </div>
 </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://rawgit.com/jackmoore/autosize/master/dist/autosize.min.js"></script>
+<script src="/js/mypage/my-point.js"></script>
+<script src="/js/mypage/post.js"></script>
+<script th:inline="javascript">
+    let tissues = [[${tissues}]];
+
+</script>
+<script src="/js/header-footer/header.js"></script>
 </html>

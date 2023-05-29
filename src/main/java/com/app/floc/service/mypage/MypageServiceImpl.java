@@ -1,10 +1,12 @@
 package com.app.floc.service.mypage;
 
 import com.app.floc.DAO.PloggingDAO;
+import com.app.floc.DAO.TissueDAO;
 import com.app.floc.DAO.UserDAO;
 import com.app.floc.domain.DTO.MyPloggingPagination;
 import com.app.floc.domain.DTO.PloggingDTO;
 import com.app.floc.domain.DTO.Search;
+import com.app.floc.domain.VO.TissueVO;
 import com.app.floc.domain.VO.UserVO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,6 +21,7 @@ import java.util.Optional;
 public class MypageServiceImpl implements MypageService {
     private final PloggingDAO ploggingDAO;
     private final UserDAO userDAO;
+    private final TissueDAO tissueDAO;
 
     @Override
     public List<PloggingDTO> getList(MyPloggingPagination myPloggingPagination, Search search){
@@ -69,11 +72,22 @@ public class MypageServiceImpl implements MypageService {
 
     @Override
     public void modifyPassword(UserVO userVO) {
-        userDAO.crystalPassword(userVO);
+        userDAO.updateUser(userVO);
     }
 
     @Override
-    public void exitUser(UserVO userVO) {
-        userDAO.deleteUser(userVO);
+    public void exitUser(Long id) {
+        userDAO.deleteUser(id);
+    }
+
+    @Override
+    public List<TissueVO> getListPoint(MyPloggingPagination myPloggingPagination,Search search) {
+        final List<TissueVO> tissues = tissueDAO.findAll(myPloggingPagination,search);
+        return tissues;
+    }
+
+    @Override
+    public void usePoint(TissueVO tissueVO) {
+        tissueDAO.save(tissueVO);
     }
 }

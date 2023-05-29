@@ -6,10 +6,12 @@ import com.app.floc.service.user.EmailService;
 import com.app.floc.service.user.KaKaoService;
 import com.app.floc.service.user.NaverLoginBO;
 import com.app.floc.service.user.UserService;
+import com.github.scribejava.core.model.OAuth2AccessToken;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -20,13 +22,6 @@ import org.springframework.web.servlet.view.RedirectView;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Optional;
-
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import com.github.scribejava.core.model.OAuth2AccessToken;
-
-import org.json.simple.parser.ParseException;
 
 @Controller
 @Slf4j
@@ -50,23 +45,21 @@ public class UserController {
 
     //회원가입
     @PostMapping("join")
-    public RedirectView join(UserVO userVO){
+    public RedirectView join(UserVO userVO,HttpSession session){
         userService.join(userVO);
         return new RedirectView("/user/login");
     }
 
     //로그인창
     @GetMapping("login")
-    public void goToLogin(Model model, HttpSession session){
-        /* 네이버아이디로 인증 URL을 생성하기 위하여 naverLoginBO클래스의 getAuthorizationUrl메소드 호출 */
-        String naverAuthUrl = naverLoginBO.getAuthorizationUrl(session);
+    public void goToLogin(String location,HttpSession session){
+        if(location!=null){
 
-        //https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=sE***************&
-        //redirect_uri=http%3A%2F%2F211.63.89.90%3A8090%2Flogin_project%2Fcallback&state=e68c269c-5ba9-4c31-85da-54c16c658125
+            session.setAttribute("location",location);
+        }else {
+            session.setAttribute("location","/main/main");
+        }
 
-        //네이버
-        model.addAttribute("naverUrl", naverAuthUrl);
-        log.info(naverAuthUrl);
     }
 
 
@@ -76,13 +69,23 @@ public class UserController {
     @PostMapping("login")
     public RedirectView login(String identification, String password, HttpSession session, RedirectAttributes redirectAttributes){
         Optional<Long> foundUser = userService.login(identification, password);
+
+        if(foundUser.isPresent()){
+            if(userService.getUser(foundUser.get()).get().getUserRole().equals("admin")){
+                log.info("들");
+                return new RedirectView("/admin/admin");
+            }
+        }
+
+
         if(foundUser.isPresent()){
             session.setAttribute("userId",foundUser.get());
-            return new RedirectView("/main/main");
+            log.info(session.getAttribute("userId").toString());
+            return new RedirectView(session.getAttribute("location")==null?"/main/main" :session.getAttribute("location").toString() );
         }else{
             redirectAttributes.addFlashAttribute("login","fail");
             redirectAttributes.addFlashAttribute("identification",identification);
-            return new RedirectView("/user/login");
+            return new RedirectView("/user/login?location=" + session.getAttribute("location"));
         }
 
     }
@@ -142,15 +145,15 @@ public class UserController {
             if(foundUser.get().getUserStatus().equals("NORMAL")){
 
                 redirectAttributes.addFlashAttribute("login","already-exist-NORMAL");
-                return new RedirectView("/user/login");
+                return new RedirectView("/user/login?location=" + session.getAttribute("location"));
             }else if(foundUser.get().getUserStatus().equals("KAKAO")){
                 redirectAttributes.addFlashAttribute("login","already-exist-KAKAO");
-                return new RedirectView("/user/login");
+                return new RedirectView("/user/login?location=" + session.getAttribute("location"));
             }else{   //네이버 계정일경우 -> update
                userVO.setId(foundUser.get().getId());
                 userService.modifyUser(userVO);
                 session.setAttribute("userId",foundUser.get().getId());
-                return new RedirectView("/main/main");
+                return new RedirectView(session.getAttribute("location").toString());
 
             }
         }
@@ -160,7 +163,7 @@ public class UserController {
         //인서트 이후 바로 세션아이디, 토큰 받고 메인페이지로
         Optional<Long> foundId = userService.login(userVO.getUserIdentification(), userVO.getUserPassword());
         session.setAttribute("userId",foundId.get());
-        return new RedirectView("/main/main");
+        return new RedirectView(session.getAttribute("location").toString());
     }
 
 
@@ -171,14 +174,14 @@ public class UserController {
     public void goToSetNewPasswordForm(){ ;}
 
     @PostMapping("new-password")
-    public RedirectView setNewPassword(String identification, String password){
+    public RedirectView setNewPassword(String identification, String password, HttpSession session){
         Optional<UserVO> foundUser = userService.checkId(identification);
         foundUser.ifPresent(userVO-> {
             userVO.setUserPassword(password);
             userService.modifyUser(userVO);
         });
 
-        return new RedirectView("/user/login");
+        return new RedirectView("/user/login?location=" + session.getAttribute("location"));
     }
 
 
@@ -193,7 +196,7 @@ public class UserController {
         //카카오 로그인에서 빈객체 전송 -> 무언가 문제가 발생 ->실패로 로그인창
         if(kakaoUser.isEmpty()){
             redirectAttributes.addFlashAttribute("login","fail-kakao-non-email");
-            return new RedirectView("/user/login");
+            return new RedirectView("/user/login?location=" + session.getAttribute("location"));
         }
 
         //카카오 로그인 성공시 받아온 아이디로 디비조회
@@ -206,17 +209,17 @@ public class UserController {
             if(foundUser.get().getUserStatus().equals("NORMAL")){
 
                 redirectAttributes.addFlashAttribute("login","already-exist-NORMAL");
-                return new RedirectView("/user/login");
+                return new RedirectView("/user/login?location=" + session.getAttribute("location"));
             }else if(foundUser.get().getUserStatus().equals("NAVER")){
                 redirectAttributes.addFlashAttribute("login","already-exist-NAVER");
-                return new RedirectView("/user/login");
+                return new RedirectView("/user/login?location=" + session.getAttribute("location"));
             }else{   //네이버, 노말아닌 카카오 계정일경우 -> update
                 kakaoUser.get().setId(foundUser.get().getId());
-                log.info(kakaoUser.get().toString());
+                kakaoUser.get().setUserTissue(foundUser.get().getUserTissue());
                 userService.modifyUser(kakaoUser.get());
                 session.setAttribute("token", token);
                 session.setAttribute("userId",foundUser.get().getId());
-                return new RedirectView("/main/main");
+                return new RedirectView(session.getAttribute("location").toString());
 
             }
         }
@@ -227,7 +230,7 @@ public class UserController {
         Optional<Long> foundId = userService.login(kakaoUser.get().getUserIdentification(), kakaoUser.get().getUserPassword());
         session.setAttribute("userId",foundId.get());
         session.setAttribute("token", token);
-        return new RedirectView("/main/main");
+        return new RedirectView(session.getAttribute("location").toString());
     }
 
 

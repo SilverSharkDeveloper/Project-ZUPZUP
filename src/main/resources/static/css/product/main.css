@@ -1,6 +1,4 @@
-.css-b3oum6 {
-    height: 100%;
-}
+
 blockquote, body, code, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, pre, td, textarea, th, ul {
     margin: 0;
     padding: 0;
@@ -670,6 +668,7 @@ button, input[type=email], input[type=file], input[type=number], input[type=pass
 
     .production-item {
         padding: 0 0 30px;
+        margin-bottom: 20px;
     }
 }
 
@@ -726,12 +725,7 @@ button, input, select, textarea {
     font-size: inherit;
 }
 
-.production-item-scrap-badge>.active-icon, .production-item-scrap-badge>.inactive-icon {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: opacity .1s;
-}
+
 
 .production-item-scrap-badge>.active-icon {
     opacity: 0;
@@ -808,17 +802,80 @@ button, input, select, textarea {
     font-size: 17px;
     line-height: 23px;
     font-weight: 700;
+    justify-content: space-between;
 }
 .production-item-price__price {
     color: #000;
     margin-right: 4px;
 }
 @media (min-width: 768px) {
-    .production-item-scrap-badge:active, .production-item-scrap-badge:hover {
+    .production-item-scrap-badge.scrap-btn:active, .production-item-scrap-badge.scrap-btn:hover {
         opacity: .5;
     }
 }
 .transimage{
     transition: transform .2s ease 0;
     transform: scale(1.05);
+}
+
+
+.store-index-category-list__title{
+    color: #000;
+    padding-top: 20px;
+    font-weight: 700;
+    font-size: 20px;
+    padding-left: 5px;
+    padding-bottom: 7px;
+}
+
+.filter{
+    margin : 0;
+}
+
+.filter-bar-control__button:hover{
+    color: #FFFFFF;
+    background-color:#3B7661;
+}
+
+.category-active,.order-active,.location-active{
+    color: #FFFFFF;
+    background-color: #7aab9a ;
+}
+
+.order-list{
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter-bar__control-list__left{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.production-item-price__rate {
+    color: red;
+    margin-right: 4px;
+}
+
+.production-item-price__price{
+    display: flex;
+    position: absolute;
+    right: 0px;
+    bottom: 5px;
+}
+
+.location-img{
+    display: inline-block;
+    width: 10px;
+    background: url(https://www.wishbeen.co.kr/geo.922951f5cf1908d9.svg);
+    height: 10px;
+    background-size: cover;
+}
+
+.scrap-cnt{
+    position: absolute;
+    left: 26px;
+    bottom: 8px;
 }

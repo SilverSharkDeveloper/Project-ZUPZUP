@@ -7,6 +7,7 @@ import com.app.floc.mapper.PloggingMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+
 import java.util.List;
 import java.util.Optional;
 
@@ -57,16 +58,34 @@ public class PloggingDAO {
         ploggingMapper.delete(id);
     }
 
-    //    게시글 총 개수
-    public int findCountOfPlogging(Search search){
-        return ploggingMapper.selectCountOfPlogging(search);
-    }
-
     public List<PloggingDTO> findFiles(Long ploggingId){
         return ploggingMapper.selectFiles(ploggingId);
     }
 
     public int getTotal(String location) {
         return ploggingMapper.getTotal(location);
+    }
+
+
+
+    // admin
+
+    //전체 목록 조회 페이징,검색
+    public List<PloggingDTO> findAllByAdmin(AdminPagination adminPagination, Search search) {
+        return ploggingMapper.selectAllByAdmin(adminPagination, search);
+    }
+    //총 개수
+    public int findCountOfPlogging (Search search){
+        return ploggingMapper.selectCountOfPlogging(search);
+    }
+
+    //여러개 삭제
+    public void deletePloggingByIds (List < Long > ploggingIds){
+        ploggingMapper.deletePloggingByIds(ploggingIds);
+    }
+
+    //최근 5개 조회
+    public List<PloggingVO> findByRecent(){
+        return ploggingMapper.selectByRecent();
     }
 }

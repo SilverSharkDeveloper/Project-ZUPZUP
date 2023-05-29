@@ -41,4 +41,14 @@ public interface PloggingMapper {
     public List<PloggingDTO> selectFiles(Long id);
 
     public int getTotal(String location);
+    //amdin페이지
+    // admin
+
+    //전체 목록 조회 페이징,검색
+    public List<PloggingDTO> selectAllByAdmin(@Param("adminPagination") AdminPagination adminPagination, @Param("search") Search search);
+    //여러개 삭제
+    public void deletePloggingByIds(List<Long> ploggingIds);
+
+    //최근 5개 조회
+    public List<PloggingVO> selectByRecent();
 }

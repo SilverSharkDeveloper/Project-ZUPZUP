@@ -8,14 +8,14 @@
                 <foreach item="type" collection="search.types">
                     <trim prefix="OR">
                         <choose>
-                            <when test="type=='t'.toString()">
-                                POST_TITLE LIKE '%'||#{search.keyword}||'%'
+                            <when test="type=='n'.toString()">
+                                USER_NICKNAME LIKE '%'||#{search.keyword}||'%'
                             </when>
-                            <when test="type=='c'.toString()">
-                                POST_CONTENT LIKE '%'||#{search.keyword}||'%'
+                            <when test="type=='l'.toString()">
+                                PLOGGING_START_LOCATION LIKE '%'||#{search.keyword}||'%'
                             </when>
-                            <when test="type=='w'.toString()">
-                                MEMBER_NAME LIKE '%'||#{search.keyword}||'%'
+                            <when test="type=='s'.toString()">
+                                PLOGGING_START_DATETIME LIKE '%'||#{search.keyword}||'%'
                             </when>
                         </choose>
                     </trim>
@@ -75,4 +75,45 @@
         FROM TBL_USER u JOIN TBL_PLOGGING p
         ON u.ID = p.ID
     </select>
+
+    <select id="selectByRecent" resultType="ploggingVO">
+    SELECT PLOGGING_TITLE,PLOGGING_TITLE, LOCAL_CREATOR_ID, PLOGGING_MAXIMUM_PARTICIPANT,PLOGGING_START_LOCATION,PLOGGING_START_DATETIME,PLOGGING_STATUS
+    FROM (
+    SELECT PLOGGING_TITLE,PLOGGING_TITLE, LOCAL_CREATOR_ID, PLOGGING_MAXIMUM_PARTICIPANT,PLOGGING_START_LOCATION,PLOGGING_START_DATETIME,PLOGGING_STATUS
+    FROM TBL_PLOGGING ORDER BY ID DESC
+    )
+    <![CDATA[
+        WHERE ROWNUM <=5
+        ]]>
+    </select>
+
+    <select id="selectAllByAdmin" resultType="ploggingDTO">
+        SELECT P.ID, LOCAL_CREATOR_ID,USER_NICKNAME , PLOGGING_TITLE, PLOGGING_CONTENT, PLOGGING_START_LOCATION, PLOGGING_END_LOCATION, PLOGGING_ESTIMATED_TIME, PLOGGING_MAXIMUM_PARTICIPANT, PLOGGING_START_DATETIME, PLOGGING_STATUS, PLOGGING_APPLY_DATE, PLOGGING_REJECTED_REASON, PLOGGING_REGISTER_DATE, PLOGGING_UPDATED_DATE, PLOGGING_VIEWED_COUNT, PLOGGING_IMAGE_NAME, PLOGGING_IMAGE_UUID, PLOGGING_IMAGE_SIZE
+        FROM
+            (
+                SELECT ROWNUM R, ID, LOCAL_CREATOR_ID,USER_NICKNAME , PLOGGING_TITLE, PLOGGING_CONTENT, PLOGGING_START_LOCATION, PLOGGING_END_LOCATION, PLOGGING_ESTIMATED_TIME, PLOGGING_MAXIMUM_PARTICIPANT, PLOGGING_START_DATETIME, PLOGGING_STATUS, PLOGGING_APPLY_DATE, PLOGGING_REJECTED_REASON, PLOGGING_REGISTER_DATE, PLOGGING_UPDATED_DATE, PLOGGING_VIEWED_COUNT, PLOGGING_IMAGE_NAME, PLOGGING_IMAGE_UUID, PLOGGING_IMAGE_SIZE
+                FROM
+                (
+                    SELECT  P.ID, LOCAL_CREATOR_ID,USER_NICKNAME , PLOGGING_TITLE, PLOGGING_CONTENT, PLOGGING_START_LOCATION, PLOGGING_END_LOCATION, PLOGGING_ESTIMATED_TIME, PLOGGING_MAXIMUM_PARTICIPANT, PLOGGING_START_DATETIME, PLOGGING_STATUS, PLOGGING_APPLY_DATE, PLOGGING_REJECTED_REASON, PLOGGING_REGISTER_DATE, PLOGGING_UPDATED_DATE, PLOGGING_VIEWED_COUNT, PLOGGING_IMAGE_NAME, PLOGGING_IMAGE_UUID, PLOGGING_IMAGE_SIZE
+                    FROM TBL_USER U JOIN TBL_PLOGGING P
+                    ON U.ID = P.LOCAL_CREATOR_ID
+                    ORDER BY P.ID DESC
+                ) P
+            <![CDATA[
+          WHERE ROWNUM <= #{adminPagination.page} * #{adminPagination.rowCount}
+            ]]>
+            <include refid="search"/>
+            <![CDATA[
+            ) P WHERE R > (#{adminPagination.page} - 1) * #{adminPagination.rowCount}
+            ]]>
+    </select>
+
+
+    <delete id="deletePloggingByIds" parameterType="java.util.List">
+        DELETE FROM TBL_PLOGGING
+        WHERE ID IN
+        <foreach item="id" collection="list" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
 </mapper>

@@ -60,4 +60,10 @@ public class UserServiceImpl implements UserService {
     public List<UserVO> getUserRecent() {
         return userDAO.findByRecent();
     }
+
+    @Override
+    public void deleteUsersByIds(List<Long> userIds) {
+        userDAO.deleteUsersByIds(userIds);
+    }
+
 }
