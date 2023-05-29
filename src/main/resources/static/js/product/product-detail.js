@@ -27,8 +27,8 @@ text =`<div class="production-selling-overview container">
                                              style="width: 100%;"><img
                                                 class="production-selling-cover-image__entry__image" tabindex="0"
                                                 alt="상품의 대표 이미지"
-                                                src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168076845101723750.jpg?gif=1&amp;w=640&amp;h=640&amp;c=c&amp;webp=1"
-                                                srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168076845101723750.jpg?gif=1&amp;w=850&amp;h=850&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168076845101723750.jpg?gif=1&amp;w=1280&amp;h=1280&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168076845101723750.jpg?gif=1&amp;w=1700&amp;h=1700&amp;c=c&amp;webp=1 3x">
+                                               src="/admin/display?fileName=${productDTO.productImagePath}/t_${productDTO.productImageUuid}_${productDTO.productImageName}"
+                                                >
 
                                         </div>
                                     </div>
@@ -38,8 +38,8 @@ text =`<div class="production-selling-overview container">
                                         <button class="production-selling-cover-image__list__btn production-selling-cover-image__list__btn--selected"
                                                 type="button" aria-label="8개 중 1번째 항목"><img class="image"
                                                                                             alt="상품의 대표 이미지"
-                                                                                            src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168076845101723750.jpg?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1"
-                                                                                            srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168076845101723750.jpg?gif=1&amp;w=144&amp;h=144&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168076845101723750.jpg?gif=1&amp;w=144&amp;h=144&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168076845101723750.jpg?gif=1&amp;w=240&amp;h=240&amp;c=c&amp;webp=1 3x">
+                                                                                             src="/admin/display?fileName=${productDTO.productImagePath}/t_${productDTO.productImageUuid}_${productDTO.productImageName}"
+                                                                                           >
                                         </button>
                                     </li>
 

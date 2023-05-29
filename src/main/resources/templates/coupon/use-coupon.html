@@ -15,9 +15,6 @@
         .img{
             width: 500px;
             height: 300px;
-            background: url("/image/huge.png");
-            background-size: cover;
-            background-repeat: no-repeat;
             margin: 0 auto;
         }
         .message{
@@ -61,7 +58,7 @@
 </head>
 <body>
     <div class="wrap">
-        <div class="img"></div>
+        <img class="img"/>
         <div class="message" th:text="${product.productName}"></div>
         <div class="message">상품 쿠폰을 사용하시겠습니까?</div>
         <div class="btn-wrap">
