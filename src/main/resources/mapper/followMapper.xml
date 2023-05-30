@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.floc.mapper.FollowMapper">
+    <!--팔로우 디티오엣 인서트-->
+    <insert id="insert">
+        INSERT INTO TBL_FOLLOW (ID, FOLLOWER_ID, FOLLOWING_ID, FOLLOW_START_DATE)
+        VALUES(SEQ_FOLLOW, #{followerId}, #{followingId}, SYSDATE);
 
+    </insert>
+
+    <!--  팔로잉 조회  -->
+    <select id="selectAll" resultType="followDTO">
+        SELECT f.ID, FOLLOWER_ID, FOLLOWING_ID, FOLLOW_START_DATE, u.USER_NICKNAME, u.USER_INTRODUCING_MESSAGE
+        FROM TBL_USER u JOIN TBL_FOLLOW f
+        ON u.ID = f.FOLLOWING_ID
+        ORDER BY f.ID DESC
+    </select>
+
+    <!--  팔로워 조회  -->
+    <select id="selectFollowerAll" resultType="followDTO">
+        SELECT f.ID, FOLLOWER_ID, FOLLOWING_ID, FOLLOW_START_DATE, u.USER_NICKNAME, u.USER_INTRODUCING_MESSAGE/*, u.PROFILE_IMAGE_NAME, u.PROFILE_IMAGE_SIZE, u.PROFILE_IMAGE_PATH*/
+        FROM TBL_USER u JOIN TBL_FOLLOW f
+        ON u.ID = f.FOLLOWER_ID
+        ORDER BY f.ID DESC
+    </select>
+
+    <!--팔로우 취소-->
+    <delete id="delete">
+        DELETE FROM TBL_FOLLOW WHERE ID = #{id}
+    </delete>
 </mapper>

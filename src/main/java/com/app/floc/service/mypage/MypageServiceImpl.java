@@ -1,11 +1,7 @@
 package com.app.floc.service.mypage;
 
-import com.app.floc.DAO.PloggingDAO;
-import com.app.floc.DAO.TissueDAO;
-import com.app.floc.DAO.UserDAO;
-import com.app.floc.domain.DTO.MyPloggingPagination;
-import com.app.floc.domain.DTO.PloggingDTO;
-import com.app.floc.domain.DTO.Search;
+import com.app.floc.DAO.*;
+import com.app.floc.domain.DTO.*;
 import com.app.floc.domain.VO.TissueVO;
 import com.app.floc.domain.VO.UserVO;
 import lombok.RequiredArgsConstructor;
@@ -22,12 +18,23 @@ public class MypageServiceImpl implements MypageService {
     private final PloggingDAO ploggingDAO;
     private final UserDAO userDAO;
     private final TissueDAO tissueDAO;
+    private final ParticipantDAO participantDAO;
+    private final ReviewDAO reviewDAO;
+    private final FollowDAO followDAO;
+
 
     @Override
     public List<PloggingDTO> getList(MyPloggingPagination myPloggingPagination, Search search){
         final List<PloggingDTO> ploggings = ploggingDAO.findMyAll(myPloggingPagination, search);
         //        게시글 하나씩 첨부파일 목록 담기
         ploggings.forEach(plogging -> plogging.setPloggingImageName(String.valueOf(ploggingDAO.findFiles(plogging.getId()))));
+        return ploggings;
+    }
+
+    @Override
+    public List<ParticipantDTO> getParticipantList(MyPloggingPagination myPloggingPagination) {
+        final List<ParticipantDTO> ploggings = participantDAO.findMyAll(myPloggingPagination);
+        //        게시글 하나씩 첨부파일 목록 담기
         return ploggings;
     }
 
@@ -89,5 +96,29 @@ public class MypageServiceImpl implements MypageService {
     @Override
     public void usePoint(TissueVO tissueVO) {
         tissueDAO.save(tissueVO);
+    }
+
+    @Override
+    public List<ReviewDTO> getListUser(Pagination pagination, Search search) {
+        final List<ReviewDTO> reviews = reviewDAO.findAll(pagination,search);
+        return reviews;
+    }
+
+    @Override
+    public List<ReviewDTO> getListLocal(Pagination pagination, Search search) {
+        final List<ReviewDTO> reviews = reviewDAO.findAllLocal(pagination,search);
+        return reviews;
+    }
+
+    @Override
+    public List<FollowDTO> getListFollowing() {
+        final List<FollowDTO> follows = followDAO.findMyFollowing();
+        return follows;
+    }
+
+    @Override
+    public List<FollowDTO> getListFollower() {
+        final List<FollowDTO> follows = followDAO.findMyFollower();
+        return follows;
     }
 }

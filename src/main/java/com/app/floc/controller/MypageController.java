@@ -1,13 +1,15 @@
 package com.app.floc.controller;
 
-import com.app.floc.domain.DTO.MyPloggingPagination;
-import com.app.floc.domain.DTO.Search;
+import com.app.floc.DAO.ParticipantDAO;
+import com.app.floc.FlocApplication;
+import com.app.floc.domain.DTO.*;
 import com.app.floc.domain.VO.TissueVO;
 import com.app.floc.domain.VO.UserVO;
 import com.app.floc.service.mypage.MypageService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.coobird.thumbnailator.Thumbnailator;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -45,13 +47,15 @@ public class MypageController {
 
     @GetMapping("my-point")
     public void userPoint(MyPloggingPagination myPloggingPagination, Search search, Model model) {
+        TissueVO tissueVO = new TissueVO();
+        tissueVO.setUserId((Long)session.getAttribute("id"));
         myPloggingPagination.setTotal(mypageService.getTotal(search));
         myPloggingPagination.progress();
         model.addAttribute("tissues", mypageService.getListPoint(myPloggingPagination, search));
     }
 
     @GetMapping("users-edit")
-    public void userEdit(UserVO userVO) {
+    public void userEdit() {
         ;
     }
 
@@ -60,10 +64,11 @@ public class MypageController {
     }
 
     @PostMapping("users-edit-password")
-    public RedirectView userEditPassword(String password, UserVO userVO) {
-        userVO.setId(2L);
+    public RedirectView userEditPassword(@Param("password") String password, String identification, UserVO userVO) {
+
+        /*userVO.setId((Long)session.getAttribute("id"));
         userVO.setUserPassword(password);
-        mypageService.modifyUser(userVO);
+        mypageService.modifyPassword(userVO);*/
         return new RedirectView("/mypage/main");
     }
 
@@ -75,13 +80,19 @@ public class MypageController {
 
     @GetMapping("my-host-list")
     public void list(MyPloggingPagination myPloggingPagination, Search search, Model model) {
+        PloggingDTO ploggingDTO = new PloggingDTO();
+        ploggingDTO.setLocalCreatorId((Long)session.getAttribute("id"));
         myPloggingPagination.setTotal(mypageService.getTotal(search));
         myPloggingPagination.progress();
         model.addAttribute("ploggings", mypageService.getList(myPloggingPagination, search));
     }
 
     @GetMapping("my-participate-list")
-    public void goToparti() {;
+    public void participantList(MyPloggingPagination myPloggingPagination, Model model) {
+        ParticipantDTO participantDTO = new ParticipantDTO();
+        participantDTO.setUserId((Long)session.getAttribute("id"));
+        myPloggingPagination.progress();
+        model.addAttribute("ploggings", mypageService.getParticipantList(myPloggingPagination));
     }
 
 
@@ -129,23 +140,28 @@ public class MypageController {
 
 
     @GetMapping("my-local-review")
-    public void horeview() {
-
+    public void Localreview(Pagination pagination, Search search, Model model) {
+        ReviewDTO reviewDTO = new ReviewDTO();
+        reviewDTO.setId((Long)session.getAttribute("id"));
+        pagination.progress();
+        model.addAttribute("reviews", mypageService.getListLocal(pagination, search));
     }
 
     @GetMapping("my-user-review")
-    public void review() {
-
+    public void UserReview(Pagination pagination, Search search, Model model) {
+        pagination.progress();
+        model.addAttribute("reviews", mypageService.getListUser(pagination, search));
     }
 
     @GetMapping("my-follower")
-    public void Follower(){
+    public void Follower(Model model){
+        model.addAttribute("follows", mypageService.getListFollower());
 
     }
 
     @GetMapping("my-following")
-    public void Follow(){
-
+    public void Follow(Model model){
+        model.addAttribute("follows", mypageService.getListFollowing());
     }
 
     @GetMapping("main")

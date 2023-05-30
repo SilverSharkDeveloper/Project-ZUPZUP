@@ -1,8 +1,6 @@
 package com.app.floc.service.mypage;
 
-import com.app.floc.domain.DTO.MyPloggingPagination;
-import com.app.floc.domain.DTO.PloggingDTO;
-import com.app.floc.domain.DTO.Search;
+import com.app.floc.domain.DTO.*;
 import com.app.floc.domain.VO.TissueVO;
 import com.app.floc.domain.VO.UserVO;
 
@@ -10,8 +8,12 @@ import java.util.List;
 import java.util.Optional;
 
 public interface MypageService {
-    //    게시글 목록
+    //    플로깅 게시글 목록
     public List<PloggingDTO> getList(MyPloggingPagination myPloggingPagination, Search search);
+
+    //    플로깅 게시글 목록
+    public List<ParticipantDTO> getParticipantList(MyPloggingPagination myPloggingPagination);
+
 
     //    게시글 추가
     public void write(PloggingDTO ploggingDTO);
@@ -42,4 +44,17 @@ public interface MypageService {
 
     //포인트 적립, 사용
     public void usePoint(TissueVO tissueVO);
+
+    //유저 후기 불러오기
+    public List<ReviewDTO> getListUser(Pagination pagination, Search search);
+
+    //로컬 후기 불러오기
+    public List<ReviewDTO> getListLocal(Pagination pagination, Search search);
+
+    //팔로잉 불러오기
+    public List<FollowDTO> getListFollowing();
+
+    //팔로워 불러오기
+    public List<FollowDTO> getListFollower();
+
 }

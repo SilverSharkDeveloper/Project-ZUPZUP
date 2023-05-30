@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
           rel="stylesheet">
-    <link href="/css/mypage/my-plogging-review.css" rel="stylesheet">
+    <link href="/css/mypage/my-follower.css" rel="stylesheet">
     <link href="/css/notice/notice.css" rel="stylesheet">
     <link href="/css/font.css" rel="stylesheet">
     <link href="/css/header-footer/header-login.css" rel="stylesheet">
@@ -24,9 +24,9 @@
             <div class="myhome-nav myhome-nav--owner">
                 <nav class="page-navigation myhome-nav__owner">
                     <ul style="transform: translateX(0px);">
-                        <li class="page-navigation__item"><a class="" href="/mypage/main"
+                        <li class="page-navigation__item"><a class="active" href="/mypage/main"
                                                              target="_self">프로필</a></li>
-                        <li class="page-navigation__item"><a class="active" href="/mypage/my-host-list"
+                        <li class="page-navigation__item"><a class="" href="/mypage/my-host-list"
                                                              target="_self">나의 플로깅</a></li>
                         <li class="page-navigation__item"><a class="" href="/mypage/my-product" target="_self">나의
                             상품</a></li>
@@ -34,14 +34,18 @@
                 </nav>
                 <nav class="page-navigation myhome-nav__contents">
                     <ul style="transform: translateX(0px);">
-                        <li class="page-navigation__item"><a class="" href="/mypage/my-host-list" target="_self">플로깅 관리</a>
+                        <li class="page-navigation__item"><a class="" href="/mypage/main" target="_self">홈</a>
                         </li>
-                        <li class="page-navigation__item"><a class="" href="/plogging/plogging-form"
-                                                             target="_self">플로깅 모집</a></li>
-                        <li class="page-navigation__item"><a class="active" href="/mypage/my-local-review"
-                                                             target="_self">후기 관리</a></li>
-                        <li class="page-navigation__item"><a class="" href="/review/review-form"
-                                                             target="_self">후기 작성</a></li>
+                        <li class="page-navigation__item"><a class="" href="/mypage/users-edit"
+                                                             target="_self">회원정보 수정</a></li>
+                        <li class="page-navigation__item"><a class="" href="/mypage/users-edit-password"
+                                                             target="_self">비밀번호 수정</a></li>
+                        <li class="page-navigation__item"><a class="" href="/mypage/my-question"
+                                                             target="_self">1대1 문의</a></li>
+                        <li class="page-navigation__item"><a class="" href="/mypage/my-following" target="_self">나의 팔로잉</a>
+                        </li>
+                        <li class="page-navigation__item"><a class="active" href="/mypage/my-follower" target="_self">나의 팔로워</a>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -139,17 +143,9 @@
                         <div class="css-vb69r7 e1ivswjr2"></div>
                     </div>
                     <div class="css-1ltj86z e15wafbq0">
-                        <div class="css-1sl5jc2 e1063pje4">
-                            <div class="css-0 e1063pje3"><a class="css-s4qby9 e1063pje2"
-                                                            href="/mypage/my-local-review">나의 주최 후기</a><a
-                                    class="css-ril2vk e1063pje2" href="/mypage/my-user-review">나의 참여 후기</a></div>
-                            <div class="css-0 e1063pje1"><a class="_3Z6oR _3AsCW _1BDvx css-1fi7ukg e1063pje0"
-                                                            href="/review/review-form">후기 작성 바로가기</a></div>
-                        </div>
-                        <div class="css-1w92ebd e1lm7yo61">
-                            <div class="virtualized-list row"
+                        <div class="css-10zpfwf eq9hiir2"><h1 class="css-16uohvy eq9hiir1">팔로워</h1>
+                            <div class="virtualized-list"
                                  style="padding-top: 0px; padding-bottom: 0px; transform: translateY(0px);">
-
 
                             </div>
                         </div>
@@ -157,16 +153,17 @@
                 </div>
             </div>
         </div>
-        <footer th:replace="~{/header-footer/footer :: .css-f93bbn}"></footer>
     </div>
+    <footer th:replace="~{/header-footer/footer :: .css-f93bbn}"></footer>
+</div>
 </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://rawgit.com/jackmoore/autosize/master/dist/autosize.min.js"></script>
-<script src="/js/mypage/my-user-review.js"></script>
+<script src="/js/mypage/my-follower.js"></script>
 <script src="/js/mypage/post.js"></script>
 <script th:inline="javascript">
-    let reviews = [[${reviews}]];
+    let follows = [[${follows}]];
 
 </script>
 <script src="/js/header-footer/header.js"></script>
