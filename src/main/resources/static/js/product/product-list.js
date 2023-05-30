@@ -74,7 +74,7 @@ function showList() {
                         <article class="production-item"><a class="production-item__overlay"
                                                             href="/product/product-detail?productId=${product.id}"></a>
                             <div class="production-item-image production-item__image"><img class="image" alt=""
-                                                                                           src="/admin/display?fileName=${product.productImagePath}/t_${product.productImageUuid}_${product.productImageName}"
+                                                                                           src="/admin/display?fileName=${product.productImagePath}/${product.productImageUuid}_${product.productImageName}"
                                                                                            >
                                 <button class="production-item-scrap-badge production-item-image__scrap-badge scrap-btn" id="${product.id}"
                                         type="button">

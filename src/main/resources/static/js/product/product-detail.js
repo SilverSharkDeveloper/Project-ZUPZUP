@@ -27,7 +27,7 @@ text =`<div class="production-selling-overview container">
                                              style="width: 100%;"><img
                                                 class="production-selling-cover-image__entry__image" tabindex="0"
                                                 alt="상품의 대표 이미지"
-                                               src="/admin/display?fileName=${productDTO.productImagePath}/t_${productDTO.productImageUuid}_${productDTO.productImageName}"
+                                               src="/admin/display?fileName=${productDTO.productImagePath}/${productDTO.productImageUuid}_${productDTO.productImageName}"
                                                 >
 
                                         </div>
