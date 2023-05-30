@@ -224,8 +224,8 @@
                         <p class="bpd-view-text bpd-view-p-block"></p>
                         <div class="project-detail-image-block has-mapped-tags">
                             <div class="_33oVJ project-detail-image-block__overlay">
-                                <img class="project-detail-image-block__image" alt="" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168257332995867819.jpg?gif=1&amp;w=720&amp;webp=1" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168257332995867819.jpg?gif=1&amp;w=1080&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168257332995867819.jpg?gif=1&amp;w=1440&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168257332995867819.jpg?gif=1&amp;w=2560&amp;webp=1 3x">
-                                <a class="project-detail-image-block__link" href="/cards/24701573"></a>
+                                <img class="project-detail-image-block__image" alt="" >
+
                                 <button class="scrap-button project-detail-image-block__scrap" type="button">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="inactive-icon">
                                         <defs>
@@ -546,6 +546,11 @@
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script src="/js/review/review-main.js"></script>
 <script src="/js/review/header.js"></script>
+<script th:inline="javascript">
+    let review = [[${reviews}]];
+    console.log(review)
+
+</script>
 <script>
 
     $mainbutton = $("button.mainBtn");
@@ -557,12 +562,9 @@
     $sidebutton = $("button.sideBtn");
     $sidebutton.on("click", function () {
     });
+
+    $(".project-detail-image-block__image").attr("src",`/reviewImages/display?reviewImageName=${review.reviewImagePath}/t_${review.reviewImageImageUuid}_${review.reviewImageImageName}`)
+    console.log()
 </script>
-<script th:inline="javascript">
-    let reviews = [[${reviews}]];
-    let nowPage = [[${pagination.page}]];
-    let order = [[${search.order}]];
-    let userId = [[${session.id}]];
-</script>
-<script src="/js/review/user-review-detail"></script>
+
 </html>

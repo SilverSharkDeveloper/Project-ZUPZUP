@@ -25,7 +25,7 @@ public class ReviewController {
     private final ReviewService reviewService;
     private final HttpSession session;
 // 후기 목록 가져오기 및 총 개수 가져오기
-    @GetMapping(value={"user_review_list","local_review_list"})
+    @GetMapping("user_review_list")
     public void list(Pagination pagination, Search search, Model model){
         pagination.setTotal(reviewService.getTotal(search));
         pagination.progress();
@@ -44,9 +44,9 @@ public class ReviewController {
 //        return new RedirectView("/review/user_review_list");
 //    }
     
-    @GetMapping(value = {"local_review_detail/*","user_review_detail/*", "modify"})
+    @GetMapping("user_review_detail")
     public void reviewRead(Long id, Model model){
-        model.addAttribute("id", reviewService.read(id).get());
+        model.addAttribute("reviews", reviewService.read(id).get());
     }
 
     @PostMapping("modify")
