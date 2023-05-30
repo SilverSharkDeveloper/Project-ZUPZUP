@@ -131,6 +131,7 @@ public class UserController {
         userVO.setUserNickname(naverUser.get("nickname").toString());
         userVO.setUserPassword(naverUser.get("id").toString());
         userVO.setUserName(naverUser.get("name").toString());
+        userVO.setUserTissue(0L);
 
 
 
