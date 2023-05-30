@@ -1,9 +1,8 @@
 package com.app.floc.DAO;
 
-import com.app.floc.domain.DTO.Pagination;
+import com.app.floc.domain.DTO.AdminPagination;
 import com.app.floc.domain.DTO.ProductDTO;
 import com.app.floc.domain.DTO.ProductPagination;
-import com.app.floc.domain.DTO.AdminPagination;
 import com.app.floc.domain.DTO.Search;
 import com.app.floc.domain.VO.ProductVO;
 import com.app.floc.mapper.ProductMapper;
@@ -63,4 +62,8 @@ public class ProductDAO {
     public void deleteProductsByIds(List<Long> productIds){
         productMapper.deleteProductsByIds(productIds);
     }
+
+//    public List<ProductVO> findAllByMain() {
+//        return productMapper.selectAllByMain();
+//    }
 }

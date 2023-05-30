@@ -37,4 +37,5 @@ public interface ProductMapper {
     public void deleteProductsByIds(List<Long> productIds);
 
 
+//    public List<ProductVO> selectAllByMain();
 }

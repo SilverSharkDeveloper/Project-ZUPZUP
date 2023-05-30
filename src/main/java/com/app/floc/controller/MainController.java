@@ -40,7 +40,7 @@ public class MainController {
 
     @GetMapping("main")
     public void main(Pagination pagination, Search search, Model model){
-//        model.addAttribute("products", productService.getProductList(pagination));
+//        model.addAttribute("products", productService.getList());
 //        model.addAttribute("ploggings", ploggingService.getList(pagination, search));
         model.addAttribute("reviews",reviewService.getList(pagination, search));
     }
@@ -70,13 +70,17 @@ public class MainController {
         return LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
     }
 
-    //    파일 불러오기
-    @GetMapping("display")
+    //    상품파일 불러오기
+    @GetMapping("displayProduct")
     @ResponseBody
-    public byte[] display(String productFullImageName) throws IOException{
-//        Path path = Paths.get("C:/upload/"+reviewImageName);
-//        return Files.readAllBytes(path);
+    public byte[] displayProduct(String productFullImageName) throws IOException{
         return FileCopyUtils.copyToByteArray(new File("C:/upload/", productFullImageName));
+    }
+    //    파일 불러오기
+    @GetMapping("displayPlogging")
+    @ResponseBody
+    public byte[] displayPlogging(String ploggingFullImageName) throws IOException{
+        return FileCopyUtils.copyToByteArray(new File("C:/upload/", ploggingFullImageName));
     }
 
     //    파일 다운로드

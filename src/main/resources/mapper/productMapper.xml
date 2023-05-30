@@ -128,5 +128,8 @@
             #{id}
         </foreach>
     </delete>
-
+<!--    <select id="selectAllByMain" resultType="producVO">-->
+<!--        select TP.ID, PRODUCT_NAME, PRODUCT_DETAIL, PRODUCT_COST, PRODUCT_STOCK, PRODUCT_REGISTER_DATE, PRODUCT_UPDATED_DATE, PRODUCT_CATEGORY, PRODUCT_USED_LOCATION, PRODUCT_IMAGE_NAME, PRODUCT_IMAGE_UUID, PRODUCT_IMAGE_SIZE,PRODUCT_IMAGE_PATH-->
+<!--        from TBL_PRODUCT TP-->
+<!--    </select>-->
 </mapper>
