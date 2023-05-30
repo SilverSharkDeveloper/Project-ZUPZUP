@@ -5,10 +5,17 @@
     <title>플로깅 목록 상세보기</title>
     <link rel="stylesheet" href="/css/product/detail.css">
     <link rel="stylesheet" href="/css/plogging/plogging-detail.css">
+    <link rel="stylesheet" href="/css/header-footer/header.css">
+    <link rel="stylesheet" href="/css/header-footer/header-login.css">
     <link rel="stylesheet" href="/css/font.css">
 </head>
 <body>
-<!--<header th:replace=""></header>-->
+<th:block th:if="${session.userId==null}">
+    <header class="header" th:replace="~{/header-footer/header :: header}"></header>
+</th:block>
+<th:block th:if="${session.userId!=null}">
+    <header class="header" th:replace="~{/header-footer/header-login :: header}"></header>
+</th:block>
 <div class="css-b3oum6">
     <div class="layout">
         <div class="production-selling">
@@ -130,6 +137,7 @@
 <!--<footer th:replace=""></footer>-->
 </body>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="/js/header-footer/header.js"></script>
 <script th:inline="javascript">
 </script>
 <script>

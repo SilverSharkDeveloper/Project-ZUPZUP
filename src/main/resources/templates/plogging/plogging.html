@@ -7,13 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>플로깅 목록</title>
     <link rel="stylesheet" href="/css/header-footer/header.css">
+    <link rel="stylesheet" href="/css/header-footer/header-login.css">
     <link rel="stylesheet" href="/css/header-footer/footer.css">
     <link rel="stylesheet" href="/css/plogging/plogging.css">
     <link rel="stylesheet" href="/css/font.css">
 </head>
 
 <body>
-<!--<header th:replace=""></header>-->
+<th:block th:if="${session.userId==null}">
+    <header class="header" th:replace="~{/header-footer/header :: header}"></header>
+</th:block>
+<th:block th:if="${session.userId!=null}">
+    <header class="header" th:replace="~{/header-footer/header-login :: header}"></header>
+</th:block>
 <div class="container">
     <div class="project-feed">
         <!-- 카테고리 -->
@@ -115,5 +121,6 @@
     let ploggings=[[${ploggings}]];
     $("div.project-feed_count").html("전체 "+ploggings.length);
 </script>
+<script src="/js/header-footer/header.js"></script>
 <script src="/js/plogging/list.js"></script>
 </html>

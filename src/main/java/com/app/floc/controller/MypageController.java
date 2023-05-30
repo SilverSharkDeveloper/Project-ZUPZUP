@@ -13,6 +13,7 @@ import com.app.floc.domain.VO.UserVO;
 import com.app.floc.service.coupon.CouponService;
 import com.app.floc.service.mypage.MypageService;
 import com.app.floc.service.product.ProductService;
+import com.app.floc.service.user.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.coobird.thumbnailator.Thumbnailator;
@@ -51,6 +52,7 @@ public class MypageController {
     private final MypageService mypageService;
     private final CouponService couponService;
     private final ProductService productService;
+    private final UserService userService;
     private final HttpSession session;
 
 
@@ -177,7 +179,11 @@ public class MypageController {
     }
 
     @GetMapping("main")
-    public void goToMain() {;
+    public void goToMain(Model model) {
+        model.addAttribute("nickname",userService.getUser((Long)session.getAttribute("userId")).get().getUserNickname());
+        if(userService.getUser((Long)session.getAttribute("userId")).get().getProfileImagePath() != null){
+            model.addAttribute("profile",userService.getUser((Long)session.getAttribute("userId")).get().getProfileImagePath());
+        }
     }
 
     //쿠폰 목록으로 가기

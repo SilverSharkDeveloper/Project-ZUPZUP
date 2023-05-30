@@ -27,6 +27,7 @@ public class NoticeDAO {
 
     //    공지사항 등록
     public void save(NoticeDTO noticeDTO){
+            noticeDTO.setAdminId(81L);
             noticeMapper.insert(noticeDTO); };
 
 

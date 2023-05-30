@@ -34,6 +34,11 @@
     <update id="updateUser">
         UPDATE TBL_USER
         SET USER_IDENTIFICATION=#{userIdentification}, USER_PASSWORD=#{userPassword}, USER_NAME=#{userName},USER_NICKNAME = #{userNickname}, USER_STATUS=#{userStatus} , USER_UPDATED_DATE=SYSDATE,USER_TISSUE = #{userTissue}
+        <choose>
+            <when test="profileImagePath!=null">
+                ,PROFILE_IMAGE_PATH = #{profileImagePath}
+            </when>
+        </choose>
         WHERE ID = #{id}
     </update>
 

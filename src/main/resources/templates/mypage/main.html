@@ -71,9 +71,19 @@
                                             </div>
                                         </div>
                                         <div class="css-hdhsoq e18gdfbl4">
-                                            <div class="css-1uebeg0 e18gdfbl3"><img class="css-1cqverl e18gdfbl2"
-                                                                                    src="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=144&amp;h=144&amp;c=c&amp;webp=1"
-                                                                                    srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=240&amp;h=240&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=320&amp;h=320&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=480&amp;h=480&amp;c=c&amp;webp=1 3x">
+                                            <div class="css-1uebeg0 e18gdfbl3">
+                                                <th:block th:if="${profile!=null}">
+                                                    <img class="css-1cqverl e18gdfbl2"
+                                                         th:src="${profile}"
+                                                        >
+                                                </th:block>
+                                                <th:block th:if="${profile==null}">
+                                                    <img class="css-1cqverl e18gdfbl2"
+                                                         src="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=144&amp;h=144&amp;c=c&amp;webp=1"
+                                                         srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=240&amp;h=240&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=320&amp;h=320&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=480&amp;h=480&amp;c=c&amp;webp=1 3x">
+                                                </th:block>
+
+
                                             </div>
                                             <div class="css-oycm3d e18gdfbl1">
                                                 <div class="css-n5l119 etfm1it0" th:text="${nickname}"></div>
@@ -117,7 +127,7 @@
                                                     </svg>
                                                 </div>
                                                 <div class="css-10ewlqi e1q26atk1">좋아요</div>
-                                                <div class="css-2rwq1u e1q26atk0">7</div>
+                                                <div class="css-2rwq1u e1q26atk0"></div>
                                             </a><a class="css-1p9dybm e1q26atk3" href="/user_shopping_pages/coupons">
                                                 <div class="css-zpotx6 e1q26atk2">
                                                     <svg width="24" height="24" viewBox="0 0 24 24"
@@ -127,7 +137,7 @@
                                                     </svg>
                                                 </div>
                                                 <div class="css-10ewlqi e1q26atk1">내 쿠폰</div>
-                                                <div class="css-2rwq1u e1q26atk0">1</div>
+                                                <div class="css-2rwq1u e1q26atk0"></div>
                                             </a></div>
                                         </div>
                                     </div>
