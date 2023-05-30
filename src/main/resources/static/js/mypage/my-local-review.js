@@ -10,7 +10,7 @@ $(document).ready(function(){
                                     <div class="css-prip86 e1lm7yo60"><a class="css-beq49r e1vfbmcc3"
                                                                          href="">
                                                                          
-       <img src="/mypage/display?fileName=${review.reviewImagePath}/t_${review.reviewImageImageUuid}_${review.reviewImageImageName}" className="image">
+       <img src="/mypage/display?fileName=${review.reviewImagePath}/t_${review.reviewImageImageUuid}_${review.reviewImageImageName}" className="css-1b4920d e1vfbmcc2">
        </a>
                                     </div>
                                     <div class="css-1647809 e1e2zisd4"><h2 class="css-z2d3s1 e1e2zisd2">${review.reviewTitle}</h2>

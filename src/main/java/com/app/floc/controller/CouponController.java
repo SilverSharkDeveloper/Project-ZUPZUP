@@ -39,7 +39,7 @@ public class CouponController {
     @GetMapping("use-coupon")
     public void useCoupon(String randomId, Model model){
         log.info(randomId);
-        String path = "https://api.qr-code-generator.com/v1/create?access-token=kROO-WIIea6Pba5qQB1smTFioF8VS_kfpY_w9aoEdNnNE8GAS8o0kj5SLXgUlhVn&qr_code_text=http://192.168.62.201:10000/coupon/use-coupon?randomId="+randomId;
+        String path = "https://api.qr-code-generator.com/v1/create?access-token=kROO-WIIea6Pba5qQB1smTFioF8VS_kfpY_w9aoEdNnNE8GAS8o0kj5SLXgUlhVn&qr_code_text=http://192.168.0.164:10000/coupon/use-coupon?randomId="+randomId;
         model.addAttribute("product",productService.read(couponService.findOneByCouponQrcodePath(path).get().getProductId(),null).get());
         model.addAttribute("coupon",couponService.findOneByCouponQrcodePath(path).get());
 
