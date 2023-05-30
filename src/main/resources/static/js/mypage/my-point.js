@@ -8,6 +8,7 @@ $(document).ready(function(){
     let text = "";
     tissues.forEach(tissue => {
         totalTissue += parseInt(`${tissue.tissuePoint}`);
+
         if((parseInt(`${tissue.tissuePoint}`))>=0)
         {
             lifeTissue += parseInt(`${tissue.tissuePoint}`);

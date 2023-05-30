@@ -1,4 +1,4 @@
-const $upload = $("input.upload");
+const $upload = $(".css-prip86 a");
 
 let sizes = new Array();
 $upload.on("change", function(e){
@@ -14,7 +14,7 @@ $upload.on("change", function(e){
     });
 
     $.ajax({
-        url: "/files/upload",
+        url: "/mypage/upload",
         type: "post",
         data: formData,
         contentType: false,
@@ -33,7 +33,7 @@ $upload.on("change", function(e){
             date = date < 10 ? "0" + date : date;
 
             let fileName = year + "/" + month + "/" + date + "/t_" + uuids[0] + "_" + name;
-            $("img.thumbnail").eq(i).attr("src", `/files/display?fileName=${fileName}`);
+            $("img.thumbnail").eq(i).attr("src", `/mypage/display?fileName=${fileName}`);
         }
     });
 
