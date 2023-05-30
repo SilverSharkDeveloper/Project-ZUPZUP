@@ -38,4 +38,5 @@ public interface ProductService {
     //상품 선택 삭제
     public void deleteProductsByIds(List<Long> productIds);
 
+//    public List<ProductVO> getMainList();
 }

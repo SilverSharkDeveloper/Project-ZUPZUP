@@ -122,4 +122,9 @@ public class ProductServiceImpl implements ProductService {
     public void deleteProductsByIds(List<Long> productIds) {
         productDAO.deleteProductsByIds(productIds);
     }
+////    메인페이지 목록 가져오기
+//    @Override
+//    public List<ProductVO> getMainList() {
+//        return productDAO.findAllByMain();
+//    }
 }
