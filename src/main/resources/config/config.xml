@@ -24,5 +24,7 @@
         <typeAlias type="com.app.floc.domain.VO.PloggingQRVO" alias="ploggingQRVO"/>
         <typeAlias type="com.app.floc.domain.DTO.LocalReviewDTO" alias="localReviewDTO"/>
         <typeAlias type="com.app.floc.domain.DTO.ProductDTO" alias="productDTO"/>
+        <typeAlias type="com.app.floc.domain.DTO.ParticipantDTO" alias="participantDTO"/>
+        <typeAlias type="com.app.floc.domain.DTO.FollowDTO" alias="followDTO"/>
     </typeAliases>
 </configuration>

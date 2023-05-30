@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.floc.mapper.ParticipantMapper">
+    <insert id="insert">
+        INSERT INTO TBL_PARTICIPANT(ID, LOCAL_CREATOR_ID, PLOGGING_TITLE, PLOGGING_CONTENT, PLOGGING_START_LOCATION, PLOGGING_END_LOCATION, PLOGGING_ESTIMATED_TIME, PLOGGING_MAXIMUM_PARTICIPANT, PLOGGING_START_DATETIME, PLOGGING_STATUS, PLOGGING_APPLY_DATE, PLOGGING_REJECTED_REASON, PLOGGING_REGISTER_DATE, PLOGGING_UPDATED_DATE, PLOGGING_VIEWED_COUNT, PLOGGING_IMAGE_NAME, PLOGGING_IMAGE_UUID, PLOGGING_IMAGE_SIZE, PLOGGING_ID, USER_ID)
+        VALUES(SEQ_PLOGGING.NEXTVAL, #{localCreatorId}, #{ploggingTitle}, #{ploggingContent}, #{ploggingStartLocation}, #{ploggingEndLocation}, #{ploggingEstimatedTime}, #{ploggingMaximumParticipant}, #{ploggingStartDateTime}, #{ploggingStatus} , SYSDATE, #{ploggingRejectedReason}, SYSDATE, SYSDATE, (0) , #{ploggingImageName}, #{ploggingImageUuid}, #{ploggingImageSize}, #{ploggingId}, #{userId})
+    </insert>
 
+    <select id="selectAll" resultType="participantDTO">
+        SELECT pt.ID, LOCAL_CREATOR_ID, PLOGGING_TITLE, PLOGGING_CONTENT, PLOGGING_START_LOCATION, PLOGGING_END_LOCATION, PLOGGING_ESTIMATED_TIME, PLOGGING_MAXIMUM_PARTICIPANT, PLOGGING_START_DATETIME, PLOGGING_STATUS, PLOGGING_APPLY_DATE, PLOGGING_REJECTED_REASON, PLOGGING_REGISTER_DATE, PLOGGING_UPDATED_DATE, PLOGGING_VIEWED_COUNT, PLOGGING_IMAGE_NAME, PLOGGING_IMAGE_UUID, PLOGGING_IMAGE_SIZE, PLOGGING_ID, USER_ID
+        FROM TBL_PLOGGING p JOIN TBL_PARTICIPANT pt
+        ON p.ID = pt.USER_ID
+    </select>
+
+    <delete id="delete">
+        DELETE FROM TBL_PARTICIPANT WHERE ID = #{id}
+    </delete>
 </mapper>
