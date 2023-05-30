@@ -113,6 +113,7 @@ public class KaKaoService {
             email = element.getAsJsonObject().get("kakao_account").getAsJsonObject().get("email").getAsString();
             String nickname ="";
             nickname = element.getAsJsonObject().get("properties").getAsJsonObject().get("nickname").getAsString();
+            String path = element.getAsJsonObject().get("properties").getAsJsonObject().get("profile_image").getAsString();
             //고유번호 -> 비밀번호
             //email -> identification
             //
@@ -125,6 +126,7 @@ public class KaKaoService {
             userVO.setUserAlarm("AGREE");
             userVO.setUserMarketing("AGREE");
             userVO.setUserStatus("KAKAO");
+            userVO.setProfileImagePath(path);
             br.close();
             return userVO;
 
