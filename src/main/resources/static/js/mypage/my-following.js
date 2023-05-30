@@ -9,7 +9,7 @@ $(document).ready(function(){
                                     <div class="css-1wwhxfz euanis37"><a class="css-1fqwelk euanis35"
                                                                          href="/users/3220925">
                                         <div class="css-qmr1ou euanis34"><img class="css-1cqverl euanis33"
-                                                                              src="">
+                                                                              src="/image/mypage/base.png">
                                         </div>
                                         <div class="css-1fxvqh3 euanis32">
                                             <div class="css-19pzwhy euanis31">${follow.userNickname}</div>
