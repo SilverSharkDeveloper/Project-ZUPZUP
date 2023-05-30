@@ -6,13 +6,22 @@
     <link href="/css/notice/notice.css" rel="stylesheet">
     <link href="/css/notice/notice-detail.css" rel="stylesheet">
     <link href="/css/font.css" rel="stylesheet">
+    <link href="/css/header-footer/header.css" rel="stylesheet">
+    <link href="/css/header-footer/header-login.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
+
 <div class="css-b3oum6">
     <div class="layout">
+        <th:block th:if="${session.userId==null}">
+            <header class="header" th:replace="~{/header-footer/header :: header}"></header>
+        </th:block>
+        <th:block th:if="${session.userId!=null}">
+            <header class="header" th:replace="~{/header-footer/header-login :: header}"></header>
+        </th:block>
         <div class="customer-notice-detail" th:object="${notice}">
             <input type="hidden" th:field="*{id}">
 <!--            <input type="hidden" th:value="*{userIdentification}">-->
@@ -175,5 +184,6 @@
     console.log(notice);
 </script>
 <script src="/js/admin/noticeimage.js"></script>
+<script src="/js/header-footer/header.js"></script>
 <!--<script src="/js/admin/notice-detail.js"></script>-->
 </html>
