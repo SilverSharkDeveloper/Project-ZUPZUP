@@ -159,6 +159,8 @@ public class MypageController {
 
     @GetMapping("my-user-review")
     public void UserReview(Pagination pagination, Search search, Model model) {
+        ReviewDTO reviewDTO = new ReviewDTO();
+        reviewDTO.setUserId((Long)session.getAttribute("userId"));
         pagination.progress();
         model.addAttribute("reviews", mypageService.getListUser(pagination, search));
     }

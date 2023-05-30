@@ -15,7 +15,7 @@ $(document).ready(function(){
                                                 class="project-feed__item__writer"
                                                 href=""><img
                                                 class="project-feed__item__writer__image" alt=""
-                                                src="">
+                                                src="/image/mypage/location.png">
                                             <span
                                                     class="project-feed__item__writer__name">${plogging.ploggingStartLocation}</span></a>
                                         </address>
@@ -23,13 +23,13 @@ $(document).ready(function(){
                                                 class="project-feed__item__writer"
                                                 href=""><img
                                                 class="project-feed__item__writer__image" alt=""
-                                                src=""><span
-                                                class="project-feed__item__writer__name">${plogging.userId}</span></a>
+                                                src="/image/mypage/base.png"><span
+                                                class="project-feed__item__writer__name">${plogging.userNickname}</span></a>
                                         </address>
-                                        <div class="css-iadmuc e1e2zisd3">좋아요 16<span class="css-4vnul8 e1e2zisd8">조회 6,542</span>
+                                        <div class="css-iadmuc e1e2zisd3">최대 인원 ${plogging.ploggingMaximumParticipant}<span class="css-4vnul8 e1e2zisd8">조회수 ${plogging.ploggingViewedCount}</span>
                                         </div>
                                         <div class="css-iadmuc e1e2zisd3">
-                                            <span class="css-4vnul9 e1e2zisd8">2023.09.01</span>
+                                            <span class="css-4vnul9 e1e2zisd8">${elapsedTime(plogging.ploggingRegisterDate)}</span>
                                         </div>
                                     </div>
              </div>
