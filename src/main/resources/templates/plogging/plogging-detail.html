@@ -4,26 +4,16 @@
     <meta charset="UTF-8">
     <title>플로깅 목록 상세보기</title>
     <link rel="stylesheet" href="/css/product/detail.css">
+    <link rel="stylesheet" href="/css/plogging/plogging-detail.css">
     <link rel="stylesheet" href="/css/font.css">
-
 </head>
 <body>
-<header th:replace=""></header>
+<!--<header th:replace=""></header>-->
 <div class="css-b3oum6">
     <div class="layout">
         <div class="production-selling">
             <div class="production-selling-overview container">
-                <nav class="commerce-category-breadcrumb-wrap production-selling-overview__category">
-                    <ol class="commerce-category-breadcrumb">
-                        <li class="commerce-category-breadcrumb__entry"><a class="link"
-                                                                           href="/store/category?category_id=18000000&amp;affect_type= ProductSaleDetail&amp;affect_id=767440">경상북도</a>
-                            <svg class="icon" width="8" height="8" viewBox="0 0 8 8" fill="currentColor"
-                                 preserveAspectRatio="xMidYMid meet">
-                                <path d="M4.95 4L2.12 1.19l.7-.71 3.54 3.54-3.53 3.53-.7-.7z"></path>
-                            </svg>
-                        </li>
-                    </ol>
-                </nav>
+
                 <div class="production-selling-overview__container row">
                     <div class="production-selling-overview__cover-image-wrap col-12 col-md-6 col-lg-7">
                         <div class="production-selling-cover-image-container">
@@ -36,8 +26,7 @@
                                              style="width: 100%;"><img
                                                 class="production-selling-cover-image__entry__image" tabindex="0"
                                                 alt="플러깅 모집 이미지"
-                                                src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167168822852557476.jpg?gif=1&amp;w=640&amp;h=640&amp;c=c"
-                                                srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167168822852557476.jpg?gif=1&amp;w=960&amp;h=960&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167168822852557476.jpg?gif=1&amp;w=1280&amp;h=1280&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167168822852557476.jpg?gif=1&amp;w=1920&amp;h=1920&amp;c=c 3x">
+                                                src="https://liftlearning.com/wp-content/uploads/2020/09/default-image.png">
                                         </div>
                                     </div>
                                 </div>
@@ -45,92 +34,73 @@
                         </div>
                     </div>
                     <div class="production-selling-overview__content col-12 col-md-6 col-lg-5">
-                        <div class="production-selling-header">
-                            <h1 class="production-selling-header__title"><p
-                                    class="production-selling-header__title__brand-wrap"><a
-                                    class="production-selling-header__title__brand"
-                                    href="/brands/home?query=%ED%97%AC%EB%A1%9C%EC%9A%B0%EC%8A%AC%EB%A6%BD&amp;affect_type=ProductSaleDetail&amp;affect_id=767440">지리산국립공원</a>
-                                <button class="production-selling-header__action__button production-selling-header__action__button-scrap"
-                                        style="border: none; background-color: transparent; color: #6e6e6e; position: absolute; right: 4px;"
-                                        type="button">
-                                    <svg class="icon--stroke" aria-label="스크랩" width="24" height="24"
-                                         fill="currentColor" stroke="currentColor" stroke-width="0.5"
-                                         viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
-                                        <path d="M11.53 18.54l-8.06 4.31A1 1 0 0 1 2 21.97V3.5A1.5 1.5 0 0 1 3.5 2h17A1.5 1.5 0 0 1 22 3.5v18.47a1 1 0 0 1-1.47.88l-8.06-4.31a1 1 0 0 0-.94 0z"></path>
-                                    </svg>
-                                    <span class="count"></span></button>
-                            </p>
-                                <div class="production-selling-header__title__name-wrap">
-                                    지리산 국립공원 플로깅
+                        <div class="production-selling-header" th:object="${plogging}">
+                            <h1 class="production-selling-header__title">
+                                <p class="production-selling-header__title__brand-wrap">
+                                    <button class="production-selling-header__action__button production-selling-header__action__button-scrap"
+                                            style="border: none; background-color: transparent; color: #6e6e6e; position: absolute; right: 4px;"
+                                            type="button">
+                                        <svg class="icon--stroke" aria-label="스크랩" width="24" height="24"
+                                             fill="currentColor" stroke="currentColor" stroke-width="0.5"
+                                             viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
+                                            <path d="M11.53 18.54l-8.06 4.31A1 1 0 0 1 2 21.97V3.5A1.5 1.5 0 0 1 3.5 2h17A1.5 1.5 0 0 1 22 3.5v18.47a1 1 0 0 1-1.47.88l-8.06-4.31a1 1 0 0 0-.94 0z"></path>
+                                        </svg>
+                                        <span class="count"></span></button>
+                                </p>
+                                <div class="production-selling-header__title__name-wrap" th:text="*{ploggingTitle}">
+                                    <!--제목-->
                                 </div>
                             </h1>
-                            <div class="production-selling-header__content">
+                            <div class="production-selling-header__content" style="margin-top: 20px">
                                 <div class="production-selling-header__price"><span
                                         class="production-selling-header__price__price-wrap"><span
                                         class="production-selling-header__price__separator"></span><div
                                         class="production-selling-header__price__price-value-wrap"><div
-                                        class="production-selling-header__price__price"><span
-                                        class="date">내용 :</span><span class="end"><!--내용작성란--></span></div></div></span>
+                                        class="production-selling-header__price__price">
+                                    <span class="end"th:text="*{ploggingContent}"><!--내용--></span></div></div></span>
                                 </div>
                             </div>
-                            <div class="production-selling-header__content">
-                                <div class="production-selling-header__price"><span
-                                        class="production-selling-header__price__price-wrap"><span
-                                        class="production-selling-header__price__separator"></span><div
-                                        class="production-selling-header__price__price-value-wrap"><div
-                                        class="production-selling-header__price__price"><span
-                                        class="date">시작지점 : </span><span class="end"></span></div></div></span>
+
+
+                            <div class="production-selling-header__info-wrap">
+                                <div class="production-selling-header__delivery">
+                                    <div class="production-selling-header__delivery__title-wrap"><span>시작 지점</span></div>
+                                    <div class="production-selling-header__delivery__content-wrap"><span
+                                            class="production-selling-header__delivery__type" th:text="*{ploggingStartLocation}"></span></div>
                                 </div>
                             </div>
-                            <div class="production-selling-header__content">
-                                <div class="production-selling-header__price"><span
-                                        class="production-selling-header__price__price-wrap"><span
-                                        class="production-selling-header__price__separator"></span><div
-                                        class="production-selling-header__price__price-value-wrap"><div
-                                        class="production-selling-header__price__price"><span
-                                        class="date">종료지점 : </span><span class="end"></span></div></div></span>
+                            <div class="production-selling-header__info-wrap">
+                                <div class="production-selling-header__delivery">
+                                    <div class="production-selling-header__delivery__title-wrap"><span>종료 지점</span></div>
+                                    <div class="production-selling-header__delivery__content-wrap"><span
+                                            class="production-selling-header__delivery__type" th:text="*{ploggingEndLocation}"></span></div>
                                 </div>
                             </div>
-                            <div class="production-selling-header__content">
-                                <div class="production-selling-header__price"><span
-                                        class="production-selling-header__price__price-wrap"><span
-                                        class="production-selling-header__price__separator"></span><div
-                                        class="production-selling-header__price__price-value-wrap"><div
-                                        class="production-selling-header__price__price"><span
-                                        class="date">모집 시작일</span><span class="end">yy.mm.dd (물결)</span></div></div></span>
+                            <div class="production-selling-header__info-wrap">
+                                <div class="production-selling-header__delivery">
+                                    <div class="production-selling-header__delivery__title-wrap"><span>시작일</span></div>
+                                    <div class="production-selling-header__delivery__content-wrap"><span
+                                            class="production-selling-header__delivery__type" th:text="*{ploggingStartDateTime}"></span></div>
                                 </div>
                             </div>
-                            <div class="production-selling-header__content">
-                                <div class="production-selling-header__price"><span
-                                        class="production-selling-header__price__price-wrap"><span
-                                        class="production-selling-header__price__separator"></span><div
-                                        class="production-selling-header__price__price-value-wrap"><div
-                                        class="production-selling-header__price__price"><span
-                                        class="date">모집 종료일</span><span class="end">yy.mm.dd</span></div></div></span>
+                            <div class="production-selling-header__info-wrap">
+                                <div class="production-selling-header__delivery">
+                                    <div class="production-selling-header__delivery__title-wrap"><span>모집 상태</span></div>
+                                    <div class="production-selling-header__delivery__content-wrap"><span
+                                            class="production-selling-header__delivery__type" th:text="*{ploggingStatus}"></span></div>
                                 </div>
                             </div>
-                            <div class="production-selling-header__content">
-                                <div class="production-selling-header__price"><span
-                                        class="production-selling-header__price__price-wrap"><span
-                                        class="production-selling-header__price__separator"></span><div
-                                        class="production-selling-header__price__price-value-wrap"><div
-                                        class="production-selling-header__price__price"><span
-                                        class="date">상태 : </span><span class="end"><!--모집중--></span></div></div></span>
+                            <div class="production-selling-header__info-wrap">
+                                <div class="production-selling-header__delivery">
+                                    <div class="production-selling-header__delivery__title-wrap"><span>휴지</span></div>
+                                    <div class="production-selling-header__delivery__content-wrap"><span
+                                            class="production-selling-header__delivery__type">N 롤</span></div>
                                 </div>
                             </div>
-                            <div class="production-selling-header__content">
-                                <div class="production-selling-header__price"><span
-                                        class="production-selling-header__price__price-wrap"><span
-                                        class="production-selling-header__price__separator"></span><div
-                                        class="production-selling-header__price__price-value-wrap"><div
-                                        class="production-selling-header__price__price"><span
-                                        class="date">보상</span><span class="end"><!--휴지 몇칸? 몇롤?--></span></div></div></span>
-                                </div>
-                            </div>
-                            <div class="production-selling-header__info-wrap"></div>
+
                             <a class="css-1jw8uh0 e3xbt9p7"
                                href="/brands/home?query=%ED%97%AC%EB%A1%9C%EC%9A%B0%EC%8A%AC%EB%A6%BD&amp;affect_type=ProductSaleDetail&amp;affect_id=767440">
-                                <div class="css-gshsra e3xbt9p6">
+                                <div class="css-gshsra e3xbt9p6" style="display: flex; margin-top: 10px">
                                     <svg width="24" height="24" fill="none" preserveAspectRatio="xMidYMid meet">
                                         <path d="M3.972 8.694c0-.26.212-.472.472-.472h12.278a.472.472 0 010 .945H4.444a.472.472 0 01-.472-.473z"
                                               fill="#35C5F0"></path>
@@ -138,19 +108,13 @@
                                               d="M17.51 5.5H6.492a1 1 0 00-.93.632l-.99 2.5A1 1 0 005.498 10h13.004a1 1 0 00.927-1.368l-.99-2.5a1 1 0 00-.93-.632zM3.642 8.263a2.002 2.002 0 001.397 2.684V17.5a2.5 2.5 0 002.5 2.5H16.474a2.5 2.5 0 002.487-2.5v-6.553a2.002 2.002 0 001.398-2.684l-.99-2.5a2 2 0 00-1.86-1.263H6.493a2 2 0 00-1.86 1.263l-.99 2.5zM6.04 17.5V11h11.921v6.5a1.5 1.5 0 01-1.487 1.5v-4a2 2 0 00-2-2h-.97a2 2 0 00-2 2v4H7.54a1.5 1.5 0 01-1.5-1.5zm6.464 1.5h2.97v-4a1 1 0 00-1-1h-.97a1 1 0 00-1 1v1h.847a.5.5 0 110 1h-.847v2zM8 13h1.5v1.5H8V13zm-1 0a1 1 0 011-1h1.5a1 1 0 011 1v1.5a1 1 0 01-1 1H8a1 1 0 01-1-1V13z"
                                               fill="#3F474D"></path>
                                     </svg>
-                                    <div class="css-158icaa e3xbt9p5"><span class="css-16kia55 e3xbt9p4">국립공원관리단</span>
+                                    <div class="css-158icaa e3xbt9p5"><span class="css-16kia55 e3xbt9p4" th:text="*{userNickname}"></span>
                                     </div>
-                                </div>
-                                <div class="css-xq185e e3xbt9p0"><span>지리산</span>
-                                    <svg width="14" height="14" fill="none" preserveAspectRatio="xMidYMid meet">
-                                        <path d="M4.083 11.375L8.312 7 4.083 2.625l.803-.875L9.916 7l-5.03 5.25-.803-.875z"
-                                              fill="#828C94"></path>
-                                    </svg>
                                 </div>
                             </a></div>
                         <div class="production-selling-option-form production-selling-overview__option-form"><p
                                 class="css-49v6aj ejhg2ki2"><span class="css-7c0zb9 ejhg2ki1">모집인원</span><span
-                                class="css-q02jxk ejhg2ki0"><span>0</span>명</span></p>
+                                class="css-q02jxk ejhg2ki0" style="margin-left: 10px"><span>0</span>명</span></p>
                             <div class="production-selling-option-form__footer">
                                 <button class="button button--color-blue button--size-55 button--shape-4" type="button">
                                     신청서 작성
@@ -163,21 +127,23 @@
         </div>
     </div>
 </div>
-<footer th:replace=""></footer>
+<!--<footer th:replace=""></footer>-->
 </body>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script th:inline="javascript">
+</script>
 <script>
     $bookmark = $("svg.icon--stroke");
     $bookmark.on("click", function () {
-        if($(this).hasClass("check")){
+        if ($(this).hasClass("check")) {
             $(this).removeClass("check");
             $(this).css({
                 "fill": "transparent"
             });
-        }else {
+        } else {
             $(this).addClass("check");
             $(this).css({
-                "fill":"#69c085"
+                "fill": "#69c085"
             });
         }
     })

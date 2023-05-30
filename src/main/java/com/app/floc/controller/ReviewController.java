@@ -44,7 +44,7 @@ public class ReviewController {
 //        return new RedirectView("/review/user_review_list");
 //    }
     
-    @GetMapping(value = {"local_review_detail", "modify"})
+    @GetMapping(value = {"local_review_detail","user_review_detail", "modify"})
     public void reviewRead(Long id, Model model){
         model.addAttribute("id", reviewService.read(id).get());
     }

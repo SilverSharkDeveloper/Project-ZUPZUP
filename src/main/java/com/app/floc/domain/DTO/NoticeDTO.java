@@ -1,6 +1,5 @@
 package com.app.floc.domain.DTO;
 
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +20,7 @@ public class NoticeDTO {
     private String noticeImageName;
     private String noticeImageUuid;
     private Long noticeImageSize;
+    private String noticeImagePath;
 }
 
 

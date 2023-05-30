@@ -6,17 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>후기 상세보기</title>
     <style>
-        button.button:hover{
+        button.button:hover {
             color: #FFFFFF;
             border: 2px solid #FFFFFF;
             background-color: #3B7661;
         }
-        button.mainBtn:hover{
+
+        button.mainBtn:hover {
             color: #FFFFFF;
             border: 2px solid #FFFFFF;
             background-color: #3B7661;
         }
-        button.orderActive{
+
+        button.orderActive {
             color: #FFFFFF;
             border: 2px solid #FFFFFF;
             background-color: #7aab9a;
@@ -29,8 +31,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 <link href="/css/font.css" rel="stylesheet"/>
 <link rel="stylesheet" href="/css/header-footer/header.css">
+<link rel="stylesheet" href="/css/header-footer/header-login.css">
 <body>
-<th:block th:replace="/header-footer/header::header"></th:block>
+<th:block th:if="${session.userId==null}">
+    <header class="header" th:replace="~{/header-footer/header :: header}"></header>
+</th:block>
+<th:block th:unless="${session.userId==null}">
+    <header class="header" th:replace="~{/header-footer/header-login :: header}"></header>
+</th:block>
 <div class="css-b3oum6">
     <div class="layout">
         <main class="content-detail">
@@ -46,27 +54,27 @@
                     <div class="e18r2nwe4 css-12un3nt">
                         <div class="css-bh7d0o e18r2nwe2">
                             <div class="css-hhf500 e18r2nwe0">
-                                <button class="mainBtn css-hhk5mj orderActive">로컬 크리에이터 후기</button>
+                                <button onclick="location.href = '/review/local_review_list' " class="mainBtn css-hhk5mj orderActive">로컬 크리에이터 후기</button>
                             </div>
                             <div class="css-hhf500 e18r2nwe0">
-                                <button class="mainBtn css-hhk5mj">플로깅 참가자 후기 목록</button>
+                                <button onclick="location.href = '/review/user_review_list' " class="mainBtn css-hhk5mj">플로깅 참가자 후기 목록</button>
                             </div>
                         </div>
                     </div>
-                    <header class="content-detail-header">
-<!--                        지역-->
+                    <!--<header class="content-detail-header">
+&lt;!&ndash;                        지역&ndash;&gt;
                         <div class="content-detail-header__top"><p class="content-detail-header__category">온라인 집들이</p>
                         </div>
-<!--                        제목-->
-                        <h1 class="content-detail-header__title" th:text="*{reviewTitle}"></h1>
+&lt;!&ndash;                        제목&ndash;&gt;
+                        <h1 class="content-detail-header__title" th:text="{review.reviewTitle}"></h1>
                         <div class="content-detail-header__bottom">
                             <a class="content-detail-header__author" href="/users/9155146">
                                 <div class="content-detail-header__author-image">
                                     <img class="image" alt="" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168227425486275088.JPG?gif=1&amp;w=72&amp;h=72&amp;c=c&amp;webp=1" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168227425486275088.JPG?gif=1&amp;w=144&amp;h=144&amp;c=c&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168227425486275088.JPG?gif=1&amp;w=144&amp;h=144&amp;c=c&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168227425486275088.JPG?gif=1&amp;w=240&amp;h=240&amp;c=c&amp;webp=1 3x">
                                 </div>
-<!--                                작성자 닉네임-->
+&lt;!&ndash;                                작성자 닉네임&ndash;&gt;
                                 <div class="content-detail-header__author-name" th:text="*{userNickname}"></div>
-<!--                                작성일 나는 잘 모르겠다...-->
+&lt;!&ndash;                                작성일 나는 잘 모르겠다...&ndash;&gt;
                                 <div class="content-detail-header__author-date" th:text="${reviewRegisterDate}"></div>
                             </a>
                             <div class="content-detail-header__user-actions">
@@ -78,7 +86,7 @@
                                 </button>
                             </div>
                         </div>
-                    </header>
+                    </header>-->
                     <section class="project-detail-metadata">
                         <dl class="project-detail-metadata-overview">
                             <div class="project-detail-metadata-overview-item">
@@ -212,7 +220,7 @@
                         </div>
                     </section>
                     <div class="bpd-view project-detail__content-bpd">
-                        <p class="bpd-view-text bpd-view-p-block" th:text="${reviewContent}">&nbsp</p>
+                        <p class="bpd-view-text bpd-view-p-block" th:text="${reviews.reviewContent}">&nbsp</p>
                         <p class="bpd-view-text bpd-view-p-block"></p>
                         <div class="project-detail-image-block has-mapped-tags">
                             <div class="_33oVJ project-detail-image-block__overlay">
@@ -293,24 +301,24 @@
                 </div>-->
             </div>
             <div class="content-detail-footer">
-<!--                <dl class="content-detail-stats">-->
-<!--                    <div class="content-detail-stats__item">-->
-<!--                        <dt>좋아요</dt>-->
-<!--                        <dd>40</dd>-->
-<!--                    </div>-->
-<!--                    <div class="content-detail-stats__item">-->
-<!--                        <dt>스크랩</dt>-->
-<!--                        <dd>113</dd>-->
-<!--                    </div>-->
-<!--                    <div class="content-detail-stats__item">-->
-<!--                        <dt>댓글</dt>-->
-<!--                        <dd>12</dd>-->
-<!--                    </div>-->
-<!--                    <div class="content-detail-stats__item">-->
-<!--                        <dt>조회</dt>-->
-<!--                        <dd>3,045</dd>-->
-<!--                    </div>-->
-<!--                </dl>-->
+                <!--                <dl class="content-detail-stats">-->
+                <!--                    <div class="content-detail-stats__item">-->
+                <!--                        <dt>좋아요</dt>-->
+                <!--                        <dd>40</dd>-->
+                <!--                    </div>-->
+                <!--                    <div class="content-detail-stats__item">-->
+                <!--                        <dt>스크랩</dt>-->
+                <!--                        <dd>113</dd>-->
+                <!--                    </div>-->
+                <!--                    <div class="content-detail-stats__item">-->
+                <!--                        <dt>댓글</dt>-->
+                <!--                        <dd>12</dd>-->
+                <!--                    </div>-->
+                <!--                    <div class="content-detail-stats__item">-->
+                <!--                        <dt>조회</dt>-->
+                <!--                        <dd>3,045</dd>-->
+                <!--                    </div>-->
+                <!--                </dl>-->
                 <address class="css-1u9iwi4 e1lduqiu7">
                     <div class="css-7lz4yt e1lduqiu6">
                         <div class="css-ywj4rq e1lduqiu5">
@@ -371,105 +379,105 @@
                                     </div>
                                 </div>
                             </li>
-<!--                            <li class="css-1fzkxhd ec4queb0">-->
-<!--                                <div class="css-ame6mi ewncmdz14">-->
-<!--                                    <div class="css-eayw7z ewncmdz13">-->
-<!--                                        <a href="/users/15525973">-->
-<!--                                            <img class="css-50jqym ewncmdz12" alt="loveJulia" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163319127955842336.jpeg?gif=1&amp;w=36&amp;webp=1" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163319127955842336.jpeg?gif=1&amp;w=72&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163319127955842336.jpeg?gif=1&amp;w=72&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163319127955842336.jpeg?gif=1&amp;w=144&amp;webp=1 3x">-->
-<!--                                            <span class="css-nltycz ewncmdz11">loveJulia</span>-->
-<!--                                        </a>-->
-<!--                                    </div>-->
-<!--                                    <div class="css-eayw7z ewncmdz13">-->
-<!--                                        <p class="ewncmdz7 css-ofv0mw eyi4x8z0">거실조명이 너무 예쁘네요</p>-->
-<!--                                    </div>-->
-<!--                                    <div class="css-eayw7z ewncmdz13">-->
-<!--                                        <span class="css-lw9a6t ewncmdz4">6시간 전</span>-->
-<!--                                        <i class="css-n94n9h ewncmdz3"></i>-->
-<!--                                        <a class="css-lw9a6t ewncmdz4" href="/users/sign_in">-->
-<!--                                            <span class="ewncmdz2 _heart_outline_18 css-u6s19o"></span>-->
-<!--                                            <span class="css-0 ewncmdz5">좋아요</span>-->
-<!--                                        </a>-->
-<!--                                        <i class="css-n94n9h ewncmdz3"></i>-->
-<!--                                        <a class="css-lw9a6t ewncmdz4" href="/users/sign_in">-->
-<!--                                            <span class="css-0 ewncmdz5">답글 달기</span>-->
-<!--                                        </a>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </li>-->
-<!--                            <li class="css-1fzkxhd ec4queb0">-->
-<!--                                <div class="css-ame6mi ewncmdz14">-->
-<!--                                    <div class="css-eayw7z ewncmdz13">-->
-<!--                                        <a href="/users/4062879">-->
-<!--                                            <img class="css-50jqym ewncmdz12" alt="바람나뭇잎" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168398702922930809.jpeg?gif=1&amp;w=36&amp;webp=1" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168398702922930809.jpeg?gif=1&amp;w=72&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168398702922930809.jpeg?gif=1&amp;w=72&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168398702922930809.jpeg?gif=1&amp;w=144&amp;webp=1 3x">-->
-<!--                                            <span class="css-nltycz ewncmdz11">바람나뭇잎</span>-->
-<!--                                        </a>-->
-<!--                                    </div>-->
-<!--                                    <div class="css-eayw7z ewncmdz13">-->
-<!--                                        <p class="ewncmdz7 css-ofv0mw eyi4x8z0">작은평수때문에 결국 수납문제는 필수적으로 따라올것 같은데요. 두 분의 옷은 어디에 수납하시나요? 코트나 정장등을 둘 수 있는곳이 안 보여서요. 도저히 공간이 안 나올것 같은데 어떻게 풀어내셨나요</p>-->
-<!--                                    </div>-->
-<!--                                    <div class="css-eayw7z ewncmdz13">-->
-<!--                                        <span class="css-lw9a6t ewncmdz4">18시간 전</span>-->
-<!--                                        <i class="css-n94n9h ewncmdz3"></i>-->
-<!--                                        <a class="css-lw9a6t ewncmdz4" href="/users/sign_in">-->
-<!--                                            <span class="ewncmdz2 _heart_outline_18 css-u6s19o"></span>-->
-<!--                                            <span class="css-0 ewncmdz5">좋아요</span>-->
-<!--                                        </a>-->
-<!--                                        <i class="css-n94n9h ewncmdz3"></i>-->
-<!--                                        <a class="css-lw9a6t ewncmdz4" href="/users/sign_in">-->
-<!--                                            <span class="css-0 ewncmdz5">답글 달기</span>-->
-<!--                                        </a>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </li>-->
-<!--                            <li class="css-1fzkxhd ec4queb0">-->
-<!--                                <div class="css-ame6mi ewncmdz14">-->
-<!--                                    <div class="css-eayw7z ewncmdz13">-->
-<!--                                        <a href="/users/15229598">-->
-<!--                                            <img class="css-50jqym ewncmdz12" alt="saemichung" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163076532777669158.jpeg?gif=1&amp;w=36&amp;webp=1" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163076532777669158.jpeg?gif=1&amp;w=72&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163076532777669158.jpeg?gif=1&amp;w=72&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163076532777669158.jpeg?gif=1&amp;w=144&amp;webp=1 3x">-->
-<!--                                            <span class="css-nltycz ewncmdz11">saemichung</span>-->
-<!--                                        </a>-->
-<!--                                    </div>-->
-<!--                                    <div class="css-eayw7z ewncmdz13">-->
-<!--                                        <p class="ewncmdz7 css-ofv0mw eyi4x8z0">남편분과 아내분의 합쳐진 감각으로 구축 아파트가 멋집으로 극적 변화하는 과정이 너무 재미있었어요! 이 포스트 몰입감 최고네요 🫶</p>-->
-<!--                                    </div>-->
-<!--                                    <div class="css-eayw7z ewncmdz13">-->
-<!--                                        <span class="css-lw9a6t ewncmdz4">20시간 전</span>-->
-<!--                                        <i class="css-n94n9h ewncmdz3"></i>-->
-<!--                                        <a class="css-lw9a6t ewncmdz4" href="/users/sign_in">-->
-<!--                                            <span class="ewncmdz2 _heart_outline_18 css-u6s19o"></span>-->
-<!--                                            <span class="css-0 ewncmdz5">좋아요</span>-->
-<!--                                        </a>-->
-<!--                                        <i class="css-n94n9h ewncmdz3"></i>-->
-<!--                                        <a class="css-lw9a6t ewncmdz4" href="/users/sign_in">-->
-<!--                                            <span class="css-0 ewncmdz5">답글 달기</span>-->
-<!--                                        </a>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </li>-->
-<!--                            <li class="css-1fzkxhd ec4queb0">-->
-<!--                                <div class="css-ame6mi ewncmdz14">-->
-<!--                                    <div class="css-eayw7z ewncmdz13">-->
-<!--                                        <a href="/users/312525">-->
-<!--                                            <img class="css-50jqym ewncmdz12" alt="시몬드" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=36&amp;webp=1" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=144&amp;webp=1 3x">-->
-<!--                                            <span class="css-nltycz ewncmdz11">시몬드</span>-->
-<!--                                        </a>-->
-<!--                                    </div>-->
-<!--                                    <div class="css-eayw7z ewncmdz13">-->
-<!--                                        <p class="ewncmdz7 css-ofv0mw eyi4x8z0">카페같은 집이네요! 이색적이고 예뻐요 </p></div>-->
-<!--                                    <div class="css-eayw7z ewncmdz13">-->
-<!--                                        <span class="css-lw9a6t ewncmdz4">21시간 전</span>-->
-<!--                                        <i class="css-n94n9h ewncmdz3"></i>-->
-<!--                                        <a class="css-lw9a6t ewncmdz4" href="/users/sign_in">-->
-<!--                                            <span class="ewncmdz2 _heart_outline_18 css-u6s19o"></span>-->
-<!--                                            <span class="css-0 ewncmdz5">좋아요</span>-->
-<!--                                        </a>-->
-<!--                                        <i class="css-n94n9h ewncmdz3"></i>-->
-<!--                                        <a class="css-lw9a6t ewncmdz4" href="/users/sign_in">-->
-<!--                                            <span class="css-0 ewncmdz5">답글 달기</span>-->
-<!--                                        </a>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </li>-->
+                            <!--                            <li class="css-1fzkxhd ec4queb0">-->
+                            <!--                                <div class="css-ame6mi ewncmdz14">-->
+                            <!--                                    <div class="css-eayw7z ewncmdz13">-->
+                            <!--                                        <a href="/users/15525973">-->
+                            <!--                                            <img class="css-50jqym ewncmdz12" alt="loveJulia" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163319127955842336.jpeg?gif=1&amp;w=36&amp;webp=1" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163319127955842336.jpeg?gif=1&amp;w=72&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163319127955842336.jpeg?gif=1&amp;w=72&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163319127955842336.jpeg?gif=1&amp;w=144&amp;webp=1 3x">-->
+                            <!--                                            <span class="css-nltycz ewncmdz11">loveJulia</span>-->
+                            <!--                                        </a>-->
+                            <!--                                    </div>-->
+                            <!--                                    <div class="css-eayw7z ewncmdz13">-->
+                            <!--                                        <p class="ewncmdz7 css-ofv0mw eyi4x8z0">거실조명이 너무 예쁘네요</p>-->
+                            <!--                                    </div>-->
+                            <!--                                    <div class="css-eayw7z ewncmdz13">-->
+                            <!--                                        <span class="css-lw9a6t ewncmdz4">6시간 전</span>-->
+                            <!--                                        <i class="css-n94n9h ewncmdz3"></i>-->
+                            <!--                                        <a class="css-lw9a6t ewncmdz4" href="/users/sign_in">-->
+                            <!--                                            <span class="ewncmdz2 _heart_outline_18 css-u6s19o"></span>-->
+                            <!--                                            <span class="css-0 ewncmdz5">좋아요</span>-->
+                            <!--                                        </a>-->
+                            <!--                                        <i class="css-n94n9h ewncmdz3"></i>-->
+                            <!--                                        <a class="css-lw9a6t ewncmdz4" href="/users/sign_in">-->
+                            <!--                                            <span class="css-0 ewncmdz5">답글 달기</span>-->
+                            <!--                                        </a>-->
+                            <!--                                    </div>-->
+                            <!--                                </div>-->
+                            <!--                            </li>-->
+                            <!--                            <li class="css-1fzkxhd ec4queb0">-->
+                            <!--                                <div class="css-ame6mi ewncmdz14">-->
+                            <!--                                    <div class="css-eayw7z ewncmdz13">-->
+                            <!--                                        <a href="/users/4062879">-->
+                            <!--                                            <img class="css-50jqym ewncmdz12" alt="바람나뭇잎" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168398702922930809.jpeg?gif=1&amp;w=36&amp;webp=1" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168398702922930809.jpeg?gif=1&amp;w=72&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168398702922930809.jpeg?gif=1&amp;w=72&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/168398702922930809.jpeg?gif=1&amp;w=144&amp;webp=1 3x">-->
+                            <!--                                            <span class="css-nltycz ewncmdz11">바람나뭇잎</span>-->
+                            <!--                                        </a>-->
+                            <!--                                    </div>-->
+                            <!--                                    <div class="css-eayw7z ewncmdz13">-->
+                            <!--                                        <p class="ewncmdz7 css-ofv0mw eyi4x8z0">작은평수때문에 결국 수납문제는 필수적으로 따라올것 같은데요. 두 분의 옷은 어디에 수납하시나요? 코트나 정장등을 둘 수 있는곳이 안 보여서요. 도저히 공간이 안 나올것 같은데 어떻게 풀어내셨나요</p>-->
+                            <!--                                    </div>-->
+                            <!--                                    <div class="css-eayw7z ewncmdz13">-->
+                            <!--                                        <span class="css-lw9a6t ewncmdz4">18시간 전</span>-->
+                            <!--                                        <i class="css-n94n9h ewncmdz3"></i>-->
+                            <!--                                        <a class="css-lw9a6t ewncmdz4" href="/users/sign_in">-->
+                            <!--                                            <span class="ewncmdz2 _heart_outline_18 css-u6s19o"></span>-->
+                            <!--                                            <span class="css-0 ewncmdz5">좋아요</span>-->
+                            <!--                                        </a>-->
+                            <!--                                        <i class="css-n94n9h ewncmdz3"></i>-->
+                            <!--                                        <a class="css-lw9a6t ewncmdz4" href="/users/sign_in">-->
+                            <!--                                            <span class="css-0 ewncmdz5">답글 달기</span>-->
+                            <!--                                        </a>-->
+                            <!--                                    </div>-->
+                            <!--                                </div>-->
+                            <!--                            </li>-->
+                            <!--                            <li class="css-1fzkxhd ec4queb0">-->
+                            <!--                                <div class="css-ame6mi ewncmdz14">-->
+                            <!--                                    <div class="css-eayw7z ewncmdz13">-->
+                            <!--                                        <a href="/users/15229598">-->
+                            <!--                                            <img class="css-50jqym ewncmdz12" alt="saemichung" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163076532777669158.jpeg?gif=1&amp;w=36&amp;webp=1" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163076532777669158.jpeg?gif=1&amp;w=72&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163076532777669158.jpeg?gif=1&amp;w=72&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/163076532777669158.jpeg?gif=1&amp;w=144&amp;webp=1 3x">-->
+                            <!--                                            <span class="css-nltycz ewncmdz11">saemichung</span>-->
+                            <!--                                        </a>-->
+                            <!--                                    </div>-->
+                            <!--                                    <div class="css-eayw7z ewncmdz13">-->
+                            <!--                                        <p class="ewncmdz7 css-ofv0mw eyi4x8z0">남편분과 아내분의 합쳐진 감각으로 구축 아파트가 멋집으로 극적 변화하는 과정이 너무 재미있었어요! 이 포스트 몰입감 최고네요 🫶</p>-->
+                            <!--                                    </div>-->
+                            <!--                                    <div class="css-eayw7z ewncmdz13">-->
+                            <!--                                        <span class="css-lw9a6t ewncmdz4">20시간 전</span>-->
+                            <!--                                        <i class="css-n94n9h ewncmdz3"></i>-->
+                            <!--                                        <a class="css-lw9a6t ewncmdz4" href="/users/sign_in">-->
+                            <!--                                            <span class="ewncmdz2 _heart_outline_18 css-u6s19o"></span>-->
+                            <!--                                            <span class="css-0 ewncmdz5">좋아요</span>-->
+                            <!--                                        </a>-->
+                            <!--                                        <i class="css-n94n9h ewncmdz3"></i>-->
+                            <!--                                        <a class="css-lw9a6t ewncmdz4" href="/users/sign_in">-->
+                            <!--                                            <span class="css-0 ewncmdz5">답글 달기</span>-->
+                            <!--                                        </a>-->
+                            <!--                                    </div>-->
+                            <!--                                </div>-->
+                            <!--                            </li>-->
+                            <!--                            <li class="css-1fzkxhd ec4queb0">-->
+                            <!--                                <div class="css-ame6mi ewncmdz14">-->
+                            <!--                                    <div class="css-eayw7z ewncmdz13">-->
+                            <!--                                        <a href="/users/312525">-->
+                            <!--                                            <img class="css-50jqym ewncmdz12" alt="시몬드" src="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=36&amp;webp=1" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72&amp;webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=72&amp;webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&amp;w=144&amp;webp=1 3x">-->
+                            <!--                                            <span class="css-nltycz ewncmdz11">시몬드</span>-->
+                            <!--                                        </a>-->
+                            <!--                                    </div>-->
+                            <!--                                    <div class="css-eayw7z ewncmdz13">-->
+                            <!--                                        <p class="ewncmdz7 css-ofv0mw eyi4x8z0">카페같은 집이네요! 이색적이고 예뻐요 </p></div>-->
+                            <!--                                    <div class="css-eayw7z ewncmdz13">-->
+                            <!--                                        <span class="css-lw9a6t ewncmdz4">21시간 전</span>-->
+                            <!--                                        <i class="css-n94n9h ewncmdz3"></i>-->
+                            <!--                                        <a class="css-lw9a6t ewncmdz4" href="/users/sign_in">-->
+                            <!--                                            <span class="ewncmdz2 _heart_outline_18 css-u6s19o"></span>-->
+                            <!--                                            <span class="css-0 ewncmdz5">좋아요</span>-->
+                            <!--                                        </a>-->
+                            <!--                                        <i class="css-n94n9h ewncmdz3"></i>-->
+                            <!--                                        <a class="css-lw9a6t ewncmdz4" href="/users/sign_in">-->
+                            <!--                                            <span class="css-0 ewncmdz5">답글 달기</span>-->
+                            <!--                                        </a>-->
+                            <!--                                    </div>-->
+                            <!--                                </div>-->
+                            <!--                            </li>-->
                         </ul>
                         <div class="css-sn4369 etcnk6b0">
                             <button class="css-1gy3ewc" disabled="">
@@ -537,6 +545,7 @@
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script src="/js/review/review-main.js"></script>
+<script src="/js/review/header.js"></script>
 <script>
 
     $mainbutton = $("button.mainBtn");
@@ -545,7 +554,7 @@
         $(this).addClass("orderActive");
     });
 
-   $sidebutton = $("button.sideBtn");
+    $sidebutton = $("button.sideBtn");
     $sidebutton.on("click", function () {
     });
 </script>
@@ -555,4 +564,5 @@
     let order = [[${search.order}]];
     let userId = [[${session.id}]];
 </script>
+<script src="/js/review/user-review-detail"></script>
 </html>

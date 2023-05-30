@@ -5,6 +5,7 @@ import com.app.floc.mapper.CouponMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -27,5 +28,15 @@ public class CouponDAO {
     //쿠폰 한개 가져오기
     public Optional<CouponVO> select(Long couponId){
         return couponMapper.select(couponId);
+    }
+
+    //쿠폰 한개 패스로 가져오기
+    public Optional<CouponVO> findOneByCouponPath(String couponQrcodePath){
+        return couponMapper.selectByCouponPath(couponQrcodePath);
+    }
+
+    //쿠폰 전체 조회
+    public List<CouponVO> findAll(Long userId){
+        return  couponMapper.selectAll(userId);
     }
 }

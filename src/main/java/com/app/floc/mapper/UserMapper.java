@@ -45,6 +45,10 @@ public interface UserMapper {
     //어드민 메인 페이징없이조회
     public List<UserVO> selectByRecent();
 
+    //admin 회원 삭제
+    public void deleteUsersByIds(List<Long> userIds);
+
+
     //회원정보수정
     public void update(UserVO userVO);
 

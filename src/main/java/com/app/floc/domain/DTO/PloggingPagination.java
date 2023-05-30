@@ -1,11 +1,9 @@
 package com.app.floc.domain.DTO;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Component;
 
 @Data
-public class AdminPagination {
+public class PloggingPagination {
     private Integer page;
     private int rowCount;
     private int pageCount;
@@ -17,7 +15,7 @@ public class AdminPagination {
 
     public void progress() {
         this.page = page == null ? 1 : page;
-        this.rowCount = 10;
+        this.rowCount = 30;
         this.pageCount = 5;
         this.total = total;
         this.endPage = (int)(Math.ceil(page / (double)pageCount) * pageCount);

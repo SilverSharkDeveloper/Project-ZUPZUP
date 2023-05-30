@@ -55,7 +55,7 @@ public class ProductController {
 
         //티슈가 부족할시
         Long userTissue = userService.getUser(userId).get().getUserTissue();
-        if(productService.read(userId,productId).get().getProductCost()>userTissue){
+        if(productService.read(productId,userId).get().getProductCost()>userTissue){
             return "notEnoughTissue";
         }
 

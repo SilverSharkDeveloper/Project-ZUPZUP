@@ -36,7 +36,7 @@ function productForm(e) {
     }
 
     if(check){
-        document.querySelector(".submit-productForm").submit();
+        document.querySelector(".submit-form").submit();
     }
 
 }
@@ -46,7 +46,6 @@ function productForm(e) {
 
 
 
-// 첨부파일
 const image_div = document.querySelectorAll(".notice-img");
 const cancel_div = document.querySelector("div.cancel");
 const input_file = document.querySelector(".file");
@@ -83,4 +82,8 @@ input_file.addEventListener("change", e => {
         image_div[0].style.display = "none";
     };
 });
+
+
+
+
 

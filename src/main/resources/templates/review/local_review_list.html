@@ -28,18 +28,23 @@
 <link rel="stylesheet" href="/css/review/user_review_list.css">
 <link rel="stylesheet" href="/css/font.css">
 <link rel="stylesheet" href="/css/header-footer/header.css">
-<link rel="stylesheet" href="/css/header-footer/footer.css">
+<link rel="stylesheet" href="/css/header-footer/header-login.css">
 <body>
+<th:block th:if="${session.userId==null}">
+    <header class="header" th:replace="~{/header-footer/header :: header}"></header>
+</th:block>
+<th:block th:unless="${session.userId==null}">
+    <header class="header" th:replace="~{/header-footer/header-login :: header}"></header>
+</th:block>
 <div class="css-b3oum6">
     <div class="layout">
-        <header th:replace="~{/header-footer/header::header}"></header>
         <div class="e18r2nwe4 css-12un3nt">
             <div class="css-bh7d0o e18r2nwe2">
                 <div class="css-hhf500 e18r2nwe0">
-                    <button class="mainBtn css-hhk5mj orderActive">로컬 크리에이터 후기</button>
+                    <button onclick="location.href = '/review/local_review_list' " class="mainBtn css-hhk5mj orderActive">로컬 크리에이터 후기</button>
                 </div>
                 <div class="css-hhf500 e18r2nwe0">
-                    <button class="mainBtn css-hhk5mj">플로깅 참가자 후기 목록</button>
+                    <button onclick="location.href = '/review/user_review_list' " class="mainBtn css-hhk5mj">플로깅 참가자 후기 목록</button>
                 </div>
             </div>
         </div>
@@ -51,8 +56,7 @@
                         <ul class="filter-bar__control-list__left">
                             <li class="filter-bar__control-list__item">
                                 <div class="drop-down panel-drop-down filter-bar-control">
-                                    <button
-                                            class="orderActive button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">
+                                    <button class="orderActive button button--color-gray-4 button--size-50 button--shape-4 filter-bar-control__button">
                                         &nbsp최신순&nbsp
                                     </button>
                                 </div>
@@ -69,29 +73,21 @@
                     <ul class="filter-bar__tag-list"></ul>
                 </div>
             </div>
-            <div class="css-1ljcge9 e1gt23lz0">
-                <!--전체개수 타임리프로 넣던가 그냥 값을 꽂아넣던가 해야함-->게시글 목록 <th:block th:text="${pagination.total}+개"></th:block>
+            <div class="css-1ljcge9 e1gt23lz0">게시글 목록
+                <th:block th:text="${pagination.total}+개"></th:block>
             </div>
             <div class="css-xy5hx5 erfbhrp0 item-list" style="padding-top: 0px; transform: translateY(0px);"></div>
         </div>
     </div>
 </div>
-<footer th:replace="/header-footer/footer::footer"></footer>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script src="/js/review/user-review.js"></script>
-<script th:inline="javascript">
-    let reviews = [[${reviews}]];
-    let nowPage = [[${pagination.page}]];
-    let order = [[${search.order}]];
-    let userId = [[${session.id}]];
-</script>
 <script>
-    $button = $("button.button");
+    /*$button = $("button.button");
     $button.on("click", function () {
         $button.removeClass("orderActive");
         $(this).addClass("orderActive");
-    });
+    });*/
 
     $mainbutton = $("button.mainBtn");
     $mainbutton.on("click", function () {
@@ -99,4 +95,15 @@
         $(this).addClass("orderActive");
     });
 </script>
+<script src="/js/review/header.js"></script>
+<script src="/js/review/review-main.js"></script>
+<script th:inline="javascript">
+    let reviews = [[${reviews}]];
+    let nowPage = [[${pagination.page}]];
+    let order = [[${search.order}]];
+    let userId = [[${session.id}]];
+</script>
+<script src="/js/review/local-review.js"></script>
+<script src="/js/review/order.js"></script>
+<script src="/js/review/thumbnail.js"></script>
 </html>

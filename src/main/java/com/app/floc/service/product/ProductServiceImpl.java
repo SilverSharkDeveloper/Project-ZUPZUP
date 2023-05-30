@@ -1,15 +1,17 @@
 package com.app.floc.service.product;
 
 import com.app.floc.DAO.*;
-import com.app.floc.domain.DTO.ProductDTO;
-import com.app.floc.domain.DTO.ProductPagination;
+import com.app.floc.domain.DTO.*;
 import com.app.floc.domain.VO.*;
+import com.app.floc.DAO.ProductDAO;
+import com.app.floc.domain.VO.ProductVO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 
 @Service
@@ -93,7 +95,8 @@ public class ProductServiceImpl implements ProductService {
         CouponVO couponVO = new CouponVO();
         couponVO.setProductId(productId);
         couponVO.setUserId(userId);
-        couponVO.setCouponQrcodePath("https://api.qr-code-generator.com/v1/create?access-token=kROO-WIIea6Pba5qQB1smTFioF8VS_kfpY_w9aoEdNnNE8GAS8o0kj5SLXgUlhVn&qr_code_text=http://192.168.62.201:10000/coupon/use-coupon");
+        String uuid = UUID.randomUUID().toString();
+        couponVO.setCouponQrcodePath("https://api.qr-code-generator.com/v1/create?access-token=kROO-WIIea6Pba5qQB1smTFioF8VS_kfpY_w9aoEdNnNE8GAS8o0kj5SLXgUlhVn&qr_code_text=http://192.168.62.201:10000/coupon/use-coupon?randomId="+uuid);
         couponDAO.addCoupon(couponVO);
 
 
@@ -105,4 +108,18 @@ public class ProductServiceImpl implements ProductService {
     }
 
 
+    @Override
+    public List<ProductVO> getAdminList(AdminPagination adminPagination, Search search) {
+        return productDAO.findAllByAdmin(adminPagination,search);
+    }
+
+    @Override
+    public int getTotal(Search search) {
+        return productDAO.findCountOfProduct(search);
+    }
+
+    @Override
+    public void deleteProductsByIds(List<Long> productIds) {
+        productDAO.deleteProductsByIds(productIds);
+    }
 }

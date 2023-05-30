@@ -17,8 +17,8 @@ public class Pagination {
 
     public void progress() {
         this.page = page == null ? 1 : page;
-        this.rowCount = 5;
-        this.pageCount = 5;
+        this.rowCount = 10;
+        this.pageCount = 10;
         this.total = total;
         this.endPage = (int)(Math.ceil(page / (double)pageCount) * pageCount);
         this.startPage = endPage - pageCount + 1;
@@ -29,5 +29,4 @@ public class Pagination {
         this.prev = startPage > 1;
         this.next = endPage < realEnd;
     }
-
 }

@@ -30,17 +30,18 @@ public class CouponController {
     public RedirectView qrCode(Long couponId){
         Optional<CouponVO> foundCoupon = couponService.findOne(couponId);
         String path ="";
-        path = foundCoupon.get().getCouponQrcodePath() +"?couponId=" + couponId;
+        path = foundCoupon.get().getCouponQrcodePath();
         log.info(path);
         return new RedirectView(path);
     }
 
     //qrcode 체크히면 확인할 수 있는 버튼으로 이동
     @GetMapping("use-coupon")
-    public void useCoupon(Long couponId, Model model){
-
-        model.addAttribute("product",productService.read(couponService.findOne(couponId).get().getProductId(),null).get());
-        model.addAttribute("coupon",couponService.findOne(couponId).get());
+    public void useCoupon(String randomId, Model model){
+        log.info(randomId);
+        String path = "https://api.qr-code-generator.com/v1/create?access-token=kROO-WIIea6Pba5qQB1smTFioF8VS_kfpY_w9aoEdNnNE8GAS8o0kj5SLXgUlhVn&qr_code_text=http://192.168.62.201:10000/coupon/use-coupon?randomId="+randomId;
+        model.addAttribute("product",productService.read(couponService.findOneByCouponQrcodePath(path).get().getProductId(),null).get());
+        model.addAttribute("coupon",couponService.findOneByCouponQrcodePath(path).get());
 
     }
 
@@ -48,8 +49,6 @@ public class CouponController {
     @ResponseBody
     @GetMapping("check-coupon")
     public boolean checkCoupon(String check, Long couponId){
-        log.info(check);
-        log.info(couponId.toString());
         if(check.equals("true")){
             Optional<CouponVO> foundCoupon = couponService.findOne(couponId);
             foundCoupon.ifPresent(couponVO -> couponService.useCoupon(couponVO));
