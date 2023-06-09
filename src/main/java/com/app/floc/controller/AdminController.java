@@ -247,6 +247,7 @@ public class AdminController {
     }
 
 
+
     //상세보기,수정
     @GetMapping(value = {"notice-update-form"})
     public void read(@RequestParam Long id, Model model, AdminPagination adminPagination, Search search) {

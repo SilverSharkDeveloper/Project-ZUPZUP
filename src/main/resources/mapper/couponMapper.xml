@@ -13,6 +13,7 @@
         WHERE ID=#{id}
     </update>
 
+
     <select id="select" resultType="couponVO">
         SELECT ID, USER_ID, PRODUCT_ID, COUPON_CREATED_DATE, COUPON_USED_DATE, COUPON_STATUS, COUPON_QRCODE_PATH
         FROM TBL_COUPON

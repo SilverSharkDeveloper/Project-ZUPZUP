@@ -12,6 +12,7 @@ spring:
       password: hr
 
 #multipart
+
   servlet:
     multipart:
       enabled: true

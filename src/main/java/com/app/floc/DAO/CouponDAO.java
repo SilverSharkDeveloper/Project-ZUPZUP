@@ -13,6 +13,7 @@ import java.util.Optional;
 public class CouponDAO {
     private final CouponMapper couponMapper;
 
+
     //쿠폰 발급
     public void addCoupon(CouponVO couponVO){
         couponMapper.insert(couponVO);

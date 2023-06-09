@@ -20,6 +20,7 @@ permitBtn.addEventListener("click", e=>{
         form.submit();
     }
 
+
 })
 
 rejectBtn.addEventListener("click", e=>{

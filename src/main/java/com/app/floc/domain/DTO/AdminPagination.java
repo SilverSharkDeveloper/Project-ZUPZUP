@@ -15,6 +15,7 @@ public class AdminPagination {
     private boolean prev, next;
     private int total;
 
+
     public void progress() {
         this.page = page == null ? 1 : page;
         this.rowCount = 10;

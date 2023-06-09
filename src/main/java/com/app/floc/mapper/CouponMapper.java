@@ -9,6 +9,7 @@ import java.util.Optional;
 @Mapper
 public interface CouponMapper {
 
+
     //쿠폰 발급
     public void insert(CouponVO couponVO);
 

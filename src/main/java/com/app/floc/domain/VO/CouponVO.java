@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 @NoArgsConstructor
 public class CouponVO {
+
     private Long id;
     private Long userId;
     private Long productId;
